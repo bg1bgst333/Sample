@@ -4,7 +4,7 @@
 /* main関数の定義 */
 int main(void){
 
-  /* 変数の定義 */
+  /* 変数の宣言 */
   int a; /* int型変数a */
   int b; /* int型変数b */
   char op; /* 入力された演算子記号文字を格納するchar型変数op. */
