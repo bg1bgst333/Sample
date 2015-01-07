@@ -4,7 +4,7 @@
 /* main関数の定義 */
 int main(void){
 
-  /* 変数の宣言 */
+  /* 変数・配列の宣言 */
   int n; /* int型変数n */
   int array[10]; /* int型配列array(要素数10) */
 
