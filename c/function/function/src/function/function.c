@@ -35,7 +35,7 @@ int main(void){
 
 }
 
-/* 関数printf_inner_str()の定義 */
+/* 関数print_inner_str()の定義 */
 void print_inner_str(void){ /* 内部文字列を標準出力する.(引数無し, 戻り値無し) */
 
   /* 内部文字列の出力 */
