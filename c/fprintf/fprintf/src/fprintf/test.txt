@@ -1,2 +1,1 @@
-x: 100
-str: ABCDE
+Taro 20 Tokyo

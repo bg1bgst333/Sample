@@ -5,9 +5,9 @@
 int main(void){
 
   /* 変数・配列・ポインタの宣言 */
-  int x; /* test.txtに書き込む整数値を格納するint型変数x. */
-  char str[256]; /* test.txtに書き込む文字列を格納するchar型配列str. */
-
+  char name[32]; /* test.txtに書き込む名前を格納するchar型配列name. */
+  int age; /* test.txtに書き込む年齢を格納するint型変数age. */
+  char address[128]; /* test.txtに書き込む住所を格納するchar型配列address. */
   FILE *fp; /* ファイルポインタfp */
 
   /* ファイルtest.txtを開く. */
@@ -20,16 +20,20 @@ int main(void){
 
   }
 
-  /* 書き込む整数値の入力. */
-  printf("x: "); /* xの入力フォーム */
-  scanf("%d", &x); /* 入力された整数値をxに格納. */
+  /* 書き込む名前の入力. */
+  printf("name: "); /* nameの入力フォーム */
+  scanf("%s", name); /* 入力された名前をnameに格納. */
 
-  /* 書き込む文字列の入力. */
-  printf("str: "); /* strの入力フォーム */
-  scanf("%s", str); /* 入力された文字列をstrに格納. */
+  /* 書き込む年齢の入力. */
+  printf("age: "); /* ageの入力フォーム */
+  scanf("%d", &age); /* 入力された年齢をageに格納. */
+
+  /* 書き込む住所の入力. */
+  printf("address: "); /* addressの入力フォーム */
+  scanf("%s", address); /* 入力された住所をaddressに格納. */
 
   /* ファイルへの書き込み */
-  fprintf(fp, "x: %d\nstr: %s", x, str); /* fprintfで"test.txt"にxとstrを指定書式で書き込む. */
+  fprintf(fp, "%s %d %s", name, age, address); /* fprintfで"test.txt"にname, age, addressを指定書式で書き込む. */
 
   /* 書き込み完了メッセージ */
   printf("Completed.\n"); /* "Completed."と出力. */
