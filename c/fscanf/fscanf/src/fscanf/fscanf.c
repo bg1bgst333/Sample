@@ -11,7 +11,8 @@ int main(void){
   FILE *fp; /* ファイルポインタfp */
 
   /* ファイルtest.txtを開く. */
-  fp = fopen("test.txt", "r"); /* fopenで"test.txt"というファイルを読込専用("r")で開く. */  if (fp == NULL){ /* fp == NULLならファイルを開くのに失敗. */
+  fp = fopen("test.txt", "r"); /* fopenで"test.txt"というファイルを読込専用("r")で開く. */
+  if (fp == NULL){ /* fp == NULLならファイルを開くのに失敗. */
 
     /* エラー処理 */
     printf("Can't open file!\n"); /* ファイルが開けない場合のエラーメッセージ. */
