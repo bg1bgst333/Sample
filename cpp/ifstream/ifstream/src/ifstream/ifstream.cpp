@@ -30,7 +30,7 @@ int main(){
   std::cout << "address: " << address << std::endl; // addressの内容を出力.
 
   // ファイルを閉じる.
-  fin.close(); // closeで"test.txt"で閉じる.
+  fin.close(); // closeで"test.txt"を閉じる.
 
   // プログラムの終了
   return 0; // 正常終了
