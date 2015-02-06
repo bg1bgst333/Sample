@@ -1,4 +1,4 @@
-// ヘッダファイルのインクルード
+// ヘッダのインクルード
 #include <iostream> // C++標準入出力
 #include <fstream> // C++ファイル入出力
 
