@@ -21,7 +21,7 @@ class class_profile{ // 簡易名簿
 
     // publicメンバ関数
     void input(); // 名前(name), 年齢(age), 住所(address)の入力.
-    void output(); // 名前(name), 年齢(age), 住所(address)の入力.
+    void output(); // 名前(name), 年齢(age), 住所(address)の出力.
 
 };
 
