@@ -23,7 +23,9 @@ class class_profile{ // 簡易名簿
     int get_age(); // 年齢の取得
     void set_address(std::string address); // 住所の設定
     std::string get_address(); // 住所の取得
-    friend void prof_output(class_profile &prof); // name_, age_, address_の一斉出力(フレンド関数)
+
+  // フレンド関数
+  friend void prof_output(class_profile &prof); // name_, age_, address_の一斉出力(フレンド関数)
 
 };
 
