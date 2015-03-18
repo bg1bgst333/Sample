@@ -63,7 +63,7 @@ void class_profile::set_age(int age){ // age_にageを設定.
 
 }
 
-// メンバ関数get_name()
+// メンバ関数get_age()
 int class_profile::get_age(){ // age_を取得.
 
   // 年齢を取得.
