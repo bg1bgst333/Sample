@@ -113,8 +113,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 			{
 
 				// このブロックのローカル変数・配列の宣言
-				TCHAR tszTxt[128];		// マウスの左ボタンが押された回数を表示するために用意したTCHAR型文字配列tszTxt.(長さ128)
-				size_t uiLen;	// tszTxtに格納された文字列の長さを格納するためのsize_t型変数uiLen.
+				TCHAR tszTxt[128];	// マウスの左ボタンが押された回数を表示するために用意したTCHAR型文字配列tszTxt.(長さ128)
+				size_t uiLen;		// tszTxtに格納された文字列の長さを格納するためのsize_t型変数uiLen.
 
 				// マウスの左ボタンが押された回数を表示.
 				iCount++;	// 押された回数iCountを1つ増やす.
