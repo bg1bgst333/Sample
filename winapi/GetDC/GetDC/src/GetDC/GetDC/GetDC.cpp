@@ -15,7 +15,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 	WNDCLASS wc;		// ウィンドウクラス情報をもつWNDCLASS構造体型変数wc.
 
 	// ウィンドウクラスの設定
-	wc.lpszClassName = _T("GetDC");						// ウィンドウクラス名は"GetDC".
+	wc.lpszClassName = _T("GetDC");							// ウィンドウクラス名は"GetDC".
 	wc.style = CS_HREDRAW | CS_VREDRAW;						// スタイルはCS_HREDRAW | CS_VREDRAW.
 	wc.lpfnWndProc = WindowProc;							// ウィンドウプロシージャは独自の処理を定義したWindowProc.
 	wc.hInstance = hInstance;								// インスタンスハンドルは_tWinMainの引数.
