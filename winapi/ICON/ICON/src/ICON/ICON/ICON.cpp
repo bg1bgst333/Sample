@@ -20,7 +20,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 	HDC hDC = NULL;			// このウィンドウのデバイスコンテキストハンドルhDCをNULLに初期化.
 
 	// ウィンドウクラスの設定
-	wc.lpszClassName = _T("ICON");					// ウィンドウクラス名は"ICON".
+	wc.lpszClassName = _T("ICON");							// ウィンドウクラス名は"ICON".
 	wc.style = CS_HREDRAW | CS_VREDRAW;						// スタイルはCS_HREDRAW | CS_VREDRAW.
 	wc.lpfnWndProc = WindowProc;							// ウィンドウプロシージャは独自の処理を定義したWindowProc.
 	wc.hInstance = hInstance;								// インスタンスハンドルは_tWinMainの引数.
