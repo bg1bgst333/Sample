@@ -134,8 +134,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 			// 既定の処理へ向かう.
 			break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
 
-		// メニュー項目が選択されたり, ボタンなどのコントロールが押されたりして, コマンドが発生した時.
-		case WM_COMMAND:	// メニュー項目が選択されたり, ボタンなどのコントロールが押されたりして, コマンドが発生した時.(uMsgがWM_COMMANDの時.)
+		// メニュー項目が選択されたり, ボタンなどのコントロールが押されたりした時.
+		case WM_COMMAND:	// メニュー項目が選択されたり, ボタンなどのコントロールが押されたりした時.(uMsgがWM_COMMANDの時.)
 
 			// WM_COMMANDブロック
 			{
