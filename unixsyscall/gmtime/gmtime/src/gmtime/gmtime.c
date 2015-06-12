@@ -5,7 +5,7 @@
 /* main関数の定義 */
 int main(void){
 
-  /* 変数・の定義 */
+  /* 変数・構造体の宣言 */
   time_t t; /* 取得したUNIX時間を格納しておくtime_t型変数t. */
   struct tm *tm_ptr; /* 時刻情報を格納するtm構造体ポインタtm_ptr. */
 
