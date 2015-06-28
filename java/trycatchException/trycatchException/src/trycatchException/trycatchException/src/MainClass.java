@@ -1,5 +1,5 @@
 // メインクラス
-class trycatchException {	// trycatchExceptionクラスの定義
+class MainClass {	// MainClassクラスの定義
 
 	// Javaのエントリポイント
 	public static void main(String[] args) {	// mainメソッドの定義
