@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2EEF54DF-E3F7-4DA1-B88E-5308B971FDAC}</ProjectGuid>
+    <ProjectGuid>{1D4220A1-EDD9-4E7B-AFDF-BA7B2FD23275}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MainMethod</RootNamespace>
-    <AssemblyName>MainMethod</AssemblyName>
+    <RootNamespace>boolType</RootNamespace>
+    <AssemblyName>boolType</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
