@@ -1,4 +1,4 @@
-// 勢数値と文字列を持つクラス
+// 整数値と文字列を持つクラス
 class Class1    // Class1クラスの定義
 {
 
@@ -7,7 +7,7 @@ class Class1    // Class1クラスの定義
     private string str; // string型フォールドstr
 
     // メソッドの定義
-    // 整数値の文字列をフィールドにセット.
+    // 整数値と文字列をフィールドにセット.
     public void Set(int n, string s)    // メソッドSetの定義
     {
         // 引数をフィールドにセット.
