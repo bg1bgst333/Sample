@@ -11,7 +11,7 @@ class MainClass {	// MainClassクラスの定義
 
 		// 変数の初期化
 		InputStream in = null;		// InputStream型変数inをnullに初期化.
-		byte buf[] = new byte[100];	// バッファ用byte型配列buf(長さ128)を生成.
+		byte buf[] = new byte[128];	// バッファ用byte型配列buf(長さ128)を生成.
 		int len;					// 読み込んだ長さlen.
 
 		// test.txtを開く.
