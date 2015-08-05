@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStream", "FileStream\FileStream.csproj", "{144A71F5-8007-4A3C-BDF6-E7D339149695}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{144A71F5-8007-4A3C-BDF6-E7D339149695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144A71F5-8007-4A3C-BDF6-E7D339149695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144A71F5-8007-4A3C-BDF6-E7D339149695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144A71F5-8007-4A3C-BDF6-E7D339149695}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
