@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GetProcAddress", "GetProcAddress\GetProcAddress.vcproj", "{F20A39A6-B395-430B-B68C-3088B8E2DF49}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Main", "Main\Main.vcproj", "{866BC01D-3113-4852-933B-2E926E32DBFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F20A39A6-B395-430B-B68C-3088B8E2DF49}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F20A39A6-B395-430B-B68C-3088B8E2DF49}.Debug|Win32.Build.0 = Debug|Win32
+		{F20A39A6-B395-430B-B68C-3088B8E2DF49}.Release|Win32.ActiveCfg = Release|Win32
+		{F20A39A6-B395-430B-B68C-3088B8E2DF49}.Release|Win32.Build.0 = Release|Win32
+		{866BC01D-3113-4852-933B-2E926E32DBFC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{866BC01D-3113-4852-933B-2E926E32DBFC}.Debug|Win32.Build.0 = Debug|Win32
+		{866BC01D-3113-4852-933B-2E926E32DBFC}.Release|Win32.ActiveCfg = Release|Win32
+		{866BC01D-3113-4852-933B-2E926E32DBFC}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
