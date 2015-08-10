@@ -3,12 +3,15 @@
 #include <cstdio>		// 標準入出力
 #include <tchar.h>		// TCHAR対応
 
+// DllFunc用の関数ポインタ型
+typedef void (*DLLFUNC)(void);	// typedefで引数, 戻り値, ともにvoidな関数ポインタ型DLLFUNCを定義.
+
 // _tmain関数の定義
 int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 
 	// 変数の宣言
 	HMODULE hDll;		// HMODULE型ハンドルhDll
-	FARPROC DllFunc;	// GetProcAddressが返す指名した関数へのポインタ.
+	DLLFUNC DllFunc;	// GetProcAddressが返す指名した関数へのポインタ.
 
 	// LoadLibraryによるDLLの読み込み前.
 	_tprintf(_T("LoadLibrary before.\n"));	// _tprintfで"LoadLibrary before.\n"と出力.
@@ -29,7 +32,7 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	_tprintf(_T("hDll = %08x\n"), hDll);	// _tprintfでhDllの値を出力.
 
 	// DLLにある外部参照可能な関数へのポインタを取得する.
-	DllFunc = GetProcAddress(hDll, "DllFunc");	// GetProcAddressで"DllFunc"へのポインタを取得.
+	DllFunc = (DLLFUNC)GetProcAddress(hDll, "DllFunc");	// GetProcAddressで"DllFunc"へのポインタを取得.
 	if (DllFunc == NULL){	// DllFuncなら呼び出し失敗.
 
 		// エラー処理.
