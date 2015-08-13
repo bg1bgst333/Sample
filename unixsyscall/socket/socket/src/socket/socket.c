@@ -1,6 +1,6 @@
 /* ヘッダファイルのインクルード */
 #include <stdio.h> /* 標準入出力 */
-#include <stdio.h> /* UNIX標準 */
+#include <unistd.h> /* UNIX標準 */
 #include <sys/types.h> /* 派生型 */
 #include <sys/socket.h> /* ソケット */
 
