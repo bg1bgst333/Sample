@@ -11,7 +11,7 @@ int main(void){
   int soc; /* ソケットファイルディスクリプタsoc */
 
   /* ソケットの作成 */
-  soc = socket(AF_INET, SOCK_STREAM, 0); /* socketでソケットを作成し, ソケットファイルディスクリプタをfdに格納. */
+  soc = socket(AF_INET, SOCK_STREAM, 0); /* socketでソケットを作成し, ソケットファイルディスクリプタをsocに格納. */
   if (soc == -1){ /* socが-1の時はエラー. */
 
     /* エラー処理 */
