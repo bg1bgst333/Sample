@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sleep", "Sleep\Sleep.vcproj", "{34AB42C4-A8B3-42DD-B035-835C8E3A2BB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34AB42C4-A8B3-42DD-B035-835C8E3A2BB2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{34AB42C4-A8B3-42DD-B035-835C8E3A2BB2}.Debug|Win32.Build.0 = Debug|Win32
+		{34AB42C4-A8B3-42DD-B035-835C8E3A2BB2}.Release|Win32.ActiveCfg = Release|Win32
+		{34AB42C4-A8B3-42DD-B035-835C8E3A2BB2}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
