@@ -1,0 +1,9 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "Timer1(&T)"
+	BEGIN
+		MENUITEM "Start(&S)", ID_ITEM_TIMER1_START
+	END
+END
