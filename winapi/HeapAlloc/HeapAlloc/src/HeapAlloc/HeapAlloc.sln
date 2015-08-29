@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HeapAlloc", "HeapAlloc\HeapAlloc.vcproj", "{114BF917-9805-40A5-BB77-0A94E13DC143}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{114BF917-9805-40A5-BB77-0A94E13DC143}.Debug|Win32.ActiveCfg = Debug|Win32
+		{114BF917-9805-40A5-BB77-0A94E13DC143}.Debug|Win32.Build.0 = Debug|Win32
+		{114BF917-9805-40A5-BB77-0A94E13DC143}.Release|Win32.ActiveCfg = Release|Win32
+		{114BF917-9805-40A5-BB77-0A94E13DC143}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
