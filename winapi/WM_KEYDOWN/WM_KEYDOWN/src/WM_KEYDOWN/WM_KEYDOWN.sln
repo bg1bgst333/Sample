@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WM_KEYDOWN", "WM_KEYDOWN\WM_KEYDOWN.vcproj", "{68E1049C-26A0-4672-8792-45596D193321}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68E1049C-26A0-4672-8792-45596D193321}.Debug|Win32.ActiveCfg = Debug|Win32
+		{68E1049C-26A0-4672-8792-45596D193321}.Debug|Win32.Build.0 = Debug|Win32
+		{68E1049C-26A0-4672-8792-45596D193321}.Release|Win32.ActiveCfg = Release|Win32
+		{68E1049C-26A0-4672-8792-45596D193321}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
