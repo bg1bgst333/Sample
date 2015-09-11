@@ -1,0 +1,10 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "File(&F)"
+	BEGIN
+		MENUITEM "Open(&O)...",	ID_FILE_OPEN
+		MENUITEM "Save As(&A)...", ID_FILE_SAVEAS
+	END
+END
