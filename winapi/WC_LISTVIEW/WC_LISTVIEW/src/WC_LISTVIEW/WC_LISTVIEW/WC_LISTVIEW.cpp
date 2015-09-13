@@ -2,6 +2,7 @@
 // 既定のヘッダファイル
 #include <windows.h>	// 標準WindowsAPI
 #include <tchar.h>		// TCHAR型
+#include <commctrl.h>	// コモンコントロール
 
 // 独自のヘッダファイル
 #include "resource.h"	// リソースID
@@ -77,6 +78,9 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 		
 			// WM_CREATEブロック
 			{
+
+				// コモンコントロールの初期化
+				InitCommonControls();	// InitCommonControlsでコモンコントロールの初期化.
 
 				// ウィンドウ作成成功
 				return 0;	// return文で0を返して, ウィンドウ作成成功とする.
