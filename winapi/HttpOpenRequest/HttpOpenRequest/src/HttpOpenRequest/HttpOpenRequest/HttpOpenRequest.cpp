@@ -25,7 +25,7 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	_tprintf(_T("hSession = %08x\n"), hSession);	// _tprintfでhSessionを文字列に変換して出力.
 
 	// HTTPリクエストの作成.
-	hRequest = HttpOpenRequest(hSession, _T("GET"), _T("index.html"), _T("HTTP/1.1"), _T("http://bgstation0.com/sample/"), NULL, 0, 0);	// HttpOpenRequestでindex.htmlへのGETリクエストを作成.
+	hRequest = HttpOpenRequest(hSession, _T("GET"), _T("/sample/index.html"), NULL, _T("http://bgstation0.com/"), NULL, 0, 0);	// HttpOpenRequestで"/sample/index.html"へのGETリクエストを作成.
 
 	// リクエストハンドルの出力.
 	_tprintf(_T("hRequest = %08x\n"), hRequest);	// _tprintfでhRequestを文字列に変換して出力.
