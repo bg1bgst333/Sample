@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "send", "send\send.vcproj", "{7AC1CB77-A8EE-4606-9AFD-24AF5DA94961}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recv", "recv\recv.vcproj", "{B24A2612-2C3C-4432-8889-94F4D779426F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AC1CB77-A8EE-4606-9AFD-24AF5DA94961}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7AC1CB77-A8EE-4606-9AFD-24AF5DA94961}.Debug|Win32.Build.0 = Debug|Win32
+		{7AC1CB77-A8EE-4606-9AFD-24AF5DA94961}.Release|Win32.ActiveCfg = Release|Win32
+		{7AC1CB77-A8EE-4606-9AFD-24AF5DA94961}.Release|Win32.Build.0 = Release|Win32
+		{B24A2612-2C3C-4432-8889-94F4D779426F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B24A2612-2C3C-4432-8889-94F4D779426F}.Debug|Win32.Build.0 = Debug|Win32
+		{B24A2612-2C3C-4432-8889-94F4D779426F}.Release|Win32.ActiveCfg = Release|Win32
+		{B24A2612-2C3C-4432-8889-94F4D779426F}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
