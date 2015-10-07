@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "connect", "connect\connect.vcproj", "{E3956D7C-8298-4E87-8A3F-59C9244E5B05}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ntohs", "ntohs\ntohs.vcproj", "{08391D41-BC23-40C3-960B-C1F15FE0237A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3956D7C-8298-4E87-8A3F-59C9244E5B05}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E3956D7C-8298-4E87-8A3F-59C9244E5B05}.Debug|Win32.Build.0 = Debug|Win32
+		{E3956D7C-8298-4E87-8A3F-59C9244E5B05}.Release|Win32.ActiveCfg = Release|Win32
+		{E3956D7C-8298-4E87-8A3F-59C9244E5B05}.Release|Win32.Build.0 = Release|Win32
+		{08391D41-BC23-40C3-960B-C1F15FE0237A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{08391D41-BC23-40C3-960B-C1F15FE0237A}.Debug|Win32.Build.0 = Debug|Win32
+		{08391D41-BC23-40C3-960B-C1F15FE0237A}.Release|Win32.ActiveCfg = Release|Win32
+		{08391D41-BC23-40C3-960B-C1F15FE0237A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
