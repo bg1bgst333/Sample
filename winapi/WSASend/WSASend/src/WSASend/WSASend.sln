@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WSASend", "WSASend\WSASend.vcproj", "{30BBC342-A9BE-450B-904F-0044B7308654}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WSARecv", "WSARecv\WSARecv.vcproj", "{629D0902-D3FE-4292-BC90-F1DF678C3437}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30BBC342-A9BE-450B-904F-0044B7308654}.Debug|Win32.ActiveCfg = Debug|Win32
+		{30BBC342-A9BE-450B-904F-0044B7308654}.Debug|Win32.Build.0 = Debug|Win32
+		{30BBC342-A9BE-450B-904F-0044B7308654}.Release|Win32.ActiveCfg = Release|Win32
+		{30BBC342-A9BE-450B-904F-0044B7308654}.Release|Win32.Build.0 = Release|Win32
+		{629D0902-D3FE-4292-BC90-F1DF678C3437}.Debug|Win32.ActiveCfg = Debug|Win32
+		{629D0902-D3FE-4292-BC90-F1DF678C3437}.Debug|Win32.Build.0 = Debug|Win32
+		{629D0902-D3FE-4292-BC90-F1DF678C3437}.Release|Win32.ActiveCfg = Release|Win32
+		{629D0902-D3FE-4292-BC90-F1DF678C3437}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
