@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WSAPoll", "WSAPoll\WSAPoll.vcproj", "{64AEDC50-4170-42B9-9DE8-AB131ED0F499}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WSASend", "WSASend\WSASend.vcproj", "{8FC24016-46F6-4A48-AE0A-EB3243857E88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64AEDC50-4170-42B9-9DE8-AB131ED0F499}.Debug|Win32.ActiveCfg = Debug|Win32
+		{64AEDC50-4170-42B9-9DE8-AB131ED0F499}.Debug|Win32.Build.0 = Debug|Win32
+		{64AEDC50-4170-42B9-9DE8-AB131ED0F499}.Release|Win32.ActiveCfg = Release|Win32
+		{64AEDC50-4170-42B9-9DE8-AB131ED0F499}.Release|Win32.Build.0 = Release|Win32
+		{8FC24016-46F6-4A48-AE0A-EB3243857E88}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8FC24016-46F6-4A48-AE0A-EB3243857E88}.Debug|Win32.Build.0 = Debug|Win32
+		{8FC24016-46F6-4A48-AE0A-EB3243857E88}.Release|Win32.ActiveCfg = Release|Win32
+		{8FC24016-46F6-4A48-AE0A-EB3243857E88}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
