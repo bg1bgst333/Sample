@@ -10,10 +10,7 @@
 int _tmain(int argc, TCHAR *argv[]){	// mainä÷êîÇÃTCHARî≈.
 
 	CoInitialize(NULL);
-	//IClassFactory *pClassFactory;
 	IUnknown_* pUnknown = NULL;
-	
-	//HRESULT hr = CoCreateInstance(CLSID_CUnknown, NULL, CLSCTX_INPROC_SERVER, IID_IUnknown_, reinterpret_cast<void**>(&pUnknown));
 
 	HRESULT hr = CoGetClassObject(CLSID_CUnknown, CLSCTX_INPROC_SERVER, NULL, IID_IUnknown_, reinterpret_cast<void**>(&pUnknown));
 
