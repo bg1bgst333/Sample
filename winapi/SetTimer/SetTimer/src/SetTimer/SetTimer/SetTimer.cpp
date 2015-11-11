@@ -186,7 +186,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 						{
 
 							// タイマーの開始.
-							SetTimer(hwnd, ID_ITEM_TIMER1_START, 1000, NULL);	// SetTimerで1秒(1000ミリ秒)ごとにWM_TIMERを発行するタイマーをセット.
+							SetTimer(hwnd, ID_TIMER1, 1000, NULL);	// SetTimerで1秒(1000ミリ秒)ごとにWM_TIMERを発行するタイマーをセット.
 
 							// 0を返す.
 							return 0;	// 処理したので戻り値として0を返す.
