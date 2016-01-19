@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CWnd_", "CWnd_\CWnd_.vcproj", "{325085F1-136B-408A-8DC6-F46C0CBC3F1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{325085F1-136B-408A-8DC6-F46C0CBC3F1A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{325085F1-136B-408A-8DC6-F46C0CBC3F1A}.Debug|Win32.Build.0 = Debug|Win32
+		{325085F1-136B-408A-8DC6-F46C0CBC3F1A}.Release|Win32.ActiveCfg = Release|Win32
+		{325085F1-136B-408A-8DC6-F46C0CBC3F1A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
