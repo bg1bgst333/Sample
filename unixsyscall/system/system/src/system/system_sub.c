@@ -12,6 +12,7 @@ int main(int argc, char *argv[]){
 
   /* プロセスIDの取得 */
   pid = getpid(); /* getpidでプロセスIDを取得し, pidに格納. */
+  printf("pid = %d\n", pid); /* printfでpidを出力. */
 
   /* コマンドライン引数の出力. */
   for (i = 0; i < argc; i++){ /* argcの数繰り返す. */
