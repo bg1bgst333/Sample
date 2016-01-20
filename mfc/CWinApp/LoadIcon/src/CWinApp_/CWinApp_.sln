@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CWinApp_", "CWinApp_\CWinApp_.vcproj", "{47A2E053-D519-405B-B28C-4A0E1DC5C6EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47A2E053-D519-405B-B28C-4A0E1DC5C6EC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{47A2E053-D519-405B-B28C-4A0E1DC5C6EC}.Debug|Win32.Build.0 = Debug|Win32
+		{47A2E053-D519-405B-B28C-4A0E1DC5C6EC}.Release|Win32.ActiveCfg = Release|Win32
+		{47A2E053-D519-405B-B28C-4A0E1DC5C6EC}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
