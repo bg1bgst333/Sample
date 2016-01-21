@@ -1,0 +1,3 @@
+#include "resource.h"
+
+IDB_BITMAP1	BITMAP	"bitmap1.bmp"
