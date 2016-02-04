@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RelativeLayout_</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="text1">ABCDE</string>
+    <string name="text2">FGHIJ</string>
+    <string name="text3">KLMNO</string>
+</resources>
