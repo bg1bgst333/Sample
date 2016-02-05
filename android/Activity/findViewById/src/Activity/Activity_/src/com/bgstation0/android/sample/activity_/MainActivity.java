@@ -1,0 +1,20 @@
+package com.bgstation0.android.sample.activity_;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // findViewById‚ÅR.id.hello_world‚ÌTextView‚ðŽæ“¾‚µ, setText‚Å"Activity.findViewById"‚É‘Ö‚¦‚é.
+        TextView tv = (TextView)findViewById(R.id.hello_world);	// R.id.hello_world‚È‚éTextView‚ðŽæ“¾‚µ, tv‚ÉŠi”[.
+        tv.setText("Activity.findViewById");	// tv.setText‚Å"Activity.findViewById"‚ðƒZƒbƒg.
+    }
+}
