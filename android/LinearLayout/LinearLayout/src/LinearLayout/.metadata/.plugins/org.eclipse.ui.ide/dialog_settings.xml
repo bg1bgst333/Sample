@@ -2,11 +2,11 @@
 <section name="Workbench">
 	<section name="CleanDialogSettings">
 		<item value="901" key="DIALOG_WIDTH"/>
-		<item value="true" key="BUILD_ALL"/>
-		<item value="false" key="TOGGLE_SELECTED"/>
-		<item value="447" key="DIALOG_HEIGHT"/>
-		<item value="248" key="DIALOG_X_ORIGIN"/>
-		<item value="162" key="DIALOG_Y_ORIGIN"/>
 		<item value="false" key="BUILD_NOW"/>
+		<item value="true" key="BUILD_ALL"/>
+		<item value="113" key="DIALOG_Y_ORIGIN"/>
+		<item value="447" key="DIALOG_HEIGHT"/>
+		<item value="127" key="DIALOG_X_ORIGIN"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 </section>
