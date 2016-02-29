@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\View\setOnClickListener\src\View\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+1742216214.index
+818297799.index
+3997516114.index
