@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Toast\Toast\src\Toast\.metadata\.plugins\org.eclipse.jdt.core
+2429435960.index
+153628641.index
+2755746640.index
+818297799.index
