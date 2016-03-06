@@ -1,0 +1,32 @@
+package com.bgstation0.android.sample.intent_;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MainActivity extends Activity implements OnClickListener{	// View.OnClickListenerを実装.
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // button1を取得し, OnClickListenerとして自身をセット.
+        Button button1 = (Button)findViewById(R.id.button1);	// findViewByIdでR.id.button1を取得.
+        button1.setOnClickListener(this);	// button1.setOnClickListenerでthis(自身)をセット.
+    }
+    
+    // View.OnClickListenerインタフェースのオーバーライドメソッドを実装.
+    public void onClick(View v){	// onClickをオーバーライド.
+    	// ボタンが押されたらインテントで"http://bg1hatenablog.com"を開くことができるアプリに渡して表示してもらう.
+    	Uri uri = Uri.parse(Uri.parse("http://bg1.hatenablog.com"));
+    	Intent intent = new Intent（Intent.ACTION_VIEW, uri);	// Intent.ACTION_VIEW(画面表示アクション)で"http://bg1.hatenablog.com"を表示するIntentオブジェクトintentを生成.
+    	startActivity(intent);	// startActivityでintentを指定して表示してくれるアプリを起動.
+    }
+}
