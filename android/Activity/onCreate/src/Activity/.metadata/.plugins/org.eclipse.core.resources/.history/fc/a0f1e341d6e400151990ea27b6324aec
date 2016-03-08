@@ -1,0 +1,19 @@
+package com.bgstation0.android.sample.activity_;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MainActivity extends Activity {
+
+	// ƒ^ƒO‚Ì’è‹`
+	private final String TAG = "MainActivity";	// TAG‚Í"MainActivity"
+	
+	// Activity‚ª¶¬‚³‚ê‚½‚Æ‚«.
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
