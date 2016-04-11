@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CProgressCtrl", "CProgressCtrl\CProgressCtrl.vcproj", "{94C19DD8-DD15-415D-949D-73D87F65A11A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94C19DD8-DD15-415D-949D-73D87F65A11A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{94C19DD8-DD15-415D-949D-73D87F65A11A}.Debug|Win32.Build.0 = Debug|Win32
+		{94C19DD8-DD15-415D-949D-73D87F65A11A}.Release|Win32.ActiveCfg = Release|Win32
+		{94C19DD8-DD15-415D-949D-73D87F65A11A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
