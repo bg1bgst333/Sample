@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CListCtrl", "CListCtrl\CListCtrl.vcproj", "{CC552A16-B7AF-4A03-8B44-75D79510DECE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC552A16-B7AF-4A03-8B44-75D79510DECE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CC552A16-B7AF-4A03-8B44-75D79510DECE}.Debug|Win32.Build.0 = Debug|Win32
+		{CC552A16-B7AF-4A03-8B44-75D79510DECE}.Release|Win32.ActiveCfg = Release|Win32
+		{CC552A16-B7AF-4A03-8B44-75D79510DECE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
