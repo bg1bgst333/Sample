@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBox_", "ComboBox_\ComboBox_.csproj", "{B878F05B-9C1A-4353-AFCF-0CF57DFB372F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B878F05B-9C1A-4353-AFCF-0CF57DFB372F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B878F05B-9C1A-4353-AFCF-0CF57DFB372F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B878F05B-9C1A-4353-AFCF-0CF57DFB372F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B878F05B-9C1A-4353-AFCF-0CF57DFB372F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
