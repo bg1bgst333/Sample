@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RadioButton_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="button1_text">button1</string>
+	<string name="radiobutton1_text">radiobutton1</string>
+	<string name="radiobutton2_text">radiobutton2</string>
+	<string name="radiobutton3_text">radiobutton3</string>
+    
+</resources>
