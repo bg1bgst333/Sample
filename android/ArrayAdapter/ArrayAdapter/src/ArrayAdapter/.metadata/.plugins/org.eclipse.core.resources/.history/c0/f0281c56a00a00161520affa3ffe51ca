@@ -1,0 +1,5 @@
+package com.bgstation0.android.sample.arrayadapter_;
+
+public class ListItem {
+
+}

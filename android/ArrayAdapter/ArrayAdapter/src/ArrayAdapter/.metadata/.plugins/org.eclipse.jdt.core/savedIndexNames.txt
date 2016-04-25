@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\ArrayAdapter\ArrayAdapter\src\ArrayAdapter\.metadata\.plugins\org.eclipse.jdt.core
+2089815873.index
+2755746640.index
+1550613092.index
+818297799.index

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;ArrayAdapter_&apos;&#x0D;&#x0A;- Original project: &apos;ArrayAdapter_&apos;&#x0D;&#x0A;- Original element: &apos;com.bgstation0.android.sample.arrayadapter_.ListItemAdapter.java&apos;" description="Delete element" element1="/src&lt;com.bgstation0.android.sample.arrayadapter_{ListItemAdapter.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1461559576559" subPackages="false" version="1.0"/>
+</session>

@@ -1,0 +1,8 @@
+package com.bgstation0.android.sample.arrayadapter_;
+
+// リストアイテムクラスListItem
+public class ListItem {	// ListItemの定義
+	public String name = "";		// 名前nameを""に初期化.
+	public int age = 0;				// 年齢ageを0に初期化.
+	public String address = "";		// 住所addressを""に初期化.
+}
