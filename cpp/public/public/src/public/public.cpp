@@ -19,3 +19,4 @@ void class_public::print_base(){ // class_baseのメンバを出力.
   public_function(); // publicなのでアクセス可.
 
 }
+
