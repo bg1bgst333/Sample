@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item
+        android:id="@+id/menu_write_file"
+        android:title="@string/menu_write_file_text"
+        android:orderInCategory="101"
+        android:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_read_file"
+        android:title="@string/menu_read_file_text"
+        android:orderInCategory="102"
+        android:showAsAction="never" />
+        
+</menu>

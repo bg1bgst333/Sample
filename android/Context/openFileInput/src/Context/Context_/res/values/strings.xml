@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Context_</string>
+	<string name="menu_write_file_text">Write file</string>
+	<string name="menu_read_file_text">Read file</string>
+	
+</resources>
