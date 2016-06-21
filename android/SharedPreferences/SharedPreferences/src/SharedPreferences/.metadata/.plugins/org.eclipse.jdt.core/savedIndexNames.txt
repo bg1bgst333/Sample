@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\SharedPreferences\SharedPreferences\src\SharedPreferences\.metadata\.plugins\org.eclipse.jdt.core
+4145891405.index
+4044039881.index
+2755746640.index
+818297799.index

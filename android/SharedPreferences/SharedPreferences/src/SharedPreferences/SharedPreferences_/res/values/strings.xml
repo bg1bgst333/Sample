@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SharedPreferences_</string>
+    <string name="edit_pref_text"></string>
+    <string name="button_save_pref_text">Save</string>
+    <string name="button_load_pref_text">Load</string>
+
+</resources>

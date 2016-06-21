@@ -1,0 +1,29 @@
+package com.bgstation0.android.sample.sharedpreferences_;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MainActivity extends Activity implements OnClickListener{	// View.OnClickListenerを実装.
+
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // button_save_prefを取得し, OnClickListenerとして自身をセット.
+        Button saveButton = (Button)findViewById(R.id.button_save_pref);	// findViewByIdでR.id.button_save_prefを取得.
+        saveButton.setOnClickListener(this);	// saveButton.setOnClickListenerでthis(自身)をセット.
+        // button_load_prefを取得し, OnClickListenerとして自身をセット.
+        Button loadButton = (Button)findViewById(R.id.button_load_pref);	// findViewByIdでR.id.button_load_prefを取得.
+        loadButton.setOnClickListener(this);	// loadButton.setOnClickListenerでthis(自身)をセット.
+    }
+	
+	// View.OnClickListenerインタフェースのオーバーライドメソッドを実装.
+    public void onClick(View v){	// onClickをオーバーライド.
+    	
+    }
+}
