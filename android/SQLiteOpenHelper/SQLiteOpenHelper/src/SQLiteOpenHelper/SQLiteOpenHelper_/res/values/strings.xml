@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SQLiteOpenHelper_</string>
+	<string name="menu_add_text">Add</string>
+	<string name="label_text_name_text">Name</string>
+	<string name="edit_text_name_text"></string>
+	<string name="label_text_age_text">Age</string>
+	<string name="edit_text_age_text"></string>
+	<string name="label_text_address_text">Address</string>
+	<string name="edit_text_address_text"></string>
+	
+</resources>

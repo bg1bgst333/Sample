@@ -1,0 +1,10 @@
+package com.bgstation0.android.sample.sqliteopenhelper_;
+
+import android.database.sqlite.SQLiteOpenHelper;
+
+// クラスListItemDBHelper
+public class ListItemDBHelper extends SQLiteOpenHelper{	// SQLiteOpenHelperの派生クラス.
+
+	// メンバフィールド
+	
+}

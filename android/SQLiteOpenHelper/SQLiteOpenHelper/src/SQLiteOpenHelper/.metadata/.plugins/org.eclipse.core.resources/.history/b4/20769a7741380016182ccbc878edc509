@@ -1,0 +1,104 @@
+package com.bgstation0.android.sample.sqliteopenhelper_;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+
+public class MainActivity extends Activity {
+
+	// メンバフィールドの定義.
+	public List<ListItem> list = null;	// ListItem型Listオブジェクトlistをnullにしておく.
+	public ListView listView1 = null;	// ListViewオブジェクトlistview1をnullにしておく.
+    
+	// メンバメソッドの定義.
+	// アクティビティが作成される時.
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // listオブジェクトの作成.
+        list = new ArrayList<ListItem>();	// ArrayList<ListItem>インスタンスを作成してlistに格納.
+        // adapterの取得.
+        ListItemAdapter adapter = new ListItemAdapter(this, R.layout.list_item, list);	// ListItemAdapterのコンストラクタにlistを渡して, adapter取得.
+        // listView1の取得.
+        listView1 = (ListView)findViewById(R.id.listview1);	// findViewByIdでlistView1を取得.
+        // listView1にadapterをセット.
+        listView1.setAdapter(adapter);	// listView1.setAdapterでadapterをセット.
+        
+	}
+    
+    // オプションメニューが作成される時.
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+
+    	// メニューの作成
+    	getMenuInflater().inflate(R.menu.main, menu);	// getMenuInflaterでMenuItemを取得し, そのままinflateで指定されたR.menu.mainを元にmenuを作成.
+    	return true;	// trueを返す.
+    	
+    }
+    
+    // メニューが選択された時.
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+    	
+    	// どのメニューが選択されたか.
+    	switch (item.getItemId()){	// アイテムIDごとに振り分け.
+    	
+    		// Add
+    		case R.id.menu_add:
+    			
+    			// Addブロック
+    			{
+    				
+    				// アラートダイアログ作成.
+    				LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);	// inflaterサービスを取得.
+    				final View layout = inflater.inflate(R.layout.dialog, null);	// inflateでリソースR.layout.dialogからダイアログのViewを作成.
+    				AlertDialog.Builder builder = new AlertDialog.Builder(this);	// AlertDialog.Builderの作成.
+    				builder.setTitle("Add");	// setTitleでタイトルに"Add"をセット.
+    				builder.setView(layout);	// setViewでビューにlayoutをセット.
+    				builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {	// setPositiveButtonで"OK"ボタンのリスナーをセット.
+    					
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							// エディットテキストの内容を取得.
+							EditText editName = (EditText)layout.findViewById(R.id.edit_text_name);	// editNameを取得.
+							String strName = editName.toString();	// セットされているテキストを取得.
+							EditText editAge = (EditText)layout.findViewById(R.id.edit_text_age);	// editAgeを取得.
+							String strAge = editAge.toString();	// セットされているテキストを取得.
+							EditText editAddress = (EditText)layout.findViewById(R.id.edit_text_address);	// editAddressを取得.
+							String strAddress = editAddress.toString();	// セットされているテキストを取得.
+							
+						}
+						
+    				});
+					builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {	// setNegativeButtonで"Cancel"ボタンのリスナーをセット.
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							//　キャンセル処理.(実際には何もしない.)
+						}
+						
+					});
+					builder.create().show();	// ダイアログ表示.
+    				
+    				break;	// 抜ける.
+    			}
+    		
+    	}
+    	return super.onOptionsItemSelected(item);	// 親クラス既定処理
+    }
+}
