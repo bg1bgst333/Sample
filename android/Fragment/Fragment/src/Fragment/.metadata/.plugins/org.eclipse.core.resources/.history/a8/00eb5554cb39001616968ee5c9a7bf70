@@ -1,0 +1,28 @@
+package com.bgstation0.android.sample.fragment_;
+
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // FragmentManagerの取得.
+        FragmentManager fragmentManager = getFragmentManager();	// getFragmentManagerでFragmentManagerを取得.
+        // FragmentTransactionの取得.
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();	// fragmentManager.beginTransactionでfragmentTransactionを取得.
+        // Fragmentの生成.
+        Fragment1 fragment1 = new Fragment1();	// Fragment1オブジェクトfragment1を生成.
+        // fragment1への置き換え.
+        fragmentTransaction.replace(R.id.fragment, fragment1);	// fragmentTransaction.replaceでR.id.fragmentをfragment1に置換.
+        // コミット.
+        fragmentTransaction.commit();	// fragmentTransaction.commitでコミット.
+    }
+}
