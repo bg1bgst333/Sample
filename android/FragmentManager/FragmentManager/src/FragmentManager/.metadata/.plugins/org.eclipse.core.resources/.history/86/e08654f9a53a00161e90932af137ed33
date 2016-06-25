@@ -1,0 +1,29 @@
+package com.bgstation0.android.sample.fragmentmanager_;
+
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // FragmentManager‚ðŽæ“¾.
+        FragmentManager fragmentManager = getFragmentManager();	// getFragmentManager‚ÅfragmentManager‚ðŽæ“¾.
+        // id‚ª"fragment1"‚Æ‚È‚éFragment‚ðŽæ“¾.
+        Fragment fragment1 = fragmentManager.findFragmentById(R.id.fragment1);	// fragmentManager.findFragmentById‚Å"fragment1"‚È‚éid‚ÌFragment‚ð’T‚µ‚ÄŽæ“¾.
+        if (fragment1 == null){	// null‚È‚ç.
+        	Toast.makeText(this, "fragment1 is not exist!", Toast.LENGTH_SHORT).show();	// "fragment1 is not exist!"‚Æ•\Ž¦.
+        }
+        else{
+        	Toast.makeText(this, "fragment1 is exist!", Toast.LENGTH_SHORT).show();	// "fragment1 is exist!"‚Æ•\Ž¦.
+        }
+    }
+}
