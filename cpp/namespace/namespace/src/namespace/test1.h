@@ -1,14 +1,14 @@
-// $BL>A06u4V(Btest1
+// 名前空間test1
 namespace test1{
 
-// $B%/%i%9(Bclass_test
+// クラスclass_test
 class class_test{
 
-  // public$B%a%s%P(B
+  // publicメンバ
   public:
 
-    // public$B%a%s%P4X?t(B
-    void print(); // $B=PNO%a%s%P4X?t(Bprint
+    // publicメンバ関数
+    void print(); // 出力メンバ関数print
 
 };
 
