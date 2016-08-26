@@ -1,15 +1,15 @@
-// –¼‘O‹óŠÔtest1
+// åå‰ç©ºé–“test1
 namespace test1{
-  int x; // intŒ^x.
-  int y; // intŒ^y.
+  int x; // intå‹x.
+  int y; // intå‹y.
 }
-// –¼‘O‹óŠÔtest2
+// åå‰ç©ºé–“test2
 namespace test2{
-  int y; // intŒ^y.
-  int z; // intŒ^z.
+  int y; // intå‹y.
+  int z; // intå‹z.
 }
-// –¼‘O‹óŠÔtest3
+// åå‰ç©ºé–“test3
 namespace test3{
-  int x; // intŒ^x.
-  int z; // intŒ^z.
+  int x; // intå‹x.
+  int z; // intå‹z.
 }
