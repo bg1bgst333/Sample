@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/framelayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+        
+    <EditText 
+		android:id="@+id/edittext1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+    
+    <Button
+        android:id="@+id/clearbutton"
+        android:text="@string/clearbutton_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right" />
+        
+</FrameLayout>
