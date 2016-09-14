@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FragmentTransaction_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="fragment_main_textview_text"></string>
+	<string name="menu1_text">Menu1</string>
+	<string name="menu2_text">Menu2</string>
+	<string name="menu3_text">Menu3</string>
+	<string name="menu4_text">Menu4</string>
+	
+</resources>
