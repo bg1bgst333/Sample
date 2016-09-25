@@ -1,5 +1,4 @@
 INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\ProgressBar\ProgressBar\src\ProgressBar\.metadata\.plugins\org.eclipse.jdt.core
 2222308553.index
 818297799.index
-2755746640.index
 284411266.index

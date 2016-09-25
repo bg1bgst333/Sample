@@ -28,7 +28,7 @@ public class MainActivity extends Activity implements OnClickListener{	// View.O
         progressBar = (ProgressBar)findViewById(R.id.progressbar);	// findViewByIdでR.id.progressbarを取得し, progressBarに格納.
         progressBar.setMax(100);	// progressBar.setMaxで最大値を100にセット.
         progress = 0;	// progressを0に初期化.
-        progressBar.setProgress(0);	// progressBar.setProgressで進捗にprogressの値をセット.
+        progressBar.setProgress(progress);	// progressBar.setProgressで進捗にprogressの値をセット.
     }
     
     // View.OnClickListenerインタフェースのオーバーライドメソッドを実装.
