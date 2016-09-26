@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.gridview_;
+
+import android.widget.ArrayAdapter;
+
+public class GridItemAdapter extends ArrayAdapter<T> {
+
+}

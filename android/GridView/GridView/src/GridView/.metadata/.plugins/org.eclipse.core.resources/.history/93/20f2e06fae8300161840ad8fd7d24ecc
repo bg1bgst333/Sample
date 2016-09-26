@@ -1,0 +1,18 @@
+package com.bgstation0.android.sample.gridview_;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.widget.ArrayAdapter;
+
+public class GridItemAdapter extends ArrayAdapter<GridItem> {
+
+	// インフレーターの定義.
+	LayoutInflater inflater;	// インフレーターinflater.
+	
+	// コンストラクタ
+	public GridItemAdapter(Context context, int resource, GridItem[] objects){
+		super(context, resource, objects);
+		inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);	// インフレーターの取得.
+	}
+	
+}
