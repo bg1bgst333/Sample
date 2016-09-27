@@ -1,0 +1,21 @@
+package com.bgstation0.android.sample.activity_;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+//MainActivityによって起動されるSubActivity.
+public class SubActivity extends Activity extends OnClickListener{	// SubActivityの定義.
+
+	// Activityが生成されたとき.
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {	// onCreateの定義
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_sub);
+		
+		// button2を取得し, OnClickListenerとして自身をセット.
+        Button button2 = (Button)findViewById(R.id.button2);	// findViewByIdでR.id.button2を取得.
+        button2.setOnClickListener(this);	// button1.setOnClickListenerでthis(自身)をセット.
+	}
+}

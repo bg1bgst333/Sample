@@ -1,0 +1,16 @@
+package com.bgstation0.android.sample.activity_;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+//MainActivity‚É‚æ‚Á‚Ä‹N“®‚³‚ê‚éSubActivity.
+public class SubActivity extends Activity {	// SubActivity‚Ì’è‹`.
+
+	// Activity‚ª¶¬‚³‚ê‚½‚Æ‚«.
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {	// onCreate‚Ì’è‹`
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_sub);
+	}
+}
