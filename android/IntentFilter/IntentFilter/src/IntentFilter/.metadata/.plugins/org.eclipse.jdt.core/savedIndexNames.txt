@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\IntentFilter\IntentFilter\src\IntentFilter\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+4207854007.index
+2755746640.index
+140654617.index
