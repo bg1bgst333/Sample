@@ -1,0 +1,9 @@
+package com.bgstation0.android.sample.thread_;
+
+public class CustomThread extends Thread {
+	
+	public void run(){
+		this.sleep(10000);	// 
+	}
+
+}
