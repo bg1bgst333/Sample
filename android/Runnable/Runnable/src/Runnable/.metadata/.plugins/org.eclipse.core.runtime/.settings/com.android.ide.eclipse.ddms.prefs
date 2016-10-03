@@ -1,0 +1,11 @@
+ddms.logcat.auotmonitor.level=error
+ddms.logcat.automonitor.userprompt=true
+eclipse.preferences.version=1
+logcat.view.colsize.Application=84
+logcat.view.colsize.Level=46
+logcat.view.colsize.PID=33
+logcat.view.colsize.TID=33
+logcat.view.colsize.Tag=34
+logcat.view.colsize.Text=597
+logcat.view.colsize.Time=215
+logcat.view.filters.list=name\: 'Runnable_', tag\: 'Runnable_', text\: '', pid\: '', app\: '', level\: 'verbose', 
