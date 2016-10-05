@@ -1,0 +1,10 @@
+package com.bgstation0.android.sample.asynctask_;
+
+import android.os.AsyncTask;
+
+public class CustomAsyncTask extends AsyncTask<Integer, Integer, String> {	// 非同期処理に渡すパラメータがInteger, 進捗状態がInteger, 非同期処理の結果がStringのCustomAsyncTask.
+
+	public CustomAsyncTask(Context, context){
+		this.context = context;
+	}
+}

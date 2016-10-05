@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\AsyncTask\AsyncTask\src\AsyncTask\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+464212574.index
+585137179.index
+818297799.index
