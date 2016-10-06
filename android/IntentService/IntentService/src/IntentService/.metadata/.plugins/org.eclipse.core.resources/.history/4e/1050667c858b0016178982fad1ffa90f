@@ -1,0 +1,14 @@
+package com.bgstation0.android.sample.intentservice_;
+
+import android.app.IntentService;
+import android.content.Intent;
+
+public class CustomIntentService extends IntentService {
+
+	@Override
+	protected void onHandleIntent(Intent intent) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,37 @@
+package com.bgstation0.android.sample.intentservice_;
+
+import android.app.IntentService;
+import android.content.Intent;
+import android.util.Log;
+
+public class CustomIntentService extends IntentService {
+
+	// メンバフィールドの定義
+	private final String TAG = "CustomIntentService";	// TAGを"CustomIntentService"とする.
+	
+	// コンストラクタ(このコンストラクタも必要らしい.)
+	public CustomIntentService(){
+		super("CustomIntentService");	// 親コンストラクタに"CustomIntentService"を渡す.
+	}
+	
+	// 引数付きコンストラクタ
+	public CustomIntentService(String name){
+		super(name);
+	}
+	
+	// 非同期処理
+	@Override
+	protected void onHandleIntent(Intent intent) {
+		// TODO Auto-generated method stub
+    	// tryで囲む.
+    	try{
+    		Thread.sleep(10000);	// 10秒休止
+    		int param = intent.getIntExtra("param", 0);	// キーを"param"とした値を取り出してparamに格納.(無かった場合のデフォルト値は0.)
+    		Log.d(TAG, "CustomIntentService finish! param = " + param);	// Log.dで"CustomIntentService finish!"とparamの値を表示.
+    	}
+    	catch (Exception ex){
+    		Log.d(TAG, "ex = " + ex.toString());	// Log.dでexを表示.
+    	}
+	}
+
+}
