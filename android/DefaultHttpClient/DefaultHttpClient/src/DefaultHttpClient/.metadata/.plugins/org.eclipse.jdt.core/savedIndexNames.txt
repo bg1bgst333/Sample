@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\DefaultHttpClient\DefaultHttpClient\src\DefaultHttpClient\.metadata\.plugins\org.eclipse.jdt.core
+3972929236.index
+3236615290.index
+2755746640.index
+818297799.index
