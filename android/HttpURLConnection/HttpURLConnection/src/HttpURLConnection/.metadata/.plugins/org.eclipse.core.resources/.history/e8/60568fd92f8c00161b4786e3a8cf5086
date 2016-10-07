@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.httpurlconnection_;
+
+import android.content.AsyncTaskLoader;
+
+public class CustomAsyncTaskLoader extends AsyncTaskLoader<D> {
+
+}

@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\HttpURLConnection\HttpURLConnection\src\HttpURLConnection\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+3428453814.index
+1287811006.index
+2755746640.index

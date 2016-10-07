@@ -1,0 +1,32 @@
+package com.bgstation0.android.sample.httpurlconnection_;
+
+import android.content.AsyncTaskLoader;
+import android.content.Context;
+
+public class CustomAsyncTaskLoader extends AsyncTaskLoader<String> {	// 非同期処理の結果がStringのCustomAsyncTaskLoader.
+
+	// メンバフィールドの定義
+	Context context;	// Context型context
+	String url;	// String型url
+	
+	// コンストラクタ
+	public CustomAsyncTaskLoader(Context context, String url){
+		super(context);	// 親クラスのコンストラクタを呼ぶ.
+		this.context = context;	// this.contextメンバに格納.
+		this.url = url;	// this.urlメンバに格納.
+	}
+	
+	// 非同期処理
+	@Override
+	public String loadInBackground(){
+		// オブジェクトの宣言
+		String ret = "";	// 戻り値の文字列retに""をセット.
+		return ret;
+	}
+	
+	// Loaderの開始時
+    @Override
+    protected void onStartLoading(){
+    	forceLoad();	// 強制的にロード開始.
+    }
+}
