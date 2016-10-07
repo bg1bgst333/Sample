@@ -1,0 +1,35 @@
+package com.bgstation0.android.sample.downloadmanager_;
+
+import android.app.Activity;
+import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+
+
+public class DownloadReceiver extends BroadcastReceiver {
+
+	// メンバフィールドの定義
+	private Activity activity = null;	// Activity型activityをnullにセット.
+	
+	// コンストラクタ
+	public DownloadReceiver(Activity activity){
+		this.activity = activity;	// activityをthis.activityに格納.
+	}
+	
+	// ブロードキャストインテントを受け取った時.
+	@Override
+	public void onReceive(Context context, Intent intent) {
+		// TODO Auto-generated method stub
+		// アクションを取得し, アクション文字列ごとに処理を分ける.
+		String action = intent.getAction();	// intent.getActionでactionを取得.
+		if (action.equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)){	// actionがダウンロード完了なら.
+			long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);	// ダウンロードIDを取得.
+			DownloadManager.Query query = new DownloadManager.Query();	// DownloadManager.Queryオブジェクトquery作成.
+			query.setFilterById(id);	// query.setFilterByIdでダウンロードIDをセット.
+			Cursor c = this.activity.
+		}
+		
+	}
+
+}
