@@ -1,0 +1,22 @@
+package com.bgstation0.android.sample.contentresolver_;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.widget.ArrayAdapter;
+
+//ListItem用アダプターListItemAdapter
+public class ListItemAdapter extends ArrayAdapter<ListItem> {	// ArrayAdapter<ListItem>を継承したListItemAdapterの定義.
+	
+	// インフレーターの定義.
+	LayoutInflater inflater;	// インフレーターinflater.
+	
+	// コンストラクタ
+	public ListItemAdapter(Context context, int resource, List<ListItem> objects){
+		super(context, resource, objects);
+		inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);	// インフレーターの取得.
+	}
+	
+	
+}
