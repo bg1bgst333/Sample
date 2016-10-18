@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TabHost_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="textview1_text">Content1</string>
+	<string name="textview2_text">Content2</string>
+	<string name="textview3_text">Content3</string>
+	
+</resources>
