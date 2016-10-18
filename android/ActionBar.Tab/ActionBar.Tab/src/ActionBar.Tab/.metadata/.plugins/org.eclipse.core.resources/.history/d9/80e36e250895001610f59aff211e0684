@@ -1,0 +1,8 @@
+package com.bgstation0.android.sample.actionbar.tab_;
+
+import android.app.Fragment;
+import android.app.ActionBar;
+
+public class CustomTabListener<T extends Fragment> implements ActionBar.TabListener {
+
+}

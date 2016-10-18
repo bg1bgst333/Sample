@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.actionbar.tab_;
+
+import android.app.ActionBar.TabListener;
+
+public interface TabListener extends TabListener {
+
+}
