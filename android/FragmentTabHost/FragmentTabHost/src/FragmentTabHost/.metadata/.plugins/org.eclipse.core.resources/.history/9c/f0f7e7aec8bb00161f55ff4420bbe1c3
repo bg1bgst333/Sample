@@ -1,0 +1,16 @@
+package com.bgstation0.android.sample.fragmenttabhost_;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class TabFragment extends Fragment {
+
+	// ƒrƒ…[‚Ì¶¬
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		return inflater.inflate(R.layout.fragment_tab, container, false);	// inflater.inflate‚ÅR.layout.fragment_tab‚ğ‚à‚Æ‚ÉView‚ğì¬‚µ, return‚Å•Ô‚·.
+	}
+	
+}

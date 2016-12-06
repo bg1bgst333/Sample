@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.fragmenttabhost_;
+
+import android.app.Fragment;
+
+public class TabFragment extends Fragment {
+
+}
