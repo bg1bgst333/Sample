@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Bitmap\Bitmap\src\Bitmap\.metadata\.plugins\org.eclipse.jdt.core
+3273981559.index
+2602942844.index
+2755746640.index
+818297799.index
