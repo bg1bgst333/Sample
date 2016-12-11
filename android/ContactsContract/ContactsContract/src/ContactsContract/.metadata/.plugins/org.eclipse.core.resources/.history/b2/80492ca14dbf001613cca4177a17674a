@@ -1,0 +1,8 @@
+package com.bgstation0.android.sample.contactscontract_;
+
+import android.widget.ArrayAdapter;
+
+//ListItem用アダプターListItemAdapter
+public class ListItemAdapter extends ArrayAdapter<ListItem> {
+
+}
