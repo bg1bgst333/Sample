@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\BitmapFactory\BitmapFactory\src\BitmapFactory\.metadata\.plugins\org.eclipse.jdt.core
+916193925.index
+2755746640.index
+818297799.index
+2345797271.index
