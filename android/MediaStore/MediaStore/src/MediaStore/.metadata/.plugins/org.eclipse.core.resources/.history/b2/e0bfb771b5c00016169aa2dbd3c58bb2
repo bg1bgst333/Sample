@@ -1,0 +1,40 @@
+package com.bgstation0.android.sample.mediastore_;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+// GridItem用アダプターGridItemAdapter
+public class GridItemAdapter extends ArrayAdapter<GridItem> {	// ArrayAdapter<GridItem>を継承したGridItemAdapterの定義.
+
+	// インフレーターの定義.
+	LayoutInflater inflater;	// インフレーターinflater.
+		
+	// コンストラクタ
+	public GridItemAdapter(Context context, int resource, List<GridItem> objects){
+		super(context, resource, objects);
+		inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);	// inflaterの取得.
+	}
+		
+	// アイテム表示のカスタマイズ
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent){
+		// convertViewがnullの時.
+		if (convertView == null){
+			convertView = inflater.inflate(R.layout.grid_item, null);	// convertViewがnullならinflater.inflateで取得.
+		}
+		TextView tvname = (TextView)convertView.findViewById(R.id.grid_item_name);	// convertView.findViewByIdでR.id.grid_item_nameをtvnameに格納.
+		tvname.setText(getItem(position).name);	// position番目のアイテムのnameをtvname.setTextでセット.
+		ImageView ivbitmap = (ImageView)convertView.findViewById(R.id.grid_item_bitmap);	// convertView.findViewByIdでR.id.grid_item_bitmapをivbitmapに格納.
+		getItem(position).bitmap.recycle();
+		ivbitmap.setImageBitmap(getItem(position).bitmap);	// position番目のアイテムのbitmapをivbitmap.setImageBitmapでセット.
+		return convertView;	// convertViewを返す.
+	}
+	
+}

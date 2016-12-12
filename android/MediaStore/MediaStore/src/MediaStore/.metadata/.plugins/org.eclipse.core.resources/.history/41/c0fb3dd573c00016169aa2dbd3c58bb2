@@ -1,0 +1,8 @@
+package com.bgstation0.android.sample.mediastore_;
+
+import android.widget.ArrayAdapter;
+
+// GridItem用アダプターGridItemAdapter
+public class GridItemAdapter extends ArrayAdapter<GridItem> {	// ArrayAdapter<GridItem>を継承したGridItemAdapterの定義.
+
+}

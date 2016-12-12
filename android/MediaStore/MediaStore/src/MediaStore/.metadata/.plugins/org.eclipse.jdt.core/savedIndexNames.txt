@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\MediaStore\MediaStore\src\MediaStore\.metadata\.plugins\org.eclipse.jdt.core
+3665482477.index
+2755746640.index
+818297799.index
+1657584145.index

@@ -1,0 +1,66 @@
+package com.bgstation0.android.sample.mediastore_;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.GridView;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // ContentResolverで写真を取得し, GridViewに追加して表示.
+        ContentResolver contentResolver = getContentResolver();	// getContentResolverでcontentResolverを取得.
+        List<GridItem> griditems = new ArrayList<GridItem>();	// griditemsを生成.
+        Cursor c = contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, null);	// contentResolver.queryで外部ストレージの画像にアクセス.
+        if (c.moveToFirst()){	// 最初なら。
+        	for (int i = 0; i < c.getCount(); i++){	// c.getCountの数, 繰り返す.
+        		
+        		// IDの取得.
+        		String id = c.getString(c.getColumnIndex(MediaStore.Images.Media._ID));	// IDを取得.
+        		
+        		// 表示名の取得.
+        		String name = c.getString(c.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME));	// 表示名を取得.
+        		
+        		// ファイルパスの取得し, そこからBitmapを取得.(このとき縮小する.)
+        		String path = c.getString(c.getColumnIndex(MediaStore.Images.Media.DATA));	// パスを取得.
+        		BitmapFactory.Options options = new BitmapFactory.Options();	// optionsを生成.
+        		options.inJustDecodeBounds = true;	// サイズ情報だけ取得.
+        		BitmapFactory.decodeFile(path, options);	// BitmapFactory.decodeFileでpathからbitmapの情報だけ取得.
+        		int scaleWidth = options.outWidth / 80 + 1;	// 80に収まるように縮尺計算.
+        		int scaleHeight = options.outHeight / 80 + 1;	// 80に収まるように縮尺計算.
+        		int scale =  Math.max(scaleWidth, scaleHeight);	// 最大値をとる.
+        		options.inJustDecodeBounds = false;	// 今度は読み込む.
+        		options.inSampleSize = scale;	// 縮尺指定.
+        		Bitmap bitmap = BitmapFactory.decodeFile(path, options);	// BitmapFactory.decodeFileでpathからbitmapの画像取得.
+        		
+        		// itemの追加.
+        		GridItem item = new GridItem();	// itemを生成.
+        		item.name = name;	// item.nameにnameを代入.
+        		item.bitmap = bitmap;	// item.bitmapを代入.
+        		griditems.add(item);	// griditems.addでitemを追加.
+        		
+        		// 次へ.
+        		c.moveToNext();	// moveToNextで次へ.
+        		
+        	}
+        }
+        c.close();	// 閉じる.
+        GridView gridview1 = (GridView)findViewById(R.id.gridview1);	// findViewByIdでgridview1を取得.
+        GridItemAdapter adapter = new GridItemAdapter(this, R.layout.grid_item, griditems);	// GridItemAdapterコンストラクタにGridViewのアイテムテンプレートのgrid_itemとグリッドデータのgriditemsをセット.
+        gridview1.setAdapter(adapter);	// gridview1.setAdapterにadapterをセットして, GridViewとAdapterを紐付ける.      
+    }
+    
+}

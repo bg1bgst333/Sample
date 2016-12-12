@@ -1,0 +1,43 @@
+package com.bgstation0.android.sample.mediastore_;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // ContentResolverで写真を取得し, GridViewに追加して表示.
+        ContentResolver contentResolver = getContentResolver();	// getContentResolverでcontentResolverを取得.
+        List<GridItem> griditems = new ArrayList<GridItem>();	// griditemsを生成.
+        Cursor c = contentResolver.query(MediaStore.Images.Media.INTERNAL_CONTENT_URI, null, null, null, null);	// contentResolver.queryで内部ストレージの画像にアクセス.
+        if (c.moveToFirst()){	// 最初なら。
+        	for (int i = 0; i < c.getCount(); i++){	// c.getCountの数, 繰り返す.
+        		
+        		// IDの取得.
+        		String id = c.getString(c.getColumnIndex(MediaStore.Images.Media._ID));	// IDを取得.
+        		
+        		// 表示名の取得.
+        		String name = c.getString(c.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME));	// 表示名を取得.
+        		
+        		// ファイルパスの取得.
+        		String path = c.getString(c.getColumnIndex(MediaStore.Images.Media.DATA));	// パスを取得.
+        		
+        		String a = path;
+        		
+        	}
+        }
+        c.close();
+    }
+}
