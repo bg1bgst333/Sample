@@ -1,0 +1,27 @@
+package com.bgstation0.android.sample.camera_;
+
+import android.app.Activity;
+import android.hardware.Camera;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+
+public class MainActivity extends Activity implements SurfaceHolder.Callback{
+
+	// メンバフィールドの定義.
+	private Camera camera;	// Cameraオブジェクトcamera.
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // SurfaceViewの取得とコールバックのセット.
+        SurfaceView surfaceView = (SurfaceView)findViewById(R.id.surfaceView);	// surfaceViewの取得.
+        SurfaceHolder holder = surfaceView.getHolder();	// surfaceView.getHolderでholderを取得.
+        holder.addCallback(this);	// holder.addCallbackでコールバック(リスナー)としてthisをセット.
+        
+    }
+}
