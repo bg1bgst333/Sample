@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AlarmManager_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="activity_main_textview_text">MainActivty</string>
+	<string name="activity_sub_textview_text">SubActivty</string>
+	
+</resources>

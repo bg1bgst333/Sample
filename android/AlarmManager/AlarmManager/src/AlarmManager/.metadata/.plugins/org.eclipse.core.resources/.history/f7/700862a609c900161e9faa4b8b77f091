@@ -1,0 +1,23 @@
+package com.bgstation0.android.sample.alarmmanager_;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+
+public class CustomReceiver extends BroadcastReceiver {
+
+	// メンバフィールドの定義
+	private final String PACKAGE_NAME = getClass().getPackage().toString();	// パッケージ名を取得.
+	private final String CLASS_NAME = getClass().toString();	// クラス名を取得.
+	
+	// ブロードキャストインテントを受けた時.
+	@Override
+	public void onReceive(Context context, Intent intent) {
+		// TODO Auto-generated method stub
+		// トーストでパッケージ名とクラス名を表示.
+		Toast.makeText(context, PACKAGE_NAME, Toast.LENGTH_LONG).show();	// パッケージ名を表示.
+		Toast.makeText(context, CLASS_NAME, Toast.LENGTH_LONG).show();	// クラス名を表示.
+	}
+
+}
