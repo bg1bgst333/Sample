@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ViewGroup.LayoutParams_</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="button1_text">Button1</string>
+    <string name="button2_text">Button2</string>
+	<string name="button3_text">Button3</string>
+	<string name="button4_text">Button4</string>
+	
+</resources>
