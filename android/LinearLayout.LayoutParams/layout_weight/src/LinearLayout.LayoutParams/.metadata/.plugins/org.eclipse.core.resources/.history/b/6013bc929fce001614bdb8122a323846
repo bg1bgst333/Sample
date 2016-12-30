@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LinearLayout.LayoutParams_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="button1a_text">B1a</string>
+	<string name="button1b_text">B1b</string>
+	<string name="button1c_text">B1c</string>
+	<string name="button2a_text">B2a</string>
+	<string name="button2b_text">B2b</string>
+	<string name="button2c_text">B2c</string>
+	<string name="button3a_text">B3a</string>
+	<string name="button3b_text">B3b</string>
+	<string name="button4a_text">B4a</string>
+	<string name="button4b_text">B4b</string>
+	<string name="button4c_text">B4c</string>
+	
+</resources>
