@@ -1,0 +1,23 @@
+package com.bgstation0.android.sample.resources_;
+
+import android.app.Activity;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // Resourcesから文字列を取得してTextViewにセット.
+        Resources res = getResources();	// getResourcesでresを取得.
+        String strTextView1 = res.getString(R.string.textview1_text);	// res.getStringでR.string.textview1_textに定義されている文字列を取得.
+        TextView textView1 = (TextView)findViewById(R.id.textview1);	// textView1を取得.
+        
+    }
+}
