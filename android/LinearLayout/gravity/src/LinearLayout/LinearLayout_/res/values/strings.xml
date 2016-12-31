@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LinearLayout_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="button1a_text">right1a</string>
+	<string name="button1b_text">right1b</string>
+	<string name="button2a_text">bottom2a</string>
+	<string name="button2b_text">bottom2b</string>
+	
+</resources>
