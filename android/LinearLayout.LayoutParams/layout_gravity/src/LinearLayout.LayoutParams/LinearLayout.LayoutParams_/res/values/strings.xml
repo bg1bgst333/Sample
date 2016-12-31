@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LinearLayout.LayoutParams_</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="button1a_text">left</string>
+	<string name="button1b_text">center</string>
+	<string name="button1c_text">right</string>
+	<string name="button2a_text">top</string>
+	<string name="button2b_text">center</string>
+	<string name="button2c_text">bottom</string>
+	
+</resources>
