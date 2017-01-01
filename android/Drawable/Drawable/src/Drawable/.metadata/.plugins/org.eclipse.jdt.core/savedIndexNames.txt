@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Drawable\Drawable\src\Drawable\.metadata\.plugins\org.eclipse.jdt.core
+3716345441.index
+818297799.index
+2174824648.index
+2755746640.index
