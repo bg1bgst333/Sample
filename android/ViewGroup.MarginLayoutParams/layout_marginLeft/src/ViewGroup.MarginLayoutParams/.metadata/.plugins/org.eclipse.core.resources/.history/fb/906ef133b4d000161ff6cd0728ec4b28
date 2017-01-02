@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ViewGroup.MarginLayoutParams_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="textview1a_text">1a</string>
+	<string name="textview1b_text">1b</string>
+	<string name="textview1c_text">1c</string>
+	
+</resources>
