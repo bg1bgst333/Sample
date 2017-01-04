@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\StateListDrawable\state_pressed\src\StateListDrawable\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+818297799.index
+3578070448.index
+3983970373.index
