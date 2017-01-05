@@ -1,0 +1,50 @@
+package com.bgstation0.android.sample.context_;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends Activity implements OnClickListener{	// View.OnClickListenerを実装.
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // Toastでthisの内容を文字列にしたものを表示.
+     	Toast.makeText(this, this.toString(), Toast.LENGTH_LONG).show();
+     		
+        // button1を取得し, OnClickListenerとして自身をセット.
+        Button button1 = (Button)findViewById(R.id.button1);	// findViewByIdでR.id.button1を取得.
+        button1.setOnClickListener(this);	// button1.setOnClickListenerをthis(自身)をセット.
+    }
+    
+    // View.OnClickListenerインタフェースのオーバーライドメソッドを実装.
+    public void onClick(View v){	// onClickをオーバーライド.
+    	
+    	// switch-case文で振り分ける.
+    	switch (v.getId()){	// v.getIdでidを取得し, idごとに振り分ける.
+    		
+    		// button1
+    		case R.id.button1:
+    			
+    			// アクティビティの開始.
+    	    	Intent intent = new Intent(this, SubActivity.class);	// SubActivityを対象としたIntentオブジェクトintentを生成.
+    	    	startActivity(intent);	// startActivityでintentを指定してActivityを起動.
+    			break;	// breakで抜ける.
+    	
+    		// button2
+    		case R.id.button2:
+    			
+    			
+    	}
+    	
+    }
+
+}
