@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Activity_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="menu_change_text">Change</string>
+	<string name="menu_item_a1_text">A1</string>
+	<string name="menu_item_a2_text">A2</string>
+	<string name="menu_item_a3_text">A3</string>
+	<string name="menu_item_b1_text">B1</string>
+	<string name="menu_item_b2_text">B2</string>
+	<string name="menu_item_b3_text">B3</string>
+	
+</resources>
