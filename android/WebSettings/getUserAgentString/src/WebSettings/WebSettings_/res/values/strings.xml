@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WebSettings_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="loadbutton_text">Load</string>
+	<string name="menu_goback_text">GoBack</string>
+	<string name="menu_change_phoneua_text">Phone</string>
+	<string name="menu_change_pcua_text">PC</string>
+	
+</resources>

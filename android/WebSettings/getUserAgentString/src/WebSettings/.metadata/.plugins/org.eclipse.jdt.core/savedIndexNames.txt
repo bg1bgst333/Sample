@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\WebSettings\getUserAgentString\src\WebSettings\.metadata\.plugins\org.eclipse.jdt.core
+2264126406.index
+676839357.index
+2755746640.index
+818297799.index
