@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WlanEnumInterfaces", "WlanEnumInterfaces\WlanEnumInterfaces.vcproj", "{D93EF64D-8484-49EC-BE50-8D4F7E66BBC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D93EF64D-8484-49EC-BE50-8D4F7E66BBC0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D93EF64D-8484-49EC-BE50-8D4F7E66BBC0}.Debug|Win32.Build.0 = Debug|Win32
+		{D93EF64D-8484-49EC-BE50-8D4F7E66BBC0}.Release|Win32.ActiveCfg = Release|Win32
+		{D93EF64D-8484-49EC-BE50-8D4F7E66BBC0}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
