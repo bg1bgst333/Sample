@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CreatePipe", "CreatePipe\CreatePipe.vcproj", "{93FBCA1F-5CA3-4C73-8DA7-C8FF2952B0D2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChildProcess", "ChildProcess\ChildProcess.vcproj", "{34D4EE6A-0A2F-4822-A2FF-6F2EDFD9E0DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93FBCA1F-5CA3-4C73-8DA7-C8FF2952B0D2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{93FBCA1F-5CA3-4C73-8DA7-C8FF2952B0D2}.Debug|Win32.Build.0 = Debug|Win32
+		{93FBCA1F-5CA3-4C73-8DA7-C8FF2952B0D2}.Release|Win32.ActiveCfg = Release|Win32
+		{93FBCA1F-5CA3-4C73-8DA7-C8FF2952B0D2}.Release|Win32.Build.0 = Release|Win32
+		{34D4EE6A-0A2F-4822-A2FF-6F2EDFD9E0DE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{34D4EE6A-0A2F-4822-A2FF-6F2EDFD9E0DE}.Debug|Win32.Build.0 = Debug|Win32
+		{34D4EE6A-0A2F-4822-A2FF-6F2EDFD9E0DE}.Release|Win32.ActiveCfg = Release|Win32
+		{34D4EE6A-0A2F-4822-A2FF-6F2EDFD9E0DE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
