@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpcServerChannel_", "IpcServerChannel_\IpcServerChannel_.csproj", "{32858E7A-8626-46F4-BA23-CAEB2DE12342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpcClientChannel_", "IpcClientChannel_\IpcClientChannel_.csproj", "{1E57E3F0-07E5-4615-9C2E-6C9FD769D4BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32858E7A-8626-46F4-BA23-CAEB2DE12342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32858E7A-8626-46F4-BA23-CAEB2DE12342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32858E7A-8626-46F4-BA23-CAEB2DE12342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32858E7A-8626-46F4-BA23-CAEB2DE12342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E57E3F0-07E5-4615-9C2E-6C9FD769D4BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E57E3F0-07E5-4615-9C2E-6C9FD769D4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E57E3F0-07E5-4615-9C2E-6C9FD769D4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E57E3F0-07E5-4615-9C2E-6C9FD769D4BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
