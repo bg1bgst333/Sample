@@ -107,6 +107,9 @@ int main(void){
 
   }
 
+  /* SSL切断 */
+  SSL_shutdown(ssl); /* SSL_shutdownでSSL切断する. */
+
   /* SSL接続情報の破棄. */
   SSL_free(ssl); /* SSL_freeでsslを解放. */
   
