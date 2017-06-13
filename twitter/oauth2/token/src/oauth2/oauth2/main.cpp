@@ -3,6 +3,7 @@
 #include <tchar.h>			// TCHAR型
 #include <iostream>			// C++標準入出力
 #include <string>			// std::string
+#include <winsock2.h>		// Windowsソケット
 #include <openssl/bio.h>	// BIO 
 
 // マクロの定義
@@ -17,16 +18,25 @@
 int _tmain() {
 
 	// 変数の宣言と初期化.
-	BIO *buffer = NULL;	// バッファ用フィルタBIOへのポインタbufferをNULLに初期化.
+	WSADATA wsaData;	// WSADATA型wsaData.
+	int iRet;	// int型iRet.
 
-	// bufferの作成.
-	buffer = BIO_new(BIO_f_buffer());	// BIO_newにBIO_f_bufferの戻り値を渡すことでbufferを作成.
+	// WinSockの初期化.
+	iRet = WSAStartup(MAKEWORD(2, 2), &wsaData);	// WSAStartupでWinSockの初期化.
+	if (iRet) {	// 0でない場合.
 
-	// bufferを出力.
-	_tprintf(_T("buffer = %08x\n"), buffer);	// _tprintfでbufferを出力.
+		// エラー処理.
+		_tprintf(_T("Error!(iRet = %d.)\n"), iRet);	// _tprintfでiRetを出力.
+		WSACleanup();	// WSACleanupで終了処理.
+		return -1;	// -1を返す.
 
-	// bufferの解放.
-	BIO_free(buffer);	// BIO_freeでbufferを解放.
+	}
+
+	// 初期化成功メッセージ.
+	_tprintf(_T("WSAStartup success!\n"));	// "WSAStartup success!"と出力.
+
+	// WinSockの終了処理.
+	WSACleanup();	// WSACleanupで終了処理.
 
 	// プログラムの終了
 	return 0;	// 0を返す.
