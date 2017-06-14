@@ -6,6 +6,8 @@
 #include <winsock2.h>		// Windowsソケット
 #include <ws2tcpip.h>		// WinSock2 TCP/IP
 #include <openssl/bio.h>	// BIO 
+#include <openssl/ssl.h>	// SSL
+#include <openssl/err.h>	// エラー
 
 // マクロの定義
 // UNICODE切り替え
@@ -24,6 +26,8 @@ int _tmain() {
 	struct addrinfo hint = { 0 };	// addrinfo構造体hintを0で初期化.
 	struct addrinfo *ai;			// addrinfo構造体ポインタai.
 	int soc = -1;	// ソケットファイルディスクリプタsocを-1に初期化.
+	SSL_CTX *ctx = NULL;	// SSL_CTX構造体へのポインタctxをNULLに初期化.
+	SSL *ssl = NULL;	// SSL接続情報を持つSSL構造体へのポインタsslをNULLに初期化.
 
 	// WinSockの初期化.
 	iRet = WSAStartup(MAKEWORD(2, 2), &wsaData);	// WSAStartupでWinSockの初期化.
@@ -83,6 +87,67 @@ int _tmain() {
 
 	// 接続成功.
 	_tprintf(_T("connect success!\n"));	// _tprintfで"connect success!"を出力.
+
+	// SSLライブラリの初期化.
+	SSL_library_init();	// SSL_library_initでSSLライブラリの初期化.
+	SSL_load_error_strings();	// SSL_load_error_stringsでエラー文字列をロード.
+
+	// SSLコンテキストの作成.
+	ctx = SSL_CTX_new(SSLv23_client_method());	// SSL_CTX_newでSSLコンテキストを作成し, SSL_CTX型ポインタとしてctxに格納.
+
+	// ctxの指すアドレスを出力.
+	_tprintf(_T("ctx = %08x\n"), (unsigned int)ctx);	// _tprintfでctxの指すアドレスを出力.
+	
+	// SSL接続情報の作成.
+	ssl = SSL_new(ctx);	// SSL_newでctxからSSL接続情報を作成し, ポインタをsslに格納.
+
+	// sslの指すアドレスを出力.
+	_tprintf(_T("ssl = %08x\n"), (unsigned int)ssl);	// _tprintfでsslの指すアドレスを出力.
+
+	// SSL接続情報にソケットファイルディスクリプタをセット.
+	if (SSL_set_fd(ssl, soc) == 0) {	// SSL_set_fdでsslにsocをセット.(戻り値が0なら失敗, 1なら成功.)
+
+		// エラー処理
+		_tprintf(_T("SSL_set_fd error!\n"));	// "SSL_set_fd error!"と出力.
+		ERR_print_errors_fp(stderr);	// ERR_print_errors_fpにstderrを渡して標準エラー出力にエラーメッセージを出力.
+		SSL_free(ssl);	// SSL_freeでsslを解放.
+		SSL_CTX_free(ctx);	// SSL_CTX_freeでctxを解放.
+		closesocket(soc);	// closesocketでsocを閉じる.
+		freeaddrinfo(ai);	// freeaddrinfoでaiを解放.
+		WSACleanup();	// WSACleanupで終了処理.
+		return -5;	// -5を返す.
+
+	}
+
+	// 成功
+	_tprintf(_T("SSL_set_fd success!\n"));	// "SSL_set_fd success!"と出力.
+
+	// SSL接続
+	iRet = SSL_connect(ssl);	// SSL_connectにsslを渡してSSLハンドシェイクを行う.
+	if (iRet == 1) {	// 成功
+		_tprintf(_T("SSL_connect success!\n"));	// "SSL_connect success!"と出力.
+	}
+	else {	// エラー
+
+		// エラー処理
+		_tprintf(_T("SSL_connect error!\n"));	// "SSL_connect error!"と出力.
+		SSL_free(ssl);	// SSL_freeでsslを解放.
+		SSL_CTX_free(ctx);	// SSL_CTX_freeでctxを解放.
+		closesocket(soc);	// closesocketでsocを閉じる.
+		freeaddrinfo(ai);	// freeaddrinfoでaiを解放.
+		WSACleanup();	// WSACleanupで終了処理.
+		return -6;	// -6を返す.
+
+	}
+
+	// SSL切断.
+	SSL_shutdown(ssl);	// SSL_shutdownでSSL切断する.
+
+	// SSL接続情報の破棄.
+	SSL_free(ssl);	// SSL_freeでsslを解放.
+
+	// SSLコンテキストの解放.
+	SSL_CTX_free(ctx);	// SSL_CTX_freeでctxを解放.
 
 	// socを閉じる.
 	closesocket(soc);	// closesocketでsocを閉じる.
