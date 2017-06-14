@@ -1,0 +1,2 @@
+#define API_KEY "xxxxxxxxxxxxxxxxxxxxxxxxx"
+#define API_SECRET "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
