@@ -52,12 +52,19 @@ int _tmain() {
 	tstring request_url_tstr = _T("https://api.twitter.com/oauth/request_token");	// リクエストURLは"https://api.twitter.com/oauth/request_token".
 	char request_url_str[1024] = { 0 };	// utf8.
 	char urlencoded_request_url_str[1024] = { 0 };	// URLエンコード済み.
+	TCHAR urlencoded_request_url_tstr[1024] = { 0 };	// URLエンコード済み.
 	char signature_data[4096] = { 0 };	// 署名データsignature_dataを0で初期化.
 	char hmac_sha1[SHA_DIGEST_LENGTH + 1];	// char型配列hmac_sha1.
 	unsigned int hmac_sha1_len;	// unsigned int型hmac_sha1_len.
 	BIO *mem = NULL;	// メモリデータシンクBIO
 	BIO *base64 = NULL;	// Base64フィルタBIO
 	char base64_str[1024] = { 0 };	// char型配列base64_strを0で初期化.
+	char urlencoded_base64_str[1024] = { 0 };	// char型配列urlencoded_base64_strを0で初期化.
+	tstring request_tstr;	// リクエスト文字列request_tstr.
+	TCHAR base64_tstr[1024] = { 0 };	// TCHAR型配列base64_tstrを0で初期化.
+	int written = 0;	// SSL_writeでの書き込みに成功した長さwritten.
+	char response_buf[1024] = { 0 };	// char型配列response_buf(要素数1024)を0で初期化.
+	int response_len = 0;	// SSL_readで読み込んだ長さを格納するresponse_lenを0で初期化.
 
 	// WinSockの初期化.
 	iRet = WSAStartup(MAKEWORD(2, 2), &wsaData);	// WSAStartupでWinSockの初期化.
@@ -181,7 +188,7 @@ int _tmain() {
 	// 現在時刻の取得.
 	time_t t = time(NULL);	// timeで取得した現在時刻をtime_t型tに格納.
 	TCHAR time_tstr[64] = { 0 };	// time_tstrを0で初期化.
-	_stprintf_s(time_tstr, sizeof(char) * 64, _T("%ld"), t);	// UNIX時刻tを文字列time_tstrに変換.
+	_stprintf_s(time_tstr, sizeof(char) * 64, _T("%lld"), t);	// UNIX時刻tを文字列time_tstrに変換.
 
 	// リクエストパラメータの作成.
 	request_params_tstr = _T("oauth_callback");	// request_params_tstrに"oauth_callback"を連結.
@@ -192,6 +199,10 @@ int _tmain() {
 	request_params_tstr = request_params_tstr + _T("=");	// "="を連結.
 	request_params_tstr = request_params_tstr + API_KEY;	// API_KEYを連結.
 	request_params_tstr = request_params_tstr + _T("&");	// "&"を連結.
+	request_params_tstr = request_params_tstr + _T("oauth_nonce");	// request_params_tstrに"oauth_nonce"を連結.
+	request_params_tstr = request_params_tstr + _T("=");	// "="を連結.
+	request_params_tstr = request_params_tstr + time_tstr;	// とりあえずtime_tstrをもう一度連結.
+	request_params_tstr = request_params_tstr + _T("&");	// "&"を連結.
 	request_params_tstr = request_params_tstr + _T("oauth_signature_method");	// request_params_tstrに"oauth_signature_method"を連結.
 	request_params_tstr = request_params_tstr + _T("=");	// "="を連結.
 	request_params_tstr = request_params_tstr + _T("HMAC-SHA1");	// "HMAC-SHA1"を連結.
@@ -199,10 +210,6 @@ int _tmain() {
 	request_params_tstr = request_params_tstr + _T("oauth_timestamp");	// request_params_tstrに"oauth_timestamp"を連結.
 	request_params_tstr = request_params_tstr + _T("=");	// "="を連結.
 	request_params_tstr = request_params_tstr + time_tstr;	// time_tstrを連結.
-	request_params_tstr = request_params_tstr + _T("&");	// "&"を連結.
-	request_params_tstr = request_params_tstr + _T("oauth_nonce");	// request_params_tstrに"oauth_nonce"を連結.
-	request_params_tstr = request_params_tstr + _T("=");	// "="を連結.
-	request_params_tstr = request_params_tstr + time_tstr;	// とりあえずtime_tstrをもう一度連結.
 	request_params_tstr = request_params_tstr + _T("&");	// "&"を連結.
 	request_params_tstr = request_params_tstr + _T("oauth_version");	// request_params_tstrに"oauth_version"を連結.
 	request_params_tstr = request_params_tstr + _T("=");	// "="を連結.
@@ -230,16 +237,94 @@ int _tmain() {
 
 	// 署名.
 	HMAC(EVP_sha1(), (const unsigned char *)signature_key, strlen(signature_key), (const unsigned char *)signature_data, strlen(signature_data), (unsigned char *)hmac_sha1, &hmac_sha1_len);	// HMAC()でHMAC-SHA1を計算.
-
+	
 	// Base64変換.
 	mem = BIO_new(BIO_s_mem());	// BIO_new()にBIO_s_mem()を渡してmemを作成.
 	base64 = BIO_new(BIO_f_base64());	// BIO_new()にBIO_f_base64()を渡してbase64を作成.
+	BIO_set_flags(base64, BIO_FLAGS_BASE64_NO_NL);	// BIO_set_flagsでBIO_FLAGS_BASE64_NO_NLをセットしないとBase64文字列に改行が含まれてしまうので要注意!
 	BIO_push(base64, mem);	// BIO_pushでbase64とmemを連結.
 	BIO_write(base64, hmac_sha1, hmac_sha1_len);	// base64にhmac_sha1を書き込み.
 	BIO_flush(base64);	// BIO_flushでフラッシュ.
 	BIO_read(mem, base64_str, 1024);	// BIO_readでmemを読み込み, base64_strに格納.
-	printf("base64_str = %s\n", base64_str);	// printfでbase64_strの出力.
+	printf("%s\n", base64_str);
 	BIO_free_all(base64);	// base64と連結しているmemも解放される.
+	urlencode(urlencoded_base64_str, base64_str, strlen(base64_str));	// URLエンコード
+	len = MultiByteToWideChar(CP_UTF8, 0, urlencoded_base64_str, -1, NULL, 0);	// ワイド文字に変換するためのサイズ取得.
+	MultiByteToWideChar(CP_UTF8, 0, urlencoded_base64_str, -1, base64_tstr, len);	// ワイド文字に変換.
+	_tprintf(_T("base64_tstr = %s\n"), base64_tstr);	// _tprintfでbase64_tstrの出力.
+
+	// POSTリクエストの作成.
+	len = MultiByteToWideChar(CP_UTF8, 0, urlencoded_request_url_str, -1, NULL, 0);	// ワイド文字に変換するためのサイズ取得.
+	MultiByteToWideChar(CP_UTF8, 0, urlencoded_request_url_str, -1, urlencoded_request_url_tstr, len);	// ワイド文字に変換.
+	_tprintf(_T("urlencoded_request_url_tstr = %s\n"), urlencoded_request_url_tstr);	// _tprintfでurlencoded_request_url_tstrの出力.
+	request_tstr = _T("POST /oauth/request_token HTTP/1.1");	// request_tstrに"POST /oauth/request_token HTTP/1.1"を格納.
+	request_tstr = request_tstr + _T("\r\n");	// 改行
+	request_tstr = request_tstr + _T("Host: api.twitter.com");	// request_tstrに"Host: api.twitter.com"を連結.
+	request_tstr = request_tstr + _T("\r\n");	// 改行
+	request_tstr = request_tstr + _T("User-Agent: bgst1tw1test1");	// request_tstrに"User-Agent: bgst1tw1test1"を連結.
+	request_tstr = request_tstr + _T("\r\n");	// 改行
+	request_tstr = request_tstr + _T("Authorization: OAuth ");	// request_tstrに"Authorization: OAuth "を格納.
+	request_tstr = request_tstr + _T("oauth_callback=");	// "oauth_callback="を連結.
+	request_tstr = request_tstr + urlencoded_request_url_tstr;	// urlencoded_request_url_tstrを連結.
+	request_tstr = request_tstr + _T(",");	// ","を連結.
+	request_tstr = request_tstr + _T("oauth_consumer_key=");	// "oauth_consumer_key="を連結.
+	request_tstr = request_tstr + API_KEY;	// API_KEYを連結.
+	request_tstr = request_tstr + _T(",");	// ","を連結.
+	request_tstr = request_tstr + _T("oauth_nonce=");	// "oauth_nonce="を連結.
+	request_tstr = request_tstr + time_tstr;	// time_tstrを連結.
+	request_tstr = request_tstr + _T(",");	// ","を連結.
+	request_tstr = request_tstr + _T("oauth_signature_method=");	// "oauth_signature_method="を連結.
+	request_tstr = request_tstr + _T("HMAC-SHA1");	// "HMAC-SHA1"を連結.
+	request_tstr = request_tstr + _T(",");	// ","を連結.
+	request_tstr = request_tstr + _T("oauth_signature=");	// "oauth_signature="を連結.
+	request_tstr = request_tstr + base64_tstr;	// base64_tstrを連結.
+	request_tstr = request_tstr + _T(",");	// ","を連結.
+	request_tstr = request_tstr + _T("oauth_timestamp=");	// "oauth_timestamp="を連結.
+	request_tstr = request_tstr + time_tstr;	// time_tstrを連結.
+	request_tstr = request_tstr + _T(",");	// ","を連結.
+	request_tstr = request_tstr + _T("oauth_version=");	// "oauth_version="を連結.
+	request_tstr = request_tstr + _T("1.0");	// "1.0"を連結.
+	request_tstr = request_tstr + _T("\r\n\r\n");	// 空行
+	
+	// request_tstrの文字コード変換(Unicode => utf-8)
+	char request_str[4096];
+	DWORD len2 = WideCharToMultiByte(CP_UTF8, 0, request_tstr.c_str(), -1, NULL, 0, NULL, NULL);	// マルチバイトに変換するためのサイズを取得.
+	WideCharToMultiByte(CP_UTF8, 0, request_tstr.c_str(), -1, request_str, len2, NULL, NULL);	// マルチバイトに変換.
+	printf("[[%s\n]]", request_str);
+
+	// リクエストの書き込み.
+	written = SSL_write(ssl, request_str, len2);	// SSL_writeでrequest_strを書き込む.
+	printf("SSL_write written = %d\n", written);	// SSL_writeで書き込み成功した文字数を出力.
+
+	// レスポンスの読み込み.
+	while ((response_len = SSL_read(ssl, response_buf, 1024 - 1)) > 0) {	// SSL_readで読み込んだレスポンスをresponse_bufに格納.(1バイト以上なら続ける.)
+
+		// response_bufの内容を出力.
+		printf("%s", response_buf);	// printfでresponse_bufを出力.
+		memset(response_buf, 0, sizeof(char) * 1024);	// memsetでresponse_bufをクリア.
+
+	}
+
+	// 改行
+	printf("\n");	// printfで改行.
+
+	// SSL切断.
+	SSL_shutdown(ssl);	// SSL_shutdownでSSL切断する.
+
+	// SSL接続情報の破棄.
+	SSL_free(ssl);	// SSL_freeでsslを解放.
+
+	// SSLコンテキストの解放.
+	SSL_CTX_free(ctx);	// SSL_CTX_freeでctxを解放.
+
+	// socを閉じる.
+	closesocket(soc);	// closesocketでsocを閉じる.
+
+	// aiを解放.
+	freeaddrinfo(ai);	// freeaddrinfoでaiを解放.
+
+	// WinSockの終了処理.
+	WSACleanup();	// WSACleanupで終了処理.
 
 	// プログラムの終了
 	return 0;	// 0を返す.
@@ -269,6 +354,9 @@ void urlencode(char dst[], const char src[], int src_len){
 		}
 		else {
 			snprintf(urlenc, sizeof(urlenc), "%%%02x", c & 0xff);	// cを"%xx"形式にしてurlencに格納.
+			for (int k = 0; k < 3; k++) {
+				urlenc[k] = toupper(urlenc[k]);
+			}
 			strcat_s(dst, sizeof(char) * 1024, urlenc);	// urlencをdstに連結.
 			j = j + 3;	// jを3増やす.
 		}
