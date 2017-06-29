@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.webbackforwardlist_;
+
+import android.webkit.WebChromeClient;
+
+public class CustomWebChromeClient extends WebChromeClient {
+
+}
