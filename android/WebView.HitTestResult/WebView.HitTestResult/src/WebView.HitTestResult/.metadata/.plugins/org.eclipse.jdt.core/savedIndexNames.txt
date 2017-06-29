@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\WebView.HitTestResult\WebView.HitTestResult\src\WebView.HitTestResult\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+1828044362.index
+818297799.index
+1520193880.index
