@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\View.OnLongClickListener\View.OnLongClickListener\src\View.OnLongClickListener\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+2755746640.index
+1741785372.index
+3927639690.index
