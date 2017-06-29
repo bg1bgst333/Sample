@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\WebHistoryItem\WebHistoryItem\src\WebHistoryItem\.metadata\.plugins\org.eclipse.jdt.core
+3615130330.index
+3218686169.index
+818297799.index
+2755746640.index
