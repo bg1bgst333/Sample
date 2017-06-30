@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\DownloadManager.Query\DownloadManager.Query\src\DownloadManager.Query\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+728712587.index
+2755746640.index
+2248436274.index

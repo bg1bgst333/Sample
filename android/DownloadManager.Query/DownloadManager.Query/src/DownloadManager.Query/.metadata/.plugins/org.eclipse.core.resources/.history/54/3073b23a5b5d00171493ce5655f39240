@@ -1,0 +1,5 @@
+package com.bgstation0.android.sample.downloadmanager.query_;
+
+public class DownloadReceiver {
+
+}
