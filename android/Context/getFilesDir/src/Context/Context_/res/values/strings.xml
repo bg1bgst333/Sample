@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Context_</string>
+	<string name="button_get_text">Get</string>
+	
+</resources>
