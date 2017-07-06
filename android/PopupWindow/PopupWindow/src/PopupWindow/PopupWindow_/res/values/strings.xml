@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PopupWindow_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="menu_always_text">Always</string>
+	<string name="menu_never_text">Never</string>
+	<string name="textview_popup_text">Popup</string>
+	<string name="show_popup_button_text">Show Popup</string>
+	
+</resources>
