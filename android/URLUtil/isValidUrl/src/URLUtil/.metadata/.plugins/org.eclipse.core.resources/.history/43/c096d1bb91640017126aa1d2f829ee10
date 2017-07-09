@@ -1,0 +1,56 @@
+package com.bgstation0.android.sample.urlutil_;
+
+import android.app.Activity;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends Activity implements OnClickListener{	// View.OnClickListenerを実装.
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // parsebuttonを取得し, OnClickListenerとして自身をセット.
+        Button parseButton = (Button)findViewById(R.id.parsebutton);	// parseButtonを取得.
+        parseButton.setOnClickListener(this);	// parseButton.setOnClickListenerでthisをセット.
+    }
+    
+    // View.OnClickListenerインタフェースのオーバーライドメソッドを実装.
+    public void onClick(View v){	// onClickをオーバーライド.
+    	
+    	// ボタンのidをごとに処理を振り分ける.
+    	switch (v.getId()) {	// v.getIdでView(Button)のidを取得.
+    		
+    		case R.id.parsebutton:	// R.id.parsebuttonの時.
+    			
+    			// parseButtonブロック
+				{
+					
+					// urlBarのurlを取得.
+    				EditText urlBar = (EditText)findViewById(R.id.urlbar);	// urlBarを取得.
+    				String url = urlBar.getText().toString();	// urlBar.getText().toString()でurlを取得.
+    				
+    				// urlをパース.
+    				Uri uri = Uri.parse(url);	// Uri.parseでurlをパースして, Uriオブジェクトuriに格納.
+    				
+    				// parseedittextにセット.
+    				EditText parseedittext = (EditText)findViewById(R.id.parseedittext);	// parseedittextを取得.
+    				parseedittext.setText(uri.getScheme());	// parseedittextにuri.getSchemeで取得したスキーマをセット.
+    				
+    				// 抜ける.
+    				break;	// breakで抜ける.
+    				
+				}
+				
+    	}
+    	
+    }
+    
+}

@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\URLUtil\isValidUrl\src\URLUtil\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+3259860726.index
+2755746640.index
+1422476989.index
