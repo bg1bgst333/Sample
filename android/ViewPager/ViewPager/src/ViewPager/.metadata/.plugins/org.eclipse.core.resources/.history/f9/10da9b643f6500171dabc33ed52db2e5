@@ -1,0 +1,54 @@
+package com.bgstation0.android.sample.viewpager_;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class CustomPagerAdapter extends PagerAdapter {
+
+	// メンバフィールドの定義.
+	private Context context = null;	// Context型contextをnullで初期化.
+	private List<PageItem> list = null;	// List<PageItem>インスタンスlistをnullで初期化.
+	
+	// コンストラクタ
+	public CustomPagerAdapter(Context context){
+		
+		// メンバにセット.
+		this.context = context;	// 引数contextをメンバthis.contextにセット.
+		this.list = new ArrayList<PageItem>();	// ArrayListオブジェクトをlistにセット.
+		
+	}
+	
+	// 追加.
+	public void add(PageItem item){
+		list.add(item);	// list.addでitemを追加.
+	}
+	
+	@Override
+	public Object instantiateItem(ViewGroup container, int position){
+		
+		// itemを取得..
+		PageItem item = list.get(position);	// this.get(position)でitemを取得.
+		
+		// viewの生成と追加.
+		
+		
+	}
+	
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean isViewFromObject(View arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
