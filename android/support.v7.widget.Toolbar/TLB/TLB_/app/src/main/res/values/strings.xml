@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TLB_</string>
+    <string name="anchor_text">Anchor</string>
+    <string name="toolbar_title_text">support.v7.widget.Toolbar</string>
+</resources>
