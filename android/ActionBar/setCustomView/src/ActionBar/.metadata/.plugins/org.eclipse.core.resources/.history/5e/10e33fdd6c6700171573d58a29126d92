@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/menu_always"
+        android:title="@string/menu_always_text"
+        android:icon="@drawable/ic_launcher"
+        android:orderInCategory="101"
+        android:actionLayout="@layout/action_layout"
+        android:showAsAction="always" />
+    <item
+        android:id="@+id/menu_never"
+        android:title="@string/menu_never_text"
+        android:orderInCategory="102"
+        android:showAsAction="never" />
+</menu>
