@@ -6,7 +6,7 @@
 // 既定のヘッダ
 #include <string> // std::string
 // 独自のヘッダ
-#include "mediator.h" // interface_member
+#include "mediator.h" // interface_mediator
 
 // 前方宣言
 class interface_mediator;
