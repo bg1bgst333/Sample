@@ -14,7 +14,7 @@ class class_staff : public interface_member{
   private:
 
     // 非公開メンバ変数
-    interface_observer *observer_; // オブザーバーobserver.
+    interface_observer *observer_; // オブザーバーobserver_.
     std::string name_; // 名前name_.
     int value_; // 値value.
 
