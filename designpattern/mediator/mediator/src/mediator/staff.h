@@ -29,7 +29,7 @@ class class_staff : public interface_member{
     virtual void set_name(std::string name); // メンバ関数set_name
     virtual std::string get_name(); // メンバ関数get_name
     virtual void set_value(int value); // メンバ関数set_value
-    virtual void changed(interface_member *member); // メンバ関数changed
+    virtual int get_value(); // メンバ関数get_value
 
 };
 

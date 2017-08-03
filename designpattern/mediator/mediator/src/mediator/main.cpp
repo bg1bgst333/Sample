@@ -1,4 +1,6 @@
 // ヘッダのインクルード
+// 既定のヘッダ
+#include <iostream> // C++標準入出力.
 // 独自のヘッダ
 #include "manager.h" // class_manager
 #include "staff.h" // class_staff
@@ -23,10 +25,21 @@ int main(){
   staff3->set_mediator(manager); // staff3->set_mediatorでmanagerをセット.
   manager->add(staff3); // manager->addでstaff3を追加.
 
-  // 値のセット.
-  staff1->set_value(10); // staff1->set_valueで10をセット.
-  staff2->set_value(20); // staff2->set_valueで20をセット.
-  staff3->set_value(30); // staff3->set_valueで30をセット.
+  // 値の設定と取得.
+  // 全て0にセット.
+  staff1->set_value(0); // staff1->set_valueで0をセット.
+  staff2->set_value(0); // staff2->set_valueで0をセット.
+  staff3->set_value(0); // staff3->set_valueで0をセット.
+  std::cout << staff1->get_value() << ", " << staff2->get_value() << ", " << staff3->get_value() <<std::endl; // staff1〜staff3の値を出力.
+  // staff1に1をセット.
+  staff1->set_value(1); // staff1->set_valueで1をセット.
+  std::cout << staff1->get_value() << ", " << staff2->get_value() << ", " << staff3->get_value() <<std::endl; // staff1〜staff3の値を出力.
+  // staff2に1をセット.
+  staff2->set_value(1); // staff2->set_valueで1をセット.
+  std::cout << staff1->get_value() << ", " << staff2->get_value() << ", " << staff3->get_value() <<std::endl; // staff1〜staff3の値を出力.
+  // staff3に1をセット.
+  staff3->set_value(1); // staff3->set_valueで1をセット.
+  std::cout << staff1->get_value() << ", " << staff2->get_value() << ", " << staff3->get_value() <<std::endl; // staff1〜staff3の値を出力.
 
   // スタッフの破棄.
   delete staff1; // deleteでstaff1を破棄.

@@ -43,10 +43,10 @@ void class_staff::set_value(int value){
 
 }
 
-// メンバ関数changed
-void class_staff::changed(interface_member *member){
+// メンバ関数get_value
+int class_staff::get_value(){
 
-  // 変更されたメンバーを出力.
-  std::cout << name_ << ": " << member->get_name() << " changed!" << std::endl; // name_とmember->get_nameを出力.
+  // 値を返す.
+  return value_; // value_を返す.
 
-}
+} 

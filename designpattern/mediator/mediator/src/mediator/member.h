@@ -26,7 +26,7 @@ class interface_member{
     virtual void set_name(std::string name) = 0; // 純粋仮想関数set_name
     virtual std::string get_name() = 0; // 純粋仮想関数get_name
     virtual void set_value(int value) = 0; // 純粋仮想関数set_value
-    virtual void changed(interface_member *member) = 0; // 純粋仮想関数changed
+    virtual int get_value() = 0; // 純粋仮想関数get_value
 
 };
 
