@@ -31,7 +31,7 @@ int main(void){
   fclose(fp); /* fcloseでfpを閉じる. */
 
   /* 変換ディスクリプタの取得. */
-  iconv_dsc = iconv_open("utf-8", "Shift_JIS"); /* iconv_openで"utf-8"から"Shift_JIS"への変換ディスクリプタを取得. */
+  iconv_dsc = iconv_open("Shift_JIS", "utf-8"); /* iconv_openで"utf-8"から"Shift_JIS"への変換ディスクリプタを取得. */
   if (iconv_dsc == (iconv_t)-1){ /* -1なら. */
     printf("iconv_open error!\n"); /* "iconv_open error!"を出力.
     return -2; /* -2を返して異常終了. */
