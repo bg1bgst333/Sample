@@ -1,0 +1,28 @@
+// IUnknown_.idl
+import "unknwn.idl";
+// IUnknown_インターフェイス
+[
+	object,
+	uuid(1372AE9E-5193-44f8-8111-2331E593BEF4)
+]
+interface IUnknown_ : IUnknown	// インターフェイス宣言
+{
+	HRESULT Method(void);
+};
+[
+	uuid(5DA47D3A-1EAF-4453-8A99-2F47C022A542),
+	version(1.0)
+]
+// UnknownLibタイプライブラリ
+library UnknownLib	// ライブラリ宣言
+{
+	importlib("stdole32.tlb");
+	[
+		uuid(94C0873F-A3E3-4d48-AECB-5B58DBED45FF)
+	]
+	coclass CUnknown
+	{
+		[default]
+		interface IUnknown_;
+	};
+};
