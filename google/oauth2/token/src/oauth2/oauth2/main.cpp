@@ -1,7 +1,9 @@
 // ヘッダのインクルード
 // 既定のヘッダ
 #include <tchar.h>			// TCHAR型
+#include <stdio.h>			// C標準入出力
 #include <iostream>			// C++標準入出力
+#include <string>			// std::string
 #include <winsock2.h>		// Windowsソケット
 #include <ws2tcpip.h>		// WinSock2 TCP/IP
 #include <openssl/bio.h>	// BIO 
@@ -35,6 +37,15 @@ int _tmain() {
 	int written = 0;	// SSL_writeでの書き込みに成功した長さwritten.
 	char response_buf[1024] = { 0 };	// char型配列response_buf(要素数1024)を0で初期化.
 	int response_len = 0;	// SSL_readで読み込んだ長さを格納するresponse_lenを0で初期化.
+	tstring code;	// tstring型code.
+	tstring body_tstr;	// ボディ文字列body_tstr.
+	char body_str[1024] = { 0 };	// char型配列body_str(要素数1024)を0で初期化.
+	int content_length = 0;	// int型content_lengthを0で初期化.
+	TCHAR content_length_tstr[32] = { 0 };	// TCHAR型配列content_length_tstr(長さ32)を0で初期化.
+
+	// 入力されたcodeを格納.
+	std::wcout << _T("code: ");	// "code: ".
+	std::wcin >> code;	// codeに格納.
 
 	// WinSockの初期化.
 	iRet = WSAStartup(MAKEWORD(2, 2), &wsaData);	// WSAStartupでWinSockの初期化.
@@ -146,6 +157,35 @@ int _tmain() {
 		return -6;	// -6を返す.
 
 	}
+
+	// POSTボディの作成.
+	body_tstr = body_tstr + _T("client_id=");	// body_tstrに"client_id="を格納.
+	body_tstr = body_tstr + CLIENT_ID;	// body_tstrにCLIENT_IDを連結.
+	body_tstr = body_tstr + _T("&client_secret=");	// body_tstrに"&client_secret="を連結.
+	body_tstr = body_tstr + CLIENT_SECRET;	// body_tstrにCLIENT_SECRETを連結.
+	body_tstr = body_tstr + _T("&code=");	// body_tstrに"&code="を連結.
+	body_tstr = body_tstr + code;	// body_tstrにcodeを連結.
+	body_tstr = body_tstr + _T("&redirect_uri=");	// body_tstrに"&redirect_uri="を連結.
+	body_tstr = body_tstr + REDIRECT_URI;	// body_tstrにREDIRECT_URIを連結.
+	body_tstr = body_tstr + _T("&grant_type=");	// body_tstrに"&grant_type="を連結.
+	body_tstr = body_tstr + _T("authorization_code");	// body_tstrに"authorization_code"を連結.
+
+	// POSTボディの文字コード変換(実際には長さだけわかればcontent_lengthを指定できる.)
+	len = WideCharToMultiByte(CP_UTF8, 0, body_tstr.c_str(), -1, NULL, 0, NULL, NULL);	// マルチバイトに変換するためのサイズを取得.
+	content_length = len - 1;	// content_lengthはlen - 1.
+	_stprintf_s(content_length_tstr, _T("%d"), content_length);	// content_lengthをcontent_length_tstrに変換.
+
+	// リクエストの作成.
+	request_tstr = _T("POST /o/oauth2/token HTTP/1.0");	// request_tstrに"POST /o/oauth2/token HTTP/1.0"を格納.
+	request_tstr = request_tstr + _T("\r\n");	// 改行
+	request_tstr = request_tstr + _T("Host: accounts.google.com");	// request_tstrに"Host: accounts.google.com"を連結.
+	request_tstr = request_tstr + _T("\r\n");	// 改行
+	request_tstr = request_tstr + _T("Content-Type: application/x-www-form-urlencoded");	// request_tstrに"Content-Type: application/x-www-form-urlencoded"を連結.
+	request_tstr = request_tstr + _T("\r\n");	// 改行
+	request_tstr = request_tstr + _T("Content-Length: ");	// request_tstrに"Content-Length: "を連結.
+	request_tstr = request_tstr + content_length_tstr;	// request_tstrにcontent_length_tstrを連結.
+	request_tstr = request_tstr + _T("\r\n\r\n");	// 空行
+	request_tstr = request_tstr + body_tstr;	// request_tstrにbody_tstrを連結.
 
 	// request_tstrの文字コード変換(Unicode => utf-8)
 	len = WideCharToMultiByte(CP_UTF8, 0, request_tstr.c_str(), -1, NULL, 0, NULL, NULL);	// マルチバイトに変換するためのサイズを取得.
