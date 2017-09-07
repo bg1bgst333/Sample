@@ -18,6 +18,9 @@
 #define tstring std::string
 #endif
 
+// 関数のプロトタイプ宣言
+void urlencode(char dst[], const char src[], int src_len);	// URLエンコード.
+
 // _tmain関数の定義
 int _tmain() {
 
@@ -35,6 +38,9 @@ int _tmain() {
 	int written = 0;	// SSL_writeでの書き込みに成功した長さwritten.
 	char response_buf[1024] = { 0 };	// char型配列response_buf(要素数1024)を0で初期化.
 	int response_len = 0;	// SSL_readで読み込んだ長さを格納するresponse_lenを0で初期化.
+	char redirect_uri[1024] = { 0 };	// char型リダイレクトURI utf-8文字列を0で初期化.
+	char urlencoded_redirect_uri[1024] = { 0 };	// URLエンコード済みのリダイレクトURI utf-8文字列を0で初期化.
+	TCHAR urlencoded_redirect_uri_tstr[1024] = { 0 };	// URLエンコード済みのリダイレクトURI TCHAR文字列を0で初期化.
 
 	// WinSockの初期化.
 	iRet = WSAStartup(MAKEWORD(2, 2), &wsaData);	// WSAStartupでWinSockの初期化.
@@ -147,7 +153,32 @@ int _tmain() {
 
 	}
 
+	// 文字コード変換とURLエンコード
+	len = WideCharToMultiByte(CP_UTF8, 0, REDIRECT_URI, -1, NULL, 0, NULL, NULL);	// マルチバイトに変換するためのサイズを取得.
+	WideCharToMultiByte(CP_UTF8, 0, REDIRECT_URI, -1, redirect_uri, len, NULL, NULL);	// マルチバイトに変換.
+	urlencode(urlencoded_redirect_uri, redirect_uri, len - 1);	// 自作関数urlencodeでredirect_uriをURLエンコード.
+	len = MultiByteToWideChar(CP_UTF8, 0, urlencoded_redirect_uri, -1, NULL, 0);	// ワイド文字に変換するためのサイズ取得.
+	MultiByteToWideChar(CP_UTF8, 0, urlencoded_redirect_uri, -1, urlencoded_redirect_uri_tstr, len);	// ワイド文字に変換.
+
 	// GETリクエスト文字列の作成.
+	request_tstr = _T("GET /o/oauth2/auth?client_id=");	// request_tstrに"GET /o/oauth2/auth?client_id="を格納.
+	request_tstr = request_tstr + CLIENT_ID;	// request_tstrにCLIENT_IDを連結.
+	request_tstr = request_tstr + _T("&redirect_uri=");	// request_tstrに"&redirect_uri="を連結.
+	request_tstr = request_tstr + urlencoded_redirect_uri_tstr;	// request_tstrにurlencoded_redirect_uri_tstrを連結.
+	request_tstr = request_tstr + _T("&response_type=");	// request_tstrに"&response_type="を連結.
+	request_tstr = request_tstr + _T("code");	// request_tstrに"code"を連結.
+	request_tstr = request_tstr + _T("&scope=");	// request_tstrに"&scope="を連結.
+	request_tstr = request_tstr + SCOPE;	// request_tstrにSCOPEを連結.]
+	request_tstr = request_tstr + _T("&approval_prompt=");	// request_tstrに"&approval_prompt="を連結.
+	request_tstr = request_tstr + _T("force");	// request_tstrに"force"を連結.
+	request_tstr = request_tstr + _T("&access_type=");	// request_tstrに"&access_type="を連結.
+	request_tstr = request_tstr + _T("offline");	// request_tstrに"offline"を連結.
+	request_tstr = request_tstr + _T(" HTTP/1.0");	// request_tstrに" HTTP/1.0"を連結.(1.1だとなぜかBadRequestになる.)
+	request_tstr = request_tstr + _T("\r\n");	// 改行
+	request_tstr = request_tstr + _T("Host: accounts.google.com");	// request_tstrに"Host: accounts.google.com"を連結.
+	request_tstr = request_tstr + _T("\r\n");	// 改行
+	request_tstr = request_tstr + _T("User-Agent: bgst1yt1test");	// request_tstrに"User-Agent: bgst1yt1test"を連結.
+	request_tstr = request_tstr + _T("\r\n\r\n");	// 空行
 
 	// request_tstrの文字コード変換(Unicode => utf-8)
 	len = WideCharToMultiByte(CP_UTF8, 0, request_tstr.c_str(), -1, NULL, 0, NULL, NULL);	// マルチバイトに変換するためのサイズを取得.
@@ -189,5 +220,38 @@ int _tmain() {
 
 	// プログラムの終了
 	return 0;	// 0を返す.
+
+}
+
+// URLエンコード.
+void urlencode(char dst[], const char src[], int src_len) {
+
+	// 変数の宣言.
+	int i = 0;	// ループ用変数iを0で初期化.
+	int j = 0;	// 格納先の位置変数jを0で初期化.
+	char c;	// 取り出した文字c.
+	char urlenc[4];	// 変換済み文字列urlenc.
+	char buf[1024] = { 0 };	// 一時バッファを0で初期化.
+
+	// srcをbufにコピー.(srcは維持されてるとは限らないので.)
+	strcpy_s(buf, sizeof(char) * 1024, src);	// strcpy_sでsrcをbufにコピー.
+
+	// URLエンコード処理.
+	for (i = 0; i < src_len; i++) {	// lenの数だけ繰り返す.
+		c = buf[i];	// bufのi番目をcに格納.
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '-' || c == '_' || c == '.' || c == '~') {	// アルファベット, 数字, ハイフン, アンダースコア, ドット, チルダなら.
+			dst[j] = c;	// dst[j]にcを格納.
+			dst[j + 1] = '\0';	// dst[j + 1]に'\0'を格納.
+			j++;	// jを1増やす.
+		}
+		else {
+			snprintf(urlenc, sizeof(urlenc), "%%%02x", c & 0xff);	// cを"%xx"形式にしてurlencに格納.
+			for (int k = 0; k < 3; k++) {
+				urlenc[k] = toupper(urlenc[k]);
+			}
+			strcat_s(dst, sizeof(char) * 1024, urlenc);	// urlencをdstに連結.
+			j = j + 3;	// jを3増やす.
+		}
+	}
 
 }
