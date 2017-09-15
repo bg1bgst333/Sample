@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Project\\Cloud\\github.com\\Sample\\gcm\\GoogleCloudMessaging\\GCM\\GCM_\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\bg1\\.android\\build-cache\\a4409afb0fd661794b2be37584cb9291ab4bf6b0\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Project\\Cloud\\github.com\\Sample\\gcm\\GoogleCloudMessaging\\GCM\\GCM_\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\bg1\\.android\\build-cache\\a4409afb0fd661794b2be37584cb9291ab4bf6b0\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Project\\Cloud\\github.com\\Sample\\gcm\\GoogleCloudMessaging\\GCM\\GCM_\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\place_autocomplete_fragment.xml",
+        "source": "C:\\Users\\bg1\\.android\\build-cache\\c9549ea3018e176cbb282fff54063982cec0ab06\\output\\res\\layout-v21\\place_autocomplete_fragment.xml"
+    },
+    {
+        "merged": "C:\\Project\\Cloud\\github.com\\Sample\\gcm\\GoogleCloudMessaging\\GCM\\GCM_\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\bg1\\.android\\build-cache\\a4409afb0fd661794b2be37584cb9291ab4bf6b0\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Project\\Cloud\\github.com\\Sample\\gcm\\GoogleCloudMessaging\\GCM\\GCM_\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\bg1\\.android\\build-cache\\a4409afb0fd661794b2be37584cb9291ab4bf6b0\\output\\res\\layout-v21\\notification_action.xml"
+    }
+]
