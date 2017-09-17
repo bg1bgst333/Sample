@@ -1,0 +1,27 @@
+#Internal package file, do not edit.
+#Sun Sep 17 19:46:14 JST 2017
+2.base=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_
+5.file=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-xxhdpi-v4\\ic_launcher.png
+5.set=ANDROID_RESOURCE
+3.base=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_
+6.file=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_\\AndroidManifest.xml
+2.set=ANDROID_RESOURCE
+4.base=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_
+7.file=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\activity_main.xml
+7.set=ANDROID_RESOURCE
+count=8
+0.file=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\ic_launcher.png
+5.base=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_
+4.set=ANDROID_RESOURCE
+6.base=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_
+1.file=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-mdpi-v4\\ic_launcher.png
+1.set=ANDROID_RESOURCE
+7.base=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_
+2.file=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
+6.set=ANDROID_RESOURCE
+0.base=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_
+3.file=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-xhdpi-v4\\ic_launcher.png
+3.set=ANDROID_RESOURCE
+1.base=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_
+4.file=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-xxxhdpi-v4\\ic_launcher.png
+0.set=ANDROID_RESOURCE

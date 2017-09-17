@@ -1,0 +1,51 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:2:1-20:12
+	package
+		ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:3:5-45
+		INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml
+application
+ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:5:5-18:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha9] C:\Users\bg1\.android\build-cache\8e59dff95717412107a20af1148455a20e804c1d\output\AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:9:9-35
+	android:allowBackup
+		ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:10:9-40
+activity#com.bgstation0.ndk.sample.ntv_.MainActivity
+ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:11:9-17:20
+	android:name
+		ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:11:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:12:13-16:29
+action#android.intent.action.MAIN
+ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:13:17-69
+	android:name
+		ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:13:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:15:17-77
+	android:name
+		ADDED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml:15:27-74
+uses-sdk
+INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha9] C:\Users\bg1\.android\build-cache\8e59dff95717412107a20af1148455a20e804c1d\output\AndroidManifest.xml:5:5-7:41
+	android:targetSdkVersion
+		INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\AndroidManifest.xml
