@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DDX_CBString", "DDX_CBString\DDX_CBString.vcproj", "{FAF9A399-A9A5-4915-9F05-E16EEF71398C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAF9A399-A9A5-4915-9F05-E16EEF71398C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FAF9A399-A9A5-4915-9F05-E16EEF71398C}.Debug|Win32.Build.0 = Debug|Win32
+		{FAF9A399-A9A5-4915-9F05-E16EEF71398C}.Release|Win32.ActiveCfg = Release|Win32
+		{FAF9A399-A9A5-4915-9F05-E16EEF71398C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
