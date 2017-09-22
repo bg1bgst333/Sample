@@ -23,3 +23,27 @@ void class_view::notify(){
   observer_->changed();
 
 }
+
+// メンバ関数set_subject
+void class_view::set_subject(interface_subject *subject){
+
+  // メンバにセット.
+  subject_ = subject; // subject_にsubjectをセット.
+
+}
+
+// メンバ関数changed
+void class_view::changed(){
+
+  // changedが呼ばれた.
+  std::cout << "class_view::changed()" << std::endl; // "class_view::changed()"と出力.
+
+}
+
+// メンバ関数set_model
+void class_view::set_model(class_model *model){
+
+  // 引数のmodelが自身(this)をオブザーバーとする.
+  model->set_observer(this); // model->set_observerにthisを指定することで, 自身がこのmodelのオブザーバーになる.
+
+}

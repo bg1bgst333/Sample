@@ -5,15 +5,17 @@
 // 独自のヘッダ
 #include "subject.h" // interface_subject
 #include "observer.h" // interface_observer
+#include "model.h" // class_model
 
 // クラスclass_view
-class class_view : public interface_subject{
+class class_view : public interface_subject, interface_observer{
 
   // 非公開メンバ
   private:
 
     // 非公開メンバ変数
     interface_observer *observer_; // interface_observerポインタobserver_.
+    interface_subject *subject_; // interface_subjectポインタsubject_.
 
   // 公開メンバ
   public:
@@ -25,6 +27,9 @@ class class_view : public interface_subject{
     // メンバ関数
     virtual void set_observer(interface_observer *observer); // メンバ関数set_observer
     virtual void notify(); // メンバ関数notify
+    virtual void set_subject(interface_subject *subject); // メンバ関数set_subject
+    virtual void changed(); // メンバ関数changed
+    virtual void set_model(class_model *model); // メンバ関数set_model
 
 };
 
