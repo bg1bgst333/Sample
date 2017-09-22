@@ -5,6 +5,7 @@
 // 独自のヘッダ
 #include "observer.h" // interface_observer
 #include "subject.h" // interface_subject
+#include "view.h" // class_view
 
 // クラスclass_controller
 class class_controller : public interface_observer{
@@ -25,6 +26,7 @@ class class_controller : public interface_observer{
     // メンバ関数
     virtual void set_subject(interface_subject *subject); // メンバ関数set_subject
     virtual void changed(); // メンバ関数changed
+    virtual void set_view(class_view *view); // メンバ関数set_view
 
 };
 

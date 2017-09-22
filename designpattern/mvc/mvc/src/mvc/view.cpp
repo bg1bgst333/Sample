@@ -1,3 +1,5 @@
+// 既定のヘッダ
+#include <iostream> // C++標準入出力
 // 独自のヘッダ
 #include "view.h" // class_view
 
@@ -7,6 +9,7 @@ void class_view::set_observer(interface_observer *observer){
 
   // メンバにセット.
   observer_ = observer; // observer_にobserverをセット.
+  observer_->set_subject(this); // observer_->set_subjectで自身(this)をセットすることでobserver_のサブジェクトになる.
 
 }
 
