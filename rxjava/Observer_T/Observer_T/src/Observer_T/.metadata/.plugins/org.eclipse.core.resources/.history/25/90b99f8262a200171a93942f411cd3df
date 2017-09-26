@@ -1,0 +1,12 @@
+// メインクラス
+class MainClass {	// MainClassクラスの定義
+
+	// Javaのエントリポイント
+	public static void main(String[] args) {	// mainメソッドの定義
+
+		// System.out.println
+		System.out.println("XYZ");	// System.out.printlnで"XYZ"を出力.
+				
+	}
+	
+}

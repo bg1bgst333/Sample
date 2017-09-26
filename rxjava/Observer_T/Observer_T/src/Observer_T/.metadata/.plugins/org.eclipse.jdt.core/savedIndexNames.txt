@@ -1,0 +1,21 @@
+INDEX VERSION 1.127+C:\Project\Cloud\github.com\Sample\rxjava\Observer_T\Observer_T\src\Observer_T\.metadata\.plugins\org.eclipse.jdt.core
+553364872.index
+2193227102.index
+3067927673.index
+1042797106.index
+1239522132.index
+1565494055.index
+3036786975.index
+2965160307.index
+3566955998.index
+203435433.index
+923560766.index
+3121602516.index
+835056980.index
+2746820154.index
+2775763009.index
+3313903853.index
+1322577249.index
+4006707065.index
+3132299246.index
+1524046895.index

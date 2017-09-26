@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_60" class="java.beans.XMLDecoder">
+ <object class="zigen.plugin.db.ui.internal.BookmarkRoot">
+  <void property="level">
+   <int>1</int>
+  </void>
+  <void property="name">
+   <string>お気に入り</string>
+  </void>
+ </object>
+</java>

@@ -1,0 +1,18 @@
+// インポート
+import rx.Observable;	// オブザーバブル
+
+// メインクラス
+class MainClass {	// MainClassクラスの定義
+
+	// Javaのエントリポイント
+	public static void main(String[] args) {	// mainメソッドの定義
+
+		// String配列
+		String[] sarray = {"ABC", "XYZ"};	// sarrayを定義.
+
+		// オブザーバブルの生成.
+		Observable observable = Observable.from(sarray);
+
+	}
+
+}

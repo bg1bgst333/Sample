@@ -1,0 +1,25 @@
+// インポート
+import java.util.ArrayList;
+import java.util.List;
+
+import rx.Observable;	// オブザーバブル
+
+// カスタムオブザーバブル
+public class CustomObservable extends Observable<String> {
+
+	// オブザーバーリスト
+    private List<CustomObserver> observers = new ArrayList<CustomObserver>();  // observersを生成.
+	protected CustomObservable(rx.Observable.OnSubscribe<String> f) {
+		super(f);
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
+	// 実行メソッド.
+	public void Execute(String value){
+		for (CustomObserver o : observers){
+			o.onNext(value);
+		}
+		CustomObservable o = new CustomObservable();
+		
+	}
+}

@@ -1,0 +1,9 @@
+#Tue Jun 01 20:47:55 JST 2010
+org.eclipse.php.debug.coreinstalledPHPInis=C:/pleiades-e4.5-java-jre_20151002/pleiades/xampp/php/php.ini
+org.eclipse.php.debug.coreinstalledPHPDebuggers=org.eclipse.php.debug.core.xdebugDebugger
+org.eclipse.php.debug.coreinstalledPHPDefaults=org.eclipse.php.debug.core.xdebugDebugger\=PHP 5.3.1 (CLI)
+eclipse.preferences.version=1
+org.eclipse.php.debug.coreinstalledPHPLocations=C:/pleiades-e4.5-java-jre_20151002/pleiades/xampp/php/php.exe
+org.eclipse.php.debug.corephp_versions=null
+org.eclipse.php.debug.coreinstalledPHPNames=PHP 5.3.1 (CLI)
+org.eclipse.php.debug.corephp_debugger_id=org.eclipse.php.debug.core.xdebugDebugger

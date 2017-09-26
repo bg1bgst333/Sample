@@ -1,0 +1,5 @@
+import rx.Observable;
+
+public class CustomObservable extends Observable<T> {
+
+}

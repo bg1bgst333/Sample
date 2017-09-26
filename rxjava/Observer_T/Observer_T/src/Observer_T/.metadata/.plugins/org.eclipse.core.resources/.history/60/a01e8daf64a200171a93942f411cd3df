@@ -1,0 +1,24 @@
+// パッケージのインポート
+
+// カスタムオブザーバー
+public class CustomObserver implements rx.Observer<String>{
+
+	@Override
+	public void onCompleted() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public void onError(Throwable arg0) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public void onNext(String arg0) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}
