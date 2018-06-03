@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal
+    
+    <EditText android:id="@+id/search_edittext"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+    <SearchView android:id="@+id/search_searchview"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false" />
+      "
+	<Button android:id="@+id/search_close_button"
+	    android:layout_width="100dp"
+	    android:layout_height="wrap_content"
+	    android:text="@string/search_close_button_text"/>
+	
+</LinearLayout>
