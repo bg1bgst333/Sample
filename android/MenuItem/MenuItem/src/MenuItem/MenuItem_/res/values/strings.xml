@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MenuItem_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="menu1_text">Menu1</string>
+    <string name="menu2_text">Menu2</string>
+    <string name="menu3_text">Menu3</string>
+    
+</resources>
