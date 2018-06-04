@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Spinner\setDropDownViewResource\src\Spinner\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+818297799.index
+3768627782.index
+1064291222.index
