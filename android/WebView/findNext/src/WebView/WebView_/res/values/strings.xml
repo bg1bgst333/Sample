@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WebView_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="menu_item_url_layout_text">URL</string>
+	<string name="button_up_text">↑</string>
+	<string name="button_down_text">↓</string>
+	
+</resources>
