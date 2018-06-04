@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item
+        android:id="@+id/menu_item_url_layout"
+        android:title="@string/menu_item_url_layout_text"
+        android:orderInCategory="101"
+        android:icon="@drawable/ic_launcher"
+        android:showAsAction="always"
+        android:actionLayout="@layout/layout_menu_item_url">
+	</item>
+</menu>

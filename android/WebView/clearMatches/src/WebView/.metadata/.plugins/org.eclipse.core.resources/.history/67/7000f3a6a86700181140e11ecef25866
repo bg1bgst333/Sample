@@ -1,0 +1,74 @@
+package com.bgstation0.android.sample.webview_;
+
+import android.app.ActionBar;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
+import android.webkit.WebView;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
+
+public class MainActivity extends Activity implements OnEditorActionListener{
+
+	// メンバフィールドの定義.
+	Context mContext = null;	// mContextをnullに初期化.
+		
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mContext = this;	// mContextにthisをセット.
+        
+        // WebViewの初期設定.
+        WebView webView = (WebView)findViewById(R.id.webview);	// webViewを取得.
+        CustomWebViewClient customWVC = new CustomWebViewClient(this);	// CustomWebViewClientオブジェクトcustomWVCを作成.
+        webView.setWebViewClient(customWVC);	// webView.setWebViewClientでcustomWVCをセット.
+        
+    }
+    
+    // メニューが作成された時.
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+    	
+    	// メニューの作成
+    	getMenuInflater().inflate(R.menu.main, menu);	// getMenuInflaterでMenuItemを取得し, そのままinflateで指定されたR.menu.mainを元にmenuを作成.
+    	ActionBar actionBar = getActionBar();	// getActionBarでactionBarを取得.
+    	actionBar.setDisplayShowTitleEnabled(false);	// actionBar.setDisplayShowTitleEnabledをfalseにしてタイトルを非表示.
+    	actionBar.setDisplayShowHomeEnabled(false);	// actionBar.setDisplayShowHomeEnabledをfalseにしてアイコンも非表示.
+    	
+    	// URLバーの初期設定.
+    	MenuItem menuItemUrlBar = menu.findItem(R.id.menu_item_url_layout);	// menuItemUrlBarの取得.
+    	LinearLayout urlLayout = (LinearLayout)menuItemUrlBar.getActionView();	// urlLayout取得.
+        EditText urlbar = (EditText)urlLayout.findViewById(R.id.urlbar);	// urlbarを取得.
+        urlbar.setOnEditorActionListener(this);	// thisをセット.
+        
+    	return true;
+    	
+    }
+    
+    @Override
+	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+		// TODO Auto-generated method stub
+		
+		// Enterキー(Done)が押された時.
+		if (actionId == EditorInfo.IME_ACTION_DONE){	// IME_ACTION_DONEの時.
+			
+			// ロード.
+			WebView webView = (WebView)findViewById(R.id.webview);	// webviewの取得.
+			webView.loadUrl(v.getText().toString());	// v.getTextで取得したテキストを使って, webView.loadUrlでロード.
+			return true;	// trueを返す.
+		
+		}
+		
+		// false.
+		return false;	// falseを返す.
+		
+	}
+    
+}
