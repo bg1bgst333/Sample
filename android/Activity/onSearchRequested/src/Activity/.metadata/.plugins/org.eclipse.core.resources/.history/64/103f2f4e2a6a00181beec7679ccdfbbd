@@ -1,0 +1,42 @@
+package com.bgstation0.android.sample.activity_;
+
+import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        
+    	super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    
+        // システム共通の検索ダイアログを表示.
+        startSearch("ABC", false, null, false);	// startSearchで検索.(ローカル検索)
+        
+    }
+    
+    @Override
+    protected void onNewIntent(Intent intent){
+    	
+    	super.onNewIntent(intent);
+    	
+    	// 検索クエリの取得.
+        if (intent != null){	// intentがnullでない時.
+        	String action = intent.getAction();	// actionを取得.
+        	if (action != null){	// actionがnullでない時.
+        		if (action.equals(Intent.ACTION_SEARCH)){	// actionがIntent.ACTION_SEARCHの時.
+        			String query = intent.getStringExtra(SearchManager.QUERY);	// queryを取得.
+        			Toast.makeText(this, query, Toast.LENGTH_LONG).show();	// queryを表示.
+        		}
+        	}
+        }
+    	
+    }
+    
+}
