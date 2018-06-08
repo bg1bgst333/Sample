@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\SearchManager\getSearchableInfo\src\SearchManager\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+2755746640.index
+2601288711.index
+2602479482.index
