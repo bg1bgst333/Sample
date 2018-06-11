@@ -1,0 +1,81 @@
+package com.bgstation0.android.sample.contentprovider_;
+
+import android.content.ContentProvider;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.widget.Toast;
+
+public class CustomContentProvider extends ContentProvider {
+
+	// メンバフィールドの定義.
+	Context mContext = null;	// mContextをnullで初期化.
+	
+	// コンストラクタ
+	CustomContentProvider(Context context){
+		// 初期化.
+		mContext = context;	// mContextにcontextを格納.
+		// 表示.
+		Toast.makeText(mContext, "CustomContentProvider", Toast.LENGTH_LONG).show();	// "CustomContentProvider"を出力.
+	}
+	
+	// 作成された時.
+	@Override
+	public boolean onCreate() {
+		// TODO Auto-generated method stub
+		// 表示.
+		Toast.makeText(mContext, "onCreate", Toast.LENGTH_LONG).show();	// "onCreate"を出力.
+		//return false;
+		return true;	// trueを返す.
+	}
+
+	// 問い合わせ時.
+	@Override
+	public Cursor query(Uri uri, String[] projection, String selection,
+			String[] selectionArgs, String sortOrder) {
+		// TODO Auto-generated method stub
+		// 表示.
+		Toast.makeText(mContext, "query", Toast.LENGTH_LONG).show();	// "query"を出力.
+		return null;
+	}
+
+	// 型の取得時.
+	@Override
+	public String getType(Uri uri) {
+		// TODO Auto-generated method stub
+		// 表示.
+		Toast.makeText(mContext, "getType", Toast.LENGTH_LONG).show();	// "getType"を出力.
+		return null;
+	}
+
+	// 挿入する時.
+	@Override
+	public Uri insert(Uri uri, ContentValues values) {
+		// TODO Auto-generated method stub
+		// 表示.
+		Toast.makeText(mContext, "insert", Toast.LENGTH_LONG).show();	// "insert"を出力.		
+		return null;
+	}
+
+	// 削除する時.
+	@Override
+	public int delete(Uri uri, String selection, String[] selectionArgs) {
+		// TODO Auto-generated method stub
+		// 表示.
+		Toast.makeText(mContext, "delete", Toast.LENGTH_LONG).show();	// "delete"を出力.
+		//return 0;
+		return -1;	// -1を返す.
+	}
+
+	// 更新する時.
+	@Override
+	public int update(Uri uri, ContentValues values, String selection,
+			String[] selectionArgs) {
+		// TODO Auto-generated method stub
+		// 表示.
+		Toast.makeText(mContext, "update", Toast.LENGTH_LONG).show();	// "update"を出力.
+		return 0;
+	}
+
+}
