@@ -1,0 +1,134 @@
+package com.bgstation0.android.sample.searchableinfo_;
+
+import android.app.SearchManager;
+import android.content.ContentProvider;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
+import android.provider.BaseColumns;
+import android.util.Log;
+
+public class CustomContentProvider extends ContentProvider {
+
+	// 内部スタティッククラスとしてCustomDBHelperを定義.
+	private static class CustomDBHelper extends SQLiteOpenHelper{
+		
+		// メンバフィールドの定義.
+		private static final String CREATE_TABLE = "create table custom ( " + BaseColumns._ID +  " integer primary key, " + SearchManager.SUGGEST_COLUMN_TEXT_1 + " string, " + SearchManager.SUGGEST_COLUMN_QUERY + " string" + ");";	// CREATE_TABLE文.
+		private static final String DROP_TABLE = "drop table custom;";	// DROP_TABLE文.
+		
+		// コンストラクタ
+		CustomDBHelper(Context context){
+			super(context, "custom.db", null, 1);	// 親コンストラクタにcontext, DB名"custom.db", DBバージョン1などを渡す.
+		}
+		
+		// DBの作成時.
+		public void onCreate(SQLiteDatabase db){
+			db.execSQL(CREATE_TABLE);	// db.execSQLでテーブル作成.
+		}
+		
+		// アップグレード時.
+		@Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            db.execSQL(DROP_TABLE);	// db.execSQLでテーブル削除.
+            onCreate(db);	// onCreateで再びテーブル作成.
+        }
+		
+	}
+	
+	// メンバの定義.
+	private CustomDBHelper customDBHelper;	// DBヘルパーのインスタンス.
+		
+	@Override
+	public boolean onCreate() {
+		// TODO Auto-generated method stub
+		// 表示.
+		Log.d("CustomContentProvider", "onCreate");	// Log.dで"onCreate"を表示.
+		// DBヘルパーの作成.
+		customDBHelper = new CustomDBHelper(getContext());	// customDBHelperを生成.
+		Log.d("CustomContentProvider", "customDBHelper.toString() = " + customDBHelper.toString());	// customDBHelper.toString()を表示.
+		ContentValues values1 = new ContentValues();
+		values1.put(SearchManager.SUGGEST_COLUMN_TEXT_1, "abcで検索.");
+		values1.put(SearchManager.SUGGEST_COLUMN_QUERY, "abc");
+		ContentValues values2 = new ContentValues();
+		values2.put(SearchManager.SUGGEST_COLUMN_TEXT_1, "defで検索.");
+		values2.put(SearchManager.SUGGEST_COLUMN_QUERY, "def");
+		ContentValues values3 = new ContentValues();
+		values3.put(SearchManager.SUGGEST_COLUMN_TEXT_1, "ghiで検索.");
+		values3.put(SearchManager.SUGGEST_COLUMN_QUERY, "ghi");
+		customDBHelper.getWritableDatabase().insert("custom",  null,  values1);
+		customDBHelper.getWritableDatabase().insert("custom",  null,  values2);
+		customDBHelper.getWritableDatabase().insert("custom",  null,  values3);
+		//return false;
+		return true;	// trueを返す.
+	}
+
+	@Override
+	public Cursor query(Uri uri, String[] projection, String selection,
+			String[] selectionArgs, String sortOrder) {
+		// TODO Auto-generated method stub
+		Log.d("SearchableInfo", "uri = " + uri.toString() + ", selection = " + selection + ", selectionArgs[0] = " + selectionArgs[0]);	// uriとselectionをログに出力.
+		// 問い合わせ.
+		SQLiteDatabase db = customDBHelper.getReadableDatabase();	// 読み込み専用データベースdbを取得.
+		Cursor c = null;
+		if (selectionArgs[0].equals("a")){
+			c = db.query("custom", projection, SearchManager.SUGGEST_COLUMN_QUERY + " = ?", new String[]{"abc"}, null, null, null);	// db.queryで"custom"内を問い合わせる.
+		}
+		else if (selectionArgs[0].equals("d")){
+			c = db.query("custom", projection, SearchManager.SUGGEST_COLUMN_QUERY + " = ?", new String[]{"def"}, null, null, null);	// db.queryで"custom"内を問い合わせる.
+		}
+		else if (selectionArgs[0].equals("g")){
+			c = db.query("custom", projection, SearchManager.SUGGEST_COLUMN_QUERY + " = ?", new String[]{"ghi"}, null, null, null);	// db.queryで"custom"内を問い合わせる.
+		}
+		else{
+			c = null;
+		}
+		if (c != null){	// cがnullでなければ成功.
+			return c;	// cを返す.
+		}
+		else{
+			return null;	// nullを返す.
+		}
+	}
+
+	@Override
+	public String getType(Uri uri) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	// 挿入する時.
+	@Override
+	public Uri insert(Uri uri, ContentValues values) {
+		// TODO Auto-generated method stub
+		// 表示.
+		Log.d("CustomContentProvider", "insert");	// Log.dで"insert"を表示.
+		// 行の挿入.
+		SQLiteDatabase db = customDBHelper.getWritableDatabase();	// 書き込み可能データベースdbを取得.
+		long rowId = db.insert("custom", null, values);	// db.insertで挿入してrowIdを取得.
+		Log.d("CustomContentProvider", "rowId = " + rowId);	// rowIdを表示.
+		if (rowId > 0){	// 0より大きいなら成功.
+			return uri;	// uriを返す.
+		}
+		else{
+			return null;	// nullを返す.
+		}
+	}
+
+	@Override
+	public int delete(Uri uri, String selection, String[] selectionArgs) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int update(Uri uri, ContentValues values, String selection,
+			String[] selectionArgs) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
