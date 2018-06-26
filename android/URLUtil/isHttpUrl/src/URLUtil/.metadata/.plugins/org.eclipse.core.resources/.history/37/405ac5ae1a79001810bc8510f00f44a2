@@ -1,0 +1,62 @@
+package com.bgstation0.android.sample.urlutil_;
+
+import android.app.Activity;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.webkit.URLUtil;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends Activity implements OnClickListener{	// View.OnClickListenerを実装.
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // checkbuttonを取得し, OnClickListenerとして自身をセット.
+        Button checkButton = (Button)findViewById(R.id.checkbutton);	// checkButtonを取得.
+        checkButton.setOnClickListener(this);	// checkButton.setOnClickListenerでthisをセット.
+    }
+    
+    // View.OnClickListenerインタフェースのオーバーライドメソッドを実装.
+    public void onClick(View v){	// onClickをオーバーライド.
+    	
+    	// ボタンのidをごとに処理を振り分ける.
+    	switch (v.getId()) {	// v.getIdでView(Button)のidを取得.
+    		
+    		case R.id.checkbutton:	// R.id.checkbuttonの時.
+    			
+    			// checkButtonブロック
+				{
+					
+					// urlBarのurlを取得.
+    				EditText urlBar = (EditText)findViewById(R.id.urlbar);	// urlBarを取得.
+    				String url = urlBar.getText().toString();	// urlBar.getText().toString()でurlを取得.
+    				
+    				// urlがHTTPなURLかどうかチェック.
+    				if (URLUtil.isHttpsUrl(url)){	// HTTPなURLなら.
+    					// checkedittextに"true"セット.
+    					EditText checkedittext = (EditText)findViewById(R.id.checkedittext);	// checkedittextを取得.
+    					checkedittext.setText("true");	// checkedittextに"true"をセット.
+    				}
+    				else{
+    					// checkedittextに"false"セット.
+    					EditText checkedittext = (EditText)findViewById(R.id.checkedittext);	// checkedittextを取得.
+    					checkedittext.setText("false");	// checkedittextに"false"をセット.
+    				}
+    				
+    				// 抜ける.
+    				break;	// breakで抜ける.
+    				
+				}
+				
+    	}
+    	
+    }
+    
+}
