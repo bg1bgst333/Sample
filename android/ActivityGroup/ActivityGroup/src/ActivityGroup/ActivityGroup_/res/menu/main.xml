@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/menu_textview1"
+        android:title="@string/menu_textview1_text"
+        android:orderInCategory="101"
+        android:showAsAction="never" />
+	<item
+        android:id="@+id/menu_textview2"
+        android:title="@string/menu_textview2_text"
+        android:orderInCategory="102"
+        android:showAsAction="never" />
+</menu>

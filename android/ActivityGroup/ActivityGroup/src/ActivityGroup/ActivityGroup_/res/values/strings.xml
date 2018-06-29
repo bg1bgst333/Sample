@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ActivityGroup_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="menu_textview1_text">TextView1</string>
+	<string name="menu_textview2_text">TextView2</string>
+	
+</resources>

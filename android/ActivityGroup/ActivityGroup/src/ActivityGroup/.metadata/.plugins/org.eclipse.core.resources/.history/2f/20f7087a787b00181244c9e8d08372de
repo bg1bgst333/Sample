@@ -1,0 +1,26 @@
+package com.bgstation0.android.sample.activitygroup_;
+
+import android.app.Activity;
+import android.app.ActivityGroup;
+import android.app.LocalActivityManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
+
+public class MainActivity extends ActivityGroup {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // LocalActivityManager�̎擾.
+        LocalActivityManager lam = getLocalActivityManager();	// lam�̎擾.
+        
+        // FrameLayout�̎擾.
+        FrameLayout fl = (FrameLayout)findViewById(R.layout.activity_main);	// fl�̎擾.
+        
+        
+    }
+}

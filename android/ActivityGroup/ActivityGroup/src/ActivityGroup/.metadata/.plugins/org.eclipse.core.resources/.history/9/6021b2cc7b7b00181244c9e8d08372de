@@ -1,0 +1,53 @@
+package com.bgstation0.android.sample.activitygroup_;
+
+import android.app.Activity;
+import android.app.ActivityGroup;
+import android.app.LocalActivityManager;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+
+public class MainActivity extends ActivityGroup {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // LocalActivityManagerの取得.
+        LocalActivityManager lam = getLocalActivityManager();	// lamの取得.
+        
+        // FrameLayoutの取得.
+        FrameLayout fl = (FrameLayout)findViewById(R.id.frame_main);	// flの取得.
+        
+        // SubActivityのIntent作成.
+        Intent intent1 = new Intent(this, SubActivity.class);	// intent1作成.
+        // Windowの取得.
+        Window window1 = lam.startActivity("test1", intent1);	// intent1を渡して, window1の取得.
+        // Viewの取得.
+        View view1 = window1.getDecorView();	// view1を取得.
+        // TextViewにテキストをセット.
+        TextView tv1 = (TextView)view1.findViewById(R.id.textview1);	// tv1を取得.
+        tv1.setText("TV1");	// "TV1"をセット.
+        // Viewの追加.
+        fl.addView(view1);	// fl.addViewでflにview1を追加.
+        
+        // SubActivityのIntent作成.
+        Intent intent2 = new Intent(this, SubActivity.class);	// intent2作成.
+        // Windowの取得.
+        Window window2 = lam.startActivity("test2", intent2);	// intent2を渡して, window2の取得.
+        // Viewの取得.
+        View view2 = window2.getDecorView();	// view2を取得.
+        // TextViewにテキストをセット.
+        TextView tv2 = (TextView)view1.findViewById(R.id.textview1);	// tv2を取得.
+        tv1.setText("TV2");	// "TV2"をセット.
+        // Viewの追加.
+        fl.addView(view2);	// fl.addViewでflにview2を追加.
+        
+    }
+}
