@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\LocalActivityManager\LocalActivityManager\src\LocalActivityManager\.metadata\.plugins\org.eclipse.jdt.core
+4248900129.index
+818297799.index
+1975826715.index
+2755746640.index
