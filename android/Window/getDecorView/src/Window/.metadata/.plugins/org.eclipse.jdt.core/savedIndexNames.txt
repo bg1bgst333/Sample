@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Window\getDecorView\src\Window\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+2755746640.index
+954271806.index
+3829741178.index
