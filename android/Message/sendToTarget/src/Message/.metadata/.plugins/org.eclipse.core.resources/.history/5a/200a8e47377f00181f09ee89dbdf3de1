@@ -1,0 +1,37 @@
+package com.bgstation0.android.sample.message_;
+
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+
+public class CustomThread extends Thread {
+
+	// メンバフィールドの定義.
+	private Handler mHandler = null;	// mHandlerをnullで初期化.
+	private final String TAG = "Message_";	// TAG"Message_"の定義.
+	
+	// コンストラクタ
+	public CustomThread(Handler handler){
+		
+		// 引数のhandlerをメンバのmHandlerにセット.
+		mHandler = handler;	// mHandlerにhandlerをセット.
+		
+	}
+	
+	// 実行
+	@Override
+	public void run(){
+		
+		// 重い処理(10秒スリープ)
+		try{
+			Thread.sleep(10000);	// Thread.sleepで10秒休止.
+			Message msg = new Message();	// Messageオブジェクトmsgを作成.
+			mHandler.sendMessage(msg);	// mHandler.sendMessageでmsgを送信.
+		}
+		catch(Exception ex){
+    		Log.d(TAG, "ex = " + ex.toString());	// Log.dでexを出力.
+    	}
+		
+	}
+	
+}
