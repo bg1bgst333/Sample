@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Message\setTarget\src\Message\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+132213126.index
+2755746640.index
