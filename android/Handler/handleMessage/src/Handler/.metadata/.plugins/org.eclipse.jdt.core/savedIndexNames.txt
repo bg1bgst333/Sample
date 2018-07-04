@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Handler\handleMessage\src\Handler\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+581669123.index
+2216004100.index
+2755746640.index
