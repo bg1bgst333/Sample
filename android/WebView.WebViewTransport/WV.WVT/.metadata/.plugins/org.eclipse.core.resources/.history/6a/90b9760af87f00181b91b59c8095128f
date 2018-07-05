@@ -1,0 +1,13 @@
+package com.bgstation0.android.sample.wv.wvt_;
+
+import android.app.Activity;
+
+public class SubActivity extends Activity {
+
+	// Activity‚ªì¬‚³‚ê‚½.
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sub);
+        
+}

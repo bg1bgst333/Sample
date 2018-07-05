@@ -1,0 +1,33 @@
+package com.bgstation0.android.sample.wv.wvt_;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.webkit.WebView;
+
+public class SubActivity extends Activity {
+
+	// Activityが作成された時.
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sub);
+        
+        // URlが指定されていればWebViewでロード.
+        WebView webView = (WebView)findViewById(R.id.webview);	// webViewを取得.
+        Object o = this.getCallingActivity();
+        webView.setWebViewClient(new CustomWebViewClient(this));	// CustomWebViewClientをセット.
+        webView.setWebChromeClient(new CustomWebChromeClient(this));	// CustomWebChromeClientをセット.
+        webView.getSettings().setSupportMultipleWindows(true);	// 複数ウィンドウを有効.
+        Intent intent = getIntent();	// intentを取得.
+        Bundle bundle = intent.getExtras();	// bunfleを取得.
+        if (bundle != null){	// bundleがnullでない.
+        	String url = bundle.get("url").toString();	// urlを取得.
+        	if (url != null){	// urlがnullでない.
+        		webView.loadUrl(url);	// webView.loadUrlでurlをロード.
+        	}
+        }
+        
+	}
+	
+}

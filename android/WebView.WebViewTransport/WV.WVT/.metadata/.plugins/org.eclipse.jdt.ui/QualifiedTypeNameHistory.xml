@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.app.LocalActivityManager"/>
+<fullyQualifiedTypeName name="android.app.ActivityGroup"/>
+<fullyQualifiedTypeName name="android.os.Bundle"/>
+<fullyQualifiedTypeName name="android.view.Window"/>
+<fullyQualifiedTypeName name="android.widget.FrameLayout"/>
+<fullyQualifiedTypeName name="android.view.View"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="android.webkit.WebView"/>
+<fullyQualifiedTypeName name="android.os.Message"/>
+<fullyQualifiedTypeName name="android.os.Parcelable"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.app.Activity"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.id"/>
+<fullyQualifiedTypeName name="android.webkit.WebView.WebViewTransport"/>
+<fullyQualifiedTypeName name="com.bgstation0.android.sample.wv.wvt_.R.id"/>
+<fullyQualifiedTypeName name="com.bgstation0.android.sample.wv.wvt_.R"/>
+<fullyQualifiedTypeName name="com.bgstation0.android.sample.wv.wvt_.R.layout"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup"/>
+</qualifiedTypeNameHistroy>

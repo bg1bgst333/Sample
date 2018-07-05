@@ -1,0 +1,40 @@
+package com.bgstation0.android.sample.wv.wvt_;
+
+import android.app.Activity;
+import android.app.ActivityGroup;
+import android.app.LocalActivityManager;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.widget.FrameLayout;
+
+public class MainActivity extends ActivityGroup {
+
+	// メンバフィールドの定義.
+	LocalActivityManager mLAM = null;	// mLAMをnullで初期化.
+	Window mWindow1 = null;	// mWindow1をnullで初期化.
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // LocalActivityManagerの取得.
+        mLAM = getLocalActivityManager();	// mLAMの取得.
+        
+        // SubActivity(1)の作成.
+        Intent intent1 = new Intent(this, SubActivity.class);	// intent1の作成.
+        intent1.putExtra("id", "tab1");	// "id"をキー, "tab1"を値として登録.
+        intent1.putExtra("url", "file:///android_asset/test.html");	// "url"をキー, "file:///android_asset/test.html"を値として登録.
+        mWindow1 = mLAM.startActivity("tab1", intent1);	// mWindow1を取得.
+        // MainActivityにmWindow1を挿入.
+        FrameLayout fl = (FrameLayout)findViewById(R.id.frame_main);	// flを取得.
+        View decorView1 = mWindow1.getDecorView();	// decorView1の取得.
+        fl.addView(decorView1);	// fl.addViewでdecorView1を追加.
+        
+    }
+}

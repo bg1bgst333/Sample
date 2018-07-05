@@ -1,0 +1,27 @@
+package com.bgstation0.android.sample.wv.wvt_;
+
+import android.content.Context;
+import android.os.Message;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+
+public class CustomWebChromeClient extends WebChromeClient {
+
+	// メンバフィールドの定義
+	private Context mContext;	// Context型mContext
+		
+	// コンストラクタ
+	public CustomWebChromeClient(Context context){
+		
+		// メンバの初期化
+		mContext = context;	// 引数のcontextをメンバのmContextにセット.
+		
+	}
+	
+	// ウィンドウ作成時.
+	@Override
+	public boolean onCreateWindow(WebView view, boolean dialog, boolean userGesture, Message resultMsg){
+		return false;
+	}
+	
+}
