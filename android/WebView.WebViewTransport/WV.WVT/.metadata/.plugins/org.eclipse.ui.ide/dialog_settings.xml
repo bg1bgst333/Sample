@@ -16,17 +16,17 @@
 	<section name="SaveAsDialogSettings">
 		<item value="963" key="DIALOG_WIDTH"/>
 		<item value="-21" key="DIALOG_Y_ORIGIN"/>
-		<item value="31" key="DIALOG_X_ORIGIN"/>
 		<item value="608" key="DIALOG_HEIGHT"/>
+		<item value="31" key="DIALOG_X_ORIGIN"/>
 		<item value="1|メイリオ|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|メイリオ" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="CleanDialogSettings">
 		<item value="901" key="DIALOG_WIDTH"/>
 		<item value="false" key="BUILD_NOW"/>
-		<item value="161" key="DIALOG_Y_ORIGIN"/>
 		<item value="true" key="BUILD_ALL"/>
-		<item value="137" key="DIALOG_X_ORIGIN"/>
+		<item value="161" key="DIALOG_Y_ORIGIN"/>
 		<item value="447" key="DIALOG_HEIGHT"/>
+		<item value="137" key="DIALOG_X_ORIGIN"/>
 		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 </section>

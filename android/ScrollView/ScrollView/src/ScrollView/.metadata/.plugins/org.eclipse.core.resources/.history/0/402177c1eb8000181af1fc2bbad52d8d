@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+    
+	<ScrollView android:id="@+id/scrollview"
+	    android:layout_width="240dp"
+	    android:layout_height="320dp"
+	    android:background="#ff00ff00" >
+	
+	    <TextView
+	        android:id="@+id/textview"
+	        android:layout_width="240dp"
+	        android:layout_height="640dp"
+	        android:maxHeight="100dp"
+	        android:layout_gravity="center_vertical|center_horizontal"
+	        android:gravity="center_vertical|center_horizontal"
+	        android:text="@string/hello_world"
+	        android:background="#ffff0000"/>
+	    
+	</ScrollView>
+	
+</RelativeLayout>
