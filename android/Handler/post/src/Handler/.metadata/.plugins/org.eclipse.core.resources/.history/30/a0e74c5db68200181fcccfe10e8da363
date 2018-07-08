@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.handler_;
+
+import android.os.Handler;
+
+public class CustomHandler extends Handler {
+
+}
