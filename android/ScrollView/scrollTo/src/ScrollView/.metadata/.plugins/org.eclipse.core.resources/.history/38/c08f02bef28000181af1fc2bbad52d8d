@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >"
+    
+	<ScrollView android:id="@+id/scrollview"
+	    android:layout_width="240dp"
+	    android:layout_height="320dp"
+	    android:background="#ff00ff00" >
+	
+	    <ImageView android:id="@+id/imageview"
+	        android:src="@drawable/ic_launcher"
+	        android:scaleType="fitCenter"
+	        android:layout_width="240dp"
+	    	android:layout_height="640dp"
+	    	android:background="#ffff0000" />
+	    
+	</ScrollView>
+	
+</LinearLayout>

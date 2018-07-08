@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ScrollView_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="menu_scrollup_text">Up</string>
+	<string name="menu_scroldown_text">Down</string>
+	
+</resources>
