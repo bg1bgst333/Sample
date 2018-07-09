@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\RecognizerIntent\RecognizerIntent\src\RecognizerIntent\.metadata\.plugins\org.eclipse.jdt.core
+2791348060.index
+711735132.index
+818297799.index
+2755746640.index
