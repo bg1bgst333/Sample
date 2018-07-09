@@ -1,0 +1,52 @@
+package com.bgstation0.android.sample.speechrecognizer_;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends Activity implements View.OnClickListener, RecognitionListener{
+
+	// メンバフィールドの定義.
+	SpeechRecognizer mSpeechRecognizer = null;	// mSpeechRecognizerをnullで初期化.
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // ボタンにリスナーをセット.
+        Button button1 = (Button)findViewById(R.id.button1);	// button1を取得.
+        button1.setOnClickListener(this);	// thisをセット.
+        
+        // SpeechRecognizerの作成.
+        mSpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);	// mSpeechRecognizerを作成.
+        mSpeechRecognizer.setRecognitionListener(this);	// リスナーとしてthisをセット.
+        
+    }
+    
+    // クリックされた時.
+    @Override
+    public void onClick(View v){
+    	
+    	// インテント作成.
+    	try{	// tryで囲む.
+    		Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);	// IntentのコンストラクタにRecognizerIntent.ACTION_RECOGNIZE_SPEECHを渡してintent作成.
+    		intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);	// 言語モデルはフリーフォーム.
+    		intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, getPackageName());	// 呼び出すパッケージ名.
+    		mSpeechRecognizer.startListening(intent);
+    	}
+    	catch (Exception ex){
+    		Toast.makeText(this, "ex = " + ex.toString(), Toast.LENGTH_LONG).show();	// ex.toString()を出力.
+    	}
+    	
+    }
+    
+}

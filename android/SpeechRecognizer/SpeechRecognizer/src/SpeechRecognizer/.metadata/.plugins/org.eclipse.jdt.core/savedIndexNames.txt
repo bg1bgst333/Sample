@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\SpeechRecognizer\SpeechRecognizer\src\SpeechRecognizer\.metadata\.plugins\org.eclipse.jdt.core
+3356560891.index
+4063267737.index
+818297799.index
+2755746640.index
