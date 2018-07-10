@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\TextView\addTextChangedListener\src\TextView\.metadata\.plugins\org.eclipse.jdt.core
+3198756759.index
+2632468979.index
+818297799.index
+2755746640.index
