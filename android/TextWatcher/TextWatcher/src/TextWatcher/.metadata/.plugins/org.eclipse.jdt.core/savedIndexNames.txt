@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\TextWatcher\TextWatcher\src\TextWatcher\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+3809329480.index
+2688268870.index
+818297799.index
