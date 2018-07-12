@@ -1,0 +1,9 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "Window(&W)"
+	BEGIN
+		MENUITEM "SizeVGA(640x480)(&V)",	ID_ITEM_SIZE_VGA
+	END
+END
