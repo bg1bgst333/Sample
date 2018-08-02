@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\CursorAdapter\CursorAdapter\src\CursorAdapter\.metadata\.plugins\org.eclipse.jdt.core
+1000092447.index
+818297799.index
+1271489382.index
+2755746640.index

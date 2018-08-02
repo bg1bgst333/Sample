@@ -1,0 +1,29 @@
+package com.bgstation0.android.sample.cursoradapter_;
+
+import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MainActivity extends Activity {
+
+	// メンバフィールドの定義.
+	public CustomDBHelper mHlpr = null;	// CustomDBHelperオブジェクトmHlprをnullにしておく.
+	public SQLiteDatabase mSqlite = null;	// SQLiteDatabaseオブジェクトmSqliteをnullにしておく.
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // DBへの行の挿入.
+        try{
+        	if (mHlpr == null){	// mHlprがnullなら.
+        		mHlpr = new CustomDBHelper(getApplicationContext());	// mHlpr作成.
+        	}
+        	if (mSqlite == null){	// mSqliteがnullなら.
+        		mSqlite = mHlpr.getWritableDatabase();	// mSqlite取得.
+        	}
+        }
+    }
+}

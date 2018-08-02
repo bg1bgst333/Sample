@@ -1,0 +1,32 @@
+package com.bgstation0.android.sample.cursoradapter_;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class CustomDBHelper extends SQLiteOpenHelper {
+
+	// メンバフィールドの定義.
+	static final String DB = "custom.db";	// DB名は"custom.db".
+	static final int DB_VERSION = 1;	// DBバージョン1.
+	static final String CREATE_TABLE = "create table custom ( _id integer primary key, name string, age integer);";	// CREATE_TABLE文.
+	static final String DROP_TABLE = "drop table custom;";	// DROP_TABLE文.
+		
+	// コンストラクタ
+	public CustomDBHelper(Context context){
+		super(context, DB, null, DB_VERSION);	// 親クラスコンストラクタに任せる.
+	}
+	
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
