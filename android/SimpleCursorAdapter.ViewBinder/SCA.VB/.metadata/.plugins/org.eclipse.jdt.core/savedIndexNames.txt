@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\SimpleCursorAdapter.ViewBinder\SCA.VB\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+2755746640.index
+2291017756.index
+2007840199.index
