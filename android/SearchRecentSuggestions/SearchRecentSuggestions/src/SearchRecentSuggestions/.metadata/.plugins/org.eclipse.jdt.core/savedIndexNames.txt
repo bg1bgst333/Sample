@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\SearchRecentSuggestions\SearchRecentSuggestions\src\SearchRecentSuggestions\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+560571218.index
+2905986592.index
+2755746640.index
