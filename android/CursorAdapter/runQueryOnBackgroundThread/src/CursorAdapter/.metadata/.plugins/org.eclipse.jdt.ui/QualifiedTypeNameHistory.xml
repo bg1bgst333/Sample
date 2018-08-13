@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.net.Uri"/>
+<fullyQualifiedTypeName name="android.net.Uri.Builder"/>
+<fullyQualifiedTypeName name="android.content.ContentResolver"/>
+<fullyQualifiedTypeName name="com.bgstation0.android.sample.cursoradapter_.R.id"/>
+<fullyQualifiedTypeName name="android.widget.AutoCompleteTextView"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.app.SearchManager"/>
+<fullyQualifiedTypeName name="android.app.SearchableInfo"/>
+<fullyQualifiedTypeName name="android.provider.SearchRecentSuggestions"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="android.widget.TextView.OnEditorActionListener"/>
+<fullyQualifiedTypeName name="android.view.inputmethod.EditorInfo"/>
+</qualifiedTypeNameHistroy>

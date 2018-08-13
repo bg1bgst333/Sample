@@ -1,0 +1,34 @@
+package com.bgstation0.android.sample.cursoradapter_;
+
+import android.app.Activity;
+import android.app.SearchManager;
+import android.app.SearchableInfo;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.AutoCompleteTextView;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // AutoCompleteTextViewの取得.
+        AutoCompleteTextView autoCompleteTextView = (AutoCompleteTextView)findViewById(R.id.autocompletetextview1);	// autoCompleteTextViewを取得.
+        
+        // SearchManagerの取得.
+        SearchManager searchManager = (SearchManager)getSystemService(Context.SEARCH_SERVICE);	// searchManagerの取得.
+        
+        // SearchableInfoの取得.
+        SearchableInfo searchableInfo = (SearchableInfo)searchManager.getSearchableInfo(getComponentName());	// searchableInfoの取得.
+        
+        // CustomCursorAdapterのセット.
+        CustomCursorAdapter adapter = new CustomCursorAdapter(this, true, searchableInfo);	// adapterの生成.
+        autoCompleteTextView.setAdapter(adapter);	// autoCompleteTextViewにセット.
+        
+    }
+    
+}
