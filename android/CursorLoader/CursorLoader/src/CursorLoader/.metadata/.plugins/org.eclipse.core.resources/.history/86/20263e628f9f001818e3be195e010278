@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.cursorloader_;
+
+import android.database.sqlite.SQLiteDatabase;
+
+public class CustomDBHelper extends SQLiteDatabase {
+
+}

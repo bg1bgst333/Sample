@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\CursorLoader\CursorLoader\src\CursorLoader\.metadata\.plugins\org.eclipse.jdt.core
+3211905665.index
+1957357366.index
+2755746640.index
+818297799.index

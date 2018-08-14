@@ -1,0 +1,89 @@
+package com.bgstation0.android.sample.cursorloader_;
+
+import android.app.Activity;
+import android.app.LoaderManager;
+import android.content.ContentValues;
+import android.content.CursorLoader;
+import android.content.Loader;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ListView;
+
+public class MainActivity extends Activity implements LoaderManager.LoaderCallbacks<Cursor>{
+
+	// メンバフィールドの定義.
+	CustomCursorAdapter mAdapter = null;	// mAdapterにnullをセット.
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // アイテムの準備.
+        ContentValues values1 = new ContentValues();	// values1の生成.
+        values1.put("text1", "AAA");	// text1の追加.
+        values1.put("text2", "AAAAA");	// text2の追加.
+        getContentResolver().insert(CustomDBHelper.CONTENT_URI, values1);	// values1の追加.
+        ContentValues values2 = new ContentValues();	// values2の生成.
+        values2.put("text1", "BBB");	// text1の追加.
+        values2.put("text2", "BBBBB");	// text2の追加.
+        getContentResolver().insert(CustomDBHelper.CONTENT_URI, values2);	// values2の追加.
+        ContentValues values3 = new ContentValues();	// values3の生成.
+        values3.put("text1", "CCC");	// text1の追加.
+        values3.put("text2", "CCCCC");	// text2の追加.
+        getContentResolver().insert(CustomDBHelper.CONTENT_URI, values3);	// values3の追加.
+        
+        // ListViewの取得.
+        ListView listView1 = (ListView)findViewById(R.id.listview1);	// listView1の取得.
+        
+        // Adapterの生成.
+        mAdapter = new CustomCursorAdapter(this, null, true);	// mAdapterの生成.
+        
+        // アダプタのセット.
+        listView1.setAdapter(mAdapter);	// mAdapterのセット.
+        
+        // ローダーの初期化.
+        this.getLoaderManager().initLoader(0, null, this);	// initLoaderで開始.
+        
+    }
+    
+    // メニューが作成された時.
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+    	
+    	// メニューの作成
+    	getMenuInflater().inflate(R.menu.main, menu);	// getMenuInflaterでMenuItemを取得し, そのままinflateで指定されたR.menu.mainを元にmenuを作成.
+    	return true;
+    }
+    
+    // ローダー生成.
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
+
+    	// CursorLoader生成.
+        return new CursorLoader(this, CustomDBHelper.CONTENT_URI, null, null, null, null);	// CursorLoaderを生成して返す.
+        
+    }
+
+    // ローダー終了.
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+    	
+    	// 画面の更新.
+    	mAdapter.swapCursor(cursor);	// スワップ.
+    	mAdapter.notifyDataSetChanged();	// 更新.
+    	
+    }
+
+    // ローダーリセット.
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        
+    	// nullと入れ替え.
+    	mAdapter.swapCursor(null);	// nullをセット.
+    	
+    }
+
+}
