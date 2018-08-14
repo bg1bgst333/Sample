@@ -1,0 +1,171 @@
+package com.bgstation0.android.sample.cursoradapter_;
+
+import android.app.SearchManager;
+import android.app.SearchableInfo;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CursorAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class CustomCursorAdapter extends CursorAdapter {
+
+	// メンバフィールドの定義.
+	private LayoutInflater mInflater = null;	// mInflaterにnullをセット.
+	private Context mContext = null;	// mContextにnullをセット.
+	private SearchableInfo mSearchable = null;	// mSearchableにnullをセット.
+	private Cursor mCursor = null;	// mCursorにnullをセット.
+	
+	// サブクラスの定義.
+	private class ViewHolder{
+		TextView text1;	// テキストtext1.
+	}
+	
+	// コンストラクタ.
+	public CustomCursorAdapter(Context context, boolean autoRequery, SearchableInfo searchable){
+		super(context, null, autoRequery);	// 親コンストラクタを呼ぶ.
+		mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);	// mInflaterの生成.
+		mContext = context;	// mContextにcontextをセット.
+		mSearchable = searchable;	// mSearchableにsearchableをセット.
+	}
+	
+	// バックグラウンドスレッドでクエリを実行.
+	@Override  
+    public Cursor runQueryOnBackgroundThread(CharSequence constraint){
+		
+		// クエリに変換.
+		String query = constraint.toString();	// queryに変換.
+		if (query != null){	// queryがnullでない.
+			
+			// queryをログ出力.
+			Log.d("CursorAdapter_: ", "runQueryOnBackgroundThread : query = " + query);	// queryをログ出力.
+			
+			try{	// tryで囲む.
+				mCursor = getSuggestions(query, 10);	// getSuggestionsでカーソル取得.
+				return mCursor;	// mCursorを返す.
+			}
+			catch (Exception ex){	// 例外.
+				Log.d("CursorAdapter_: ", ex.toString());	// exをログに出力.
+			}
+		}
+		
+		// null.
+		return null;	// nullを返す.
+		
+	}
+	
+	// Suggestionsの取得.
+	public Cursor getSuggestions(String query, int limit){
+		
+		// Authoriyの取得.
+		String authority = mSearchable.getSuggestAuthority();	// authoriyの取得.
+		if (authority == null){	// nullなら.
+			return null;	// nullを返す.
+		}
+		
+		// uriBuilderの取得.
+		Uri.Builder uriBuilder = new Uri.Builder().scheme(ContentResolver.SCHEME_CONTENT).authority(authority);	// uriBuilderの取得.
+		
+		// suggestPathの取得.
+		String suggestPath = mSearchable.getSuggestPath();	// suggestPathの取得.
+		if (suggestPath != null){	// nullでなければ.
+			uriBuilder.appendEncodedPath(suggestPath);	// suggestPathを追加.
+		}
+		
+		// クエリパスの追加.
+		uriBuilder.appendPath(SearchManager.SUGGEST_URI_PATH_QUERY);	// SUGGEST_URI_PATH_QUERYを追加.
+		
+		// セレクションの取得.
+		String selection = mSearchable.getSuggestSelection();	// selectionの取得.
+		
+		// セレクションの有無.
+		String[] selArgs = null;	// selArgsにnullをセット.
+		if (selection != null){	// selectionがnullでないなら.
+			selArgs = new String[]{query};	// queryをselArgsにセット.
+		}
+		else{
+			uriBuilder.appendPath(query);	// uriBuilderでqueryを追加.
+		}
+		
+		// limitの追加.
+		if (limit > 0){	// 0より大きい.
+			uriBuilder.appendQueryParameter(SearchManager.SUGGEST_PARAMETER_LIMIT, String.valueOf(limit));	// limitを追加.
+		}
+		
+		// Uriの生成.
+		Uri uri = uriBuilder.build();	// uriを生成.
+		
+		// クエリ実行して, 結果を返す.
+		return mContext.getContentResolver().query(uri, null, selection, selArgs, null);	// uriを渡してクエリ実行.
+		
+	}
+	
+	// Viewの生成.
+	@Override
+	public View newView(Context context, Cursor cursor, ViewGroup parent) {
+		
+		// TODO Auto-generated method stub
+		// Viewの生成.
+		final View view = mInflater.inflate(R.layout.auto_complete_list_item, null);	// view生成.
+		
+		// ViewHolderの生成.
+		ViewHolder viewHolder = new ViewHolder();	// viewHolderの生成.
+		viewHolder.text1 = (TextView)view.findViewById(R.id.list_item_text1);	// list_item_text1で表されるTextViewをviewHolder.text1にセット.
+		
+		// ViewHolderをタグにセット.
+		view.setTag(viewHolder);	// viewHolderをセット.
+		
+		// viewを返す.
+		return view;	// viewを返す.
+		
+	}
+
+	// Viewの再利用.
+	@Override
+	public void bindView(View view, Context context, Cursor cursor) {
+		
+		// TODO Auto-generated method stub
+		// タグからViewHolderの取得.
+		ViewHolder viewHolder = (ViewHolder)view.getTag();	// viewHolderの取得.
+		
+		// Cursorから値を取り出す.
+		final String text1 = cursor.getString(cursor.getColumnIndex(SearchManager.SUGGEST_COLUMN_TEXT_1));	// SUGGEST_COLUMN_TEXT_1を取得.
+		
+		// Viewにセット.
+		viewHolder.text1.setText(text1);	// text1をセット.
+
+	}
+	
+	// カーソルの変更.
+	@Override
+	public void changeCursor(Cursor cursor){
+	
+		// Cursorオブジェクトの表示.
+		String s1 = cursor.toString();	// cursor.toStringで文字列を取得.
+		String s2 = mCursor.toString();	// mCursor.toStringで文字列を取得.
+		Toast.makeText(mContext, "s1 = " + s1, Toast.LENGTH_LONG).show();	// s1を出力.
+		Toast.makeText(mContext, "s2 = " + s2, Toast.LENGTH_LONG).show();	// s2を出力.
+		
+		// Cursorの変更.
+		super.changeCursor(cursor);	// super.changeCursorでcursorを変更.
+		
+	}
+	
+	// 閉じる.
+	public void close(){
+		
+		// カーソルを閉じる.
+		if (mCursor != null){	// mCursorがnullでない.
+			mCursor.close();	// close.
+			mCursor = null;	// mCursorにnullをセット.
+		}
+		
+	}
+
+}

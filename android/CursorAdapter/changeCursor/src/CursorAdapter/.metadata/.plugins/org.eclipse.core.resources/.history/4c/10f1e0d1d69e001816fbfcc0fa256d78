@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.cursoradapter_;
+
+import android.content.SearchRecentSuggestionsProvider;
+
+public class CustomContentProvider extends SearchRecentSuggestionsProvider {
+
+}

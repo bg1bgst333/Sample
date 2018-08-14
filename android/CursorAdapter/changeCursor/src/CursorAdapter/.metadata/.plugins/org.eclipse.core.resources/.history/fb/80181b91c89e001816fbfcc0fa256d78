@@ -1,0 +1,43 @@
+package com.bgstation0.android.sample.cursoradapter_;
+
+import android.app.SearchableInfo;
+import android.content.Context;
+import android.database.Cursor;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CursorAdapter;
+import android.widget.TextView;
+
+public class CustomCursorAdapter extends CursorAdapter {
+
+	// メンバフィールドの定義.
+	private LayoutInflater mInflater = null;	// mInflaterにnullをセット.
+	private SearchableInfo mSearchable = null;	// mSearchableにnullをセット.
+	
+	// サブクラスの定義.
+	private class ViewHolder{
+		TextView text1;	// テキストtext1.
+		TextView text2;	// テキストtext2.
+	}
+	
+	// コンストラクタ.
+	public CustomCursorAdapter(Context context, boolean autoRequery, SearchableInfo searchable){
+		super(context, null, autoRequery);	// 親コンストラクタを呼ぶ.
+		mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);	// mInflaterの生成.
+		mSearchable = searchable;	// mSearchableにsearchableをセット.
+	}
+		
+	@Override
+	public View newView(Context context, Cursor cursor, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void bindView(View view, Context context, Cursor cursor) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
