@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\SearchableInfo\getSuggestThreshold\src\SearchableInfo\.metadata\.plugins\org.eclipse.jdt.core
+1081739775.index
+818297799.index
+306195253.index
+2755746640.index
