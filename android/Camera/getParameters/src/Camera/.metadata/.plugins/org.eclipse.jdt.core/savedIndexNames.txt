@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Camera\getParameters\src\Camera\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+991805771.index
+818297799.index
+1828557963.index
