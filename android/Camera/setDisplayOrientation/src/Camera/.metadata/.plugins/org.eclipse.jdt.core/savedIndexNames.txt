@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Camera\setDisplayOrientation\src\Camera\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+1828557963.index
+2755746640.index
