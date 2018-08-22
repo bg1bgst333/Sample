@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Camera.Parameters\getPictureSize\src\Camera.Parameters\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+2755746640.index
+4100244279.index
+920364678.index
