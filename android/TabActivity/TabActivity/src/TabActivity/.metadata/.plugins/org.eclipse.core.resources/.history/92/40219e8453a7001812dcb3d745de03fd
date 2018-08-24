@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TabActivity_</string>
+    <string name="hello_world">Hello world!</string>
+	<stirng name="textview1_text">MainContent</stirng>
+	
+</resources>
