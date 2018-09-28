@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\AccountManager\getAccountsByType\src\AccountManager\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+55735814.index
+818297799.index
