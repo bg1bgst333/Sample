@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\AccountManager\invalidateAuthToken\src\AccountManager\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+431268759.index
+2755746640.index
+55735814.index
