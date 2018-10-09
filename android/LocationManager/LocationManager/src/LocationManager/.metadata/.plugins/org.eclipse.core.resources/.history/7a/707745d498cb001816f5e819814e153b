@@ -1,0 +1,73 @@
+package com.bgstation0.android.sample.locationmanager_;
+
+import android.app.Activity;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.LocationProvider;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	// メンバフィールドの定義.
+	LocationManager mLocationManager = null;	// mLocationManagerをnullで初期化.
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // mLocationManagerの取得.
+        mLocationManager = (LocationManager)getSystemService(LOCATION_SERVICE);	// mLocationManagerを取得.
+        
+        // 位置情報の更新リクエスト.
+        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, new LocationListener(){
+
+			@Override
+			public void onLocationChanged(Location location) {
+				// TODO Auto-generated method stub
+				// 緯度.
+				TextView textview1 = (TextView)findViewById(R.id.textview1);	// textview1を取得.
+				textview1.setText(String.valueOf(location.getLatitude()));	// textview1にセット.
+				// 経度.
+				TextView textview2 = (TextView)findViewById(R.id.textview2);	// textview2を取得.
+				textview2.setText(String.valueOf(location.getLongitude()));	// textview2にセット.
+			}
+
+			@Override
+			public void onStatusChanged(String provider, int status,
+					Bundle extras) {
+				// TODO Auto-generated method stub
+				// ステータス.
+				TextView textview3 = (TextView)findViewById(R.id.textview3);	// textview3を取得.
+				if (status == LocationProvider.AVAILABLE){
+					textview3.setText("AVAILABLE");
+				}
+				else if (status == LocationProvider.OUT_OF_SERVICE){
+					textview3.setText("OUT_OF_SERVICE");
+				}
+				else if (status == LocationProvider.TEMPORARILY_UNAVAILABLE){
+					textview3.setText("TEMPORARILY_UNAVAILABLE");
+				}
+			}
+
+			@Override
+			public void onProviderEnabled(String provider) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onProviderDisabled(String provider) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+        });
+        
+    }
+    
+}

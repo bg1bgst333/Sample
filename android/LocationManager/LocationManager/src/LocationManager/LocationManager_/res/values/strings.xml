@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LocationManager_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="textview1_text">textview1</string>
+	<string name="textview2_text">textview2</string>
+	<string name="textview3_text">textview3</string>
+	
+</resources>

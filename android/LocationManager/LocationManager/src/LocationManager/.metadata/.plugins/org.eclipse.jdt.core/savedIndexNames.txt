@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\LocationManager\LocationManager\src\LocationManager\.metadata\.plugins\org.eclipse.jdt.core
+361646375.index
+2755746640.index
+3707383424.index
+818297799.index
