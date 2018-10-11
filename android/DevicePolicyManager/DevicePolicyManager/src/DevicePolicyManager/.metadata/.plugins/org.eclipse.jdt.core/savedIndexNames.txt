@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\DevicePolicyManager\DevicePolicyManager\src\DevicePolicyManager\.metadata\.plugins\org.eclipse.jdt.core
+976372852.index
+2755746640.index
+818297799.index
+279245974.index

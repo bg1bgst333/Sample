@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.devicepolicymanager_;
+
+import android.app.admin.DeviceAdminReceiver;
+
+public class Admin extends DeviceAdminReceiver {
+
+}

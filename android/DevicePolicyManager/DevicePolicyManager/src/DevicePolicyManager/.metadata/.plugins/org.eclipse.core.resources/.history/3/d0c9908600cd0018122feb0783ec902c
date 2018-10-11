@@ -1,0 +1,49 @@
+package com.bgstation0.android.sample.devicepolicymanager_;
+
+import android.app.Activity;
+import android.app.admin.DevicePolicyManager;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MainActivity extends Activity {
+
+	// メンバフィールドの定義.
+	Context mContext = null;	// mContextをnullで初期化.
+	DevicePolicyManager mDevicePolicyManager = null;	// mDevicePolicyManagerをnullで初期化.
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // mContextの初期化.
+        mContext = this;	// mContextにthisをセット.
+        
+        // mDevicePolicyManagerの取得.
+        mDevicePolicyManager = (DevicePolicyManager)getSystemService(DEVICE_POLICY_SERVICE);	// mDevicePolicyManagerを取得.
+        
+        // button1の初期化.
+        Button button1 = (Button)findViewById(R.id.button1);	// button1を取得.
+        button1.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if (v.getId() == R.id.button1){
+				
+					// 端末画面をロック.
+					mDevicePolicyManager.lockNow();	// mDevicePolicyManager.lockNowでロック.
+					
+				}
+			}
+			
+        });
+
+    }
+    
+}
