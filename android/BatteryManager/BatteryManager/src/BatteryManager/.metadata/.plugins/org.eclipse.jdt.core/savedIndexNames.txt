@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\BatteryManager\BatteryManager\src\BatteryManager\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+630485848.index
+818297799.index
+1528124540.index
