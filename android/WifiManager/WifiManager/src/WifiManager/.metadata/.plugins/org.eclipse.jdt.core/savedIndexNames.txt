@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\WifiManager\WifiManager\src\WifiManager\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+3569525028.index
+4129159616.index
+818297799.index
