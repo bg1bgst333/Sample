@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\ConnectivityManager\ConnectivityManager\src\ConnectivityManager\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+2568519112.index
+1397976070.index
+2755746640.index
