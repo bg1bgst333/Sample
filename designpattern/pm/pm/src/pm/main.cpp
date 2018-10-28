@@ -17,6 +17,9 @@ int main(){
   // コントローラにビューをセット.
   controller_ptr->set_view(view_ptr); // controller_ptr->set_viewでview_ptrをセット.
 
+  // プレゼンテーションモデルにビューをセット.
+  presentation_model_ptr->set_view(view_ptr); // presentation_model_ptr->set_viewでview_ptrをセット.
+
   // モデルにプレゼンテーションモデルをセット.
   model_ptr->set_presentation_model(presentation_model_ptr); // model_ptr->set_presentation_modelでpresentation_model_ptrをセット.
 
