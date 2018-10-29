@@ -19,7 +19,7 @@ void class_controller::changed(){
   std::cout << "class_controller::changed()" << std::endl; // "class_controller::changed()"と出力.
 
   // model_のfuncを呼び出す.
-  model_->func(); // model_->funcを呼ぶ.
+  //model_->func(); // model_->funcを呼ぶ.
 
 }
 

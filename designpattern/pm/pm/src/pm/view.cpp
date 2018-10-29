@@ -20,7 +20,7 @@ void class_view::notify(){
   std::cout << "class_view::notify()" << std::endl; // "class_view::notify()"と出力.
 
   // observer_に通知.
-  //observer_->changed(); // 実際にはobserver_->changed()を呼び出している.
+  observer_->changed(); // 実際にはobserver_->changed()を呼び出している.
 
 }
 
