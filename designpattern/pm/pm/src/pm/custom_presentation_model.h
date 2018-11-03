@@ -6,6 +6,7 @@
 #include <string> // std::string
 // 独自のヘッダ
 #include "presentation_model.h" // class_presentation_model
+#include "custom_view.h" // class_custom_view
 
 // クラスclass_custom_presentation_model
 class class_custom_presentation_model : public class_presentation_model{
@@ -22,6 +23,7 @@ class class_custom_presentation_model : public class_presentation_model{
 
     // 公開メンバ関数
     virtual void changed(); // メンバ関数changed
+    void set_custom_view(class_custom_view *custom_view); // メンバ関数set_custom_view
 
 };
 

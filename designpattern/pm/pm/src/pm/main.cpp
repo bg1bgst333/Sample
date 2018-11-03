@@ -17,6 +17,9 @@ int main(){
   // カスタムコントロールにカスタムビューをセット.
   custom_controller_ptr->set_custom_view(custom_view_ptr); // custom_controller_ptr->set_custom_viewでcustom_view_ptrをセット.
 
+  // カスタムプレゼンテーションモデルにカスタムビューをセット.
+  custom_presentation_model_ptr->set_custom_view(custom_view_ptr); // custom_presentation_model_ptr->set_custom_viewでcustom_view_ptrをセット.
+
   // カスタムモデルにカスタムプレゼンテーションモデルをセット.
   custom_model_ptr->set_custom_presentation_model(custom_presentation_model_ptr); // custom_model_ptr->set_custom_presentation_modelでcustom_presentation_model_ptrをセット.
 

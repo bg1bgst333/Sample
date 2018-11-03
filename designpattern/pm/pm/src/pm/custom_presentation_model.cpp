@@ -30,3 +30,11 @@ void class_custom_presentation_model::changed(){
   class_presentation_model::changed(); // class_presentation_model::changedを呼ぶ.
 
 }
+
+// メンバ関数set_custom_view
+void class_custom_presentation_model::set_custom_view(class_custom_view *custom_view){
+
+  // viewのセット.
+  class_presentation_model::set_view(custom_view); // class_presentation_model::set_viewでcustom_viewをセット.
+
+}

@@ -19,7 +19,7 @@ void class_presentation_model::changed(){
   std::cout << "class_presentation_model::changed()" << std::endl; // "class_presentation_model::changed()"と出力.
 
   // 通知.
-  //notify(); // notifyで通知.
+  notify(); // notifyで通知.
 
 }
 
