@@ -10,6 +10,7 @@
 
 // 前方宣言
 class class_model;
+class class_view;
 
 // クラスclass_presentation_model
 class class_presentation_model : public interface_observer, public interface_subject{

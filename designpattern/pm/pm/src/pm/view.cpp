@@ -39,3 +39,11 @@ void class_view::changed(){
   std::cout << "class_view::changed()" << std::endl; // "class_view::changed()"と出力.
 
 }
+
+// メンバ関数set_presentation_model
+void class_view::set_presentation_model(class_presentation_model *presentation_model){
+
+  // メンバにセット.
+  presentation_model_ = presentation_model; // presentation_model_にpresentation_modelをセット.
+
+}

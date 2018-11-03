@@ -1,4 +1,6 @@
 // ヘッダのインクルード
+// 既定のヘッダ
+#include <iostream> // C++標準入出力
 // 独自のヘッダ
 #include "custom_view.h" // class_custom_view
 #include "custom_controller.h" // class_custom_controller
@@ -34,6 +36,9 @@ int main(){
   // 値の確定.
   custom_view_ptr->notify(); // custom_view_ptr->notifyで値が確定したことを通知.
 
+  // カスタムビューの結果の値を再度出力.
+  std::cout << "custom_view_ptr->result_ = " << custom_view_ptr->result_ << std::endl; // custom_view_ptr->result_を出力.
+
   // カスタムビューに値をセット.
   custom_view_ptr->x_ = 1; // custom_view_ptr->x_に1を代入.
   custom_view_ptr->y_ = -2; // custom_view_ptr->y_に-2を代入.
@@ -41,6 +46,9 @@ int main(){
 
   // 値の確定.
   custom_view_ptr->notify(); // custom_view_ptr->notifyで値が確定したことを通知.
+
+  // カスタムビューの結果の値を再度出力.
+  std::cout << "custom_view_ptr->result_ = " << custom_view_ptr->result_ << std::endl; // custom_view_ptr->result_を出力.
 
   // オブジェクトの破棄.
   delete custom_view_ptr; // deleteでcustom_view_ptrを解放.
