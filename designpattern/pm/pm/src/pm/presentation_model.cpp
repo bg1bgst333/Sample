@@ -19,7 +19,7 @@ void class_presentation_model::changed(){
   std::cout << "class_presentation_model::changed()" << std::endl; // "class_presentation_model::changed()"と出力.
 
   // 通知.
-  notify(); // notifyで通知.
+  //notify(); // notifyで通知.
 
 }
 
@@ -48,5 +48,13 @@ void class_presentation_model::set_view(class_view *view){
 
   // viewをオブザーバーとする.
   set_observer(view); // set_observerでviewをセット.
+
+}
+
+// メンバ関数set_model
+void class_presentation_model::set_model(class_model *model){
+
+  // メンバにセット.
+  model_ = model; // model_にmodelをセット.
 
 }

@@ -4,6 +4,7 @@
 
 // 独自のヘッダ
 #include "model.h" // class_model
+#include "custom_presentation_model.h" // class_custom_presentation_model
 
 // クラスclass_custom_model
 class class_custom_model : public class_model{
@@ -24,6 +25,7 @@ class class_custom_model : public class_model{
     int get_x(); // メンバ関数get_x.
     int get_y(); // メンバ関数get_y.
     int get_result(); // メンバ関数get_result.
+    void set_custom_presentation_model(class_custom_presentation_model *custom_presentation_model); // メンバ関数set_custom_presentation_model
 
 };
 

@@ -44,3 +44,11 @@ int class_custom_model::get_result(){
   return result_; // returnでresult_を返す.
 
 }
+
+// メンバ関数set_custom_presentation_model
+void class_custom_model::set_custom_presentation_model(class_custom_presentation_model *custom_presentation_model){
+
+  // presentation_modelのセット.
+  set_presentation_model(custom_presentation_model); // set_presentation_modelでcustom_presentation_modelをセット.
+
+}

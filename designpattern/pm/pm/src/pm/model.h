@@ -6,6 +6,9 @@
 #include "subject.h" // interface_subject
 #include "presentation_model.h" // class_presentation_model
 
+// 前方宣言
+class class_presentation_model;
+
 // クラスclass_model
 class class_model : public interface_subject{
 

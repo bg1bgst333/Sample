@@ -6,6 +6,10 @@
 #include "observer.h" // interface_observer
 #include "subject.h" // interface_subject
 #include "view.h" // class_view
+#include "model.h" // class_model
+
+// 前方宣言
+class class_model;
 
 // クラスclass_presentation_model
 class class_presentation_model : public interface_observer, public interface_subject{
@@ -16,6 +20,12 @@ class class_presentation_model : public interface_observer, public interface_sub
     // 非公開メンバ変数
     interface_subject *subject_; // interface_subjectポインタsubject_.
     interface_observer *observer_; // interface_observerポインタobserver_.
+
+  // 被保護メンバ
+  protected:
+
+    // 被保護メンバ変数
+    class_model *model_; // class_modelポインタmodel_.
 
   // 公開メンバ
   public:
@@ -30,6 +40,7 @@ class class_presentation_model : public interface_observer, public interface_sub
     virtual void set_observer(interface_observer *observer); // メンバ関数set_observer
     virtual void notify(); // メンバ関数notify
     void set_view(class_view *view); // メンバ関数set_view
+    void set_model(class_model *model); // メンバ関数set_model
 
 };
 
