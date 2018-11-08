@@ -15,8 +15,14 @@ int main(){
   // プレゼンターにビューをセット.
   presenter_ptr->set_view(view_ptr); // presenter_ptr->set_viewでview_ptrをセット.
 
+  // モデルにプレゼンターをセット.
+  model_ptr->set_presenter(presenter_ptr); // model_ptr->set_presenterでpresenter_ptrをセット.
+
   // プレゼンターにモデルをセット.
   presenter_ptr->set_model(model_ptr); // presenter_ptr->set_modelでmodel_ptrをセット.
+
+  // 通知.
+  view_ptr->notify(); // view_ptr->notifyで通知.
 
   // 通知.
   view_ptr->notify(); // view_ptr->notifyで通知.

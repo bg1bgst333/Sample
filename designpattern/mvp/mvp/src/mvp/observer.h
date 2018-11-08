@@ -20,7 +20,8 @@ class interface_observer{
     virtual ~interface_observer(){}; // デストラクタ~interface_observer
     // メンバ関数
     virtual void set_subject(interface_subject *subject) = 0; // 純粋仮想関数set_subject
-    virtual void changed() = 0; // 純粋仮想関数changed
+    //virtual void changed() = 0; // 純粋仮想関数changed
+    virtual void changed(interface_subject *subject) = 0; // 純粋仮想関数changed
 
 };
 

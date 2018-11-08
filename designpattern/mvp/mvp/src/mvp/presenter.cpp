@@ -13,13 +13,25 @@ void class_presenter::set_subject(interface_subject *subject){
 }
 
 // メンバ関数changed
-void class_presenter::changed(){
+void class_presenter::changed(interface_subject *subject){
  
   // changedが呼ばれた.
   std::cout << "class_presenter::changed()" << std::endl; // "class_presenter::changed()"と出力.
 
   // model_のfuncを呼び出す.
-  model_->func(); // model_->funcを呼ぶ.
+  class_view *p1 = dynamic_cast<class_view *>(subject); // ダイナミックキャスト.
+  if (p1 != NULL){ // p1はviewであり, viewからの通知.
+    model_->func(); // model_->funcを呼ぶ.
+  }
+  else{
+    class_model *p2 = dynamic_cast<class_model *>(subject); // ダイナミックキャスト.
+    if (p2 != NULL){ // p2はmodelであり, modelからの通知.
+      std::cout << "class_presenter::changed, model to presenter!" << std::endl; // "class_presenter::changed, model to presenter!"と出力.
+    }
+    else{ // viewでもmodelでもない.
+      std::cout << "not view, not model!" << std::endl; // "not view, not model!"と出力.
+    }
+  }
 
 }
 
