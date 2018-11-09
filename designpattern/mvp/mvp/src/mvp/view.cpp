@@ -9,7 +9,6 @@ void class_view::set_observer(interface_observer *observer){
 
   // メンバにセット.
   observer_ = observer; // observer_にobserverをセット.
-  //observer_->set_subject(this); // observer_->set_subjectで自身(this)をセットすることでobserver_のサブジェクトになる.
 
 }
 
@@ -20,7 +19,6 @@ void class_view::notify(){
   std::cout << "class_view::notify()" << std::endl; // "class_view::notify()"と出力.
 
   // observer_に通知.
-  //observer_->changed(); // 実際にはobserver_->changedを呼び出している.
   observer_->changed(this); // subjectとしてthisを渡す.
 
 }
