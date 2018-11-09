@@ -7,13 +7,14 @@
 #include "observer.h" // interface_observer
 
 // クラスclass_view
-class class_view : public interface_subject{
+class class_view : public interface_subject, public interface_observer{
 
   // 非公開メンバ
   private:
 
     // 非公開メンバ変数
     interface_observer *observer_; // interface_observerポインタobserver_.
+    interface_subject *subject_; // interface_subjectポインタsubject_.
 
   // 公開メンバ
   public:
@@ -25,6 +26,8 @@ class class_view : public interface_subject{
     // メンバ関数
     virtual void set_observer(interface_observer *observer); // メンバ関数set_observer
     virtual void notify(); // メンバ関数notify
+    virtual void set_subject(interface_subject *subject); // メンバ関数set_subject
+    virtual void changed(interface_subject *subject); // メンバ関数changed
 
 };
 

@@ -12,7 +12,7 @@
 class class_model;
 
 // クラスclass_presenter
-class class_presenter : public interface_observer{
+class class_presenter : public interface_observer, public interface_subject{
 
   // 非公開メンバ
   private:
@@ -21,6 +21,7 @@ class class_presenter : public interface_observer{
     interface_subject *subject_; // interface_subjectポインタsubject_.
     class_model *model_; // class_modelポインタmodel_.
     class_view *view_; // class_viewポインタview_.
+    interface_observer *observer_; // interface_observerポインタobserver_.
 
   // 公開メンバ
   public:
@@ -34,6 +35,8 @@ class class_presenter : public interface_observer{
     virtual void changed(interface_subject *subject); // メンバ関数changed
     void set_view(class_view *view); // メンバ関数set_view
     void set_model(class_model *model); // メンバ関数set_model
+    virtual void set_observer(interface_observer *observer); // メンバ関数set_observer
+    virtual void notify(); // メンバ関数notify
 
 };
 

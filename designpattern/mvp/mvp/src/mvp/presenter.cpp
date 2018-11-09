@@ -26,7 +26,13 @@ void class_presenter::changed(interface_subject *subject){
   else{
     class_model *p2 = dynamic_cast<class_model *>(subject); // ダイナミックキャスト.
     if (p2 != NULL){ // p2はmodelであり, modelからの通知.
+
+      // モデルからプレゼンター.
       std::cout << "class_presenter::changed, model to presenter!" << std::endl; // "class_presenter::changed, model to presenter!"と出力.
+
+      // プレゼンターからビューへ通知.
+      notify(); // notifyで通知.
+
     }
     else{ // viewでもmodelでもない.
       std::cout << "not view, not model!" << std::endl; // "not view, not model!"と出力.
@@ -40,6 +46,7 @@ void class_presenter::set_view(class_view *view){
 
   // 引数のviewが自身(this)をオブザーバーとする.
   view->set_observer(this); // view->set_observerにthisを指定することで, 自身がこのviewのオブザーバーとする.
+  set_observer(view); // set_observerでviewをセット.
 
 }
 
@@ -48,5 +55,24 @@ void class_presenter::set_model(class_model *model){
 
   // 引数のmodelをメンバmodel_にセット.
   model_ = model; // model_にmodelをセット.
+
+}
+
+// メンバ関数set_observer
+void class_presenter::set_observer(interface_observer *observer){
+
+  // メンバにセット.
+  observer_ = observer; // observer_にobserverをセット.
+
+}
+
+// メンバ関数notify
+void class_presenter::notify(){
+
+  // notifyが呼ばれた.
+  std::cout << "class_presenter::notify()" << std::endl; // "class_presenter::notify()"と出力.
+
+  // 実際にはオブザーバーのchangedを呼ぶ.
+  observer_->changed(this); // observer_->changedにthisを指定して呼ぶ.
 
 }
