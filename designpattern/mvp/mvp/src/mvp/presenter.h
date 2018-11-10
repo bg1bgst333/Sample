@@ -19,9 +19,14 @@ class class_presenter : public interface_observer, public interface_subject{
 
     // 非公開メンバ関数
     interface_subject *subject_; // interface_subjectポインタsubject_.
+    interface_observer *observer_; // interface_observerポインタobserver_.
+
+  // 被保護メンバ
+  protected:
+
+    // 被保護メンバ変数
     class_model *model_; // class_modelポインタmodel_.
     class_view *view_; // class_viewポインタview_.
-    interface_observer *observer_; // interface_observerポインタobserver_.
 
   // 公開メンバ
   public:

@@ -16,7 +16,25 @@ void class_custom_presenter::changed(interface_subject *subject){
     custom_model_->func(custom_view_->x_, custom_view_->y_); // custom_model_->funcで計算.
   }
   else{ // それ以外.
-    class_presenter::changed(subject); // class_presenter::changedにsubjectを渡す.
+    class_model *p2 = dynamic_cast<class_model *>(subject); // ダイナミックキャスト.
+    if (p2 != NULL){ // p2はmodelであり, modelからの通知.
+      std::cout << "class_custom_presenter::changed(), subject is model!" <<std::endl; // "class_custom_presenter::changed(), subject is model!"を出力.
+      int result = custom_model_->get_result();
+      if (result >= 0){ // 0以上.
+        start_str_ = "("; // 開始文字列は"(".
+        end_str_ = ")"; // 終了文字列は")".
+        std::cout << "()" << std::endl; // "()"を出力.
+      }
+      else{
+        start_str_ = "<"; // 開始文字列は"<".
+        end_str_ = ">"; // 終了文字列は">".
+        std::cout << "<>" << std::endl; // "<>"を出力.
+      }      
+    }
+    else{ // viewでもmodelでもない.
+      std::cout << "not view, not model!" << std::endl; // "not view, not model!"と出力.
+      class_presenter::changed(subject); // class_presenter::changedにsubjectを渡す.
+    }
   }
 
 }
@@ -40,5 +58,8 @@ void class_custom_presenter::set_custom_model(class_custom_model *custom_model){
 
   // 親クラスのプレゼンターにセット.
   class_presenter::set_model(custom_model_); // class_presenter::set_modelでcustom_model_をセット.
+
+  // モデルのオブザーバーにthisをセット.
+  model_->set_observer(this); // thisをセット.
 
 }
