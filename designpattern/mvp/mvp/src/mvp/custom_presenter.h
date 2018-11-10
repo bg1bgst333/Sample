@@ -9,6 +9,9 @@
 #include "custom_view.h" // class_custom_view
 #include "custom_model.h" // class_custom_model
 
+// 前方宣言
+class class_custom_view;
+
 // クラスclass_custom_presenter
 class class_custom_presenter : public class_presenter{
 
@@ -28,6 +31,12 @@ class class_custom_presenter : public class_presenter{
     virtual void changed(interface_subject *subject); // メンバ関数changed
     void set_custom_view(class_custom_view *custom_view); // メンバ関数set_custom_view
     void set_custom_model(class_custom_model *custom_model); // メンバ関数set_custom_model
+    int get_x(); // メンバ関数get_x
+    int get_y(); // メンバ関数get_y
+    int get_result(); // メンバ関数get_result
+    std::string get_start_str(); // メンバ関数get_start_str
+    std::string get_end_str(); // メンバ関数get_end_str
+
 };
 
 #endif

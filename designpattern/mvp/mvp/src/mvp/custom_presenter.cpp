@@ -29,7 +29,8 @@ void class_custom_presenter::changed(interface_subject *subject){
         start_str_ = "<"; // 開始文字列は"<".
         end_str_ = ">"; // 終了文字列は">".
         std::cout << "<>" << std::endl; // "<>"を出力.
-      }      
+      }
+      notify(); // 通知.
     }
     else{ // viewでもmodelでもない.
       std::cout << "not view, not model!" << std::endl; // "not view, not model!"と出力.
@@ -44,6 +45,9 @@ void class_custom_presenter::set_custom_view(class_custom_view *custom_view){
 
   // メンバのセット.
   custom_view_ = custom_view; // custom_view_にcustom_viewをセット.
+
+  // カスタムビューがカスタムプレゼンターをセット.
+  custom_view_->set_custom_presenter(this); // custom_view->set_custom_presenterでthisをセット.
 
   // set_viewを呼んでオブザーバー登録.
   class_presenter::set_view(custom_view_); // class_presenter::set_viewにcustom_view_をセット.
@@ -61,5 +65,45 @@ void class_custom_presenter::set_custom_model(class_custom_model *custom_model){
 
   // モデルのオブザーバーにthisをセット.
   model_->set_observer(this); // thisをセット.
+
+}
+
+// メンバ関数get_x
+int class_custom_presenter::get_x(){
+
+  // xを返す.
+  return custom_model_->get_x(); // custom_model_->get_xの値を返す.
+
+}
+
+// メンバ関数get_y
+int class_custom_presenter::get_y(){
+
+  // yを返す.
+  return custom_model_->get_y(); // custom_model_->get_yの値を返す.
+
+}
+
+// メンバ関数get_result
+int class_custom_presenter::get_result(){
+
+  // resultを返す.
+  return custom_model_->get_result(); // custom_model_get_resultの値を返す.
+
+}
+
+// メンバ関数get_start_str
+std::string class_custom_presenter::get_start_str(){
+
+  // 開始文字列
+  return start_str_; // start_str_を返す.
+
+}
+
+// メンバ関数get_end_str
+std::string class_custom_presenter::get_end_str(){
+
+  // 終了文字列
+  return end_str_; // end_str_を返す.
 
 }
