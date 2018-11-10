@@ -21,7 +21,7 @@ void class_presenter::changed(interface_subject *subject){
   // model_のfuncを呼び出す.
   class_view *p1 = dynamic_cast<class_view *>(subject); // ダイナミックキャスト.
   if (p1 != NULL){ // p1はviewであり, viewからの通知.
-    model_->func(); // model_->funcを呼ぶ.
+    //model_->func(); // model_->funcを呼ぶ.
   }
   else{
     class_model *p2 = dynamic_cast<class_model *>(subject); // ダイナミックキャスト.

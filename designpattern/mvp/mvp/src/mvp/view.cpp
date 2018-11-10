@@ -19,7 +19,7 @@ void class_view::notify(){
   std::cout << "class_view::notify()" << std::endl; // "class_view::notify()"と出力.
 
   // observer_に通知.
-  //observer_->changed(this); // subjectとしてthisを渡す.
+  observer_->changed(this); // subjectとしてthisを渡す.
 
 }
 
