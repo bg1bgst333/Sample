@@ -29,7 +29,7 @@ void class_model::notify(){
   std::cout << "class_model::notify()" << std::endl; // "class_model::notify()"と出力.
 
   // observer_に通知.
-  observer_->changed(this); // 実際にはobserver_->changed(this)を呼び出している.
+  //observer_->changed(this); // 実際にはobserver_->changed(this)を呼び出している.
 
 }
 
