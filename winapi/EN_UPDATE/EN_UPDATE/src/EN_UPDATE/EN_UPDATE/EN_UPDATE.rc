@@ -1,0 +1,10 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "Modify(&M)"
+	BEGIN
+		MENUITEM "Check Modify(&C)",	ID_ITEM_CHECK_MODIFY
+		MENUITEM "Reset Modify(&R)",	ID_ITEM_RESET_MODIFY
+	END
+END
