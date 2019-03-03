@@ -1,0 +1,21 @@
+{
+  "name": "express_",
+  "version": "1.0.0",
+  "description": "express sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "-"
+  },
+  "keywords": [
+    "-"
+  ],
+  "author": "B.G",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
