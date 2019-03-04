@@ -1,0 +1,22 @@
+{
+  "name": "app_",
+  "version": "1.0.0",
+  "description": "electron sample",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "-"
+  },
+  "keywords": [
+    "-"
+  ],
+  "author": "B.G",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^4.0.6"
+  }
+}
