@@ -1,0 +1,11 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "Color(&C)"
+	BEGIN
+		MENUITEM "Red(&R)",	ID_ITEM_RED
+		MENUITEM "Green(&G)",	ID_ITEM_GREEN
+		MENUITEM "Blue(&B)",	ID_ITEM_BLUE
+	END
+END
