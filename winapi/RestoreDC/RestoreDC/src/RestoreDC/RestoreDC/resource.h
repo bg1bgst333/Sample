@@ -1,0 +1,4 @@
+#define IDR_MAINMENU	101
+#define ID_ITEM_RED	10101
+#define ID_ITEM_GREEN	10102
+#define ID_ITEM_BLUE	10103
