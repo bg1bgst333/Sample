@@ -1,0 +1,21 @@
+{
+  "name": "native_ext",
+  "version": "1.0.0",
+  "description": "node-gyp sample",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "-"
+  },
+  "keywords": [
+    "-"
+  ],
+  "author": "B.G",
+  "license": "MIT",
+  "dependencies": {
+    "node-gyp": "^3.8.0"
+  }
+}
