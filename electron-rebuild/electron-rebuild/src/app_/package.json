@@ -1,0 +1,25 @@
+{
+  "name": "app_",
+  "version": "1.0.0",
+  "description": "electron-rebuild sample",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "-"
+  },
+  "keywords": [
+    "-"
+  ],
+  "author": "B.G",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^4.1.0",
+    "node-gyp": "^3.8.0"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.8.4"
+  }
+}

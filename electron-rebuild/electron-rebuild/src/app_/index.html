@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>app_</title>
+  </head>
+  <body>
+    <h1>ABCDE</h1>
+    <button onclick="run()">Run</button>
+    <script>
+      document.write(process.versions.electron);
+      function run(){
+        //var nativeExt = require('./build/Release/native_ext.node');
+        var nativeExt = require('./bin/linux-x64-69/app_.node');
+        var str = nativeExt.get_abc();
+        alert(str);
+      }
+    </script>
+  </body>
+</html>
