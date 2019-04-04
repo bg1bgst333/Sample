@@ -35,6 +35,7 @@ template <typename K, typename V> class class_binding_variable : public interfac
       value_ = value; // value_にvalueを代入.
 
     }
+    virtual ~class_binding_variable(){} // デストラクタ~class_binding_variable.
 
 };
  
