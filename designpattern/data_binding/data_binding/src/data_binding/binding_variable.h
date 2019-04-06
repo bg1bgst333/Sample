@@ -33,9 +33,23 @@ template <typename K, typename V> class class_binding_variable : public interfac
 
       // メンバにセット.
       value_ = value; // value_にvalueを代入.
+      setter_ = setter; // setter_にsetterを代入.
 
     }
     virtual ~class_binding_variable(){} // デストラクタ~class_binding_variable.
+    // メンバ関数
+    virtual bool bind(interface_binder<K> *binder, K *key){ // メンバ関数bind
+
+      // キーを追加.
+      key_list_.push_back(key); // key_list_にkeyを追加.
+
+      // セッターを実行.
+      setter_(key, value_); // keyとvalue_を渡して, setter_を実行.
+
+      // true.
+      return true; // trueを返す.
+
+    }
 
 };
  

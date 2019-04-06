@@ -28,6 +28,9 @@ template <typename K> class class_key_binder : public interface_binder<K>{
     // メンバ関数
     virtual bool bind(interface_binder<K> *b, K *key){ // メンバ関数bind
 
+      // b側でもbind.
+      b->bind(b, key); // bとkeyをb->bindに渡してバインド.
+
       // マップに登録.
       bindings_[key].push_back(b); // keyをキー, bを値としてbindings_に登録.
 

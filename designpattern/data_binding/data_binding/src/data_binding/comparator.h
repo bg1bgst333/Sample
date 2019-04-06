@@ -13,7 +13,7 @@ template <typename V> class class_comparator{
     class_comparator(){}; // コンストラクタclass_comparator
     virtual ~class_comparator(){}; // デストラクタ~class_comparator
     // メンバ関数
-    bool operator()(V vi, V v2){ // ()演算子のオーバーロード.
+    bool operator()(V v1, V v2){ // ()演算子のオーバーロード.
 
       // 等しいならfalse, そうでないならtrue.
       return (v1 == v2) ? false : true; // v1 == v2ならfalse, そうでないならtrue.
