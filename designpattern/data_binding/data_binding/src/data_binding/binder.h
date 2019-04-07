@@ -14,6 +14,7 @@ template <typename K> class interface_binder{
     virtual ~interface_binder(){}; // デストラクタ~interface_binder
     // メンバ関数
     virtual bool bind(interface_binder<K> *b, K *key) = 0; // 純粋仮想関数bind
+    virtual void update(K *key) = 0; // 純粋仮想関数update
 
 };
 

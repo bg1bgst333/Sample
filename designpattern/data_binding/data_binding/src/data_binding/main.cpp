@@ -54,6 +54,28 @@ int main(){
   form2.print_value(); // form2.print_valueでform2の値を出力.
   form3.print_value(); // form3.print_valueでform3の値を出力.
 
+  // 区切り線を引く.
+  std::cout << "-----" << std::endl; // "-----"を出力.
+
+  // 入力フォームに値をセット.
+  form3.set_value("BBB"); // form3.set_valueでform3に"BBB"をセット.
+
+  // 入力フォームの値を出力.
+  form1.print_value(); // form1.print_valueでform1の値を出力.
+  form2.print_value(); // form2.print_valueでform2の値を出力.
+  form3.print_value(); // form3.print_valueでform3の値を出力.
+
+  // 区切り線を引く.
+  std::cout << "-----" << std::endl; // "-----"を出力.
+
+  // 入力フォームに値をセット.
+  form1.set_value("CCC"); // form1.set_valueでform1に"CCC"をセット.
+
+  // 入力フォームの値を出力.
+  form1.print_value(); // form1.print_valueでform1の値を出力.
+  form2.print_value(); // form2.print_valueでform2の値を出力.
+  form3.print_value(); // form3.print_valueでform3の値を出力.
+
   // プログラムの終了.
   return 0; // 0を返して正常終了.
 
