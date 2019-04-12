@@ -10,7 +10,7 @@
 #include "getter.h" // class_getter
 #include "comparator.h" // class_comparator
 #include "binder.h" // interface_binder
-#include <iostream>
+
 // テンプレートクラスclass_binding_variable<K, V>
 template <typename K, typename V> class class_binding_variable : public interface_binder<K>{
 
@@ -53,15 +53,15 @@ template <typename K, typename V> class class_binding_variable : public interfac
     virtual void update(K *key){ // メンバ関数update
 
       // 変更後の値を取得.
-      V value = getter_(key); // 値を取得.
+      value_ = getter_(key); // 値を取得.
 
       // リストの走査.
       typename std::list<K *>::iterator key_list_it = key_list_.begin(); // イテレータkey_list_itを初期化.
       while(key_list_it != key_list_.end()){ // 終わるまで.
 
         // 更新.
-        if (comparator_(value, getter_(*key_list_it))){ // trueなら更新.
-          setter_(*key_list_it, value); // key_list_itの指す要素の値をvalueに更新.          
+        if (comparator_(value_, getter_(*key_list_it))){ // trueなら更新.
+          setter_(*key_list_it, value_); // key_list_itの指す要素の値をvalue_に更新.          
         }
 
         // イテレータを進める.
