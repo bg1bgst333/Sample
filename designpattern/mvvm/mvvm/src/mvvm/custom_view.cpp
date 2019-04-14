@@ -12,6 +12,9 @@ void class_custom_view::init(std::string str1, std::string str2, std::string str
   form2_ptr_ = new class_input_form<std::string>(str2); // form2を生成し, str2で初期化.
   form3_ptr_ = new class_input_form<std::string>(str3); // form3を生成し, str3で初期化.
 
+  // ボタンの初期化
+  button1_ptr_ = new class_button(); // button1を生成.
+
   // ビューモデルの初期化
   view_model_ptr_ = new class_view_model<class_input_form<std::string>, std::string>(); // class_view_modelの生成.
   view_model_ptr_->init(); // 初期化.
@@ -20,6 +23,7 @@ void class_custom_view::init(std::string str1, std::string str2, std::string str
   binder_.bind(view_model_ptr_->binding_str1_ptr_, form1_ptr_); // str1とform1をbind.
   binder_.bind(view_model_ptr_->binding_str2_ptr_, form2_ptr_); // str2とform2をbind.
   binder_.bind(view_model_ptr_->binding_str3_ptr_, form3_ptr_); // str3とform3をbind.
+  button_binder_.bind(view_model_ptr_->binding_command1_ptr_, button1_ptr_); // とbutton1をbind.
 
 }
 
@@ -39,7 +43,13 @@ void class_custom_view::print(){
 // メンバ関数set_values
 void class_custom_view::set_values(std::string form1_str, std::string form2_str, std::string form3_str){
 
-  form2_ptr_->set_value(form2_str);
+  // 値のセット.
+  form1_ptr_->set_value(form1_str); // form1_strをセット.
+  form2_ptr_->set_value(form2_str); // form2_strをセット.
+  form3_ptr_->set_value(form3_str); // form3_strをセット.
+
+  // ボタンを押す.
+  button1_ptr_->notify(); // notifyで通知.
 
 }
 
@@ -49,6 +59,9 @@ void class_custom_view::exit(){
   // ビューモデルの終了処理
   view_model_ptr_->exit(); // 終了処理.
   delete view_model_ptr_; // 削除.
+
+  // ボタンの終了処理
+  delete button1_ptr_; // button1_ptr_を削除.
 
   // フォームの終了処理
   delete form1_ptr_; // form1_ptr_を削除.
