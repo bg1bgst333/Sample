@@ -60,28 +60,19 @@ template <typename K> class class_key_binder : public interface_binder<K>, publi
     }
     virtual void changed(interface_member *member){ // メンバ関数changed
 
-      // マップの走査.
-      //typename std::map<K *, std::list<interface_binder<K> *>>::iterator it = bindings_.begin(); // イテレータitを初期化.(ここのtypenameは付けないとビルドエラー.)
-      //while(it != bindings_.end()){ // 終わるまで.
-        std::list<interface_binder<K> *> &ls = bindings_[(K *)member];
-        // リストの走査.
-        typename std::list<interface_binder<K> *>::iterator list_it = /*it->second*/ls.begin(); // イテレータlist_itを初期化.(ここのtypenameは付けないとビルドエラー.)
-        while(list_it != /*it->second*/ls.end()){ // 終わるまで.
+      // memberのlistを取り出す.
+      std::list<interface_binder<K> *> &ls = bindings_[(K *)member]; // memberのlsを取り出す.
+      // リストの走査.
+      typename std::list<interface_binder<K> *>::iterator list_it = ls.begin(); // イテレータlist_itを初期化.(ここのtypenameは付けないとビルドエラー.)
+      while(list_it != ls.end()){ // 終わるまで.
 
-          // 更新.
-          std::cout << "kval = " << ((K *)member)->get_value() << std::endl;
-
-          (*list_it)->update((K *)member); // 各要素のupdate.
-
-          // イテレータを進める.
-          list_it++; // list_itを増やす.
-
-        }
+        // 更新.
+        (*list_it)->update((K *)member); // 各要素のupdate.
 
         // イテレータを進める.
-        //it++; // itを増やす.
+        list_it++; // list_itを増やす.
 
-      //}
+      }
 
     }
 

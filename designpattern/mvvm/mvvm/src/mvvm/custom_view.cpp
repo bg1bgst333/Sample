@@ -11,7 +11,6 @@ void class_custom_view::init(std::string str1, std::string str2, std::string str
   form1_ptr_ = new class_input_form<std::string>(str1); // form1を生成し, str1で初期化.
   form2_ptr_ = new class_input_form<std::string>(str2); // form2を生成し, str2で初期化.
   form3_ptr_ = new class_input_form<std::string>(str3); // form3を生成し, str3で初期化.
-  form4_ptr_ = new class_input_form<std::string>("hogehogestr4");
 
   // ビューモデルの初期化
   view_model_ptr_ = new class_view_model<class_input_form<std::string>, std::string>(); // class_view_modelの生成.
@@ -19,9 +18,7 @@ void class_custom_view::init(std::string str1, std::string str2, std::string str
 
   // バインド
   binder_.bind(view_model_ptr_->binding_str1_ptr_, form1_ptr_); // str1とform1をbind.
-  //binder_.bind(view_model_ptr_->binding_str1_ptr_, form4_ptr_); // str1とform4をbind.
   binder_.bind(view_model_ptr_->binding_str2_ptr_, form2_ptr_); // str2とform2をbind.
-  binder_.bind(view_model_ptr_->binding_str1_ptr_, form4_ptr_); // str1とform4をbind.
   binder_.bind(view_model_ptr_->binding_str3_ptr_, form3_ptr_); // str3とform3をbind.
 
 }
@@ -33,7 +30,6 @@ void class_custom_view::print(){
   form1_ptr_->print_value(); // form1の値を出力.
   form2_ptr_->print_value(); // form2の値を出力.
   form3_ptr_->print_value(); // form3の値を出力.
-  form4_ptr_->print_value();
 
 }
 
@@ -48,6 +44,5 @@ void class_custom_view::exit(){
   delete form1_ptr_; // form1_ptr_を削除.
   delete form2_ptr_; // form2_ptr_を削除.
   delete form3_ptr_; // form3_ptr_を削除.
-  delete form4_ptr_;
 
 }
