@@ -14,6 +14,12 @@ int main(){
   // カスタムビューの出力
   custom_view_ptr->print(); // custom_view_ptr->printで内容を出力.
 
+  // 値の変更.
+  custom_view_ptr->set_values("hoge", "foo", "bar");
+
+  // カスタムビューの出力
+  custom_view_ptr->print(); // custom_view_ptr->printで内容を出力.
+
   // カスタムビューの削除
   delete custom_view_ptr; // custom_view_ptrの削除.
 

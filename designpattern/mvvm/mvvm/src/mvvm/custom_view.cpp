@@ -28,8 +28,18 @@ void class_custom_view::print(){
 
   // フォームの値を出力.
   form1_ptr_->print_value(); // form1の値を出力.
+  std::cout << view_model_ptr_->binding_str1_ptr_->value_ << std::endl;
   form2_ptr_->print_value(); // form2の値を出力.
+  std::cout << view_model_ptr_->binding_str2_ptr_->value_ << std::endl;
   form3_ptr_->print_value(); // form3の値を出力.
+  std::cout << view_model_ptr_->binding_str3_ptr_->value_ << std::endl;
+
+}
+
+// メンバ関数set_values
+void class_custom_view::set_values(std::string form1_str, std::string form2_str, std::string form3_str){
+
+  form2_ptr_->set_value(form2_str);
 
 }
 

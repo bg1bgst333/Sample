@@ -19,14 +19,14 @@ template <typename K, typename V> class class_binding_variable : public interfac
 
     // 非公開メンバ変数
     std::list<K *> key_list_; // K型のポインタをキーとするリストkey_list_.
-    V value_; // V型の値value_.
+    //V value_; // V型の値value_.
     class_setter<K, V> &setter_; // セッターの参照setter_.
     class_getter<K, V> &getter_; // ゲッターの参照getter_.
     class_comparator<V> &comparator_; // コンパレーターの参照comparator_.
 
   // 公開メンバ
   public:
-
+    V value_;
     // 公開メンバ関数
     // コンストラクタとデストラクタ
     class_binding_variable(V value, class_setter<K, V> &setter, class_getter<K, V> &getter, class_comparator<V> &comparator) : setter_(setter), getter_(getter), comparator_(comparator){ // コンストラクタclass_binding_variable.(value_以外のメンバを初期化.)

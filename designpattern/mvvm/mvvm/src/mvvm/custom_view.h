@@ -31,6 +31,7 @@ class class_custom_view : public class_view{
     // メンバ関数
     void init(std::string str1, std::string str2, std::string str3); // メンバ関数init
     void print(); // メンバ関数print
+    void set_values(std::string form1_str, std::string form2_str, std::string form3_str); // メンバ関数set_values
     void exit(); // メンバ関数exit
 
 };
