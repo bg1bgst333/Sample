@@ -5,6 +5,8 @@
 // 独自のヘッダ
 #include "view.h" // class_view
 #include "input_form.h" // class_input_form
+#include "view_model.h" // class_view_model
+#include "key_binder.h" // class_key_binder
 
 // 前方宣言
 class class_custom_presenter;
@@ -19,6 +21,8 @@ class class_custom_view : public class_view{
     class_input_form<std::string> *form1_ptr_; // form1
     class_input_form<std::string> *form2_ptr_; // form2
     class_input_form<std::string> *form3_ptr_; // form3
+    class_view_model<class_input_form<std::string>, std::string> *view_model_ptr_; // ViewModelポインタ.
+    class_key_binder<class_input_form<std::string>> binder_; // バインダー.
 
   // 公開メンバ
   public:
