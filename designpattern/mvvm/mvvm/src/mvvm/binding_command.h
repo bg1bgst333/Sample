@@ -43,7 +43,11 @@ template <typename K> class class_binding_command : public interface_binder<K>{
     }
     virtual void update(K *key){ // メンバ関数update
 
-      // 何も無し.
+      // 更新.
+      std::cout << "binding_command_update" << std::endl; // "binding_command_update"を出力.
+
+      // on_commandの実行.
+      on_command(key); // on_commandにkeyを渡す.
 
     }
     virtual void on_command(K *key){ // メンバ関数on_command

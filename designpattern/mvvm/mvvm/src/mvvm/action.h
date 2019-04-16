@@ -5,21 +5,39 @@
 // ヘッダのインクルード
 // 既定のヘッダ
 #include <iostream> // C++標準入出力
+// 独自のヘッダ
+#include "view_model.h" // class_view_model
+
+template <typename K, typename V>class class_view_model;
 
 // テンプレート関数オブジェクトclass_action<K>
 template <typename K> class class_action{
 
+  // 非公開メンバ
+  private:
+
+    // 非公開メンバ変数
+    class_view_model<K, std::string> *view_model_ptr_; // ビューモデルポインタ.
+    
   // 公開メンバ
   public:
 
     // コンストラクタとデストラクタ
-    class_action(){}; // コンストラクタclass_action
+    class_action(class_view_model<K, std::string> *view_model_ptr){ // コンストラクタclass_view_model
+
+      // メンバの初期化.
+      view_model_ptr_ = view_model_ptr; // view_model_ptr_にview_model_ptrをセット.
+
+    }
     virtual ~class_action(){}; // デストラクタ~class_action
     // メンバ関数
     void operator()(K *key){ // ()演算子のオーバーロード.
 
       // アクション開始.
       std::cout << "action start" << std::endl; // "action start"と出力.
+
+      // ビューモデルの変数を使って演算し, 結果をビューモデルに反映.
+      this->binding_str3_ptr_->value_ = "GGG";
 
       // アクション終了.
       std::cout << "action end" << std::endl; // "action end"と出力.
