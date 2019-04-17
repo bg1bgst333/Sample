@@ -17,14 +17,14 @@ template <typename K> class class_binding_command : public interface_binder<K>{
 
     // 非公開メンバ変数
     std::list<K *> key_list_; // K型のポインタをキーとするリストkey_list_.
-    class_action<K> &action_; // アクションの参照action_.
+    class_action<K, class_input_form<std::string>, std::string> &action_; // アクションの参照action_.
 
   // 公開メンバ
   public:
 
     // 公開メンバ関数
     // コンストラクタとデストラクタ
-    class_binding_command(class_action<K> &action) : action_(action){ // コンストラクタclass_binding_command.
+    class_binding_command(class_action<K, class_input_form<std::string>, std::string> &action) : action_(action){ // コンストラクタclass_binding_command.
 
       // メンバにセット.
       action_ = action; // action_にactionをセット.

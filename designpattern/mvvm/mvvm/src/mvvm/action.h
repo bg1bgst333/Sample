@@ -11,19 +11,19 @@
 template <typename K, typename V>class class_view_model;
 
 // テンプレート関数オブジェクトclass_action<K>
-template <typename K> class class_action{
+template <typename B, typename K, typename V> class class_action{
 
   // 非公開メンバ
   private:
 
     // 非公開メンバ変数
-    class_view_model<K, std::string> *view_model_ptr_; // ビューモデルポインタ.
+    class_view_model<K, V> *view_model_ptr_; // ビューモデルポインタ.
     
   // 公開メンバ
   public:
 
     // コンストラクタとデストラクタ
-    class_action(class_view_model<K, std::string> *view_model_ptr){ // コンストラクタclass_view_model
+    class_action(class_view_model<K, V> *view_model_ptr){ // コンストラクタclass_view_model
 
       // メンバの初期化.
       view_model_ptr_ = view_model_ptr; // view_model_ptr_にview_model_ptrをセット.
@@ -31,13 +31,13 @@ template <typename K> class class_action{
     }
     virtual ~class_action(){}; // デストラクタ~class_action
     // メンバ関数
-    void operator()(K *key){ // ()演算子のオーバーロード.
+    void operator()(B *key){ // ()演算子のオーバーロード.
 
       // アクション開始.
       std::cout << "action start" << std::endl; // "action start"と出力.
 
       // ビューモデルの変数を使って演算し, 結果をビューモデルに反映.
-      this->binding_str3_ptr_->value_ = "GGG";
+      view_model_ptr_->binding_str3_ptr_->set_value("GGG");
 
       // アクション終了.
       std::cout << "action end" << std::endl; // "action end"と出力.
