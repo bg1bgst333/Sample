@@ -12,6 +12,7 @@
 #include "binding_command.h" // class_binding_command
 #include "action.h" // class_action
 #include "button.h" // class_button
+#include "model.h" // class_model
 
 // テンプレートクラスclass_view_model<K, V>
 template <typename K, typename V>class class_view_model{
@@ -33,21 +34,23 @@ template <typename K, typename V>class class_view_model{
     class_binding_variable<K, V> *binding_str2_ptr_; // binding_str2のポインタ.
     class_binding_variable<K, V> *binding_str3_ptr_; // binding_str3のポインタ.
     class_binding_command<class_button> *binding_command1_ptr_; // binding_command1のポインタ.
+    class_model *model_; // モデル.
     // コンストラクタとデストラクタ
     class_view_model(){ // コンストラクタ
-
+      model_ = NULL; // model_にNULLをセット.
     }
     virtual ~class_view_model(){ // デストラクタ
-
+      model_ = NULL; // model_にNULLをセット.
     }
     // 公開メンバ関数
     void init(){ // 初期化メンバ関数init
 
       // バインディング変数の初期化.
+      model_ = new class_model(); // model_を生成.
       binding_str1_ptr_ = new class_binding_variable<K, V>("str1", setter_, getter_, comparator_); // str1に"str1"をセット.
       binding_str2_ptr_ = new class_binding_variable<K, V>("str2", setter_, getter_, comparator_); // str2に"str2"をセット.
       binding_str3_ptr_ = new class_binding_variable<K, V>("str3", setter_, getter_, comparator_); // str3に"str3"をセット.
-      action_ = new class_action<class_button, K, V>(this);
+      action_ = new class_action<class_button, K, V>(this); // action_の生成.
       binding_command1_ptr_ = new class_binding_command<class_button>(*action_); // command1にaction_をセット.
 
     }
@@ -55,10 +58,11 @@ template <typename K, typename V>class class_view_model{
 
       // バインディング変数の終了処理.
       delete binding_command1_ptr_; // command1の削除.
-      delete action_;
+      delete action_; // action_の破棄.
       delete binding_str1_ptr_; // str1の削除.
       delete binding_str2_ptr_; // str2の削除.
       delete binding_str3_ptr_; // str3の削除.
+      delete model_; // model_を破棄.
 
     }
 

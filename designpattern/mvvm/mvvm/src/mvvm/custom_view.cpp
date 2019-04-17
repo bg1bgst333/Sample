@@ -32,11 +32,8 @@ void class_custom_view::print(){
 
   // フォームの値を出力.
   form1_ptr_->print_value(); // form1の値を出力.
-  std::cout << view_model_ptr_->binding_str1_ptr_->value_ << std::endl;
   form2_ptr_->print_value(); // form2の値を出力.
-  std::cout << view_model_ptr_->binding_str2_ptr_->value_ << std::endl;
   form3_ptr_->print_value(); // form3の値を出力.
-  std::cout << view_model_ptr_->binding_str3_ptr_->value_ << std::endl;
 
 }
 

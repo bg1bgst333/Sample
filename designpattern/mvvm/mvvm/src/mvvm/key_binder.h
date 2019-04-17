@@ -59,15 +59,10 @@ template <typename K> class class_key_binder : public interface_binder<K>, publi
 
     }
     virtual void changed(interface_member *member){ // メンバ関数changed
-      class_button *p = dynamic_cast<class_button *>(member);
-      if (p){
-        std::cout << "class_button" << std::endl;
-      }
-      else{
-        std::cout << "not class_button" << std::endl;
-      }
+
       // memberのlistを取り出す.
       std::list<interface_binder<K> *> &ls = bindings_[(K *)member]; // memberのlsを取り出す.
+
       // リストの走査.
       typename std::list<interface_binder<K> *>::iterator list_it = ls.begin(); // イテレータlist_itを初期化.(ここのtypenameは付けないとビルドエラー.)
       while(list_it != ls.end()){ // 終わるまで.

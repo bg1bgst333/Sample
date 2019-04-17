@@ -8,7 +8,8 @@
 // 独自のヘッダ
 #include "view_model.h" // class_view_model
 
-template <typename K, typename V>class class_view_model;
+// 前方宣言.
+template <typename K, typename V>class class_view_model; // class_view_modelの前方宣言.
 
 // テンプレート関数オブジェクトclass_action<K>
 template <typename B, typename K, typename V> class class_action{
@@ -37,7 +38,8 @@ template <typename B, typename K, typename V> class class_action{
       std::cout << "action start" << std::endl; // "action start"と出力.
 
       // ビューモデルの変数を使って演算し, 結果をビューモデルに反映.
-      view_model_ptr_->binding_str3_ptr_->set_value("GGG");
+      std::string result = view_model_ptr_->model_->func(view_model_ptr_->binding_str1_ptr_->get_value(), view_model_ptr_->binding_str2_ptr_->get_value()); // result取得.
+      view_model_ptr_->binding_str3_ptr_->set_value(result); // resultをセット.
 
       // アクション終了.
       std::cout << "action end" << std::endl; // "action end"と出力.
