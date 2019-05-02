@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "M_PI", "M_PI\M_PI.vcproj", "{7BB31CBF-2DF2-4F7B-966F-F70A80226090}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BB31CBF-2DF2-4F7B-966F-F70A80226090}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7BB31CBF-2DF2-4F7B-966F-F70A80226090}.Debug|Win32.Build.0 = Debug|Win32
+		{7BB31CBF-2DF2-4F7B-966F-F70A80226090}.Release|Win32.ActiveCfg = Release|Win32
+		{7BB31CBF-2DF2-4F7B-966F-F70A80226090}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
