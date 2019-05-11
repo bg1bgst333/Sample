@@ -22,8 +22,8 @@ class MainClass // MainClassクラスの定義
         foreach (Object obj in aryList) // aryListから要素を取り出す.(objに格納.)
         {
             // aryListの要素を出力.
-            String s = (String)obj; // objをStringにキャスト.
-            Console.WriteLine("s == obj == " + obj);    // objを出力.
+            String s = (String)obj; // objをStringのsにキャスト.
+            Console.WriteLine("s == obj == " + s);    // sを出力.
         }
     
     }
