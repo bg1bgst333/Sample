@@ -19,7 +19,7 @@ int main(void){
   printf("d = %08x\n", d); /* dの値を16進数で出力. */
 
   /* 白のRGB値を取得. */
-  white = WhitePixel(d, 0); /* WhitePixelでスクリーン0における白のRGB値を取得し, whiteに格納. */
+  white = XWhitePixel(d, 0); /* XWhitePixelでスクリーン0における白のRGB値を取得し, whiteに格納. */
 
   /* ウィンドウの生成. */
   wr = XCreateSimpleWindow(d, RootWindow(d, 0), 100, 100, 640, 480, 1, white, white); /* XCreateSimpleWindowでウィンドウ生成し, 結果はwrに格納. */
