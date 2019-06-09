@@ -47,9 +47,9 @@ int main(int argc, char **argv){
   XAllocColor(d, default_colormap, &color1); /* XAllocColorにRGB値を設定したcolor1を指定するとピクセル値が格納される. */
 
   /* 赤のピクセル値を取得. */
-  color1.red = 0xffff; /* redは0xffff. */
-  color1.green = 0x0; /* greenは0x0. */
-  color1.blue = 0x0; /* blueは0x0. */
+  color2.red = 0xffff; /* redは0xffff. */
+  color2.green = 0x0; /* greenは0x0. */
+  color2.blue = 0x0; /* blueは0x0. */
   XAllocColor(d, default_colormap, &color2); /* XAllocColorにRGB値を設定したcolor2を指定するとピクセル値が格納される. */
 
   /* 白のピクセル値を取得. */
