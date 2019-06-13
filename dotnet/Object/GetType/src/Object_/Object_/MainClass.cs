@@ -20,8 +20,8 @@ class MainClass // MainClassクラスの定義
 
         // 出力.
         System.Console.WriteLine(baseType.ToString());  // baseType.ToStringの戻り値を出力.
-        System.Console.WriteLine(baseD1Obj.ToString()); // baseD1Obj.ToStringの戻り値を出力.
-        System.Console.WriteLine(baseD2Obj.ToString()); // baseD2Obj.ToStringの戻り値を出力.
+        System.Console.WriteLine(d1Type.ToString()); // d1Type.ToStringの戻り値を出力.
+        System.Console.WriteLine(d2Type.ToString()); // d2Type.ToStringの戻り値を出力.
 
     }
 
