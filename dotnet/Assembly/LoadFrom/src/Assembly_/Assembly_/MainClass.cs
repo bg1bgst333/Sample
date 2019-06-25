@@ -10,7 +10,7 @@ class MainClass // MainClassクラスの定義
     static void Main()  // Mainメソッドの定義
     {
 
-        // ClassLibraryClass.dllのロード.
+        // ClassLibrary.dllのロード.
         try
         {
 
