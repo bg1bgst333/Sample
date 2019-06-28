@@ -1,0 +1,7 @@
+﻿<Window x:Class="xmlns.Window1"
+    xmlns="clr-namespace:System.Windows;assembly=presentationframework"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:bgst="clr-namespace:BGST;assembly=TestClass"
+    Title="Window1" Height="300" Width="300">
+    <bgst:TestClass x:Name="test1" TestPropertyNum="100" />
+</Window>
