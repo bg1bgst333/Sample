@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xmlns", "xmlns\xmlns.csproj", "{E6A84C0F-9724-4600-84EB-9052D6D83C6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6A84C0F-9724-4600-84EB-9052D6D83C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A84C0F-9724-4600-84EB-9052D6D83C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A84C0F-9724-4600-84EB-9052D6D83C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A84C0F-9724-4600-84EB-9052D6D83C6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
