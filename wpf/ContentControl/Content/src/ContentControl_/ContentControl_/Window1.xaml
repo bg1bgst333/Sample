@@ -1,0 +1,17 @@
+﻿<Window x:Class="ContentControl_.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="300" Width="300">
+    <StackPanel>
+        <Button Content="ABCDE">
+        </Button>
+        <Button>
+            <Button.Content>
+                FGHIJ
+            </Button.Content>
+        </Button>
+        <Button>
+            KLMNO
+        </Button>
+    </StackPanel>
+</Window>
