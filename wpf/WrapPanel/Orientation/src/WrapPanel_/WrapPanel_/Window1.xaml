@@ -1,0 +1,16 @@
+﻿<Window x:Class="WrapPanel_.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="300" Width="300">
+    <WrapPanel Orientation="Vertical">
+        <Button Width="50" Height="20">
+            ABCDE
+        </Button>
+        <Button Width="100" Height="30">
+            FGHIJ
+        </Button>
+        <Button Width="150" Height="50">
+            KLMNO
+        </Button>
+    </WrapPanel>
+</Window>
