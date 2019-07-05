@@ -19,7 +19,7 @@ class TestCollection<T> : IEnumerable<T>  // TestCollection<T>クラスの定義(IEnum
         collection = new T[len];  // 要素数lenのT型配列collection.
 
         // イナミュレータの生成.
-        testEnumerator = new TestEnumerator<T>();   // testEnumeratorの生成.
+        testEnumerator = new TestEnumerator<T>(collection, len);   // testEnumeratorの生成.
 
     }
 

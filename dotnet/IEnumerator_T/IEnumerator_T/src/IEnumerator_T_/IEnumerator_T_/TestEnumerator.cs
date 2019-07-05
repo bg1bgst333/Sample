@@ -18,7 +18,7 @@ class TestEnumerator<T> : IEnumerator<T>  // TestEnumerator<T>クラスの定義(IEnum
         get
         {
             // 呼ばれたことを出力.
-            Console.WriteLine("index = " + (index - 1) + ", Current = " + container[index - 1]);   // indexとCurrentを出力.
+            Console.WriteLine("IEnumerator<T>:index = " + (index - 1) + ", Current = " + container[index - 1]);   // indexとCurrentを出力.
             return container[index - 1];    // container[index - 1]を返す.
             
         }
@@ -33,7 +33,7 @@ class TestEnumerator<T> : IEnumerator<T>  // TestEnumerator<T>クラスの定義(IEnum
             if (index >= 1 && index <= length)   // indexが1以上length以下なら要素を返す.
             {
                 // 呼ばれたことを出力.
-                Console.WriteLine("index = " + (index - 1) + ", Current = " + container[index - 1]);   // indexとCurrentを出力.
+                Console.WriteLine("IEnumerator:index = " + (index - 1) + ", Current = " + container[index - 1]);   // indexとCurrentを出力.
                 return container[index - 1];    // container[index - 1]を返す.
             }
             else
@@ -41,6 +41,17 @@ class TestEnumerator<T> : IEnumerator<T>  // TestEnumerator<T>クラスの定義(IEnum
                 return null;    // nullを返す.
             }
         }
+    }
+
+    // コンストラクタ
+    public TestEnumerator(T[] con, int len)
+    {
+
+        // メンバに格納.
+        container = con;    // conをcontainerに格納.
+        length = len;       // lenをlengthに格納.
+        index = 0;          // indexは0にセット.
+
     }
 
     // IEnumerator.MoveNextメソッド
