@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListBoxItem_", "ListBoxItem_\ListBoxItem_.csproj", "{00CDB172-3361-426C-95EA-F027A6835581}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00CDB172-3361-426C-95EA-F027A6835581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00CDB172-3361-426C-95EA-F027A6835581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00CDB172-3361-426C-95EA-F027A6835581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00CDB172-3361-426C-95EA-F027A6835581}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
