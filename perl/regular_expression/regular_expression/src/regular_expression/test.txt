@@ -1,0 +1,10 @@
+ABC
+DEF
+GHI
+aaB
+aBC
+BAC
+AAC
+AbC
+AaB
+Abc
