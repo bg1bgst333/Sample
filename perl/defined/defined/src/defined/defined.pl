@@ -1,3 +1,5 @@
+#!/usr/bin/perl
+
 # 値が未定義の変数は偽(false)となる.
 if (defined $var1){
   print "true\n";
