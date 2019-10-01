@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CombineRgn", "CombineRgn\CombineRgn.vcproj", "{445F4AC2-4214-4ECC-9517-AE82315111A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{445F4AC2-4214-4ECC-9517-AE82315111A7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{445F4AC2-4214-4ECC-9517-AE82315111A7}.Debug|Win32.Build.0 = Debug|Win32
+		{445F4AC2-4214-4ECC-9517-AE82315111A7}.Release|Win32.ActiveCfg = Release|Win32
+		{445F4AC2-4214-4ECC-9517-AE82315111A7}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
