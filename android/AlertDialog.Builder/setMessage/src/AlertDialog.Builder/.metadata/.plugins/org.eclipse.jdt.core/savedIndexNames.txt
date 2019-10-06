@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\AlertDialog.Builder\setMessage\src\AlertDialog.Builder\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+503766289.index
+914302562.index
