@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.view.LayoutInflater"/>
+<fullyQualifiedTypeName name="com.bgstation0.android.sample.alertdialog.builder_.R.layout"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup"/>
+<fullyQualifiedTypeName name="com.bgstation0.android.sample.alertdialog.builder_.R.id"/>
+<fullyQualifiedTypeName name="android.widget.EditText"/>
+</qualifiedTypeNameHistroy>
