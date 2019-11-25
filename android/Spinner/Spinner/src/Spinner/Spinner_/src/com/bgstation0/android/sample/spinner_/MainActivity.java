@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);	// 既定のandroid.R.layout.simple_spinner_itemでアダプタ作成.
         // アイテムの追加.
         adapter.add("Item1");	// Item1を追加.
-        adapter.add("item2");	// Item2を追加.
+        adapter.add("Item2");	// Item2を追加.
         adapter.add("Item3"); 	// Item3を追加.
         // スピナーにアダプタをセット.
         Spinner spinner = (Spinner)findViewById(R.id.spinner);	// spinnerを取得.
