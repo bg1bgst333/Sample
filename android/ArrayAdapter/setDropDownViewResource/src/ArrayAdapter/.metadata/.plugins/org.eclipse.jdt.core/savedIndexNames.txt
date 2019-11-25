@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\ArrayAdapter\setDropDownViewResource\src\ArrayAdapter\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+2079774995.index
+1550613092.index
+818297799.index
