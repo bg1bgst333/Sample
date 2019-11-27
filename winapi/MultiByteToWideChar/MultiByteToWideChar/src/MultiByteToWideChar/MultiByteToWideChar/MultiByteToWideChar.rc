@@ -1,0 +1,15 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "File(&F)"
+	BEGIN
+		MENUITEM "Open(&O)",	ID_ITEM_OPEN
+		MENUITEM "Save(&S)",	ID_ITEM_SAVE
+	END
+	POPUP "Clipboard(&B)"
+	BEGIN
+		MENUITEM "Copy(&C)",	ID_ITEM_COPY
+		MENUITEM "Paste(&P)",	ID_ITEM_PASTE
+	END
+END
