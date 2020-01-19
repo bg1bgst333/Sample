@@ -1,0 +1,324 @@
+// ヘッダファイルのインクルード
+// 既定のヘッダファイル
+#include <string.h>		// C文字列処理
+#include <windows.h>	// 標準WindowsAPI
+#include <tchar.h>		// TCHAR型
+#include <commctrl.h>	// コモンコントロール
+
+// 独自のヘッダファイル
+#include "resource.h"	// リソースID
+
+// 関数のプロトタイプ宣言
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	// ウィンドウメッセージに対して独自の処理をするように定義したコールバック関数WindowProc.
+
+// _tWinMain関数の定義
+int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nShowCmd) {
+
+	// 変数の宣言
+	HWND hWnd;			// CreateWindowで作成したウィンドウのウィンドウハンドルを格納するHWND型変数hWnd.
+	MSG msg;			// ウィンドウメッセージ情報を格納するMSG構造体型変数msg.
+	WNDCLASS wc;		// ウィンドウクラス情報をもつWNDCLASS構造体型変数wc.
+
+	// ウィンドウクラスの設定
+	wc.lpszClassName = _T("IsClipboardFormatAvailable");		//ウィンドウクラス名は"IsClipboardFormatAvailable".
+	wc.style = CS_HREDRAW | CS_VREDRAW;						// スタイルはCS_HREDRAW | CS_VREDRAW.
+	wc.lpfnWndProc = WindowProc;							// ウィンドウプロシージャは独自の処理を定義したWindowProc.
+	wc.hInstance = hInstance;								// インスタンスハンドルは_tWinMainの引数.
+	wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);				// アイコンはアプリケーション既定のもの.
+	wc.hCursor = LoadCursor(NULL, IDC_ARROW);				// カーソルは矢印.
+	wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);	// 背景は白ブラシ.
+	wc.lpszMenuName = MAKEINTRESOURCE(IDR_MAINMENU);		// メニューにはIDR_MAINMENUをMAKEINTRESOURCEマクロで指定.
+	wc.cbClsExtra = 0;										// 0でいい.
+	wc.cbWndExtra = 0;										// 0でいい.
+
+	// ウィンドウクラスの登録
+	if (!RegisterClass(&wc)) {	// RegisterClassでウィンドウクラスを登録し, 0が返ったらエラー.
+
+		// エラー処理
+		MessageBox(NULL, _T("RegisterClass Failure!"), _T("IsClipboardFormatAvailable"), MB_OK | MB_ICONHAND);	// MessageBoxで"RegisterClass Failure!"とエラーメッセージを表示.
+		return -1;	// 異常終了(1)
+
+	}
+
+	// ウィンドウの作成
+	hWnd = CreateWindow(_T("IsClipboardFormatAvailable"), _T("IsClipboardFormatAvailable"), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL, hInstance, NULL);	// CreateWindowで, 上で登録した"IsClipboardFormatAvailable"ウィンドウクラスのウィンドウを作成.
+	if (hWnd == NULL) {	// ウィンドウの作成に失敗したとき.
+
+		// エラー処理
+		MessageBox(NULL, _T("CreateWindow Failure!"), _T("IsClipboardFormatAvailable"), MB_OK | MB_ICONHAND);	// MessageBoxで"CreateWindow Failure!"とエラーメッセージを表示.
+		return -2;	// 異常終了(2)
+
+	}
+
+	// ウィンドウの表示
+	ShowWindow(hWnd, SW_SHOW);	// ShowWindowでSW_SHOWを指定してウィンドウの表示.
+
+	// メッセージループ
+	while (GetMessage(&msg, NULL, 0, 0) > 0) {	// GetMessageでメッセージを取得, 戻り値が0より大きい間はループし続ける.
+
+		// ウィンドウメッセージ処理
+		TranslateMessage(&msg);	// TranslateMessageで仮想キーメッセージを文字メッセージへ変換.
+		DispatchMessage(&msg);	// DispatchMessageで受け取ったメッセージをウィンドウプロシージャ(この場合は独自に定義したWindowProc)に送出.
+
+	}
+
+	// プログラムの終了
+	return (int)msg.wParam;	// 終了コード(msg.wParam)を戻り値として返す.
+
+}
+
+// WindowProc関数の定義
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {	// ウィンドウメッセージに対して独自の処理をするように定義したウィンドウプロシージャ.
+
+	// ウィンドウメッセージに対する処理.
+	switch (uMsg) {	// switch-casa文でuMsgの値ごとに処理を振り分ける.
+
+		// ウィンドウの作成が開始された時.
+		case WM_CREATE:		// ウィンドウの作成が開始された時.(uMsgがWM_CREATEの時.)
+
+			// WM_CREATEブロック
+			{
+				
+				// 変数の宣言
+				HWND hEdit;				// エディットコントロールのウィンドウハンドルhEdit.
+				LPCREATESTRUCT lpCS;	// CreateStruct構造体のポインタlpCS.
+				BOOL bOpen;	// 開いたかどうかの結果bOpen.
+
+				// アプリケーションインスタンスハンドルの取得.
+				lpCS = (LPCREATESTRUCT)lParam;	// lParamをLPCREATESTRUCTにキャストして, lpCSに格納.
+
+				// エディットコントロールの作成.
+				hEdit = CreateWindow(WC_EDIT, _T("Edit1"), WS_CHILD | WS_BORDER | WS_VISIBLE | ES_MULTILINE | ES_WANTRETURN, 50, 50, 250, 200, hwnd, (HMENU)ID_EDIT1, lpCS->hInstance, NULL);	// CreateWindowのWC_EDITでエディットコントロール"Edit1"を作成.
+				if (hEdit == NULL){	// hEditがNULLなら.
+
+					// エラー処理.
+					return -1;	// -1を返す.
+
+				}
+
+				// 最初にクリップボードを空にしておく.
+				bOpen = OpenClipboard(hwnd);	// OpenClipboardでクリップボードを開く.
+				if (bOpen){	// 成功.
+					EmptyClipboard();	// EmptyClipboardでクリップボードを空にする.
+					CloseClipboard();	// CloseClipboardでクリップボードを閉じる.
+				}
+
+				// ウィンドウ作成成功
+				return 0;	// return文で0を返して, ウィンドウ作成成功とする.
+
+			}
+
+			// 既定の処理へ向かう.
+			break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+		// ウィンドウが破棄された時.
+		case WM_DESTROY:	// ウィンドウが破棄された時.(uMsgがWM_DESTROYの時.)
+
+			// WM_DESTROYブロック
+			{
+
+				// 終了メッセージの送信.
+				PostQuitMessage(0);	// PostQuitMessageで終了コードを0としてWM_QUITメッセージを送信.(するとメッセージループのGetMessageの戻り値が0になるので, メッセージループから抜ける.)
+
+			}
+
+			// 既定の処理へ向かう.
+			break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+		// メニュー項目が選択されたり, ボタンなどのコントロールが押されたりした時.
+		case WM_COMMAND:	// メニュー項目が選択されたり, ボタンなどのコントロールが押されたりした時.(uMsgがWM_COMMANDの時.)
+
+			// WM_COMMANDブロック
+			{
+
+				// どのメニュー項目が選択されたかを判定する.
+				switch (LOWORD(wParam)){	// LOWORD(wParam)で選択されたメニュー項目のIDが取得できるので, その値で判定する.
+
+					// 取得したIDごとに処理を分岐.
+					// Openが選択された時.
+					case ID_ITEM_OPEN:
+
+						// ID_ITEM_OPENブロック
+						{
+
+							// 変数の宣言
+							HANDLE hFile;		// HANDLE型ファイルハンドルhFile
+							BYTE btBuf[128];	// BYTE型配列btBuf(長さ128)
+							DWORD dwReadBytes;	// DWORD型読み込んだバイト数dwReadBytes.
+							HWND hEdit1;	// ID_EDIT1のハンドルhEdit1.
+							int iLen;	// バッファに必要な長さiLen.
+							TCHAR *ptszBuf;	// TCHARバッファポインタptszBuf.
+
+							// ファイルを開く
+							hFile = CreateFile(_T("test.txt"), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);	// CreateFileで"test.txt"を開いて, 取得したハンドルをhFileに格納.
+							if (hFile != INVALID_HANDLE_VALUE){	// hFileがINVALID_HANDLE_VALUEでなければ.
+
+								// ファイルの内容を読み込む.
+								ReadFile(hFile, btBuf, 128, &dwReadBytes, NULL);	// ReadFileでhFileの内容をbtBufに読み込む.
+								btBuf[dwReadBytes] = 0x0;	// 末尾を'\0'( = 0x0)で埋める.
+
+								// 閉じる.
+								CloseHandle(hFile);	// CloseHandleでhFileを閉じる.
+
+								// マルチバイト文字列をワイド文字列に変換.
+								iLen = MultiByteToWideChar(CP_ACP, 0, (char *)btBuf, -1, NULL, 0);	// MultiByteToWideCharで必要なバッファの長さを求める.
+								ptszBuf = new TCHAR[iLen];	// 長さiLenのTCHARバッファを確保し, ptszBufに格納.
+								MultiByteToWideChar(CP_ACP, 0, (char *)btBuf, -1, ptszBuf, iLen);	// MultiByteToWideCharでbtBufをptszBufに変換.
+								
+								// エディットコントロールにセット.
+								hEdit1 = GetDlgItem(hwnd, ID_EDIT1);	// ID_EDIT1のハンドルhEdit1を取得.
+								SetWindowText(hEdit1, ptszBuf);	// SetWindowTextでhEdit1にptszBufをセット.							
+
+								// メモリ解放.
+								delete [] ptszBuf;	// ptszBufを解放.
+
+							}
+
+						}
+
+						// 既定の処理へ向かう.
+						break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+					// Saveが選択された時.
+					case ID_ITEM_SAVE:
+
+						// ID_ITEM_SAVEブロック
+						{
+
+							// 変数の宣言
+							HWND hEdit1;	// ID_EDIT1のハンドルhEdit1.
+							int iLen;	// バッファに必要な長さiLen.
+							TCHAR *ptszBuf;	// 取得文字列.
+							int iBufLen;	// バッファの長さiBufLen.
+							char *pszBuf;	// char型バッファポインタpszBuf.
+							HANDLE hFile;			// HANDLE型ファイルハンドルhFile
+							DWORD dwWrittenBytes;	// DWORD型書きこんだバイト数dwWrittenBytes.
+
+							// エディットコントロールから取得.
+							hEdit1 = GetDlgItem(hwnd, ID_EDIT1);	// ID_EDIT1のハンドルhEdit1を取得.
+							iLen = GetWindowTextLength(hEdit1);	// ID_EDIT1のテキストの長さを調べる.
+							ptszBuf = new TCHAR[iLen + 1];	// iLen + 1のバッファを確保.
+							GetWindowText(hEdit1, ptszBuf, iLen + 1);	// 文字列を取得.
+							ptszBuf[iLen] = _T('\0');	// 最後は_T('\0')を格納.
+
+							// ワイド文字をマルチバイト文字に変換する.
+							iBufLen = WideCharToMultiByte(CP_ACP, 0, ptszBuf, -1, NULL, 0, NULL, NULL);	// まずは長さを取得.
+							pszBuf = new char[iBufLen];	// iBufLenのchar型バッファを確保.
+							WideCharToMultiByte(CP_ACP, 0, ptszBuf, -1, pszBuf, iBufLen, NULL, NULL);	// 変換.
+
+							// ファイルを開く
+							hFile = CreateFile(_T("test.txt"), GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);	// CreateFileで"test.txt"を書込みモード(GENERIC_WRITE)開いて, 取得したハンドルをhFileに格納.
+							if (hFile != INVALID_HANDLE_VALUE){	// hFileがINVALID_HANDLE_VALUEでなければ.
+
+								// ファイルの内容を書き込む.
+								WriteFile(hFile, pszBuf, iBufLen - 1, &dwWrittenBytes, NULL);	// WriteFileでhFileにpszBufを書きこむ.
+
+								// 閉じる.
+								CloseHandle(hFile);	// CloseHandleでhFileを閉じる.
+
+							}
+
+							// 終了処理.
+							delete [] ptszBuf;	// delete[]でptszBufの解放
+							delete [] pszBuf;	// delete[]でpszBufの解放.
+
+						}
+
+						// 既定の処理へ向かう.
+						break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+					// Copyが選択された時.
+					case ID_ITEM_COPY:
+
+						// ID_ITEM_COPYブロック
+						{
+
+							// 変数の宣言
+							BOOL bOpen;	// 開いたかどうかの結果bOpen.
+							BOOL bEmpty;	// 空にできたかどうかの結果bEmpty.
+							HGLOBAL hGlobal;	// グローバルハンドルhGlobal.
+							PTSTR ptszText;	// PTSTR型テキスト.
+							HWND hEdit1;	// ID_EDIT1のハンドルhEdit1.
+							int iLen;	// テキストの長さiLen.
+
+							// テキストを取得.
+							hEdit1 = GetDlgItem(hwnd, ID_EDIT1);	// ID_EDIT1のハンドルhEdit1を取得.
+							iLen = GetWindowTextLength(hEdit1);	// テキストの長さを取得.
+							ptszText = new TCHAR[iLen + 1];	// newで確保.
+							GetWindowText(hEdit1, ptszText, iLen + 1);	// テキストを取得.
+
+							// ワイド文字をマルチバイト文字に変換する.
+							int iBufLen;	// バッファの長さ.
+							char *pszBuf;	// char型バッファポインタpszBuf.
+							iBufLen = WideCharToMultiByte(CP_ACP, 0, ptszText, -1, NULL, 0, NULL, NULL);	// まずは長さを取得.
+							pszBuf = new char[iBufLen];	// iBufLenのchar型バッファを確保.
+							WideCharToMultiByte(CP_ACP, 0,  ptszText, -1, pszBuf, iBufLen, NULL, NULL);	// 変換.
+							delete [] ptszText;	// 不要なので解放.
+
+							// グローバルメモリの確保.
+							PSTR pszGlobalBuf;
+							hGlobal = GlobalAlloc(GHND | GMEM_SHARE, iBufLen);	// 長さiBufLenのメモリを確保.
+							pszGlobalBuf = (PSTR)GlobalLock(hGlobal);	// ロックしてpszGlobalBuf取得.
+							strcpy(pszGlobalBuf, pszBuf);	// コピー.
+							GlobalUnlock(hGlobal);	// アンロック.
+							delete [] pszBuf;	// 不要なので解放.
+							
+							// クリップボードを開く.
+							bOpen = OpenClipboard(hwnd);	// OpenClipboardでクリップボードを開く.
+							if (bOpen){	// 成功.
+								bEmpty = EmptyClipboard();	// EmptyClipboardでクリップボードを空にする.
+								if (bEmpty){	// 成功.
+									SetClipboardData(CF_TEXT, hGlobal);	// SetClipboardDataでhGlobalをテキストとしてクリップボードにコピー.
+								}
+								CloseClipboard();	// CloseClipboardでクリップボードを閉じる.
+							}
+
+						}
+
+						// 既定の処理へ向かう.
+						break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+					// Pasteが選択された時.
+					case ID_ITEM_PASTE:
+
+						// ID_ITEM_PASTEブロック
+						{
+
+							// クリップボードにテキストがあるか確認.
+							if (IsClipboardFormatAvailable(CF_TEXT)){	// IsClipboardFormatAvailableでCF_TEXTがあるか確認.
+								MessageBox(hwnd, _T("CF_TEXT is exists!"), _T("IsClipboardFormatAvailable"), MB_OK | MB_ICONASTERISK);	// MessageBoxで"CF_TEXT is exists!"とメッセージを表示.
+							}
+							else{	// ない.
+								MessageBox(hwnd, _T("CF_TEXT is not exists!"), _T("IsClipboardFormatAvailable"), MB_OK | MB_ICONASTERISK);	// MessageBoxで"CF_TEXT is not exists!"とメッセージを表示.
+							}
+
+						}
+
+						// 既定の処理へ向かう.
+						break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+					// 上記以外の時.
+					default:
+
+						// 既定の処理へ向かう.
+						break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+				}
+
+			}
+
+			// 既定の処理へ向かう.
+			break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+		// 上記以外の時.
+		default:	// 上記以外の値の時の既定処理.
+
+			// 既定の処理へ向かう.
+			break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+	}
+
+	// あとは既定の処理に任せる.
+	return DefWindowProc(hwnd, uMsg, wParam, lParam);	// 戻り値も含めDefWindowProcに既定の処理を任せる.
+
+}
