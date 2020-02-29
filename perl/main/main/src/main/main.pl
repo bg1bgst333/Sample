@@ -13,5 +13,3 @@ main::print "GHI\n"; # 上のmain::printで出力するので, "GHI"ではなく
 
 # ただのprintは, 組み込み関数.
 print "JKL\n"; # "JKL"が出力される.
-
-
