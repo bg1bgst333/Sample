@@ -12,7 +12,6 @@ int main(void){
   con = PQconnectdb("host=localhost dbname=testuser1db user=testuser1 password=test1234test"); /* PQconnectdbでtestuser1dbに接続. */
   if (PQstatus(con) == CONNECTION_BAD){ /* 接続失敗 */
     printf("CONNECTION_BAD\n"); /* "CONNECTION_BAD"を出力. */
-    printf("%s\n", PQerrorMessage(con));
     return -1; /* -1を返して異常終了. */
   }
   printf("OK\n"); /* "OK"と出力. */
