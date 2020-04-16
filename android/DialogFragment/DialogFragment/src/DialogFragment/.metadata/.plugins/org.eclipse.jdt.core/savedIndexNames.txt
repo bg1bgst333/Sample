@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\DialogFragment\DialogFragment\src\DialogFragment\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+197089160.index
+202483067.index
+818297799.index
