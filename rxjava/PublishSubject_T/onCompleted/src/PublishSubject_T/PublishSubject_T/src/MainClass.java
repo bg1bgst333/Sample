@@ -1,0 +1,21 @@
+import rx.subjects.PublishSubject;
+
+// メインクラス
+class MainClass {	// MainClassクラスの定義
+
+	// Javaのエントリポイント
+	public static void main(String[] args) {	// mainメソッドの定義
+
+		// PublishSubjectの生成.
+		PublishSubject<String> subject = PublishSubject.create();	// subjectの作成.
+		subject.onNext("A");	// "A"を発行.
+		subject.subscribe(x -> System.out.println(x), e -> System.out.println(e), () -> System.out.println("Completed!"));	// 正常通知, エラー通知, 完了通知の全てを指定.
+		subject.onNext("B");	// "B"を発行.
+		subject.onNext("C");	// "C"を発行.
+		subject.onCompleted();	// 完了通知.
+		subject.onNext("D");	// "D"を発行.
+		subject.onNext("E");	// "E"を発行.
+
+	}
+
+}
