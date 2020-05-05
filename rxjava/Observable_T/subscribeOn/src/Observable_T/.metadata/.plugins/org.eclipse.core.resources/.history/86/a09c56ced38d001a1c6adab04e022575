@@ -1,0 +1,29 @@
+import rx.Observable;
+import rx.Subscriber;
+
+// メインクラス
+class MainClass {	// MainClassクラスの定義
+
+	// Javaのエントリポイント
+	public static void main(String[] args) {	// mainメソッドの定義
+
+		// オブザーバブルの生成.
+		Observable<Integer> observable = Observable.create(new Observable.OnSubscribe<Integer>() {
+
+			@Override
+			public void call(Subscriber<? super Integer> arg0) {
+				// TODO 自動生成されたメソッド・スタブ
+
+				arg0.onNext(1);
+				arg0.onNext(2);
+				arg0.onNext(3);
+			}
+
+		});
+
+		// 登録.
+		observable.subscribe(x -> System.out.println(x), e -> new Exception(e), () -> System.out.println("Completed!"));	// subscribeでxを出力するようなアクションを登録.(エラー通知と完了通知も登録.)
+
+	}
+
+}

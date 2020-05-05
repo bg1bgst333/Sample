@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="rx.Observable"/>
+<fullyQualifiedTypeName name="rx.Observable.OnSubscribe"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="rx.schedulers.Schedulers"/>
+</qualifiedTypeNameHistroy>
