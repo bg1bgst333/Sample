@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.androidhttpclient_;
+import android.os.AsyncTask;
+
+
+public class CustomAsyncTask extends AsyncTask<Params, Progress, Result> {
+
+}

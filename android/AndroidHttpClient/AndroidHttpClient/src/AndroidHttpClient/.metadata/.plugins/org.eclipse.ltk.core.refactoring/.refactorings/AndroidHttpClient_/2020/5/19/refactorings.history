@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;CustomAsyncTask.java&apos; to &apos;com.bgstation0.android.sample.androidhttpclient_.MainActivity.java&apos;&#x0D;&#x0A;- Original project: &apos;AndroidHttpClient_&apos;&#x0D;&#x0A;- Destination element: &apos;com.bgstation0.android.sample.androidhttpclient_.MainActivity.java&apos;&#x0D;&#x0A;- Original element: &apos;CustomAsyncTask.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;com.bgstation0.android.sample.androidhttpclient_{MainActivity.java" element1="/src&lt;{CustomAsyncTask.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1588934753068" units="1" version="1.0"/>
+</session>

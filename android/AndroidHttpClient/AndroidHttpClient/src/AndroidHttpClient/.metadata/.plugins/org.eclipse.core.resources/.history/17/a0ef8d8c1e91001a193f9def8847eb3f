@@ -1,0 +1,36 @@
+package com.bgstation0.android.sample.androidhttpclient_;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.widget.TextView;
+
+// カスタムアシンクタスク
+public class CustomAsyncTask extends AsyncTask<String, Void, String> {	// 非同期処理CustomAsyncTask.
+
+	// メンバフィールドの定義
+	Context mContext = null;	// mContextをnullで初期化.
+	
+	// コンストラクタ
+	public CustomAsyncTask(Context context){
+		mContext = context;	// mContextにcontextをセット.
+	}
+	
+	// 非同期処理
+	@Override
+	protected String doInBackground(String... params) {
+		// TODO Auto-generated method stub
+		String s = params[0];
+		return s;
+	}
+	
+	// UIスレッドの更新
+	@Override
+	protected void onPostExecute(String result){
+		// textview1の更新
+		Activity activity = (Activity)mContext;	// mContextをactivityにキャスト.
+		TextView textView1 = (TextView)activity.findViewById(R.id.textview1);	// textview1を取得.
+		textView1.setText(result);	// textview1.setTextにresultをセット.
+	}
+	
+}
