@@ -1,0 +1,40 @@
+package com.bgstation0.android.sample.activity_;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
+// メインアクティビティ
+public class MainActivity extends Activity implements OnClickListener{
+
+	// アクティビティ生成時
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        
+    	// 既定の処理.
+    	super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // button1の初期化
+        Button button1 = (Button)findViewById(R.id.button1);	// button1を取得.
+        button1.setOnClickListener(this);	// thisをセット.
+        
+    }
+
+    // クリックされた時.
+	@Override
+	public void onClick(View v) {
+		
+		// TODO Auto-generated method stub
+		// TextViewに"ABCDE"をセット.
+		TextView textview1 = (TextView)findViewById(R.id.textview1);	// textview1を取得.
+		textview1.setText("ABCDE");	// "ABCDE"をセット.
+		
+	}
+    
+}
