@@ -1,0 +1,9 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "File(&F)"
+	BEGIN
+		MENUITEM "Print(&P)", ID_ITEM_PRINT
+	END
+END
