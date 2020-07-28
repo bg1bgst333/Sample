@@ -17,6 +17,8 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	int acc;			// ソケットacc.
 	SOCKADDR_IRDA acc_addr;	// 相手のアドレス情報acc_addr.
 	int acc_addr_len = sizeof(SOCKADDR_IRDA);	// 相手のアドレス情報の長さacc_addr_lenをSOCKADDR_IRDAのサイズで初期化.
+	TCHAR tszServerName[256] = {0};	// サーバー名tszServerNameを{0}で初期化.
+	int iServerNameLen = 0;	// サーバー名iServerNameLenを0で初期化.
 
 	// WinSockの初期化.
 	iRet = WSAStartup(MAKEWORD(2,2), &wsaData);	// WSAStartupでWinSockの初期化.
@@ -50,8 +52,13 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 					acc = accept(soc, (struct sockaddr *)&acc_addr, &acc_addr_len);	// acceptで待ち受けて, アクセプトソケットをaccに格納.
 					if (soc != INVALID_SOCKET){	// INVALID_SOCKETでない時.
 
-						// アクセプトソケットディスクリプタを出力.
+						// アクセプトソケットディスクリプタやアドレス情報を出力.
 						_tprintf(_T("acc = %d\n"), acc);	// accを出力.
+						_tprintf(_T("acc_addr.irdaAddressFamily = %hu\n"), acc_addr.irdaAddressFamily);	// acc_addr.irdaAddressFamilyを出力.
+						_tprintf(_T("acc_addr.irdaDeviceID = %02X %02X %02X %02X\n"), acc_addr.irdaDeviceID[3], acc_addr.irdaDeviceID[2], acc_addr.irdaDeviceID[1], acc_addr.irdaDeviceID[0]);	// acc_addr.irdaDeviceIDを出力.
+						iServerNameLen = MultiByteToWideChar(CP_ACP, 0, acc_addr.irdaServiceName, -1, NULL, 0);	// MultiByteToWideCharで長さを取得.
+						MultiByteToWideChar(CP_ACP, 0, acc_addr.irdaServiceName, -1, tszServerName, iServerNameLen);	// MultiByteToWideCharで変換.
+						_tprintf(_T("acc_addr.irdaServiceName = %s\n"), tszServerName);	// tszServerNameを出力.
 
 						// accを閉じる.
 						closesocket(acc);	// closesocketでaccを閉じる.
