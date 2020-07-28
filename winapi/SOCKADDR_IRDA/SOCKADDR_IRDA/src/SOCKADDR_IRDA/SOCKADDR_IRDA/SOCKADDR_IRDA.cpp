@@ -9,9 +9,10 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 
 	// 変数の宣言と初期化.
 	WSADATA wsaData;	// WinSockの初期化に必要なWSADATA構造体変数wsaData.
-	int iRet;	// WSAStartupの結果を格納するiRet.
-	int soc;	// ソケットsoc.
-	int iBind;	// バインド結果iBind.
+	int iRet;			// WSAStartupの結果を格納するiRet.
+	int soc;			// ソケットsoc.
+	int iBind;			// バインド結果iBind.
+	int iListen;		// リッスン結果iListen.
 	SOCKADDR_IRDA soc_addr = {AF_IRDA, 0, 0, 0, 0, "OBEX"};	// soc_addrをこのように初期化.
 
 	// WinSockの初期化.
@@ -34,6 +35,21 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 
 				// 結果成功の出力.
 				_tprintf(_T("bind success!\n"));	// "bind success!"と出力.
+
+				// リッスン
+				iListen = listen(soc, 1);	// listenで1つ待ち受ける.
+				if (iListen != SOCKET_ERROR){	// SOCKET_ERRORでなければ.
+
+					// 結果成功の出力.
+					_tprintf(_T("listen success!\n"));	// "listen success!"と出力.
+
+				}
+				else{	// SOCKET_ERROR.
+
+					// 結果失敗の出力.
+					_tprintf(_T("listen failed!\n"));	// "listen failed!"と出力.
+
+				}
 
 			}
 			else{	// SOCKET_ERROR.
