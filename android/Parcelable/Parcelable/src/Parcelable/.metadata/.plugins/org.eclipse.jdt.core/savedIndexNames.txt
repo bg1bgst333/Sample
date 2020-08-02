@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Parcelable\Parcelable\src\Parcelable\.metadata\.plugins\org.eclipse.jdt.core
+2299299568.index
+818297799.index
+3042444118.index
+2755746640.index

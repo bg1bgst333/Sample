@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Parcelable_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="textview1_text"></string>
+	<string name="textview2_text"></string>
+	<string name="textview3_text"></string>
+	<string name="button1_text">button1</string>
+	
+</resources>

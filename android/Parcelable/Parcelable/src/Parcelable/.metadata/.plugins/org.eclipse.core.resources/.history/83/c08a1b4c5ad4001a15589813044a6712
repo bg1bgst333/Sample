@@ -1,0 +1,32 @@
+package com.bgstation0.android.sample.parcelable_;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+// メインアクティビティ
+public class MainActivity extends Activity {
+
+	// メンバフィールドの定義
+	final String KEY_TEXTVIEW1_STRING = "key_textview1_string";	// 定数KEY_TEXTVIEW1_STRINGを定義.
+	final String KEY_TEXTVIEW2_STRING = "key_textview2_string";	// 定数KEY_TEXTVIEW2_STRINGを定義.
+	final String KEY_TEXTVIEW3_STRING = "key_textview3_string";	// 定数KEY_TEXTVIEW3_STRINGを定義.
+	
+	// アクティビティ生成時
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    	
+    	// 既定の処理
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // textview1からtextview3まで初期化.
+        TextView textview1 = (TextView)findViewById(R.id.textview1);	// textview1を取得.
+        TextView textview2 = (TextView)findViewById(R.id.textview2);	// textview2を取得.
+        TextView textview3 = (TextView)findViewById(R.id.textview3);	// textview3を取得.
+        
+    }
+    
+}
