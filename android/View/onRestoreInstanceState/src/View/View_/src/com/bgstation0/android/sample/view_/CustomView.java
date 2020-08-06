@@ -1,0 +1,94 @@
+package com.bgstation0.android.sample.view_;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.Toast;
+
+// カスタムビュークラスCustomViewの定義
+public class CustomView extends View {
+
+	// メンバフィールドの定義
+	Paint mPaint = null;	// PaintオブジェクトmPaintをnullで初期化.
+	Context mContext = null;	// ContextオブジェクトmContextをnullで初期化.
+	
+	// コンストラクタの定義
+	public CustomView(Context context){
+		
+		// 既定の初期化.
+		super(context);	// 親クラスのコンストラクタにcontextを渡す.
+		mPaint = new Paint();	// Paintオブジェクトを生成し, mPaintに格納.
+		mContext = context;	// mContextにcontextを格納.
+		
+	}
+	
+	// コンストラクタの定義(CustomViewをレイアウトXMLで指定する場合.)
+	public CustomView(Context context, AttributeSet attrs){
+		
+		// 既定の初期化.
+		super(context, attrs);	// 親クラスのコンストラクタにcontextを渡す.
+		mPaint = new Paint();	// Paintオブジェクトを生成し, mPaintに格納.
+		mContext = context;	// mContextにcontextを格納.
+		
+	}
+	
+	// 描画時
+	@Override
+	protected void onDraw(Canvas canvas){
+
+		// 文字の大きさを設定.
+		mPaint.setTextSize(20.0f);	// mPaint.setTextSizeで大きさを20.0にする.
+
+		// テキスト"ABCDE"を描画.
+		canvas.drawText("ABCDE", 50, 50, mPaint);	// canvas.drawTextで(50, 50)の位置に"ABCDE"を描画.
+		
+		// 矩形の色を設定.
+		mPaint.setColor(Color.RED);	// mPaint.setColorで赤を指定.
+		
+		// 矩形を描画.
+		canvas.drawRect(100,  100,  150,  150, mPaint);	// canvas.drawRectで(100, 100)の位置に矩形を描画.
+		
+		// 描画スタイルを設定.
+		mPaint.setStyle(Style.STROKE);	// mPaint.setStyleで輪郭線だけを描画する.
+		
+		// 円を描画.
+		canvas.drawCircle(200, 200, 30, mPaint);	// canvas.drawCircleで(200, 200)の位置に円を描画.
+		
+	}
+	
+	// 状態保存
+	@Override
+	protected Parcelable onSaveInstanceState(){
+		
+		// 既定の処理
+		super.onSaveInstanceState();	// 親クラスのメソッドを呼ぶ.
+		
+		// ここに来たことを通知するトースト表示.
+		Toast.makeText(mContext, "CustomView.onSaveInstanceState", Toast.LENGTH_LONG).show();	// "CustomView.onSaveInstanceState"と表示.
+		
+		// Bundleを返す.
+		Bundle bundle = new Bundle();	// bundleを生成.
+		bundle.putString("key", "ABC");	// キーを"key", 値を"ABC"として登録.
+		return bundle;	// bundleを返す.
+		
+	}
+	
+	// 状態復元
+	@Override
+	protected void onRestoreInstanceState(Parcelable state){
+		
+		// ここに来たことを通知するトースト表示.
+		Toast.makeText(mContext, "CustomView.onRestoreInstanceState", Toast.LENGTH_LONG).show();	// "CustomView.onRestoreInstanceState"と表示.
+		
+		// 既定の処理.
+		super.onRestoreInstanceState(null);	// ひとまずnullを渡しておく.
+		
+	}
+	
+}
