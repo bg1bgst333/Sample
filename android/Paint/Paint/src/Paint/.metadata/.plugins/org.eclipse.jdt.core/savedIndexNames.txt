@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Paint\Paint\src\Paint\.metadata\.plugins\org.eclipse.jdt.core
+1696965763.index
+178511629.index
+2755746640.index
+818297799.index
