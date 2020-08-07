@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.view.basesavedstate_;
+
+import android.view.View.BaseSavedState;
+
+public class CustomSavedState extends BaseSavedState {
+
+}

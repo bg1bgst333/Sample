@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.graphics.Paint"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.util.AttributeSet"/>
+<fullyQualifiedTypeName name="android.graphics.Canvas"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="android.view.View"/>
+<fullyQualifiedTypeName name="com.bgstation0.android.sample.view.basesavedstate_.R.id"/>
+<fullyQualifiedTypeName name="android.os.Parcel"/>
+<fullyQualifiedTypeName name="android.os.Parcelable.Creator"/>
+<fullyQualifiedTypeName name="android.os.Parcelable"/>
+</qualifiedTypeNameHistroy>
