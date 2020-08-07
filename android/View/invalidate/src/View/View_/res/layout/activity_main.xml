@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button1_text" />
+    
+    <com.bgstation0.android.sample.view_.CustomView
+	    android:id="@+id/customview1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content" />
+
+</LinearLayout>
