@@ -4,7 +4,6 @@ public class MainClass{	// MainClassの定義
 	// Javaのエントリポイント
 	public static void main(String[] args){
 
-
 		// Integerの値を持つオブジェクトの生成.
 		CustomClass<Integer> intClass = new CustomClass<Integer>();	// CustomClass<Integer>オブジェクトintClassの生成.
 
