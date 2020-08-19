@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.fragment_;
+
+import android.app.Fragment;
+
+public class CustomFragment extends Fragment {
+
+}
