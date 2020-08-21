@@ -1,0 +1,27 @@
+package com.bgstation0.android.sample.fragment_;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.util.Log;
+
+// フラグメント1
+public class Fragment1 extends Fragment {
+
+	// メンバフィールド
+	static final String TAG = "Fragment1";	// TAGを"Fragment1"で初期化.
+	
+	// コンストラクタ
+	public Fragment1(){
+		
+	}
+	
+	// フラグメント生成時
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		
+		// ログを残す.
+		Log.d(TAG, "Fragment1.onCreate");	// "Fragment1.onCreate"とログに残す.
+		
+	}
+	
+}
