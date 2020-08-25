@@ -1,0 +1,47 @@
+package com.bgstation0.android.sample.fragment_;
+
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+//メインアクティビティ
+public class MainActivity extends Activity implements OnClickListener{
+
+	// 生成時
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+ 	
+		// 既定の処理.
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+     
+		// Button1の処理.
+		Button button1 = (Button)findViewById(R.id.button1);	// button1を取得.
+		button1.setOnClickListener(this);	// リスナーとしてthisをセット.
+     
+	}
+ 
+	// クリック時
+	public void onClick(View v){
+ 	
+		// FragmentManager, fragmentTransactionの取得.
+		FragmentManager fragmentManager = getFragmentManager();	// fragmentManagerの取得.
+		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();	// fragmentTransactionの取得.
+ 	
+		// Buttonごとに分ける.
+		int id = v.getId();	// v.getIdでidを取得.
+		if (id == R.id.button1){	// button1なら.
+			Fragment1 fragment1 = new Fragment1();	// fragment1を生成.
+			fragmentTransaction.replace(R.id.framelayout1, fragment1);	// fragment1に置換.
+			fragmentTransaction.commit();	// コミット.
+		}
+		
+	}
+ 
+}
