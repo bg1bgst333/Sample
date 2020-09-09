@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\TypedArray\getString\src\TypedArray\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+3491786876.index
+1574107478.index
+818297799.index
