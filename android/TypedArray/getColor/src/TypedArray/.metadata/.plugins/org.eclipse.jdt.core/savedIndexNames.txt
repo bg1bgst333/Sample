@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\TypedArray\getColor\src\TypedArray\.metadata\.plugins\org.eclipse.jdt.core
+1574107478.index
+2755746640.index
+818297799.index
+298414738.index

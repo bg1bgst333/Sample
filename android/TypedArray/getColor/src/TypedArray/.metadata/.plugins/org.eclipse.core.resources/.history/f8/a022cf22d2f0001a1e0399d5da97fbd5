@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="mixedarray">
+        <item>123</item>
+        <item>ABC</item>
+        <item>789</item>
+    </array>
+</resources>
