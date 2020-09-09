@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomView">
+        <attr name="custom_data" format="string" />
+        <attr name="custom_number" format="integer" />
+    </declare-styleable>    
+</resources>
