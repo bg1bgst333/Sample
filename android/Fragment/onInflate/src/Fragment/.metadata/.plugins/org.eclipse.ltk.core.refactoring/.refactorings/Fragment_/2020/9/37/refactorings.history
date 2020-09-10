@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Fragment1.java&apos; to &apos;com.bgstation0.android.sample.fragment_.MainActivity.java&apos;&#x0D;&#x0A;- Original project: &apos;Fragment_&apos;&#x0D;&#x0A;- Destination element: &apos;com.bgstation0.android.sample.fragment_.MainActivity.java&apos;&#x0D;&#x0A;- Original element: &apos;Fragment1.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;com.bgstation0.android.sample.fragment_{MainActivity.java" element1="/src&lt;{Fragment1.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1599712107071" units="1" version="1.0"/>
+</session>

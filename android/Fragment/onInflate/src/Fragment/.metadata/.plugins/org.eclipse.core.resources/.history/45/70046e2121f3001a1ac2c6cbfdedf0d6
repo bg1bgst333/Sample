@@ -1,0 +1,14 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <fragment
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+	    android:id="@+id/fragment1"
+	    android:name="com.bgstation0.android.sample.fragment_.Fragment1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+    	app:custom_data="ABCDE" />
+    
+</LinearLayout>
