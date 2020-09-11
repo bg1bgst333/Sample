@@ -1,0 +1,67 @@
+package com.bgstation0.android.sample.fragment_;
+
+import android.app.Activity;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+
+// フラグメント1
+public class Fragment1 extends Fragment {
+
+	// メンバフィールド
+	static final String TAG = "Fragment1";	// TAGを"Fragment1"で初期化.
+	private CustomListener mCustomListener = null;	// mCustomListenerをnullで初期化.
+	
+	// コンストラクタ
+	public Fragment1(){
+		
+	}
+	
+	// ファクトリメソッド
+	public static Fragment1 newInstance(){
+		
+		// Fragment1オブジェクトの生成.
+		Fragment1 fragment1 = new Fragment1();	// fragment1を生成.
+		return fragment1;	// fragment1を返す.
+		
+	}
+	
+	// アタッチ時
+	@Override
+	public void onAttach(Activity activity){
+		
+		// 既定の処理.
+		super.onAttach(activity);
+		mCustomListener = (CustomListener)activity;	// activityをmCustomListenerに渡す.
+		
+	}
+	
+	// ビュー生成時
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+	
+		// 既定の処理.
+		super.onCreateView(inflater, container, savedInstanceState);
+		
+		// viewを返す.
+		View view = inflater.inflate(R.layout.fragment1_main, null);	// viewを作成.
+		Button button = (Button)view.findViewById(R.id.fragment1_button);	// buttonを取得.
+		button.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				// リスナーを実行.
+				mCustomListener.onButtonClicked(1);	// 1を渡す.
+			}
+			
+		});
+		
+		return view;	// viewを返す.
+		
+	}
+	
+}

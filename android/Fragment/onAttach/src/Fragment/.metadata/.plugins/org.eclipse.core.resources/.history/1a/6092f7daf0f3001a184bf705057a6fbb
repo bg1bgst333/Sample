@@ -1,0 +1,43 @@
+package com.bgstation0.android.sample.fragment_;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+//フラグメント2
+public class Fragment2 extends Fragment {
+
+	// メンバフィールド
+	static final String TAG = "Fragment2";	// TAGを"Fragment2"で初期化.
+
+	// コンストラクタ
+	public Fragment2(){
+		
+	}
+	
+	// ファクトリメソッド
+	public static Fragment2 newInstance(){
+		
+		// Fragment1オブジェクトの生成.
+		Fragment1 fragment1 = new Fragment1();	// fragment1を生成.
+		return fragment1;	// fragment1を返す.
+		
+	}
+	
+	// ビュー生成時
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+	
+		// 既定の処理.
+		super.onCreateView(inflater, container, savedInstanceState);
+		
+		// viewを返す.
+		View view = inflater.inflate(R.layout.fragment1_main, null);	// viewを作成.
+		return view;	// viewを返す.
+		
+	}
+	
+}
+
