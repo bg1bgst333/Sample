@@ -1,0 +1,22 @@
+package com.bgstation0.android.sample.fragmentmanager_;
+
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // ƒtƒ‰ƒOƒƒ“ƒg‚Ì’Ç‰Á.
+        FragmentManager fragmentManager = getFragmentManager();	// fragmentManager‚Ìæ“¾.
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();	// fragmentTransaction‚Ìæ“¾.
+        fragmentTransaction.add(R.id., fragment)
+    }
+}

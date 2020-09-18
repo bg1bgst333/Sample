@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FragmentManager_</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="fragment1_textview_text">Fragment1</string>
+    <string name="fragment2_textview_text">Fragment2</string>
+    
+</resources>

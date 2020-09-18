@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.fragmentmanager_;
+
+import android.app.Fragment;
+
+public class Fragment2 extends Fragment {
+
+}
