@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;Fragment_&apos;&#x0D;&#x0A;- Original project: &apos;Fragment_&apos;&#x0D;&#x0A;- Original element: &apos;com.bgstation0.android.sample.fragment_.CustomListener.java&apos;" description="Delete element" element1="/src&lt;com.bgstation0.android.sample.fragment_{CustomListener.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1602566210545" subPackages="false" version="1.0"/>
+</session>
