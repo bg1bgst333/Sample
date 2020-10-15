@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\FragmentManager\getFragment\src\FragmentManager\.metadata\.plugins\org.eclipse.jdt.core
+1432216387.index
+2755746640.index
+818297799.index
