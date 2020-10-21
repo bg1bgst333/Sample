@@ -1,0 +1,79 @@
+package com.bgstation0.android.sample.fragmenttransaction_;
+
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	// メンバフィールドの定義
+	CustomAsyncTask task = null;	// CustomAsyncTaskオブジェクトtaskをnullに.
+	Context context = null;	// contextをnullで初期化.
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // contextにthisを格納.
+        context = this;
+        
+        // savedInstanceがnullの時.
+        if (savedInstanceState == null){
+
+        	// Buttonの初期化.
+            Button button1 = (Button)findViewById(R.id.button1);	// button1を取得.
+            button1.setOnClickListener(new OnClickListener() {	// リスナーをセット.
+    			
+    			@Override
+    			public void onClick(View v) {
+    				// TODO Auto-generated method stub
+    				// CustomAsyncTaskによる非同期処理を生成し, 実行.
+    		    	task = new CustomAsyncTask(context);	// CustomAsyncTaskオブジェクトを作成し, taskに格納.
+    		    	task.execute(10);	// task.executeに10を渡して実行.
+    			}
+    			
+    		});
+            Button button2 = (Button)findViewById(R.id.button2);
+            button2.setOnClickListener(new OnClickListener() {	// リスナーをセット.
+    			
+    			@Override
+    			public void onClick(View v) {
+    				// TODO Auto-generated method stub
+    				
+    			}
+    			
+    		});
+            
+        }
+        
+    }
+    
+    // フラグメントの置換
+    public void replaceFragment(){
+    	
+    	try{
+    		FragmentManager fragmentManager = getFragmentManager();	// fragmentManagerの取得.
+    		Fragment1 fragment1 = new Fragment1();	// fragment1を生成.
+    		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();	// fragmentTransactionの取得.
+    		fragmentTransaction.replace(R.id.framelayout1, fragment1, "fragment1");	// fragment1をreplace.
+    		fragmentTransaction.commit();
+    		Log.d("MainActivity", "Fragment1");
+    		Toast.makeText(context, "replace success!", Toast.LENGTH_LONG).show();
+    	}
+    	catch(Exception ex){
+    		Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+    	}
+    }
+    
+}
