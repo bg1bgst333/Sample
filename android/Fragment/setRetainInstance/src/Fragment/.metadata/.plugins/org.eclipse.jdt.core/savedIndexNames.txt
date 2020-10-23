@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Fragment\setRetainInstance\src\Fragment\.metadata\.plugins\org.eclipse.jdt.core
+2767927315.index
+1464392564.index
+818297799.index
+2755746640.index
