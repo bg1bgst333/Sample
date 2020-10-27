@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.listview_;
+
+// リストアイテムクラスListItem
+public class ListItem {
+	public String name;	// 名前name.
+	public String adress;	// 住所address.
+}
