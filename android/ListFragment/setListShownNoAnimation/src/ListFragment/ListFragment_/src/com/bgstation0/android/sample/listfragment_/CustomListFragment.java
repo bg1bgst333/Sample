@@ -1,0 +1,52 @@
+package com.bgstation0.android.sample.listfragment_;
+
+import java.util.ArrayList;
+
+import android.app.ListFragment;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+
+// ListFragmentを継承したCustomListFragment.
+public class CustomListFragment extends ListFragment {
+
+	// メンバフィールド.
+	//private String[] mNames = {"Taro", "Jiro", "Saburo", "Shiro", "Goro"};	// mNamesの初期化.
+	private ArrayList<ListItem> mItems = null;	// mItemsをnullで初期化.	
+			
+	// アクティビティ生成時.
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState){
+		
+		// 既定の処理.
+		super.onActivityCreated(savedInstanceState);
+		
+		// リストが空であることを表示.
+		//setEmptyText("mItems is empty.");	// setEmptyTextで"mItems is empty."を表示.
+		
+		// mItemsを準備.
+		mItems = new ArrayList<ListItem>();
+		ListItem item1 = new ListItem();
+		item1.name = "Taro";
+		item1.address = "Tokyo";
+		mItems.add(item1);	// item1を追加.
+		ListItem item2 = new ListItem();
+		item2.name = "Jiro";
+		item2.address = "Osaka";
+		mItems.add(item2);	// item2を追加.
+		ListItem item3 = new ListItem();
+		item3.name = "Saburo";
+		item3.address = "Nagoya";
+		mItems.add(item3);	// item3を追加.
+		
+		// CustomAdapterの生成.
+		CustomAdapter customAdapter = new CustomAdapter(getActivity(), R.layout.list_item, mItems);	// customAdapterの生成.
+		
+    	// アダプタのセット.
+    	setListAdapter(customAdapter);	// setListAdapterでcustomAdapterをセット.
+		
+    	// リストを非表示.
+    	setListShown(false);	// setListShownをfalseに.
+    	
+	}
+	
+}
