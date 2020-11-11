@@ -1,0 +1,31 @@
+package com.bgstation0.android.sample.listfragment_;
+
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // savedInstanceStateのチェック.
+        if (savedInstanceState == null){	// nullの時.
+        	
+        	// FragmentManager, fragmentTransactionの取得.
+        	FragmentManager fragmentManager = getFragmentManager();	// fragmentManagerの取得.
+        	FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();	// fragmentTransactionの取得.
+        	CustomListFragment customListFragment = new CustomListFragment();	// customListFragmentを生成.
+        	fragmentTransaction.add(R.id.framelayout1, customListFragment);	// customListFragmentを追加.
+        	fragmentTransaction.commit();	// コミット.
+        	
+        }
+        
+    }
+    
+}
