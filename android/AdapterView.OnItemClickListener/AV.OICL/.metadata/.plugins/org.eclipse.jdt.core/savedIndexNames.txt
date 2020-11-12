@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\AdapterView.OnItemClickListener\AV.OICL\.metadata\.plugins\org.eclipse.jdt.core
+58751918.index
+2755746640.index
+818297799.index
+817660159.index
