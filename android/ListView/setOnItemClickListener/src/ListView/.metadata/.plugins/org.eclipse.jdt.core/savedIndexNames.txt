@@ -1,5 +1,0 @@
-INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\ListView\setOnItemClickListener\src\ListView\.metadata\.plugins\org.eclipse.jdt.core
-3131857042.index
-2755746640.index
-818297799.index
-3730368559.index
