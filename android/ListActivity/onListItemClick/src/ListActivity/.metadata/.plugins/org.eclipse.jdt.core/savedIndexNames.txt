@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\ListActivity\onListItemClick\src\ListActivity\.metadata\.plugins\org.eclipse.jdt.core
+282572200.index
+818297799.index
+3844682666.index
+2755746640.index
