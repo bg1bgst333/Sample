@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\ListFragment\onListItemClick\src\ListFragment\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+850557453.index
+1683517386.index
+2755746640.index
