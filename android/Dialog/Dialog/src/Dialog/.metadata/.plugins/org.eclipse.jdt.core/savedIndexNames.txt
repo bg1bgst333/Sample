@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\Dialog\Dialog\src\Dialog\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+2755746640.index
+1010660619.index
+3210026310.index
