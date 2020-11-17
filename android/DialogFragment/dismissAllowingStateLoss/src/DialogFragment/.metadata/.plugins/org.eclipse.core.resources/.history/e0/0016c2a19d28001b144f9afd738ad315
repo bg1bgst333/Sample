@@ -1,0 +1,59 @@
+package com.bgstation0.android.sample.dialogfragment_;
+
+import android.content.Context;
+import android.os.AsyncTask;
+import android.widget.Toast;
+
+public class CustomAsyncTask extends AsyncTask<Integer, Integer, String> {	// 非同期処理に渡すパラメータがInteger, 進捗状態がInteger, 非同期処理の結果がStringのCustomAsyncTask.
+
+	// メンバフィールドの定義
+	Context context;	// Context型context
+	CustomDialogFragment cdf;	// CustomDialogFragment型cdf
+	
+	// コンストラクタ
+	public CustomAsyncTask(Context context){
+		this.context = context;	// this.contextメンバに格納.
+	}
+	
+	// コンストラクタ(フラグメントも受け取る.)
+	public CustomAsyncTask(Context context, CustomDialogFragment cdf){
+		this(context);
+		this.cdf = cdf;	// this.cdfメンバに格納.
+	}
+
+	// 非同期処理
+	@Override
+	protected String doInBackground(Integer... params){
+		// オブジェクトの宣言
+		String ret = "";	// 戻り値の文字列retに""をセット.
+		// tryで囲む.
+		try{
+			Thread.sleep(10000);	// 10秒休止
+			if (params.length > 0){	// paramsの要素数が1つでもある.
+				ret = "params[0] = " + params[0];	// retに0番目の引数.
+			}
+			else{
+				ret = "params[0] = nothing";	// retにnothing.
+			}
+		}
+		catch (Exception ex){
+			ret = "excaption";	// retにexception.
+		}
+		return ret;
+	}
+
+	// UIスレッドの更新
+	@Override
+	protected void onPostExecute(String result){
+		// cdfの非表示.
+		try{
+			cdf.dismiss();	// cdf.dismissｄで非表示.
+			//cdf.dismissAllowingStateLoss();	// cdf.dismissAllowingStateLossで非表示.
+			Toast.makeText(context, "cdf.dismiss() success!", Toast.LENGTH_LONG).show();	// "cdf.dismiss() success!"とToast表示.
+		}
+		catch (Exception ex){
+			Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();	// ex.toString()をToast表示.
+		}
+	}
+	
+}
