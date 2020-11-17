@@ -1,0 +1,29 @@
+package com.bgstation0.android.sample.dialogfragment_;
+
+import android.app.DialogFragment;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+
+public class CustomDialogFragment extends DialogFragment {
+
+	// ビュー生成時.
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		
+		// レイアウトからビュー生成.
+		return inflater.inflate(R.layout.fragment_custom_dialog, container);	// infalter.inflateでR.layout.fragment_custom_dialogを元にビューを作成し, 返す.
+		
+	}
+	
+	// キャンセル時.
+	@Override
+	public void onCancel(DialogInterface dialog){
+		super.onCancel(dialog);
+		Toast.makeText(getActivity(), "onCancel", Toast.LENGTH_LONG).show();	// "onCancel"とToast表示.
+	}
+	
+}
