@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\DialogFragment\onDismiss\src\DialogFragment\.metadata\.plugins\org.eclipse.jdt.core
+688078625.index
+2755746640.index
+197089160.index
+818297799.index
