@@ -1,0 +1,32 @@
+package com.bgstation0.android.sample.fragmentpageradapter_;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+// カスタムフラグメント
+public class CustomFragment extends Fragment {
+
+	// 生成メソッド.
+	public static CustomFragment newInstance(String text){
+		CustomFragment customFragment = new CustomFragment();	// customFragmentを生成.
+		Bundle args = new Bundle();	// argsを生成.
+		args.putString("text", text);	// textを登録.
+		customFragment.setArguments(args);	// argsをセット.
+		return customFragment;	// customFragmentを返す.
+	}
+	
+	// ビューの生成.
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		View view = inflater.inflate(R.layout.custom_fragment_main, container);	// Viewを生成.
+		TextView customFragmentTextView1 = (TextView)view.findViewById(R.id.custom_fragment_textview1);	// customFragmentTextView1を取得.
+		Bundle args = getArguments();	// argsを取得.
+		customFragmentTextView1.setText(args.getString("text"));	// 取得した"text"をセット.
+		return view;	// viewを返す.
+	}
+	
+}
