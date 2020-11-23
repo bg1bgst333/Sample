@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\FragmentStatePagerAdapter\FragmentStatePagerAdapter\src\FragmentStatePagerAdapter\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+279502949.index
+818297799.index
+3868719415.index

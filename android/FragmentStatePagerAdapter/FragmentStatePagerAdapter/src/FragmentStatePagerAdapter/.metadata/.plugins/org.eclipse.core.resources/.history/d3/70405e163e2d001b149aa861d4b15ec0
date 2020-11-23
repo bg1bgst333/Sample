@@ -1,0 +1,20 @@
+package com.bgstation0.android.sample.fragmentstatepageradapter_;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
+
+public class CustomFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
+
+	@Override
+	public Fragment getItem(int arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
