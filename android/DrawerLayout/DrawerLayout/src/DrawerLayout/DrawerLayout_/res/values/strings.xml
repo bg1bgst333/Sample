@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DrawerLayout_</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="main_content_textview_text">MainContent</string>
+	<string name="drawer_textview_text">Drawer</string>
+	
+</resources>
