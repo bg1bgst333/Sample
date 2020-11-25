@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\AlphaAnimation\AlphaAnimation\src\AlphaAnimation\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+3608975972.index
+1509017047.index
+818297799.index
