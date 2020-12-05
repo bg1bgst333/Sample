@@ -1,0 +1,2 @@
+echo ABC
+echo XYZ
