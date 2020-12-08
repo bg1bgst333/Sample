@@ -14,7 +14,7 @@ int main(void){
   dev_id = hci_get_route(NULL); /* hci_get_routeでdev_idを取得. */
 
   /* デバイスIDの出力 */
-  printf("dev_id = %d\n"); /* dev_idの出力. */
+  printf("dev_id = %d\n", dev_id); /* dev_idの出力. */
 
   /* プログラムの終了 */
   return 0; /* 0を返す. */
