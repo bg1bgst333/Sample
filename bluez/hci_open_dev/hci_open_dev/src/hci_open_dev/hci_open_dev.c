@@ -11,6 +11,7 @@ int main(void){
   /* 変数の宣言 */
   int dev_id; /* デバイスID */
   int soc; /* Bluetoothソケット */
+
   /* デバイスIDの取得 */
   dev_id = hci_get_route(NULL); /* hci_get_routeでdev_idを取得. */
   if (dev_id >= 0){ /* 0以上なら成功. */
