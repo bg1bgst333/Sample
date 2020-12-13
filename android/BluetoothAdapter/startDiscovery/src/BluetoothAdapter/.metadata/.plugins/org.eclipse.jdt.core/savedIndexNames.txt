@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\BluetoothAdapter\startDiscovery\src\BluetoothAdapter\.metadata\.plugins\org.eclipse.jdt.core
+3538340431.index
+2755746640.index
