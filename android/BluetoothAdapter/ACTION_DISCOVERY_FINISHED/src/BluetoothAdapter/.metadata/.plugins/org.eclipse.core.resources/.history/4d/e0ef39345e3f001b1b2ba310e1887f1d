@@ -1,0 +1,7 @@
+package com.bgstation0.android.sample.bluetoothadapter_;
+
+import android.widget.ArrayAdapter;
+
+public class CustomAdapter extends ArrayAdapter<T> {
+
+}
