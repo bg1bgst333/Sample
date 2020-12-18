@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\BluetoothDevice\createRfcommSocketToServiceRecord\src\BluetoothDevice\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+3437052575.index
+2755746640.index
+3727066202.index

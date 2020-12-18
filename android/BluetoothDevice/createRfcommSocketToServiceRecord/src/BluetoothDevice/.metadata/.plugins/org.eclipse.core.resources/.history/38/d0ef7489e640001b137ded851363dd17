@@ -1,0 +1,44 @@
+package com.bgstation0.android.sample.bluetoothdevice_;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.bluetooth.BluetoothDevice;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View.OnClickListener;
+import android.widget.ListView;
+
+// メインアクティビティ
+public class MainActivity extends Activity implements OnClickListener{
+
+    // メンバフィールドの定義
+    Context mContext = null;	// mContextをnullで初期化.
+    ListView mListView1 = null;	// mListView1をnullで初期化.
+    ArrayList<BluetoothDevice> mBluetoothDeviceList = null;	// mBluetoothDeviceListをnullで初期化.
+    CustomAdapter mCustomAdapter = null;	// mCustomAdapterをnullで初期化.
+    
+    // アクティビティ生成時
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    	
+    	// 既定の処理
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        // mContextに自身をセット.
+        mContext = this;	// mContextにthisを格納.
+        
+        // リストビューの取得.
+        mListView1 = (ListView)findViewById(R.id.listview1);	// mListView1を取得.
+        
+        // カスタムアダプタの生成とセット..
+        mBluetoothDeviceList = new ArrayList<BluetoothDevice>();	// mBluetoothDeviceListを生成.
+        mCustomAdapter = new CustomAdapter(this, R.layout.list_item, mBluetoothDeviceList);	// CustomAdapterの生成.
+        mListView1.setAdapter(mCustomAdapter);	// mListView1.setAdapterでmCustomAdapterをセット.
+        
+    }
+    
+}

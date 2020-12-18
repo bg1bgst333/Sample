@@ -1,0 +1,27 @@
+package com.bgstation0.android.sample.bluetoothdevice_;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+
+// カスタムレシーバ
+public class CustomReceiver extends BroadcastReceiver {
+
+    // メンバフィールド.
+    MainActivity mMainActivity = null;	// nullで初期化.
+		
+		// コンストラクタ.
+		public CustomReceiver(MainActivity mainActivity){
+			
+			// 初期化.
+			mMainActivity = mainActivity;	// mMainActivityにmainActivityをセット.
+			
+		}
+		
+		// 受信時.
+		@Override
+		public void onReceive(Context context, Intent intent) {
+
+		}
+		
+}
