@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\BluetoothSocket\BluetoothSocket\src\BluetoothSocket\.metadata\.plugins\org.eclipse.jdt.core
+2291763879.index
+564942382.index
+818297799.index
