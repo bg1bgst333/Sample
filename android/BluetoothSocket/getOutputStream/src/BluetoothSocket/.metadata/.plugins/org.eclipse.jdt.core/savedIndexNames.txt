@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\BluetoothSocket\getOutputStream\src\BluetoothSocket\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+1191290419.index
+818297799.index
+2291763879.index
