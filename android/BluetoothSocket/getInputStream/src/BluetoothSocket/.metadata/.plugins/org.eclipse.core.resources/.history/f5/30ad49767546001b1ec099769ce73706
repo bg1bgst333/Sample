@@ -152,14 +152,8 @@ public class MainActivity extends Activity implements OnClickListener, OnItemCli
             outputStream.write(str.getBytes(Charset.forName("UTF-8")));	// strを書き込み.
             
             // 読み込み.
-            //BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(soc.getInputStream(), Charset.forName("UTF-8")));	// bufferedReaderを生成.
-            //String res = bufferedReader.readLine();	// bufferedReader.readLineで読み込み, resに格納.
-            //Toast.makeText(mContext, "res = " + res, Toast.LENGTH_LONG).show();	// resを表示.
-            InputStream inputStream = soc.getInputStream();	// soc.getInputStreamで入力ストリーム取得.
-            byte[] bytes = new byte[1024];	// byte配列を用意.
-            int len;
-            len = inputStream.read(bytes);	// inputStream.readで読み込み.
-            String res = new String(bytes, 0, len);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(soc.getInputStream(), Charset.forName("UTF-8")));	// bufferedReaderを生成.
+            String res = bufferedReader.readLine();	// bufferedReader.readLineで読み込み, resに格納.
             Toast.makeText(mContext, "res = " + res, Toast.LENGTH_LONG).show();	// resを表示.
             
             // ソケットを閉じる.
