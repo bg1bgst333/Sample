@@ -18,6 +18,7 @@ int main(void){
   char remote_addr_str[1024] = {0}; /* リモートアドレス文字列を{0}で初期化. */
   int read_len = -1; /* 読み込んだ長さread_lenを-1で初期化. */
   char read_buf[1024] = {0}; /* 読み込みバッファread_buf(長さ1024)を{0}で初期化. */
+  char write_str[] = "VWXYZ"; /* write_strを"VWXYZ"で初期化. */
 
   /* Bluetooth(RFCOMM)のソケット作成 */
   soc = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM); /* socketにAF_BLUETOOTHとBTPROTO_RFCOMMをセットしてsocを作成. */
@@ -85,6 +86,8 @@ int main(void){
   read_len = read(acc, read_buf, sizeof(char) * 1024); /* readで読み込んだ内容をread_bufに格納. */
   if (read_len > 0){ /* 長さが1以上. */
     printf("read_buf = %s\n", read_buf); /* read_bufを出力. */
+    write(acc, write_str, strlen(write_str) + 1); /* write_strを書き込み. */
+    sleep(10); /* 10秒待つ. */
   }
 
   /* ソケットを閉じる. */
