@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <Button
+    	android:id="@+id/button1"
+		android:text="@string/button1_text"
+		android:layout_width="60dp"
+		style="@style/CustomStyle_Height30dpButton" />
+    
+    <Button
+    	android:id="@+id/button2"
+		android:text="@string/button2_text"
+		style="@style/CustomStyle_HeightWidth30dpButton" />
+    
+</LinearLayout>
