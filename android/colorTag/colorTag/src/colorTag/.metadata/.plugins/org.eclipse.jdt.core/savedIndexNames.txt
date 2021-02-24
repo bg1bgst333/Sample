@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\colorTag\colorTag\src\colorTag\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+3378786325.index
+2609397521.index
+818297799.index
