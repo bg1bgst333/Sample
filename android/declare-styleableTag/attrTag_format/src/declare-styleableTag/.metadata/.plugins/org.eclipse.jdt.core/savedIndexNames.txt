@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\declare-styleableTag\attrTag_format\src\declare-styleableTag\.metadata\.plugins\org.eclipse.jdt.core
+2755746640.index
+584364287.index
+818297799.index
