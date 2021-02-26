@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\R.style\Theme\src\R.style\.metadata\.plugins\org.eclipse.jdt.core
+818297799.index
+3484296963.index
+2146425069.index
+2755746640.index
