@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\R.attr\logo_application\src\R.attr\.metadata\.plugins\org.eclipse.jdt.core
+460151699.index
+2755746640.index
+818297799.index
