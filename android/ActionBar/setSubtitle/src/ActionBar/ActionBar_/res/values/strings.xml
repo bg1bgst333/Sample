@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ActionBar_</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="title_string">Main Title</string>
+	<string name="subtitle_string">Sub Title</string>
+	
+</resources>
