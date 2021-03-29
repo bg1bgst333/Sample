@@ -1,0 +1,5 @@
+INDEX VERSION 1.126+C:\Project\Cloud\github.com\Sample\android\patternViewHolder\patternViewHolder\src\patternViewHolder\.metadata\.plugins\org.eclipse.jdt.core
+251369231.index
+2755746640.index
+818297799.index
+3331532868.index

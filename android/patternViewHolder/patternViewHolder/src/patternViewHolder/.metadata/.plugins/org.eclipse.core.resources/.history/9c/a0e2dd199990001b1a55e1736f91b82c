@@ -1,0 +1,49 @@
+package com.bgstation0.android.sample.patternviewholder_;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+//カスタムアダプタ
+public class CustomAdapter extends ArrayAdapter<ListItem> {
+
+	// メンバフィールドの定義.
+	private final LayoutInflater mInflater;	// インフレータmInflater.
+	
+	// コンストラクタ.
+	public CustomAdapter(Context context, int textViewResourceId, List<ListItem> objects) {
+		super(context, textViewResourceId, objects);
+		// TODO Auto-generated constructor stub
+		mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);	// mInflaterを生成.
+	}
+
+	// アイテム表示のカスタマイズ
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		
+		// ViewHolderを準備.
+		ViewHolder viewHolder = null;	// viewHolderをnullで初期化.
+	
+		// convertViewがnullの時.
+		if (convertView == null){
+			viewHolder = new ViewHolder();	// 生成.
+			convertView = mInflater.inflate(R.layout.list_item, null);	// convertViewがnullならinflater.inflateで取得.(ここは難しいのでひとまずこういうものだと捉えておく.)
+			viewHolder.tvName = (TextView)convertView.findViewById(R.id.list_item_name_textview);	// 
+         liTextView = (TextView)convertView.findViewById(R.id.list_item_textview);	// convertView.findViewByIdでR.id.list_item_textviewをliTextViewに格納.
+         convertView.setTag(liTextView);	// convertView.setTagでliTextViewをセット.
+		}
+		else{	// nullでない時.
+			liTextView = (TextView)convertView.getTag();	// convertView.getTagでliTextViewを返す.
+		}
+		
+		// アイテムのセット.
+		liTextView.setText(getItem(position));	// position番目のアイテムをliTextView.setTextでセット.
+		return convertView;	// convertViewを返す.
+	
+	}
+	
+}
