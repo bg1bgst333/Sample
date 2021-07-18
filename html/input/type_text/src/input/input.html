@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>input#type#text</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    <!--
+    function clear_text1(){
+      var text1_list = document.getElementsByName("text1");
+      var text1 = text1_list[0];
+      text1.value = ""
+    }
+    function set_text2(){
+      var text1_list = document.getElementsByName("text1");
+      var text1 = text1_list[0];
+      var text2_list = document.getElementsByName("text2");
+      var text2 = text2_list[0];
+      text2.value = text1.value;
+    }
+    // -->
+    </script>
+    <input name="text1" type="text" value="abcde">
+    <input name="clearBtn" type="button" value="clear" onclick="clear_text1()">
+    <input name="text2" type="text" value="">
+    <input name="setBtn" type="button" value="set" onclick="set_text2()">
+  </body>
+</html>
