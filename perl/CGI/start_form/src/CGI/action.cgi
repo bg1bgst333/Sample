@@ -38,4 +38,3 @@ else{ # リクエスト後.
 
 # HTMLフッタの出力.
 print $q->end_html; # </html>タグなどの出力.
-
