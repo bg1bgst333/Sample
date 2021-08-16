@@ -11,6 +11,7 @@ if ($ret){ # オープン成功.
   # test.txtを読み込む.
   my $buf; # バッファ.
   read(IN, $buf, $filesize); # readで$filesize読み込み, $bufに格納.
+  close(IN); # 閉じる.
   # test.txtを出力.
   print "-----\n"; # 開始.
   print "$buf\n"; # $bufを出力.
