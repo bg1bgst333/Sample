@@ -37,6 +37,7 @@ class MainClass
         // 3秒後にキャンセル.
         Thread.Sleep(3000); // 3秒休止.
         cts.Cancel();   // cts.Cancelでキャンセル.
+        Thread.Sleep(3000); // 3秒休止.
 
     }
 
