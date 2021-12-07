@@ -1,0 +1,104 @@
+// ヘッダファイルのインクルード
+#include <tchar.h>		// TCHAR型
+#include <stdio.h>		// 標準入出力
+#include <windows.h>	// 標準WindowsAPI
+
+// _tmain関数の定義
+int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
+
+	// 変数の宣言と初期化.
+	DWORD dwSize = 0;	// バッファサイズdwSizeを0で初期化.
+	TCHAR *ptszBuf = NULL;	// プリンタ名を格納する文字列バッファポインタptszBufをNULLで初期化.
+	HANDLE hPrinter = NULL;	// プリンタハンドルhPrinterをNULLで初期化.
+	PRINTER_DEFAULTS pd = {0};	// PRINTER_DEFAULTS構造体pdを{0}で初期化.
+	BOOL bOpen = FALSE;	// プリンタが開けたかを表すbOpenをFALSEで初期化.
+	int aji1Size = sizeof(ADDJOB_INFO_1) + MAX_PATH + 1;	// aji1Sizeの初期化.
+	ADDJOB_INFO_1 *aji1 = NULL;	// ADDJOB_INFO_1構造体aji1をNULLで初期化.
+	DWORD dwNeeded = 0;	// 必要サイズdwNeededを0で初期化.
+	int rc = 0;	// AddJobの戻り値rcを0で初期化.
+	JOB_INFO_1 *ji1 = NULL;	// JOB_INFO_1構造体ji1をNULLで初期化.
+	HANDLE hFile = NULL;	// HANDLE型ファイルハンドルhFileをNULLで初期化.
+	DWORD dwFileSize = 0;	// dwFileSizeを0で初期化.
+	BYTE *pbtBuf = NULL;	// pbtBufをNULLで初期化.
+	DWORD dwReadBytes = 0;	// dwReadBytesを0で初期化.
+	HANDLE hWriteFile = NULL;	// hWriteFileをNULLで初期化.
+	DWORD dwWrittenBytes = 0;	// dwWrittenBytesを0で初期化.
+
+	// test.txtの読み込み.
+	hFile = CreateFile(_T("test.txt"), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);	// CreateFileで"test.txt"を開いて, 取得したハンドルをhFileに格納.
+	if (hFile == INVALID_HANDLE_VALUE){	// hFileがINVALID_HANDLE_VALUEなら.
+		_tprintf(_T("CreateFile Error!\n"));	// _tprintfで"CreateFile Error!"と出力.
+		return -1;	// -1を返す.
+	}
+	dwFileSize = GetFileSize(hFile, NULL);	// GetFileSizeでファイルサイズを取得.
+	pbtBuf = new BYTE[dwFileSize + 1];	// (dwFileSize + 1)分のメモリ確保.
+	ReadFile(hFile, pbtBuf, dwFileSize, &dwReadBytes, NULL);	// 読み込んでpbtBufに格納.
+	pbtBuf[dwReadBytes] = 0x0;	// 末尾を'\0'( = 0x0)で埋める.
+	printf("dwReadBytes = %d\n", (int)dwReadBytes);	// 
+	printf("pbtBuf = %s\n", pbtBuf);	// printfでpbtBufの内容を出力.
+	CloseHandle(hFile);	// CloseHandleでhFileを閉じる.
+
+	// 既定のプリンタ名を取得.
+	GetDefaultPrinter(NULL, &dwSize);	// GetDefaultPrinterにNULLを渡してバッファサイズを取得.
+	ptszBuf = new TCHAR[dwSize];	// dwSize分のバッファを確保.
+	GetDefaultPrinter(ptszBuf, &dwSize);	// GetDefaultPrinterで既定のプリンタ名を取得.
+	_tprintf(_T("Default Printer: %s\n"), ptszBuf);	// ptszBufを出力.
+
+	// 既定のプリンタを開く.
+	pd.DesiredAccess = PRINTER_ACCESS_USE;	// ユーザ権限.
+	bOpen = OpenPrinter(ptszBuf, &hPrinter, &pd);	// OpenPrinterでプリンタ名ptszBufのプリンタを開く.
+	if (bOpen){	// 成功.
+		if (hPrinter != NULL){	// プリンタハンドルはNULLではない.
+			_tprintf(_T("hPrinter: 0x%08x\n"), (unsigned long)hPrinter);	// hPrinterを出力.
+
+			// 印刷ジョブの追加.
+			aji1 = (ADDJOB_INFO_1 *)new BYTE[aji1Size];	// aji1Sizeのメモリを確保し, aji1に格納.
+			rc = AddJob(hPrinter, 1, (LPBYTE)aji1, aji1Size, &dwNeeded);	// AddJobで印刷ジョブ追加.
+			if (rc != 0){	// rcが0以外なら成功.(AddJobの戻り値は本来BOOLだが、int型rcで取っている.この謎は別途記事を参照.)
+				_tprintf(_T("aji1->JobId = %lu\n"), aji1->JobId);	// aji1->JobIdを出力.
+				_tprintf(_T("aji1->Path = %s\n"), aji1->Path);	// aji1->Pathを出力.
+
+				// 印刷ジョブ情報の取得.
+				dwNeeded = 0;	// dwNeededを0に戻す.
+				rc = 0;	// rcを0に戻す.
+				rc = GetJob(hPrinter, aji1->JobId, 1, NULL, 0, &dwNeeded);	// GetJobで必要なバッファサイズを取得する.
+				if (!(rc != 122 && dwNeeded < 1)){	// rcに122(ERROR_INSUFFICIENT_BUFFER)が返ってくるか, dwNeededが正の値なら, 全体は真となり, バッファサイズ取得としては成功.
+					ji1 = (JOB_INFO_1 *)new BYTE[dwNeeded];	// dwNeededのメモリを確保し, ji1に格納.
+					rc = 0;	// rcを0に戻す.
+					rc = GetJob(hPrinter, aji1->JobId, 1, (LPBYTE)ji1, dwNeeded, &dwNeeded);	// GetJobでji1を取得.
+					if (rc != 0){	// rcが0以外なら成功.
+						_tprintf(_T("ji1->JobId = %lu\n"), ji1->JobId);	// ji1->JobIdを出力.
+						_tprintf(_T("ji1->pPrinterName = %s\n"), ji1->pPrinterName);	// ji1->pPrinterNameを出力.
+						_tprintf(_T("ji1->pMachineName = %s\n"), ji1->pMachineName);	// ji1->pMachineNameを出力.
+						_tprintf(_T("ji1->pUserName = %s\n"), ji1->pUserName);	// ji1->pUserNameを出力.
+						_tprintf(_T("ji1->pDocument = %s\n"), ji1->pDocument);	// ji1->pDocumentを出力.
+						_tprintf(_T("ji1->pDatatype = %s\n"), ji1->pDatatype);	// ji1->pDatatypeを出力.
+						_tprintf(_T("ji1->pStatus = %s\n"), ji1->pStatus);	// ji1->pStatusを出力.
+
+						// splファイルへの書き込み.
+						hWriteFile = CreateFile(aji1->Path, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);	// CreateFileでaji1->Pathを開いて, 取得したハンドルをhWriteFileに格納.
+						WriteFile(hWriteFile, pbtBuf, dwReadBytes, &dwWrittenBytes, NULL);	// WriteFileで書き込み.
+						CloseHandle(hWriteFile);	// CloseHandleで閉じる.
+
+						// 印刷スケジュール要求.
+						ScheduleJob(hPrinter, aji1->JobId);	// ScheduleJobでaji1->JobIdのジョブを実行.
+
+					}
+					delete[] ji1;	// ji1を解放.
+				}
+
+			}
+			delete[] aji1;	// aji1を解放.
+
+			ClosePrinter(hPrinter);	// ClosePrinterでhPrinterを閉じる.
+		}
+	}
+
+	// メモリ解放.
+	delete[] ptszBuf;	// ptszBufを解放.
+	delete[] pbtBuf;	// pbtBufを解放.
+
+	// プログラムの終了.
+	return 0;	// 0を返して正常終了.
+
+}
