@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoImplementedProperties", "AutoImplementedProperties\AutoImplementedProperties.csproj", "{A0FA773F-D694-4774-A370-54D8C88930DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0FA773F-D694-4774-A370-54D8C88930DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0FA773F-D694-4774-A370-54D8C88930DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0FA773F-D694-4774-A370-54D8C88930DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0FA773F-D694-4774-A370-54D8C88930DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
