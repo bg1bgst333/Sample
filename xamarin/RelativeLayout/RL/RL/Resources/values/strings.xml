@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RL</string>
+    <string name="action_settings">Settings</string>
+    <string name="text1">ABCDE</string>
+    <string name="text2">FGHIJ</string>
+    <string name="text3">KLMNO</string>
+</resources>
