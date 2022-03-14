@@ -16,10 +16,10 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	vr.vt = VT_BSTR;	// BSTR
 
 	// 文字列の格納.
-	vr.bstrVal = SysAllocString(_T("ABCDE"));	// SysAllocStringで"ABCDE"文字列を確保し, vr.bstrValにセット. 
+	vr.bstrVal = SysAllocString(L"ABCDE");	// SysAllocStringで"ABCDE"文字列を確保し, vr.bstrValにセット. 
 
 	// 値の出力
-	_tprintf(_T("vr.bstrVal = %s\n"), vr.bstrVal);	// vr.bstrValを出力.
+	wprintf(L"vr.bstrVal = %s\n", vr.bstrVal);	// vr.bstrValを出力.
 
 	// 文字列の解放.
 	SysFreeString(vr.bstrVal);	// SysFreeStringでvr.bstrValを解放.
