@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlInputText_", "HtmlInputText_\HtmlInputText_.csproj", "{0CCE05C7-4B3F-4851-AF65-06BC3ECF4317}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CCE05C7-4B3F-4851-AF65-06BC3ECF4317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CCE05C7-4B3F-4851-AF65-06BC3ECF4317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CCE05C7-4B3F-4851-AF65-06BC3ECF4317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CCE05C7-4B3F-4851-AF65-06BC3ECF4317}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
