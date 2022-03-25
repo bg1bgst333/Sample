@@ -16,7 +16,7 @@
   "author": "B.G",
   "license": "MIT",
   "dependencies": {
-    "electron": "^4.1.0",
+    "electron": "^13.6.6",
     "node-gyp": "^3.8.0"
   },
   "devDependencies": {
