@@ -87,7 +87,7 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 
 	// クエリの実行.
 	BSTR strQueryLanguage = SysAllocString(L"WQL");	// SysAllocStringでstrQueryLanguageを"WQL"で初期化.
-	BSTR strQuery = SysAllocString(L"SELECT * FROM Win32_USBHub WHERE = \"USB 大容量記憶装置\"");	// SysAllocStringでstrQueryを"SELECT * FROM Win32_USBHub WHERE = \"USB 大容量記憶装置\""で初期化.
+	BSTR strQuery = SysAllocString(L"SELECT * FROM Win32_USBHub WHERE \"Name = USB 大容量記憶装置\"");	// SysAllocStringでstrQueryを"SELECT * FROM Win32_USBHub WHERE \"Name = USB 大容量記憶装置\""で初期化.
 	hr6 = pServices->ExecQuery(strQueryLanguage, strQuery, WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY, NULL, &pEnumerator);	// IWbemServices::ExecQueryでクエリ実行.
 	if (FAILED(hr6)){	// FAILEDマクロで判定.
 		_tprintf(_T("FAILED!\n"));	// "FAILED!"と出力.
