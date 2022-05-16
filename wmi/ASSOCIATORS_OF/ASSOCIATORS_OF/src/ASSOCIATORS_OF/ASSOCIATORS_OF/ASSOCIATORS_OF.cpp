@@ -146,9 +146,9 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 				wprintf(L"DeviceID: %s\n", vrDeviceID.bstrVal);	// vrDeviceID.bstrValを出力.
 
 				// クエリの実行.
-				std::wstring q = L"ASSOCIATORS OF{Win32_USBHub.DeviceID=\"";	// "ASSOCIATORS OF{Win32_USBHub.DeviceID=\""をqにセット.
+				std::wstring q = L"ASSOCIATORS OF{Win32_USBHub.DeviceID=\'";	// "ASSOCIATORS OF{Win32_USBHub.DeviceID=\'"をqにセット.
 				q = q + vrDeviceID.bstrVal;	// vrDeviceID.bstrValを連結.
-				q = q + L"\"}";	// "\"}"を連結.
+				q = q + L"\'}";	// "\'}"を連結.
 				BSTR strQuery2 = SysAllocString(q.c_str());	// SysAllocStringでstrQueryをq.c_str()で初期化.
 				hr10 = pServices->ExecQuery(strQueryLanguage, strQuery2, WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY, NULL, &pEnumerator2);	// IWbemServices::ExecQueryでクエリ実行.
 				if (SUCCEEDED(hr10)){	// SUCCEEDEDマクロで判定.
