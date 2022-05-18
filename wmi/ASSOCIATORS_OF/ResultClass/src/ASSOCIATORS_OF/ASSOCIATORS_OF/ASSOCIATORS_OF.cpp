@@ -88,6 +88,7 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	std::wstring q = L"ASSOCIATORS OF{Win32_USBController.DeviceID=\'";	// "ASSOCIATORS OF{Win32_USBController.DeviceID=\'"をqにセット.
 	q = q + argv[1];	// argv[1]を連結.
 	q = q + L"\'}";	// "\'}"を連結.
+	q = q + L" WHERE ResultClass = Win32_USBHub";	// " WHERE ResultClass = Win32_USBHub"を連結.
 	BSTR strQueryLanguage = SysAllocString(L"WQL");	// SysAllocStringでstrQueryLanguageを"WQL"で初期化.
 	BSTR strQuery = SysAllocString(q.c_str());	// SysAllocStringでstrQueryをq.c_str()で初期化.
 	hr6 = pServices->ExecQuery(strQueryLanguage, strQuery, WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY, NULL, &pEnumerator);	// IWbemServices::ExecQueryでクエリ実行.
