@@ -5,6 +5,7 @@
 #include <stdio.h>		// C標準入出力
 #include <objbase.h>	// COM
 #include <wbemidl.h>	// WBEM
+#include <string>		// std::string
 
 // _tmain関数の定義
 int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
@@ -84,8 +85,11 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	_tprintf(_T("CoSetProxyBlanket OK!\n"));	// "CoSetProxyBlanket OK!"と出力.
 
 	// クエリの実行.
+	std::wstring q = L"ASSOCIATORS OF{Win32_USBController.Name=\'";	// "ASSOCIATORS OF{Win32_USBController.Name=\'"をqにセット.
+	q = q + L"Intel(R) USB 3.0 eXtensible Host Controller - 1.0 (Microsoft)";	// "Intel(R) USB 3.0 eXtensible Host Controller - 1.0 (Microsoft)"を連結.
+	q = q + L"\'}";	// "\'}"を連結.
 	BSTR strQueryLanguage = SysAllocString(L"WQL");	// SysAllocStringでstrQueryLanguageを"WQL"で初期化.
-	BSTR strQuery = SysAllocString(L"SELECT * FROM Win32_USBController");	// SysAllocStringでstrQueryを"SELECT * FROM Win32_USBController"で初期化.
+	BSTR strQuery = SysAllocString(q.c_str());	// SysAllocStringでstrQueryをq.c_str()で初期化.
 	hr6 = pServices->ExecQuery(strQueryLanguage, strQuery, WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY, NULL, &pEnumerator);	// IWbemServices::ExecQueryでクエリ実行.
 	if (FAILED(hr6)){	// FAILEDマクロで判定.
 		_tprintf(_T("FAILED!\n"));	// "FAILED!"と出力.
