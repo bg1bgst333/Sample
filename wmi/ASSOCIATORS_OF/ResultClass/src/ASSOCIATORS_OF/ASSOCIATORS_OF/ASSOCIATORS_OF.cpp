@@ -85,8 +85,8 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	_tprintf(_T("CoSetProxyBlanket OK!\n"));	// "CoSetProxyBlanket OK!"と出力.
 
 	// クエリの実行.
-	std::wstring q = L"ASSOCIATORS OF{Win32_USBController.Name=\'";	// "ASSOCIATORS OF{Win32_USBController.Name=\'"をqにセット.
-	q = q + L"Intel(R) USB 3.0 eXtensible Host Controller - 1.0 (Microsoft)";	// "Intel(R) USB 3.0 eXtensible Host Controller - 1.0 (Microsoft)"を連結.
+	std::wstring q = L"ASSOCIATORS OF{Win32_USBController.DeviceID=\'";	// "ASSOCIATORS OF{Win32_USBController.DeviceID=\'"をqにセット.
+	q = q + argv[1];	// argv[1]を連結.
 	q = q + L"\'}";	// "\'}"を連結.
 	BSTR strQueryLanguage = SysAllocString(L"WQL");	// SysAllocStringでstrQueryLanguageを"WQL"で初期化.
 	BSTR strQuery = SysAllocString(q.c_str());	// SysAllocStringでstrQueryをq.c_str()で初期化.
