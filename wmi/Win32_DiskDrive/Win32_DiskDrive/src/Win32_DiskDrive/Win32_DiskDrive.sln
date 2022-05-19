@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Win32_DiskDrive", "Win32_DiskDrive\Win32_DiskDrive.vcproj", "{71EE74EC-D9D3-495B-A18F-01CF0AC94221}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71EE74EC-D9D3-495B-A18F-01CF0AC94221}.Debug|Win32.ActiveCfg = Debug|Win32
+		{71EE74EC-D9D3-495B-A18F-01CF0AC94221}.Debug|Win32.Build.0 = Debug|Win32
+		{71EE74EC-D9D3-495B-A18F-01CF0AC94221}.Release|Win32.ActiveCfg = Release|Win32
+		{71EE74EC-D9D3-495B-A18F-01CF0AC94221}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
