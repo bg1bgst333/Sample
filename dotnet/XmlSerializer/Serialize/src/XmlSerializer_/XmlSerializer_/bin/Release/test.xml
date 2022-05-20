@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<UserInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <name>Taro</name>
+  <age>20</age>
+  <address>Tokyo</address>
+</UserInfo>
