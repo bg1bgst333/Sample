@@ -173,6 +173,7 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 							//_tprintf(_T("pClassObject2 = 0x%08x\n"), (unsigned long)pClassObject2);	// pClassObject2を出力.
 							// オブジェクトテキストの取得.
 							BSTR strObjectText2;
+							std::string strInstanceName = "";
 							hr12 = pClassObject2->GetObjectText(0, &strObjectText2);	// IWbemClassObject::GetObjectTextでオブジェクトの内容をテキスト形式で取得.
 							if (SUCCEEDED(hr12) && strObjectText2){	// SUCCEEDEDマクロとstrObjectText2で判定.
 								// pClassObject2->GetObjectTextは成功.
@@ -182,6 +183,17 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 								char *pszBuf2 = new char[iBufLen2];	// iBufLen2のchar型バッファを確保.
 								WideCharToMultiByte(CP_ACP, 0, strObjectText2, -1, pszBuf2, iBufLen2, NULL, NULL);	// 変換.
 								//printf("%s", pszBuf2);	// printfでpszBuf2を出力.
+								
+								// インスタンス名を切り出す.
+								char *p = strchr(pszBuf2 + 1, '\n');
+								if (p != NULL){
+									int e = p - pszBuf2;
+									pszBuf2[e] = '\0';
+									strInstanceName = pszBuf2 + 13;
+									printf("%s.", strInstanceName.c_str());
+								}
+
+								// 解放.
 								delete [] pszBuf2;	// delete [] でpszBuf2を解放.
 								SysFreeString(strObjectText2);	// SysFreeStringでstrObjectText2を解放.
 							}
