@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<AuthInfo>
+    <Users>
+        <UserInfo>
+            <name>testuser1</name>
+            <password>testpass1</password>
+            <role>admin</role>
+        </UserInfo>
+        <UserInfo>
+            <name>testuser2</name>
+            <password>testpass2</password>
+            <role>users</role>
+      </UserInfo>
+    </Users>
+</AuthInfo>
