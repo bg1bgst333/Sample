@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlCommand_", "SqlCommand_\SqlCommand_.csproj", "{F4C3715B-C570-42E1-8E05-E465A14D9A0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4C3715B-C570-42E1-8E05-E465A14D9A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C3715B-C570-42E1-8E05-E465A14D9A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C3715B-C570-42E1-8E05-E465A14D9A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C3715B-C570-42E1-8E05-E465A14D9A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
