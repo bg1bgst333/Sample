@@ -4,6 +4,8 @@
 #include <tchar.h>		// TCHAR型
 #include <stdio.h>		// C標準入出力
 #include <commctrl.h>	// コモンコントロール
+// 独自のヘッダファイル
+#include "resource.h"	// リソース
 
 // 関数のプロトタイプ宣言
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);	// ウィンドウメッセージに対して独自の処理をするように定義したコールバック関数WindowProc.
@@ -24,7 +26,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 	wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);				// アイコンはアプリケーション既定のもの.
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);				// カーソルは矢印.
 	wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);	// 背景は白ブラシ.
-	wc.lpszMenuName = NULL;									// なし.
+	wc.lpszMenuName = MAKEINTRESOURCE(IDR_MAINMENU);		// IDR_MAINMENU.
 	wc.cbClsExtra = 0;										// 0でいい.
 	wc.cbWndExtra = 0;										// 0でいい.
 
