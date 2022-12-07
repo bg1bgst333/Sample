@@ -137,6 +137,66 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 			// 既定の処理へ向かう.
 			break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
 
+		// メニュー項目が選択されたり, ボタンなどのコントロールが押されたりした時.
+		case WM_COMMAND:	// メニュー項目が選択されたり, ボタンなどのコントロールが押されたりした時.(uMsgがWM_COMMANDの時.)
+
+			// WM_COMMANDブロック
+			{
+
+				// どのメニュー項目が選択されたかを判定する.
+				switch (LOWORD(wParam)){	// LOWORD(wParam)で選択されたメニュー項目のIDが取得できるので, その値で判定する.
+
+					// 取得したIDごとに処理を分岐.
+					// Item1-1が選択された時.
+					case ID_ITEM_1_1:
+
+						// ID_ITEM_1_1ブロック
+						{
+
+							// Edit1にhFont1をセット.
+							SendMessage(hEdit, WM_SETFONT, (WPARAM)hFont1, 0);	// WM_SETFONTでhEditにhFont1をセット.
+							
+							// 0を返す.
+							return 0;	// 処理したので戻り値として0を返す.
+
+						}
+
+						// 既定の処理へ向かう.
+						break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+					// Item1-2が選択された時.
+					case ID_ITEM_1_2:
+
+						// ID_ITEM_1_2ブロック
+						{
+
+							// Edit1にhFont2をセット.
+							SendMessage(hEdit, WM_SETFONT, (WPARAM)hFont2, 0);	// WM_SETFONTでhEditにhFont2をセット.
+
+							// 0を返す.
+							return 0;	// 処理したので戻り値として0を返す.
+
+						}
+
+						// 既定の処理へ向かう.
+						break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+					// 上記以外の時.
+					default:	// 上記以外の値の時の既定処理.
+
+						// 既定の処理へ向かう.
+						break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+				}
+	
+				// 既定の処理へ向かう.
+				break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+			}
+
+			// 既定の処理へ向かう.
+			break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
 		// 上記以外の時.
 		default:	// 上記以外の値の時の既定処理.
 
