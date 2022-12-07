@@ -47,11 +47,6 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 
 	}
 
-	// ウィンドウハンドルの表示.
-	TCHAR tszHWnd[64] = {0};	// ウィンドウハンドル文字列tszHWnd(長さ64)を{0}で初期化.
-	_stprintf(tszHWnd, _T("hWnd = 0x%08x"), hWnd);	// hWndを文字列tszHWndに変換.
-	MessageBox(NULL, tszHWnd, _T("WM_GETFONT"), MB_OK);	// tszHWndを表示.
-
 	// ウィンドウの表示
 	ShowWindow(hWnd, SW_SHOW);	// ShowWindowでSW_SHOWを指定してウィンドウの表示.
 
@@ -72,6 +67,12 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 // WindowProc関数の定義
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){	// ウィンドウメッセージに対して独自の処理をするように定義したウィンドウプロシージャ.
 
+	// スタティック変数の初期化.
+	static HWND hEdit = NULL;	// エディットコントロールのウィンドウハンドルhEditをNULLで初期化.
+	static HFONT hFont1 = NULL;	// 1つ目のフォントハンドルhFont1をNULLで初期化.
+	static HFONT hFont2 = NULL;	// 2つ目のフォントハンドルhFont2をNULLで初期化.
+	static HFONT hOld = NULL;	// 古いフォントハンドルhOldをNULLで初期化.
+
 	// ウィンドウメッセージに対する処理.
 	switch (uMsg){	// switch-casa文でuMsgの値ごとに処理を振り分ける.
 
@@ -82,13 +83,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 			{
 
 				// 変数の宣言
-				HWND hEdit;				// エディットコントロールのウィンドウハンドルhEdit.
 				LPCREATESTRUCT lpCS;	// CreateStruct構造体のポインタlpCS.
-
-				// hwndの表示.
-				TCHAR tszHWND[64] = {0};	// ウインドウハンドル文字列tszHWND(長さ64)を{0}で初期化.
-				_stprintf(tszHWND, _T("hwnd = 0x%08x"), hwnd);	// hwndを文字列tszHWNDに変換.
-				MessageBox(NULL, tszHWND, _T("WM_GETFONT"), MB_OK);	// tszHWNDを表示.
 
 				// アプリケーションインスタンスハンドルの取得.
 				lpCS = (LPCREATESTRUCT)lParam;	// lParamをLPCREATESTRUCTにキャストして, lpCSに格納.
@@ -102,17 +97,14 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 
 				}
 
-				// エディットコントロールハンドルの表示.
-				TCHAR tszHEdit[64] = {0};	// エディットコントロールハンドル文字列tszHEdit(長さ64)を{0}で初期化.
-				_stprintf(tszHEdit, _T("hEdit = 0x%08x"), hEdit);	// hEditを文字列tszHEditに変換.
-				MessageBox(NULL, tszHEdit, _T("WM_GETFONT"), MB_OK);	// tszHEditを表示.
+				// フォントの作成.
+				hFont1 = CreateFont(50, 0, 0, 0, FW_REGULAR, FALSE, FALSE, FALSE, SHIFTJIS_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH, _T("ＭＳ ゴシック"));	// CreateFontで"ＭＳ ゴシック"フォントのGDIオブジェクトを新規に作成し, hFont1に格納.(設定はデフォルトのものにしておく.)
+				hFont2 = CreateFont(40, 0, 0, 0, FW_REGULAR, FALSE, FALSE, FALSE, SHIFTJIS_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH, _T("ＭＳ 明朝"));	// CreateFontで"ＭＳ 明朝"フォントのGDIオブジェクトを新規に作成し, hFont2に格納.(設定はデフォルトのものにしておく.)
 
-				// 親ウィンドウハンドルの表示.
-				HWND hParent;	// hEditの親ウィンドウhParent.
-				hParent = GetParent(hEdit);	// GetParentでhEditの親ウィンドウhParent取得.
-				TCHAR tszHParent[64] = {0};	// 親ウィンドウハンドル文字列tszHParent(長さ64)を{0}で初期化.
-				_stprintf(tszHParent, _T("hParent = 0x%08x"), hParent);	// hParentを文字列tszHParentに変換.
-				MessageBox(NULL, tszHParent, _T("WM_GETFONT"), MB_OK);	// tszHParentを表示.
+				// Edit1にhFont1をセット.
+				HDC hDC = GetDC(hEdit);	// GetDCでhEditのデバイスコンテキストハンドルhDC取得.
+				hOld = (HFONT)SelectObject(hDC, hFont1);	// SelectObjectでhFont1を選択.
+				ReleaseDC(hEdit, hDC);	// ReleaseDCでhDC解放.
 
 				// ウィンドウ作成成功
 				return 0;	// return文で0を返して, ウィンドウ作成成功とする.
@@ -128,6 +120,16 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 			// WM_DESTROYブロック
 			{
 
+				// フォントの破棄.
+				if (hFont1 != NULL){	// hFont1がNULLでない.
+					DeleteObject(hFont1);	// DeleteObjectでhFont1を破棄.
+					hFont1 = NULL;	// hFont1にNULLをセット.
+				}
+				if (hFont2 != NULL){	// hFont2がNULLでない.
+					DeleteObject(hFont2);	// DeleteObjectでhFont2を破棄.
+					hFont2 = NULL;	// hFont2にNULLをセット.
+				}
+
 				// 終了メッセージの送信.
 				PostQuitMessage(0);	// PostQuitMessageで終了コードを0としてWM_QUITメッセージを送信.(するとメッセージループのGetMessageの戻り値が0になるので, メッセージループから抜ける.)
 
@@ -135,6 +137,25 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 
 			// 既定の処理へ向かう.
 			break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+		// ウィンドウが閉じられた時.
+		case WM_CLOSE:	// ウィンドウが閉じられた時.(uMsgがWM_CLOSEの時.)
+
+			// WM_CLOSEブロック
+			{
+
+				// 古いフォントに戻す.
+				if (hOld != NULL){	// hOldがNULLでない.
+					HDC hDC = GetDC(hEdit);	// hDC取得.
+					SelectObject(hDC, hOld);	// hOld選択.
+					hOld = NULL;	// hOldにNULLをセット.
+					ReleaseDC(hEdit, hDC);	// ReleaseDCでhDC解放.
+				}
+
+				// 既定の処理へ向かう.
+				break;	// breakで抜けて, 既定の処理(DefWindowProc)へ向かう.
+
+			}
 
 		// 上記以外の時.
 		default:	// 上記以外の値の時の既定処理.
