@@ -243,7 +243,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 							WORD wCol = wAllLen - wRowStart;	// その行の何列目か(wCol)はwAllLenからwRowStartを引いたもの.
 							TCHAR tszResult[128] = {0};	// TCHAR文字配列tszResult(長さ128)を{0}で初期化.
 							_stprintf(tszResult, _T("wRowStart = %d, wCol = %d"), wRowStart, wCol);	// wRowStart, wColをtszResultに変換.
-							MessageBox(hwnd, tszResult, _T("EM_LINE_INDEX"), MB_OK);	// tszResultを表示.
+							MessageBox(hwnd, tszResult, _T("EM_LINEINDEX"), MB_OK);	// tszResultを表示.
 
 						}
 
