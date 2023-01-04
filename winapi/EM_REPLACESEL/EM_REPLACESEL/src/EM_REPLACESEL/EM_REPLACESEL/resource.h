@@ -1,0 +1,10 @@
+#define IDR_MAINMENU	101
+#define ID_ITEM_1_1	10101
+#define ID_ITEM_1_2	10102
+#define ID_ITEM_2_1	10201
+#define ID_ITEM_2_2	10202
+#define ID_ITEM_3_1	10301
+#define ID_ITEM_4_1	10401
+#define ID_ITEM_5_1	10501
+#define ID_ITEM_5_2	10502
+#define ID_ITEM_5_3	10503
