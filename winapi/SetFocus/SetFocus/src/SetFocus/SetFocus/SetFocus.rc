@@ -1,0 +1,39 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "Item1(&A)"
+	BEGIN
+		MENUITEM "Item1-1(&B)", ID_ITEM_1_1
+		MENUITEM "Item1-2(&C)", ID_ITEM_1_2
+	END
+	POPUP "Item2(&D)"
+	BEGIN
+		MENUITEM "Item2-1(&E)", ID_ITEM_2_1
+		MENUITEM "Item2-2(&F)", ID_ITEM_2_2
+	END
+	POPUP "Item3(&G)"
+	BEGIN
+		MENUITEM "Item3-1(&H)", ID_ITEM_3_1
+	END
+	POPUP "Item4(&I)"
+	BEGIN
+		MENUITEM "Item4-1(&J)", ID_ITEM_4_1
+	END
+	POPUP "Item5(&K)"
+	BEGIN
+		MENUITEM "Item5-1(&L)", ID_ITEM_5_1
+		MENUITEM "Item5-2(&M)", ID_ITEM_5_2
+		MENUITEM "Item5-3(&N)", ID_ITEM_5_3
+	END
+	POPUP "Item6(&O)"
+	BEGIN
+		MENUITEM "Item6-1(&P)", ID_ITEM_6_1
+		MENUITEM "Item6-2(&Q)", ID_ITEM_6_2
+	END
+	POPUP "Item7(&R)"
+	BEGIN
+		MENUITEM "Item7-1(&S)", ID_ITEM_7_1
+		MENUITEM "Item7-2(&T)", ID_ITEM_7_2
+	END
+END
