@@ -1,0 +1,9 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "File(&F)"
+	BEGIN
+		MENUITEM "Open(&O)...",	ID_FILE_OPEN
+	END
+END
