@@ -4,7 +4,7 @@
 // main関数
 int main(){
 
-  // ファイルの読み込み
+  // ファイルへの書き込み
   std::basic_ofstream<char> ofs("test.txt"); // std::basic_ofstream<char>のofsで"test.txt"を開く.
   ofs << "ABCDE"; // ofsに"ABCDE"を書き込む.
 
