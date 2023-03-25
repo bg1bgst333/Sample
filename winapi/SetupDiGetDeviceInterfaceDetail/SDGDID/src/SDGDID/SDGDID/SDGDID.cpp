@@ -22,20 +22,20 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 		BOOL bLoop = TRUE;	// ループするかのbLoopをTRUEで初期化.
 		while (bLoop){	// bLoopがTRUEの間は続ける.
 
-			// インターフェースデバイスデータの取得.
-			SP_INTERFACE_DEVICE_DATA spidd = {0};	// SP_INTERFACE_DEVICE_DATAのspiddを{0}で初期化.
-			spidd.cbSize = sizeof(SP_INTERFACE_DEVICE_DATA);	// spidd.cbSizeにsizeofで測ったSP_INTERFACE_DEVICE_DATAのサイズをセット.
-			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_VOLUME, i, &spidd);	// SetupDiEnumDeviceInterfacesで列挙.
+			// デバイスインターフェースデータの取得.
+			SP_DEVICE_INTERFACE_DATA spdid = {0};	// SP_DEVICE_INTERFACE_DATAのspdidを{0}で初期化.
+			spdid.cbSize = sizeof(SP_DEVICE_INTERFACE_DATA);	// spdid.cbSizeにsizeofで測ったSP_DEVICE_INTERFACE_DATAのサイズをセット.
+			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_VOLUME, i, &spdid);	// SetupDiEnumDeviceInterfacesで列挙.
 			if (!bRet){	// falseなら
 				bLoop = FALSE;	// bLoopをFALSEに.
 			}
 			else{
 
 				// 詳細情報の取得.(まずはメモリサイズだけ取得.)
-				SP_INTERFACE_DEVICE_DETAIL_DATA *pspiddd = NULL;	// インターフェースの詳細情報pspidddをNULLで初期化.
+				SP_DEVICE_INTERFACE_DETAIL_DATA *pspdidd = NULL;	// インターフェースの詳細情報pspdiddをNULLで初期化.
 				DWORD dwMemSize = 0;	// 詳細情報の取得に必要なメモリサイズdwMemSizeを0で初期化.
-				SetupDiGetDeviceInterfaceDetail(hDevInfo, &spidd, NULL, 0, &dwMemSize, NULL);	// SetupDiGetDeviceInterfaceDetailでdwMemSizeだけ取得.
-				DWORD dwStructSize = sizeof(SP_INTERFACE_DEVICE_DETAIL_DATA);	// 構造体のサイズdwStructSizeをsizeofで取得.
+				SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, NULL, 0, &dwMemSize, NULL);	// SetupDiGetDeviceInterfaceDetailでdwMemSizeだけ取得.
+				DWORD dwStructSize = sizeof(SP_DEVICE_INTERFACE_DETAIL_DATA);	// 構造体のサイズdwStructSizeをsizeofで取得.
 				_tprintf(_T("dwMemSize = %lu, dwStructSize = %lu\n"), dwMemSize, dwStructSize);	// dwMemSizeとdwStructSizeを出力.
 				i++;	// iをインクリメント.
 
