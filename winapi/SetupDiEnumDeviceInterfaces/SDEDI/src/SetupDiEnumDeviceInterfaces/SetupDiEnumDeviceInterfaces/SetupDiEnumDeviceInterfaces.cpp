@@ -22,10 +22,10 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 		BOOL bLoop = TRUE;	// ループするかのbLoopをTRUEで初期化.
 		while (bLoop){	// bLoopがTRUEの間は続ける.
 
-			// インターフェースデバイスデータの取得.
-			SP_INTERFACE_DEVICE_DATA spidd = {0};	// SP_INTERFACE_DEVICE_DATAのspiddを{0}で初期化.
-			spidd.cbSize = sizeof(SP_INTERFACE_DEVICE_DATA);	// spidd.cbSizeにsizeofで測ったSP_INTERFACE_DEVICE_DATAのサイズをセット.
-			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_VOLUME, i, &spidd);	// SetupDiEnumDeviceInterfacesで列挙.
+			// デバイスインターフェースデータの取得.
+			SP_DEVICE_INTERFACE_DATA spdid = {0};	// SP_DEVICE_INTERFACE_DATAのspdidを{0}で初期化.
+			spdid.cbSize = sizeof(SP_DEVICE_INTERFACE_DATA);	// spdid.cbSizeにsizeofで測ったSP_DEVICE_INTERFACE_DATAのサイズをセット.
+			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_VOLUME, i, &spdid);	// SetupDiEnumDeviceInterfacesで列挙.
 			if (!bRet){	// falseなら
 				bLoop = FALSE;	// bLoopをFALSEに.
 			}
