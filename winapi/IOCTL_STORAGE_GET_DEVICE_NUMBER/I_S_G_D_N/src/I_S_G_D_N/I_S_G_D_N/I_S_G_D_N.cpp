@@ -93,7 +93,7 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 					_tprintf(_T("spdd.DevInst = %lu\n"), spdd.DevInst);	// spdd.DevInstを出力.
 					// デバイス番号を出力.
 					TCHAR tszPath[MAX_PATH] = {0};
-					_tcscat(tszPath, path);
+					_tcscat(tszPath, pspdidd->DevicePath);
 					HANDLE hVolume = CreateFile(tszPath, 0, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);	// CreateFileでhVolume取得.
 					if (hVolume != NULL){	// 開けたら.
 						DWORD dwSize = 0x400;	// これぐらい用意しておく.
