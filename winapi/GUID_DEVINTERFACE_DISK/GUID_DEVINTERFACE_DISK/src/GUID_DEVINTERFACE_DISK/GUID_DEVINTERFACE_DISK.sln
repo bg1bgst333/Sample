@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GUID_DEVINTERFACE_DISK", "GUID_DEVINTERFACE_DISK\GUID_DEVINTERFACE_DISK.vcproj", "{1BF2B5F4-23D5-48C0-B850-A315A35C8152}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BF2B5F4-23D5-48C0-B850-A315A35C8152}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1BF2B5F4-23D5-48C0-B850-A315A35C8152}.Debug|Win32.Build.0 = Debug|Win32
+		{1BF2B5F4-23D5-48C0-B850-A315A35C8152}.Release|Win32.ActiveCfg = Release|Win32
+		{1BF2B5F4-23D5-48C0-B850-A315A35C8152}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
