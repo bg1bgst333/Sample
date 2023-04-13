@@ -61,7 +61,13 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 					_tprintf(_T("dwSize = %lu\n"), dwSize);	// dwSizeを出力.
 					BYTE *pBytes = new BYTE[dwSize];	// newでBYTE配列の確保.
 					SetupDiGetDeviceRegistryProperty(hDevInfo, &spdd, SPDRP_DEVICEDESC, &dwRegType, pBytes, dwSize, &dwSize);	// SetupDiGetDeviceRegistryPropertyでデバイスの説明を取得.
-					_tprintf(_T("SPDRP_DEVICEDESC: %s\n"), (TCHAR *)pBytes);	// pBytesを出力.
+					// ワイド文字をマルチバイト文字に変換する.
+					char *pszBuf;	// char型バッファポインタpszBuf.
+					int iBufLen = WideCharToMultiByte(CP_ACP, 0, (TCHAR *)pBytes, -1, NULL, 0, NULL, NULL);	// まずは長さを取得.
+					pszBuf = new char[iBufLen];	// iBufLenのchar型バッファを確保.
+					WideCharToMultiByte(CP_ACP, 0, (TCHAR *)pBytes, -1, pszBuf, iBufLen, NULL, NULL);	// 変換.
+					printf("SPDRP_DEVICEDESC: %s\n", pszBuf);	// pszBufを出力.
+					delete [] pszBuf;	// pszBufの解放.
 					delete [] pBytes;	// pBytesを解放.
 				}
 				i++;	// iをインクリメント.
