@@ -2,15 +2,14 @@
 #include <windows.h>	// 標準WindowsAPI
 #include <tchar.h>		// TCHAR型
 #include <stdio.h>		// 標準入出力
-
+#include <setupapi.h>
 // 関数のプロトタイプ宣言
 int GetVolumeDeviceNumber(TCHAR* ptszDriveLetter);	// ドライブレターからボリュームのデバイスナンバーを取得.
+int GetVolumeDeviceNumberByDevicePath(TCHAR* ptszDevicePath);	// デバイスパスからボリュームのデバイスナンバーを取得.
+BOOL GetVolumeDeviceNumberAndDevInst(TCHAR* ptszDriveLetter, DWORD &dwDeviceNumber, DWORD &dwDevInst);	// ドライブレターからボリュームのデバイスナンバーとDevInstを取得.
 
 // _tmain関数の定義
 int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
-
-	// 変数の宣言
-	int iDeviceNumber;	// デバイスナンバー.
 
 	// コマンドライン引数の数.
 	_tprintf(_T("argc = %d\n"), argc);	// argcを出力.
@@ -20,9 +19,18 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	}
 
 	// ドライブレターからボリュームのデバイスナンバーを取得.
-	iDeviceNumber = GetVolumeDeviceNumber(argv[1]);	// GetVolumeDeviceNumberでiDeviceNumber取得.
+	int iDeviceNumber = GetVolumeDeviceNumber(argv[1]);	// GetVolumeDeviceNumberでiDeviceNumber取得.
 	if (iDeviceNumber != -1){	// iDeviceNumberが-1でなければ成功.
 		_tprintf(_T("iDeviceNumber = %d\n"), iDeviceNumber);	// iDeviceNumberを出力.
+	}
+
+	// ドライブレターからボリュームのデバイスナンバーとDevInstを取得.
+	DWORD dwDeviceNumber = 0;	// dwDeviceNumberを0で初期化.
+	DWORD dwDevInst = 0;	// dwDevInstを0で初期化.
+	BOOL bRet = GetVolumeDeviceNumberAndDevInst(argv[1], dwDeviceNumber, dwDevInst);	// GetVolumeDeviceNumberAndDevInstでdwDeviceNumber, dwDevInstを取得.
+	if (bRet){	// TRUEなら成功.
+		_tprintf(_T("dwDeviceNumber = %d\n"), dwDeviceNumber);	// dwDeviceNumberを出力.
+		_tprintf(_T("dwDevInst = %d\n"), dwDevInst);	// dwDevInstを出力.
 	}
 
 	// プログラムの終了.
@@ -57,5 +65,116 @@ int GetVolumeDeviceNumber(TCHAR* ptszDriveLetter){
 	else{	// 失敗.
 		return -1;	// -1を返す.
 	}
+
+}
+
+// デバイスパスからボリュームのデバイスナンバーを取得.
+int GetVolumeDeviceNumberByDevicePath(TCHAR* ptszDevicePath){
+
+	// 配列の初期化
+	TCHAR tszPath[MAX_PATH] = {0};
+
+	// パスの整形
+	_tcscat(tszPath, ptszDevicePath);
+
+	// 開く.
+	HANDLE hVolume = CreateFile(tszPath, 0, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);	// CreateFileでhVolume取得.
+	if (hVolume != INVALID_HANDLE_VALUE){	// 開けたら.
+		DWORD dwSize = 0x400;	// これぐらい用意しておく.
+		DWORD dwBytes = 0;
+		BYTE *pBytes = (BYTE *)malloc(dwSize);	// メモリ確保.
+		BOOL bRet = DeviceIoControl(hVolume, IOCTL_STORAGE_GET_DEVICE_NUMBER, NULL, 0, pBytes, (DWORD)dwSize, &dwBytes, NULL);	// DeviceIoControlでデバイスナンバー取得.
+		STORAGE_DEVICE_NUMBER *pSDN = (STORAGE_DEVICE_NUMBER *)pBytes;	// STORAGE_DEVICE_NUMBERポインタに移し替える.
+		DWORD dwDeviceNumber = pSDN->DeviceNumber;
+		free(pBytes);	// メモリ解放.
+		CloseHandle(hVolume);	// 閉じる.
+		return (int)dwDeviceNumber;	// dwDeviceNumberをintにキャストして返す.
+	}
+	else{	// 失敗.
+		return -1;	// -1を返す.
+	}
+
+}
+
+// ドライブレターからボリュームのデバイスナンバーとDevInstを取得.
+BOOL GetVolumeDeviceNumberAndDevInst(TCHAR* ptszDriveLetter, DWORD &dwDeviceNumber, DWORD &dwDevInst){
+
+	// 変数の初期化.
+	int iDeviceNumber = -1;	// iDeviceNumberを-1で初期化.
+	DWORD dwTemp = 0;	// dwTempを0で初期化.
+
+	// ボリューム名を取得.
+	TCHAR tszVolumeName[MAX_PATH] = {0};	// ボリューム名tszVolumeName(長さMAX_PATH)を{0}で初期化.
+	TCHAR tszDrive[128] = {0};	// ドライブレターtszDrive(長さ128)を{0}で初期化.
+	_tcscat(tszDrive, ptszDriveLetter);	// ptszDriveLetterを連結.
+	_tcscat(tszDrive, _T(":\\"));	// ":\\"を連結.
+	BOOL bRet = GetVolumeNameForVolumeMountPoint(tszDrive, tszVolumeName, MAX_PATH);	// GetVolumeNameForVolumeMountPointでボリューム名取得.
+	if (!bRet){	// 失敗.
+		return FALSE;	// FALSEを返す.
+	}
+
+	// デバイスインターフェースデータの列挙
+	HDEVINFO hDevInfo;	// デバイス情報ハンドルhDevInfo
+	// ボリュームデバイスのデバイスインターフェースクラスのデバイス情報を取得.
+	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_VOLUME, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevsでGUID_DEVINTERFACE_VOLUMEのhDevInfo取得.
+	if (hDevInfo != INVALID_HANDLE_VALUE){	// INVALID_HANDLE_VALUEでなければ.
+		// 列挙ループ.
+		int i = 0;	// インデックスiを0で初期化.
+		BOOL bLoop = TRUE;	// ループするかのbLoopをTRUEで初期化.
+		while (bLoop){	// bLoopがTRUEの間は続ける.
+			// デバイスインターフェースデータの取得.
+			SP_DEVICE_INTERFACE_DATA spdid = {0};	// SP_DEVICE_INTERFACE_DATAのspdidを{0}で初期化.
+			spdid.cbSize = sizeof(SP_DEVICE_INTERFACE_DATA);	// spdid.cbSizeにsizeofで測ったSP_DEVICE_INTERFACE_DATAのサイズをセット.
+			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_VOLUME, i, &spdid);	// SetupDiEnumDeviceInterfacesで列挙.
+			if (!bRet){	// falseなら
+				bLoop = FALSE;	// bLoopをFALSEに.
+			}
+			else{
+				// 詳細情報の取得.(SP_DEVINFO_DATAも取得.)
+				SP_DEVICE_INTERFACE_DETAIL_DATA *pspdidd = NULL;	// インターフェースの詳細情報pspdiddをNULLで初期化.
+				DWORD dwMemSize = 0;	// 詳細情報の取得に必要なメモリサイズdwMemSizeを0で初期化.
+				SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, NULL, 0, &dwMemSize, NULL);	// SetupDiGetDeviceInterfaceDetailでdwMemSizeだけ取得.
+				DWORD dwStructSize = sizeof(SP_DEVICE_INTERFACE_DETAIL_DATA);	// 構造体のサイズdwStructSizeをsizeofで取得.
+				pspdidd = (SP_DEVICE_INTERFACE_DETAIL_DATA *)malloc(dwMemSize);	// dwMemSize分のメモリを確保し, アドレスはpspdiddに格納.
+				memset(pspdidd, 0, dwMemSize);	// メモリを全て0にクリア.
+				pspdidd->cbSize = dwStructSize;	// pspdidd->cbSizeにdwStructSizeをセット.
+				SP_DEVINFO_DATA spdd = {0};	// SP_DEVINFO_DATAのspddを{0}で初期化.
+				spdd.cbSize = sizeof(SP_DEVINFO_DATA);	// 構造体のサイズをsizeofで取得し, spdd.cbSizeにセット.
+				BOOL bRet = SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, pspdidd, dwMemSize, &dwMemSize, &spdd);	// SetupDiGetDeviceInterfaceDetailでpspdiddの中身を取得.(spddも取得.)
+				if (bRet){	// TRUEなら.
+					// デバイスパスからボリューム名.
+					TCHAR path[MAX_PATH] = {0};
+					TCHAR tszVolumeName2[MAX_PATH] = {0};	// ボリューム名tszVolumeName2(長さMAX_PATH)を{0}で初期化.
+					_tcscat(path,  pspdidd->DevicePath);
+					_tcscat(path, _T("\\"));	// これがないと失敗!
+					BOOL bRet = GetVolumeNameForVolumeMountPoint(path, tszVolumeName2, MAX_PATH);	// GetVolumeNameForVolumeMountPointでボリューム名取得.
+					if (bRet){	// 成功.
+						if (_tcscmp(tszVolumeName, tszVolumeName2) == 0){	// 同じ.
+							// デバイスナンバーを取得.
+							iDeviceNumber = GetVolumeDeviceNumberByDevicePath(pspdidd->DevicePath);	// GetVolumeDeviceNumberByDevicePathでデバイスナンバー取得.
+							// DevInstはdwTempに.
+							dwTemp = spdd.DevInst;	// 最終候補.
+						}
+					}
+					// DevInstを出力.
+					_tprintf(_T("spdd.DevInst = %lu\n"), spdd.DevInst);	// spdd.DevInstを出力.
+				}
+				free(pspdidd);	// pspdiddを解放.
+				i++;	// iをインクリメント.
+			}
+		}
+		// 破棄.
+		SetupDiDestroyDeviceInfoList(hDevInfo);	// SetupDiDestroyDeviceInfoListでhDevInfoを破棄.
+	}
+
+	// iDeviceNumberが0以上なら成功.
+	if (iDeviceNumber >= 0){
+		dwDeviceNumber = (DWORD)iDeviceNumber;
+		dwDevInst = dwTemp;
+		return TRUE;	// TRUEを返す.
+	}
+	
+	// 失敗.
+	return FALSE;	// FALSEを返す.
 
 }
