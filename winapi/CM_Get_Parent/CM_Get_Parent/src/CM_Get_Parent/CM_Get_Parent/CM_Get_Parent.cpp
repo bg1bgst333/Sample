@@ -7,6 +7,7 @@
 int GetVolumeDeviceNumber(TCHAR* ptszDriveLetter);	// ドライブレターからボリュームのデバイスナンバーを取得.
 int GetVolumeDeviceNumberByDevicePath(TCHAR* ptszDevicePath);	// デバイスパスからボリュームのデバイスナンバーを取得.
 BOOL GetVolumeDeviceNumberAndDevInst(TCHAR* ptszDriveLetter, DWORD &dwDeviceNumber, DWORD &dwDevInst);	// ドライブレターからボリュームのデバイスナンバーとDevInstを取得.
+int GetVolumeDevInst(TCHAR* ptszDriveLetter);	// ドライブレターからボリュームのDevInstを取得.
 
 // _tmain関数の定義
 int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
@@ -31,6 +32,12 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	if (bRet){	// TRUEなら成功.
 		_tprintf(_T("dwDeviceNumber = %d\n"), dwDeviceNumber);	// dwDeviceNumberを出力.
 		_tprintf(_T("dwDevInst = %d\n"), dwDevInst);	// dwDevInstを出力.
+	}
+
+	// ドライブレターからボリュームのDevInstを取得.
+	int iDevInst = GetVolumeDevInst(argv[1]);	// GetVolumeDevInstでiDevInst取得.
+	if (iDevInst != -1){	// iDevInstが-1でなければ成功.
+		_tprintf(_T("iDevInst = %d\n"), iDevInst);	// iDevInstを出力.
 	}
 
 	// プログラムの終了.
@@ -176,5 +183,64 @@ BOOL GetVolumeDeviceNumberAndDevInst(TCHAR* ptszDriveLetter, DWORD &dwDeviceNumb
 	
 	// 失敗.
 	return FALSE;	// FALSEを返す.
+
+}
+
+// ドライブレターからボリュームのDevInstを取得.
+int GetVolumeDevInst(TCHAR* ptszDriveLetter){
+
+	// 変数の初期化.
+	int iDevInst = -1;	// iDevInstを-1で初期化.
+
+	// MS-DOSデバイス名の取得.
+	TCHAR tszDrive[3] = {0};	// ドライブレターtszDrive(長さ3.)を{0}で初期化.
+	_tcscat(tszDrive, ptszDriveLetter);	// ptszDriveLetterを連結.
+	_tcscat(tszDrive, _T(":"));	// ":"を連結.
+	TCHAR tszDeviceName[MAX_PATH] = {0};	// デバイス名tszDeviceName(長さMAX_PATH.)を{0}で初期化.
+	QueryDosDevice(tszDrive, tszDeviceName, MAX_PATH);	// QueryDosDeviceでtszDeviceNameを取得.
+
+	// 変数の宣言
+	HDEVINFO hDevInfo;	// デバイス情報ハンドルhDevInfo
+	// ボリュームデバイス一覧を取得.
+	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_VOLUME, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevsでhDevInfo取得.
+	if (hDevInfo != INVALID_HANDLE_VALUE){	// INVALID_HANDLE_VALUEでなければ.
+		// 列挙ループ.
+		int i = 0;	// インデックスiを0で初期化.
+		BOOL bLoop = TRUE;	// ループするかのbLoopをTRUEで初期化.
+		while (bLoop){	// bLoopがTRUEの間は続ける.
+			// デバイス情報の取得.
+			SP_DEVINFO_DATA spdd = {0};	// SP_DEVINFO_DATAのspddを{0}で初期化.
+			spdd.cbSize = sizeof(SP_DEVINFO_DATA);	// 構造体のサイズをsizeofで取得し, spdd.cbSizeにセット.
+			BOOL bRet = SetupDiEnumDeviceInfo(hDevInfo, i, &spdd);	// SetupDiEnumDeviceInfoで列挙.
+			if (!bRet){	// FALSEなら.
+				bLoop = FALSE;	// bLoopをFALSEに.
+			}
+			else{	// TRUEなら.
+				// DevInstを出力.
+				_tprintf(_T("spdd.DevInst = %lu\n"), spdd.DevInst);	// spdd.DevInstを出力.
+				// プロパティの取得.(物理デバイスオブジェクト名.)
+				DWORD dwRegType;	// プロパティの型.
+				DWORD dwSize;	// プロパティのサイズ.
+				SetupDiGetDeviceRegistryProperty(hDevInfo, &spdd, SPDRP_PHYSICAL_DEVICE_OBJECT_NAME, &dwRegType, NULL, 0, &dwSize);	// SetupDiGetDeviceRegistryPropertyで物理デバイスオブジェクト名のサイズ取得.
+				if (dwRegType == REG_SZ){	// 文字列.
+					BYTE *pBytes = new BYTE[dwSize];	// newでBYTE配列の確保.
+					SetupDiGetDeviceRegistryProperty(hDevInfo, &spdd, SPDRP_PHYSICAL_DEVICE_OBJECT_NAME, &dwRegType, pBytes, dwSize, &dwSize);	// SetupDiGetDeviceRegistryPropertyで物理デバイスオブジェクト名を取得.
+					TCHAR tszDeviceName2[MAX_PATH] = {0};	// デバイス名tszDeviceName2(長さMAX_PATH.)を{0}で初期化.
+					_tcscpy(tszDeviceName2, (TCHAR *)pBytes);	// pBytesをtszDeviceName2にコピー.
+					if (_tcscmp(tszDeviceName, tszDeviceName2) == 0){	// 同じ.
+						iDevInst = spdd.DevInst;	// spdd.DevInstをiDevInstに代入.
+					}
+					delete [] pBytes;	// pBytesを解放.
+				}
+				i++;	// iをインクリメント.
+			}
+
+		}
+		// 破棄.
+		SetupDiDestroyDeviceInfoList(hDevInfo);	// SetupDiDestroyDeviceInfoListでhDevInfoを破棄.
+	}
+
+	// 関数の終わり.
+	return iDevInst;	// iDevInstを返す.
 
 }
