@@ -21,10 +21,13 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 		return -1;	// -1を返して異常終了.
 	}
 
-	// ドライブレターからボリュームのDevInstを取得.
-	int iDevInst = GetVolumeDevInst(argv[1]);	// GetVolumeDevInstでiDevInst取得.
-	if (iDevInst != -1){	// iDevInstが-1でなければ成功.
-		_tprintf(_T("iDevInst = %d\n"), iDevInst);	// iDevInstを出力.
+	// デバイスナンバーからディスクのDevInstを取得.
+	int iDeviceNumber = 1;	// iDeviceNumberを1で初期化.
+	if (iDeviceNumber != -1){	// iDeviceNumberが-1でなければ.
+		int iDiskDevInst = GetDiskDevInst((DWORD)iDeviceNumber);	// GetDiskDevInstでiDiskDevInstを取得.
+		if (iDiskDevInst != -1){	// iDiskDevInstが-1でなければ成功.
+			_tprintf(_T("iDiskDevInst = %d\n"), iDiskDevInst);	// iDiskDevInstを出力.
+		}
 	}
 
 	// プログラムの終了.
