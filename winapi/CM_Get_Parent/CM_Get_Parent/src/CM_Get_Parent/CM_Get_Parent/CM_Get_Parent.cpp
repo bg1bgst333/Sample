@@ -1,319 +1,319 @@
-// ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
-#include <windows.h>	// æ¨™æº–WindowsAPI
-#include <tchar.h>		// TCHARå‹
-#include <stdio.h>		// æ¨™æº–å…¥å‡ºåŠ›
+// ƒwƒbƒ_ƒtƒ@ƒCƒ‹‚ÌƒCƒ“ƒNƒ‹[ƒh
+#include <windows.h>	// •W€WindowsAPI
+#include <tchar.h>		// TCHARŒ^
+#include <stdio.h>		// •W€“üo—Í
 #include <setupapi.h>	// SetUpAPI
 #include <cfgmgr32.h>	// Configuration Manager
 
-// é–¢æ•°ã®ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
-int GetVolumeDeviceNumber(TCHAR* ptszDriveLetter);	// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼ã‹ã‚‰ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã‚’å–å¾—.
-int GetDeviceNumberByDevicePath(TCHAR* ptszDevicePath);	// ãƒ‡ãƒã‚¤ã‚¹ãƒ‘ã‚¹ã‹ã‚‰ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã‚’å–å¾—.
-BOOL GetVolumeDeviceNumberAndDevInst(TCHAR* ptszDriveLetter, DWORD &dwDeviceNumber, DWORD &dwDevInst);	// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼ã‹ã‚‰ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã¨DevInstã‚’å–å¾—.
-int GetVolumeDevInst(TCHAR* ptszDriveLetter);	// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼ã‹ã‚‰ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®DevInstã‚’å–å¾—.
-int GetDiskDevInst(DWORD dwDeviceNumber);	// ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã‹ã‚‰ãƒ‡ã‚£ã‚¹ã‚¯ã®DevInstã‚’å–å¾—.
+// ŠÖ”‚Ìƒvƒƒgƒ^ƒCƒvéŒ¾
+int GetVolumeDeviceNumber(TCHAR* ptszDriveLetter);	// ƒhƒ‰ƒCƒuƒŒƒ^[‚©‚çƒ{ƒŠƒ…[ƒ€‚ÌƒfƒoƒCƒXƒiƒ“ƒo[‚ğæ“¾.
+int GetDeviceNumberByDevicePath(TCHAR* ptszDevicePath);	// ƒfƒoƒCƒXƒpƒX‚©‚çƒfƒoƒCƒXƒiƒ“ƒo[‚ğæ“¾.
+BOOL GetVolumeDeviceNumberAndDevInst(TCHAR* ptszDriveLetter, DWORD &dwDeviceNumber, DWORD &dwDevInst);	// ƒhƒ‰ƒCƒuƒŒƒ^[‚©‚çƒ{ƒŠƒ…[ƒ€‚ÌƒfƒoƒCƒXƒiƒ“ƒo[‚ÆDevInst‚ğæ“¾.
+int GetVolumeDevInst(TCHAR* ptszDriveLetter);	// ƒhƒ‰ƒCƒuƒŒƒ^[‚©‚çƒ{ƒŠƒ…[ƒ€‚ÌDevInst‚ğæ“¾.
+int GetDiskDevInst(DWORD dwDeviceNumber);	// ƒfƒoƒCƒXƒiƒ“ƒo[‚©‚çƒfƒBƒXƒN‚ÌDevInst‚ğæ“¾.
 
-// _tmainé–¢æ•°ã®å®šç¾©
-int _tmain(int argc, TCHAR *argv[]){	// mainé–¢æ•°ã®TCHARç‰ˆ.
+// _tmainŠÖ”‚Ì’è‹`
+int _tmain(int argc, TCHAR *argv[]){	// mainŠÖ”‚ÌTCHAR”Å.
 
-	// ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°ã®æ•°.
-	_tprintf(_T("argc = %d\n"), argc);	// argcã‚’å‡ºåŠ›.
-	if (argc != 2){	// 2ä»¥å¤–ã¯ã‚¨ãƒ©ãƒ¼.
-		_tprintf(_T("error: argc != 2\n"));	// "error: argc != 2"ã¨å‡ºåŠ›.
-		return -1;	// -1ã‚’è¿”ã—ã¦ç•°å¸¸çµ‚äº†.
+	// ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”‚Ì”.
+	_tprintf(_T("argc = %d\n"), argc);	// argc‚ğo—Í.
+	if (argc != 2){	// 2ˆÈŠO‚ÍƒGƒ‰[.
+		_tprintf(_T("error: argc != 2\n"));	// "error: argc != 2"‚Æo—Í.
+		return -1;	// -1‚ğ•Ô‚µ‚ÄˆÙíI—¹.
 	}
 
-	// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼ã‹ã‚‰ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã‚’å–å¾—.
-	int iDeviceNumber = GetVolumeDeviceNumber(argv[1]);	// GetVolumeDeviceNumberã§iDeviceNumberå–å¾—.
-	if (iDeviceNumber != -1){	// iDeviceNumberãŒ-1ã§ãªã‘ã‚Œã°æˆåŠŸ.
-		_tprintf(_T("iDeviceNumber = %d\n"), iDeviceNumber);	// iDeviceNumberã‚’å‡ºåŠ›.
+	// ƒhƒ‰ƒCƒuƒŒƒ^[‚©‚çƒ{ƒŠƒ…[ƒ€‚ÌƒfƒoƒCƒXƒiƒ“ƒo[‚ğæ“¾.
+	int iDeviceNumber = GetVolumeDeviceNumber(argv[1]);	// GetVolumeDeviceNumber‚ÅiDeviceNumberæ“¾.
+	if (iDeviceNumber != -1){	// iDeviceNumber‚ª-1‚Å‚È‚¯‚ê‚Î¬Œ÷.
+		_tprintf(_T("iDeviceNumber = %d\n"), iDeviceNumber);	// iDeviceNumber‚ğo—Í.
 	}
 
-	// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼ã‹ã‚‰ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã¨DevInstã‚’å–å¾—.
-	DWORD dwDeviceNumber = 0;	// dwDeviceNumberã‚’0ã§åˆæœŸåŒ–.
-	DWORD dwDevInst = 0;	// dwDevInstã‚’0ã§åˆæœŸåŒ–.
-	BOOL bRet = GetVolumeDeviceNumberAndDevInst(argv[1], dwDeviceNumber, dwDevInst);	// GetVolumeDeviceNumberAndDevInstã§dwDeviceNumber, dwDevInstã‚’å–å¾—.
-	if (bRet){	// TRUEãªã‚‰æˆåŠŸ.
-		_tprintf(_T("dwDeviceNumber = %d\n"), dwDeviceNumber);	// dwDeviceNumberã‚’å‡ºåŠ›.
-		_tprintf(_T("dwDevInst = %d\n"), dwDevInst);	// dwDevInstã‚’å‡ºåŠ›.
+	// ƒhƒ‰ƒCƒuƒŒƒ^[‚©‚çƒ{ƒŠƒ…[ƒ€‚ÌƒfƒoƒCƒXƒiƒ“ƒo[‚ÆDevInst‚ğæ“¾.
+	DWORD dwDeviceNumber = 0;	// dwDeviceNumber‚ğ0‚Å‰Šú‰».
+	DWORD dwDevInst = 0;	// dwDevInst‚ğ0‚Å‰Šú‰».
+	BOOL bRet = GetVolumeDeviceNumberAndDevInst(argv[1], dwDeviceNumber, dwDevInst);	// GetVolumeDeviceNumberAndDevInst‚ÅdwDeviceNumber, dwDevInst‚ğæ“¾.
+	if (bRet){	// TRUE‚È‚ç¬Œ÷.
+		_tprintf(_T("dwDeviceNumber = %d\n"), dwDeviceNumber);	// dwDeviceNumber‚ğo—Í.
+		_tprintf(_T("dwDevInst = %d\n"), dwDevInst);	// dwDevInst‚ğo—Í.
 	}
 
-	// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼ã‹ã‚‰ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®DevInstã‚’å–å¾—.
-	int iDevInst = GetVolumeDevInst(argv[1]);	// GetVolumeDevInstã§iDevInstå–å¾—.
-	if (iDevInst != -1){	// iDevInstãŒ-1ã§ãªã‘ã‚Œã°æˆåŠŸ.
-		_tprintf(_T("iDevInst = %d\n"), iDevInst);	// iDevInstã‚’å‡ºåŠ›.
+	// ƒhƒ‰ƒCƒuƒŒƒ^[‚©‚çƒ{ƒŠƒ…[ƒ€‚ÌDevInst‚ğæ“¾.
+	int iDevInst = GetVolumeDevInst(argv[1]);	// GetVolumeDevInst‚ÅiDevInstæ“¾.
+	if (iDevInst != -1){	// iDevInst‚ª-1‚Å‚È‚¯‚ê‚Î¬Œ÷.
+		_tprintf(_T("iDevInst = %d\n"), iDevInst);	// iDevInst‚ğo—Í.
 	}
 
-	// ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã‹ã‚‰ãƒ‡ã‚£ã‚¹ã‚¯ã®DevInstã‚’å–å¾—.
-	int iDiskDevInst = -1;	// iDiskDevInstã‚’-1ã§åˆæœŸåŒ–.
-	if (iDeviceNumber != -1){	// iDeviceNumberãŒ-1ã§ãªã‘ã‚Œã°.
-		iDiskDevInst = GetDiskDevInst((DWORD)iDeviceNumber);	// GetDiskDevInstã§iDiskDevInstã‚’å–å¾—.
-		if (iDiskDevInst != -1){	// iDiskDevInstãŒ-1ã§ãªã‘ã‚Œã°æˆåŠŸ.
-			_tprintf(_T("iDiskDevInst = %d\n"), iDiskDevInst);	// iDiskDevInstã‚’å‡ºåŠ›.
+	// ƒfƒoƒCƒXƒiƒ“ƒo[‚©‚çƒfƒBƒXƒN‚ÌDevInst‚ğæ“¾.
+	int iDiskDevInst = -1;	// iDiskDevInst‚ğ-1‚Å‰Šú‰».
+	if (iDeviceNumber != -1){	// iDeviceNumber‚ª-1‚Å‚È‚¯‚ê‚Î.
+		iDiskDevInst = GetDiskDevInst((DWORD)iDeviceNumber);	// GetDiskDevInst‚ÅiDiskDevInst‚ğæ“¾.
+		if (iDiskDevInst != -1){	// iDiskDevInst‚ª-1‚Å‚È‚¯‚ê‚Î¬Œ÷.
+			_tprintf(_T("iDiskDevInst = %d\n"), iDiskDevInst);	// iDiskDevInst‚ğo—Í.
 		}
 	}
 
-	// iDiskDevInstã®è¦ªã®DevInstã‚’å–å¾—.
-	DWORD dwDevInstParent;	// è¦ªã®DevInstã§ã‚ã‚‹dwDevInstParent.
-	if (iDiskDevInst != -1){	// iDiskDevInstãŒ-1ã§ãªã‘ã‚Œã°.
-		CM_Get_Parent(&dwDevInstParent, (DWORD)iDiskDevInst, 0);	// CM_Get_Parentã§iDiskDevInstã®è¦ªã®ãƒ‡ãƒã‚¤ã‚¹ã®DevInstã§ã‚ã‚‹dwDevInstParentå–å¾—.
-		_tprintf(_T("dwDevInstParent = %lu\n"), dwDevInstParent);	// dwDevInstParentã‚’å‡ºåŠ›.
+	// iDiskDevInst‚Ìe‚ÌDevInst‚ğæ“¾.
+	DWORD dwDevInstParent;	// e‚ÌDevInst‚Å‚ ‚édwDevInstParent.
+	if (iDiskDevInst != -1){	// iDiskDevInst‚ª-1‚Å‚È‚¯‚ê‚Î.
+		CM_Get_Parent(&dwDevInstParent, (DWORD)iDiskDevInst, 0);	// CM_Get_Parent‚ÅiDiskDevInst‚Ìe‚ÌƒfƒoƒCƒX‚ÌDevInst‚Å‚ ‚édwDevInstParentæ“¾.
+		_tprintf(_T("dwDevInstParent = %lu\n"), dwDevInstParent);	// dwDevInstParent‚ğo—Í.
 	}
 
-	// ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®çµ‚äº†.
-	return 0;	// 0ã‚’è¿”ã—ã¦æ­£å¸¸çµ‚äº†.
+	// ƒvƒƒOƒ‰ƒ€‚ÌI—¹.
+	return 0;	// 0‚ğ•Ô‚µ‚Ä³íI—¹.
 
 }
 
-// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼ã‹ã‚‰ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã‚’å–å¾—.
+// ƒhƒ‰ƒCƒuƒŒƒ^[‚©‚çƒ{ƒŠƒ…[ƒ€‚ÌƒfƒoƒCƒXƒiƒ“ƒo[‚ğæ“¾.
 int GetVolumeDeviceNumber(TCHAR* ptszDriveLetter){
 
-	// é…åˆ—ã®åˆæœŸåŒ–
+	// ”z—ñ‚Ì‰Šú‰»
 	TCHAR tszPath[MAX_PATH] = {0};
 
-	// ãƒ‘ã‚¹ã®æ•´å½¢
+	// ƒpƒX‚Ì®Œ`
 	_tcscat(tszPath, _T("\\\\.\\"));
 	_tcscat(tszPath, ptszDriveLetter);
 	_tcscat(tszPath, _T(":"));
 
-	// é–‹ã.
-	HANDLE hVolume = CreateFile(tszPath, 0, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);	// CreateFileã§hVolumeå–å¾—.
-	if (hVolume != INVALID_HANDLE_VALUE){	// é–‹ã‘ãŸã‚‰.
-		DWORD dwSize = 0x400;	// ã“ã‚Œãã‚‰ã„ç”¨æ„ã—ã¦ãŠã.
+	// ŠJ‚­.
+	HANDLE hVolume = CreateFile(tszPath, 0, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);	// CreateFile‚ÅhVolumeæ“¾.
+	if (hVolume != INVALID_HANDLE_VALUE){	// ŠJ‚¯‚½‚ç.
+		DWORD dwSize = 0x400;	// ‚±‚ê‚®‚ç‚¢—pˆÓ‚µ‚Ä‚¨‚­.
 		DWORD dwBytes = 0;
-		BYTE *pBytes = (BYTE *)malloc(dwSize);	// ãƒ¡ãƒ¢ãƒªç¢ºä¿.
-		BOOL bRet = DeviceIoControl(hVolume, IOCTL_STORAGE_GET_DEVICE_NUMBER, NULL, 0, pBytes, (DWORD)dwSize, &dwBytes, NULL);	// DeviceIoControlã§ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼å–å¾—.
-		STORAGE_DEVICE_NUMBER *pSDN = (STORAGE_DEVICE_NUMBER *)pBytes;	// STORAGE_DEVICE_NUMBERãƒã‚¤ãƒ³ã‚¿ã«ç§»ã—æ›¿ãˆã‚‹.
+		BYTE *pBytes = (BYTE *)malloc(dwSize);	// ƒƒ‚ƒŠŠm•Û.
+		BOOL bRet = DeviceIoControl(hVolume, IOCTL_STORAGE_GET_DEVICE_NUMBER, NULL, 0, pBytes, (DWORD)dwSize, &dwBytes, NULL);	// DeviceIoControl‚ÅƒfƒoƒCƒXƒiƒ“ƒo[æ“¾.
+		STORAGE_DEVICE_NUMBER *pSDN = (STORAGE_DEVICE_NUMBER *)pBytes;	// STORAGE_DEVICE_NUMBERƒ|ƒCƒ“ƒ^‚ÉˆÚ‚µ‘Ö‚¦‚é.
 		DWORD dwDeviceNumber = pSDN->DeviceNumber;
-		free(pBytes);	// ãƒ¡ãƒ¢ãƒªè§£æ”¾.
-		CloseHandle(hVolume);	// é–‰ã˜ã‚‹.
-		return (int)dwDeviceNumber;	// dwDeviceNumberã‚’intã«ã‚­ãƒ£ã‚¹ãƒˆã—ã¦è¿”ã™.
+		free(pBytes);	// ƒƒ‚ƒŠ‰ğ•ú.
+		CloseHandle(hVolume);	// •Â‚¶‚é.
+		return (int)dwDeviceNumber;	// dwDeviceNumber‚ğint‚ÉƒLƒƒƒXƒg‚µ‚Ä•Ô‚·.
 	}
-	else{	// å¤±æ•—.
-		return -1;	// -1ã‚’è¿”ã™.
+	else{	// ¸”s.
+		return -1;	// -1‚ğ•Ô‚·.
 	}
 
 }
 
-// ãƒ‡ãƒã‚¤ã‚¹ãƒ‘ã‚¹ã‹ã‚‰ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã‚’å–å¾—.
+// ƒfƒoƒCƒXƒpƒX‚©‚çƒfƒoƒCƒXƒiƒ“ƒo[‚ğæ“¾.
 int GetDeviceNumberByDevicePath(TCHAR* ptszDevicePath){
 
-	// é…åˆ—ã®åˆæœŸåŒ–
+	// ”z—ñ‚Ì‰Šú‰»
 	TCHAR tszPath[MAX_PATH] = {0};
 
-	// ãƒ‘ã‚¹ã®æ•´å½¢
+	// ƒpƒX‚Ì®Œ`
 	_tcscat(tszPath, ptszDevicePath);
 
-	// é–‹ã.
-	HANDLE handle = CreateFile(tszPath, 0, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);	// CreateFileã§handleå–å¾—.
-	if (handle != INVALID_HANDLE_VALUE){	// é–‹ã‘ãŸã‚‰.
-		DWORD dwSize = 0x400;	// ã“ã‚Œãã‚‰ã„ç”¨æ„ã—ã¦ãŠã.
+	// ŠJ‚­.
+	HANDLE handle = CreateFile(tszPath, 0, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);	// CreateFile‚Åhandleæ“¾.
+	if (handle != INVALID_HANDLE_VALUE){	// ŠJ‚¯‚½‚ç.
+		DWORD dwSize = 0x400;	// ‚±‚ê‚®‚ç‚¢—pˆÓ‚µ‚Ä‚¨‚­.
 		DWORD dwBytes = 0;
-		BYTE *pBytes = (BYTE *)malloc(dwSize);	// ãƒ¡ãƒ¢ãƒªç¢ºä¿.
-		BOOL bRet = DeviceIoControl(handle, IOCTL_STORAGE_GET_DEVICE_NUMBER, NULL, 0, pBytes, (DWORD)dwSize, &dwBytes, NULL);	// DeviceIoControlã§ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼å–å¾—.
-		STORAGE_DEVICE_NUMBER *pSDN = (STORAGE_DEVICE_NUMBER *)pBytes;	// STORAGE_DEVICE_NUMBERãƒã‚¤ãƒ³ã‚¿ã«ç§»ã—æ›¿ãˆã‚‹.
+		BYTE *pBytes = (BYTE *)malloc(dwSize);	// ƒƒ‚ƒŠŠm•Û.
+		BOOL bRet = DeviceIoControl(handle, IOCTL_STORAGE_GET_DEVICE_NUMBER, NULL, 0, pBytes, (DWORD)dwSize, &dwBytes, NULL);	// DeviceIoControl‚ÅƒfƒoƒCƒXƒiƒ“ƒo[æ“¾.
+		STORAGE_DEVICE_NUMBER *pSDN = (STORAGE_DEVICE_NUMBER *)pBytes;	// STORAGE_DEVICE_NUMBERƒ|ƒCƒ“ƒ^‚ÉˆÚ‚µ‘Ö‚¦‚é.
 		DWORD dwDeviceNumber = pSDN->DeviceNumber;
-		free(pBytes);	// ãƒ¡ãƒ¢ãƒªè§£æ”¾.
-		CloseHandle(handle);	// é–‰ã˜ã‚‹.
-		return (int)dwDeviceNumber;	// dwDeviceNumberã‚’intã«ã‚­ãƒ£ã‚¹ãƒˆã—ã¦è¿”ã™.
+		free(pBytes);	// ƒƒ‚ƒŠ‰ğ•ú.
+		CloseHandle(handle);	// •Â‚¶‚é.
+		return (int)dwDeviceNumber;	// dwDeviceNumber‚ğint‚ÉƒLƒƒƒXƒg‚µ‚Ä•Ô‚·.
 	}
-	else{	// å¤±æ•—.
-		return -1;	// -1ã‚’è¿”ã™.
+	else{	// ¸”s.
+		return -1;	// -1‚ğ•Ô‚·.
 	}
 
 }
 
-// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼ã‹ã‚‰ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã¨DevInstã‚’å–å¾—.
+// ƒhƒ‰ƒCƒuƒŒƒ^[‚©‚çƒ{ƒŠƒ…[ƒ€‚ÌƒfƒoƒCƒXƒiƒ“ƒo[‚ÆDevInst‚ğæ“¾.
 BOOL GetVolumeDeviceNumberAndDevInst(TCHAR* ptszDriveLetter, DWORD &dwDeviceNumber, DWORD &dwDevInst){
 
-	// å¤‰æ•°ã®åˆæœŸåŒ–.
-	int iDeviceNumber = -1;	// iDeviceNumberã‚’-1ã§åˆæœŸåŒ–.
-	DWORD dwTemp = 0;	// dwTempã‚’0ã§åˆæœŸåŒ–.
+	// •Ï”‚Ì‰Šú‰».
+	int iDeviceNumber = -1;	// iDeviceNumber‚ğ-1‚Å‰Šú‰».
+	DWORD dwTemp = 0;	// dwTemp‚ğ0‚Å‰Šú‰».
 
-	// ãƒœãƒªãƒ¥ãƒ¼ãƒ åã‚’å–å¾—.
-	TCHAR tszVolumeName[MAX_PATH] = {0};	// ãƒœãƒªãƒ¥ãƒ¼ãƒ åtszVolumeName(é•·ã•MAX_PATH)ã‚’{0}ã§åˆæœŸåŒ–.
-	TCHAR tszDrive[128] = {0};	// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼tszDrive(é•·ã•128)ã‚’{0}ã§åˆæœŸåŒ–.
-	_tcscat(tszDrive, ptszDriveLetter);	// ptszDriveLetterã‚’é€£çµ.
-	_tcscat(tszDrive, _T(":\\"));	// ":\\"ã‚’é€£çµ.
-	BOOL bRet = GetVolumeNameForVolumeMountPoint(tszDrive, tszVolumeName, MAX_PATH);	// GetVolumeNameForVolumeMountPointã§ãƒœãƒªãƒ¥ãƒ¼ãƒ åå–å¾—.
-	if (!bRet){	// å¤±æ•—.
-		return FALSE;	// FALSEã‚’è¿”ã™.
+	// ƒ{ƒŠƒ…[ƒ€–¼‚ğæ“¾.
+	TCHAR tszVolumeName[MAX_PATH] = {0};	// ƒ{ƒŠƒ…[ƒ€–¼tszVolumeName(’·‚³MAX_PATH)‚ğ{0}‚Å‰Šú‰».
+	TCHAR tszDrive[128] = {0};	// ƒhƒ‰ƒCƒuƒŒƒ^[tszDrive(’·‚³128)‚ğ{0}‚Å‰Šú‰».
+	_tcscat(tszDrive, ptszDriveLetter);	// ptszDriveLetter‚ğ˜AŒ‹.
+	_tcscat(tszDrive, _T(":\\"));	// ":\\"‚ğ˜AŒ‹.
+	BOOL bRet = GetVolumeNameForVolumeMountPoint(tszDrive, tszVolumeName, MAX_PATH);	// GetVolumeNameForVolumeMountPoint‚Åƒ{ƒŠƒ…[ƒ€–¼æ“¾.
+	if (!bRet){	// ¸”s.
+		return FALSE;	// FALSE‚ğ•Ô‚·.
 	}
 
-	// ãƒ‡ãƒã‚¤ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿ã®åˆ—æŒ™
-	HDEVINFO hDevInfo;	// ãƒ‡ãƒã‚¤ã‚¹æƒ…å ±ãƒãƒ³ãƒ‰ãƒ«hDevInfo
-	// ãƒœãƒªãƒ¥ãƒ¼ãƒ ãƒ‡ãƒã‚¤ã‚¹ã®ãƒ‡ãƒã‚¤ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹ã®ãƒ‡ãƒã‚¤ã‚¹æƒ…å ±ã‚’å–å¾—.
-	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_VOLUME, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevsã§GUID_DEVINTERFACE_VOLUMEã®hDevInfoå–å¾—.
-	if (hDevInfo != INVALID_HANDLE_VALUE){	// INVALID_HANDLE_VALUEã§ãªã‘ã‚Œã°.
-		// åˆ—æŒ™ãƒ«ãƒ¼ãƒ—.
-		int i = 0;	// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹iã‚’0ã§åˆæœŸåŒ–.
-		BOOL bLoop = TRUE;	// ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹ã®bLoopã‚’TRUEã§åˆæœŸåŒ–.
-		while (bLoop){	// bLoopãŒTRUEã®é–“ã¯ç¶šã‘ã‚‹.
-			// ãƒ‡ãƒã‚¤ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—.
-			SP_DEVICE_INTERFACE_DATA spdid = {0};	// SP_DEVICE_INTERFACE_DATAã®spdidã‚’{0}ã§åˆæœŸåŒ–.
-			spdid.cbSize = sizeof(SP_DEVICE_INTERFACE_DATA);	// spdid.cbSizeã«sizeofã§æ¸¬ã£ãŸSP_DEVICE_INTERFACE_DATAã®ã‚µã‚¤ã‚ºã‚’ã‚»ãƒƒãƒˆ.
-			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_VOLUME, i, &spdid);	// SetupDiEnumDeviceInterfacesã§åˆ—æŒ™.
-			if (!bRet){	// falseãªã‚‰
-				bLoop = FALSE;	// bLoopã‚’FALSEã«.
+	// ƒfƒoƒCƒXƒCƒ“ƒ^[ƒtƒF[ƒXƒf[ƒ^‚Ì—ñ‹“
+	HDEVINFO hDevInfo;	// ƒfƒoƒCƒXî•ñƒnƒ“ƒhƒ‹hDevInfo
+	// ƒ{ƒŠƒ…[ƒ€ƒfƒoƒCƒX‚ÌƒfƒoƒCƒXƒCƒ“ƒ^[ƒtƒF[ƒXƒNƒ‰ƒX‚ÌƒfƒoƒCƒXî•ñ‚ğæ“¾.
+	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_VOLUME, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevs‚ÅGUID_DEVINTERFACE_VOLUME‚ÌhDevInfoæ“¾.
+	if (hDevInfo != INVALID_HANDLE_VALUE){	// INVALID_HANDLE_VALUE‚Å‚È‚¯‚ê‚Î.
+		// —ñ‹“ƒ‹[ƒv.
+		int i = 0;	// ƒCƒ“ƒfƒbƒNƒXi‚ğ0‚Å‰Šú‰».
+		BOOL bLoop = TRUE;	// ƒ‹[ƒv‚·‚é‚©‚ÌbLoop‚ğTRUE‚Å‰Šú‰».
+		while (bLoop){	// bLoop‚ªTRUE‚ÌŠÔ‚Í‘±‚¯‚é.
+			// ƒfƒoƒCƒXƒCƒ“ƒ^[ƒtƒF[ƒXƒf[ƒ^‚Ìæ“¾.
+			SP_DEVICE_INTERFACE_DATA spdid = {0};	// SP_DEVICE_INTERFACE_DATA‚Ìspdid‚ğ{0}‚Å‰Šú‰».
+			spdid.cbSize = sizeof(SP_DEVICE_INTERFACE_DATA);	// spdid.cbSize‚Ésizeof‚Å‘ª‚Á‚½SP_DEVICE_INTERFACE_DATA‚ÌƒTƒCƒY‚ğƒZƒbƒg.
+			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_VOLUME, i, &spdid);	// SetupDiEnumDeviceInterfaces‚Å—ñ‹“.
+			if (!bRet){	// false‚È‚ç
+				bLoop = FALSE;	// bLoop‚ğFALSE‚É.
 			}
 			else{
-				// è©³ç´°æƒ…å ±ã®å–å¾—.(SP_DEVINFO_DATAã‚‚å–å¾—.)
-				SP_DEVICE_INTERFACE_DETAIL_DATA *pspdidd = NULL;	// ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã®è©³ç´°æƒ…å ±pspdiddã‚’NULLã§åˆæœŸåŒ–.
-				DWORD dwMemSize = 0;	// è©³ç´°æƒ…å ±ã®å–å¾—ã«å¿…è¦ãªãƒ¡ãƒ¢ãƒªã‚µã‚¤ã‚ºdwMemSizeã‚’0ã§åˆæœŸåŒ–.
-				SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, NULL, 0, &dwMemSize, NULL);	// SetupDiGetDeviceInterfaceDetailã§dwMemSizeã ã‘å–å¾—.
-				DWORD dwStructSize = sizeof(SP_DEVICE_INTERFACE_DETAIL_DATA);	// æ§‹é€ ä½“ã®ã‚µã‚¤ã‚ºdwStructSizeã‚’sizeofã§å–å¾—.
-				pspdidd = (SP_DEVICE_INTERFACE_DETAIL_DATA *)malloc(dwMemSize);	// dwMemSizeåˆ†ã®ãƒ¡ãƒ¢ãƒªã‚’ç¢ºä¿ã—, ã‚¢ãƒ‰ãƒ¬ã‚¹ã¯pspdiddã«æ ¼ç´.
-				memset(pspdidd, 0, dwMemSize);	// ãƒ¡ãƒ¢ãƒªã‚’å…¨ã¦0ã«ã‚¯ãƒªã‚¢.
-				pspdidd->cbSize = dwStructSize;	// pspdidd->cbSizeã«dwStructSizeã‚’ã‚»ãƒƒãƒˆ.
-				SP_DEVINFO_DATA spdd = {0};	// SP_DEVINFO_DATAã®spddã‚’{0}ã§åˆæœŸåŒ–.
-				spdd.cbSize = sizeof(SP_DEVINFO_DATA);	// æ§‹é€ ä½“ã®ã‚µã‚¤ã‚ºã‚’sizeofã§å–å¾—ã—, spdd.cbSizeã«ã‚»ãƒƒãƒˆ.
-				BOOL bRet = SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, pspdidd, dwMemSize, &dwMemSize, &spdd);	// SetupDiGetDeviceInterfaceDetailã§pspdiddã®ä¸­èº«ã‚’å–å¾—.(spddã‚‚å–å¾—.)
-				if (bRet){	// TRUEãªã‚‰.
-					// ãƒ‡ãƒã‚¤ã‚¹ãƒ‘ã‚¹ã‹ã‚‰ãƒœãƒªãƒ¥ãƒ¼ãƒ å.
+				// Ú×î•ñ‚Ìæ“¾.(SP_DEVINFO_DATA‚àæ“¾.)
+				SP_DEVICE_INTERFACE_DETAIL_DATA *pspdidd = NULL;	// ƒCƒ“ƒ^[ƒtƒF[ƒX‚ÌÚ×î•ñpspdidd‚ğNULL‚Å‰Šú‰».
+				DWORD dwMemSize = 0;	// Ú×î•ñ‚Ìæ“¾‚É•K—v‚Èƒƒ‚ƒŠƒTƒCƒYdwMemSize‚ğ0‚Å‰Šú‰».
+				SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, NULL, 0, &dwMemSize, NULL);	// SetupDiGetDeviceInterfaceDetail‚ÅdwMemSize‚¾‚¯æ“¾.
+				DWORD dwStructSize = sizeof(SP_DEVICE_INTERFACE_DETAIL_DATA);	// \‘¢‘Ì‚ÌƒTƒCƒYdwStructSize‚ğsizeof‚Åæ“¾.
+				pspdidd = (SP_DEVICE_INTERFACE_DETAIL_DATA *)malloc(dwMemSize);	// dwMemSize•ª‚Ìƒƒ‚ƒŠ‚ğŠm•Û‚µ, ƒAƒhƒŒƒX‚Ípspdidd‚ÉŠi”[.
+				memset(pspdidd, 0, dwMemSize);	// ƒƒ‚ƒŠ‚ğ‘S‚Ä0‚ÉƒNƒŠƒA.
+				pspdidd->cbSize = dwStructSize;	// pspdidd->cbSize‚ÉdwStructSize‚ğƒZƒbƒg.
+				SP_DEVINFO_DATA spdd = {0};	// SP_DEVINFO_DATA‚Ìspdd‚ğ{0}‚Å‰Šú‰».
+				spdd.cbSize = sizeof(SP_DEVINFO_DATA);	// \‘¢‘Ì‚ÌƒTƒCƒY‚ğsizeof‚Åæ“¾‚µ, spdd.cbSize‚ÉƒZƒbƒg.
+				BOOL bRet = SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, pspdidd, dwMemSize, &dwMemSize, &spdd);	// SetupDiGetDeviceInterfaceDetail‚Åpspdidd‚Ì’†g‚ğæ“¾.(spdd‚àæ“¾.)
+				if (bRet){	// TRUE‚È‚ç.
+					// ƒfƒoƒCƒXƒpƒX‚©‚çƒ{ƒŠƒ…[ƒ€–¼.
 					TCHAR path[MAX_PATH] = {0};
-					TCHAR tszVolumeName2[MAX_PATH] = {0};	// ãƒœãƒªãƒ¥ãƒ¼ãƒ åtszVolumeName2(é•·ã•MAX_PATH)ã‚’{0}ã§åˆæœŸåŒ–.
+					TCHAR tszVolumeName2[MAX_PATH] = {0};	// ƒ{ƒŠƒ…[ƒ€–¼tszVolumeName2(’·‚³MAX_PATH)‚ğ{0}‚Å‰Šú‰».
 					_tcscat(path,  pspdidd->DevicePath);
-					_tcscat(path, _T("\\"));	// ã“ã‚ŒãŒãªã„ã¨å¤±æ•—!
-					BOOL bRet = GetVolumeNameForVolumeMountPoint(path, tszVolumeName2, MAX_PATH);	// GetVolumeNameForVolumeMountPointã§ãƒœãƒªãƒ¥ãƒ¼ãƒ åå–å¾—.
-					if (bRet){	// æˆåŠŸ.
-						if (_tcscmp(tszVolumeName, tszVolumeName2) == 0){	// åŒã˜.
-							// ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã‚’å–å¾—.
-							iDeviceNumber = GetDeviceNumberByDevicePath(pspdidd->DevicePath);	// GetDeviceNumberByDevicePathã§ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼å–å¾—.
-							// DevInstã¯dwTempã«.
-							dwTemp = spdd.DevInst;	// æœ€çµ‚å€™è£œ.
+					_tcscat(path, _T("\\"));	// ‚±‚ê‚ª‚È‚¢‚Æ¸”s!
+					BOOL bRet = GetVolumeNameForVolumeMountPoint(path, tszVolumeName2, MAX_PATH);	// GetVolumeNameForVolumeMountPoint‚Åƒ{ƒŠƒ…[ƒ€–¼æ“¾.
+					if (bRet){	// ¬Œ÷.
+						if (_tcscmp(tszVolumeName, tszVolumeName2) == 0){	// “¯‚¶.
+							// ƒfƒoƒCƒXƒiƒ“ƒo[‚ğæ“¾.
+							iDeviceNumber = GetDeviceNumberByDevicePath(pspdidd->DevicePath);	// GetDeviceNumberByDevicePath‚ÅƒfƒoƒCƒXƒiƒ“ƒo[æ“¾.
+							// DevInst‚ÍdwTemp‚É.
+							dwTemp = spdd.DevInst;	// ÅIŒó•â.
 						}
 					}
-					// DevInstã‚’å‡ºåŠ›.
-					_tprintf(_T("spdd.DevInst = %lu\n"), spdd.DevInst);	// spdd.DevInstã‚’å‡ºåŠ›.
+					// DevInst‚ğo—Í.
+					_tprintf(_T("spdd.DevInst = %lu\n"), spdd.DevInst);	// spdd.DevInst‚ğo—Í.
 				}
-				free(pspdidd);	// pspdiddã‚’è§£æ”¾.
-				i++;	// iã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ.
+				free(pspdidd);	// pspdidd‚ğ‰ğ•ú.
+				i++;	// i‚ğƒCƒ“ƒNƒŠƒƒ“ƒg.
 			}
 		}
-		// ç ´æ£„.
-		SetupDiDestroyDeviceInfoList(hDevInfo);	// SetupDiDestroyDeviceInfoListã§hDevInfoã‚’ç ´æ£„.
+		// ”jŠü.
+		SetupDiDestroyDeviceInfoList(hDevInfo);	// SetupDiDestroyDeviceInfoList‚ÅhDevInfo‚ğ”jŠü.
 	}
 
-	// iDeviceNumberãŒ0ä»¥ä¸Šãªã‚‰æˆåŠŸ.
+	// iDeviceNumber‚ª0ˆÈã‚È‚ç¬Œ÷.
 	if (iDeviceNumber >= 0){
 		dwDeviceNumber = (DWORD)iDeviceNumber;
 		dwDevInst = dwTemp;
-		return TRUE;	// TRUEã‚’è¿”ã™.
+		return TRUE;	// TRUE‚ğ•Ô‚·.
 	}
 	
-	// å¤±æ•—.
-	return FALSE;	// FALSEã‚’è¿”ã™.
+	// ¸”s.
+	return FALSE;	// FALSE‚ğ•Ô‚·.
 
 }
 
-// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼ã‹ã‚‰ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®DevInstã‚’å–å¾—.
+// ƒhƒ‰ƒCƒuƒŒƒ^[‚©‚çƒ{ƒŠƒ…[ƒ€‚ÌDevInst‚ğæ“¾.
 int GetVolumeDevInst(TCHAR* ptszDriveLetter){
 
-	// å¤‰æ•°ã®åˆæœŸåŒ–.
-	int iDevInst = -1;	// iDevInstã‚’-1ã§åˆæœŸåŒ–.
+	// •Ï”‚Ì‰Šú‰».
+	int iDevInst = -1;	// iDevInst‚ğ-1‚Å‰Šú‰».
 
-	// MS-DOSãƒ‡ãƒã‚¤ã‚¹åã®å–å¾—.
-	TCHAR tszDrive[3] = {0};	// ãƒ‰ãƒ©ã‚¤ãƒ–ãƒ¬ã‚¿ãƒ¼tszDrive(é•·ã•3.)ã‚’{0}ã§åˆæœŸåŒ–.
-	_tcscat(tszDrive, ptszDriveLetter);	// ptszDriveLetterã‚’é€£çµ.
-	_tcscat(tszDrive, _T(":"));	// ":"ã‚’é€£çµ.
-	TCHAR tszDeviceName[MAX_PATH] = {0};	// ãƒ‡ãƒã‚¤ã‚¹åtszDeviceName(é•·ã•MAX_PATH.)ã‚’{0}ã§åˆæœŸåŒ–.
-	QueryDosDevice(tszDrive, tszDeviceName, MAX_PATH);	// QueryDosDeviceã§tszDeviceNameã‚’å–å¾—.
+	// MS-DOSƒfƒoƒCƒX–¼‚Ìæ“¾.
+	TCHAR tszDrive[3] = {0};	// ƒhƒ‰ƒCƒuƒŒƒ^[tszDrive(’·‚³3.)‚ğ{0}‚Å‰Šú‰».
+	_tcscat(tszDrive, ptszDriveLetter);	// ptszDriveLetter‚ğ˜AŒ‹.
+	_tcscat(tszDrive, _T(":"));	// ":"‚ğ˜AŒ‹.
+	TCHAR tszDeviceName[MAX_PATH] = {0};	// ƒfƒoƒCƒX–¼tszDeviceName(’·‚³MAX_PATH.)‚ğ{0}‚Å‰Šú‰».
+	QueryDosDevice(tszDrive, tszDeviceName, MAX_PATH);	// QueryDosDevice‚ÅtszDeviceName‚ğæ“¾.
 
-	// å¤‰æ•°ã®å®£è¨€
-	HDEVINFO hDevInfo;	// ãƒ‡ãƒã‚¤ã‚¹æƒ…å ±ãƒãƒ³ãƒ‰ãƒ«hDevInfo
-	// ãƒœãƒªãƒ¥ãƒ¼ãƒ ãƒ‡ãƒã‚¤ã‚¹ä¸€è¦§ã‚’å–å¾—.
-	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_VOLUME, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevsã§hDevInfoå–å¾—.
-	if (hDevInfo != INVALID_HANDLE_VALUE){	// INVALID_HANDLE_VALUEã§ãªã‘ã‚Œã°.
-		// åˆ—æŒ™ãƒ«ãƒ¼ãƒ—.
-		int i = 0;	// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹iã‚’0ã§åˆæœŸåŒ–.
-		BOOL bLoop = TRUE;	// ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹ã®bLoopã‚’TRUEã§åˆæœŸåŒ–.
-		while (bLoop){	// bLoopãŒTRUEã®é–“ã¯ç¶šã‘ã‚‹.
-			// ãƒ‡ãƒã‚¤ã‚¹æƒ…å ±ã®å–å¾—.
-			SP_DEVINFO_DATA spdd = {0};	// SP_DEVINFO_DATAã®spddã‚’{0}ã§åˆæœŸåŒ–.
-			spdd.cbSize = sizeof(SP_DEVINFO_DATA);	// æ§‹é€ ä½“ã®ã‚µã‚¤ã‚ºã‚’sizeofã§å–å¾—ã—, spdd.cbSizeã«ã‚»ãƒƒãƒˆ.
-			BOOL bRet = SetupDiEnumDeviceInfo(hDevInfo, i, &spdd);	// SetupDiEnumDeviceInfoã§åˆ—æŒ™.
-			if (!bRet){	// FALSEãªã‚‰.
-				bLoop = FALSE;	// bLoopã‚’FALSEã«.
+	// •Ï”‚ÌéŒ¾
+	HDEVINFO hDevInfo;	// ƒfƒoƒCƒXî•ñƒnƒ“ƒhƒ‹hDevInfo
+	// ƒ{ƒŠƒ…[ƒ€ƒfƒoƒCƒXˆê——‚ğæ“¾.
+	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_VOLUME, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevs‚ÅhDevInfoæ“¾.
+	if (hDevInfo != INVALID_HANDLE_VALUE){	// INVALID_HANDLE_VALUE‚Å‚È‚¯‚ê‚Î.
+		// —ñ‹“ƒ‹[ƒv.
+		int i = 0;	// ƒCƒ“ƒfƒbƒNƒXi‚ğ0‚Å‰Šú‰».
+		BOOL bLoop = TRUE;	// ƒ‹[ƒv‚·‚é‚©‚ÌbLoop‚ğTRUE‚Å‰Šú‰».
+		while (bLoop){	// bLoop‚ªTRUE‚ÌŠÔ‚Í‘±‚¯‚é.
+			// ƒfƒoƒCƒXî•ñ‚Ìæ“¾.
+			SP_DEVINFO_DATA spdd = {0};	// SP_DEVINFO_DATA‚Ìspdd‚ğ{0}‚Å‰Šú‰».
+			spdd.cbSize = sizeof(SP_DEVINFO_DATA);	// \‘¢‘Ì‚ÌƒTƒCƒY‚ğsizeof‚Åæ“¾‚µ, spdd.cbSize‚ÉƒZƒbƒg.
+			BOOL bRet = SetupDiEnumDeviceInfo(hDevInfo, i, &spdd);	// SetupDiEnumDeviceInfo‚Å—ñ‹“.
+			if (!bRet){	// FALSE‚È‚ç.
+				bLoop = FALSE;	// bLoop‚ğFALSE‚É.
 			}
-			else{	// TRUEãªã‚‰.
-				// DevInstã‚’å‡ºåŠ›.
-				_tprintf(_T("spdd.DevInst = %lu\n"), spdd.DevInst);	// spdd.DevInstã‚’å‡ºåŠ›.
-				// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å–å¾—.(ç‰©ç†ãƒ‡ãƒã‚¤ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå.)
-				DWORD dwRegType;	// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å‹.
-				DWORD dwSize;	// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®ã‚µã‚¤ã‚º.
-				SetupDiGetDeviceRegistryProperty(hDevInfo, &spdd, SPDRP_PHYSICAL_DEVICE_OBJECT_NAME, &dwRegType, NULL, 0, &dwSize);	// SetupDiGetDeviceRegistryPropertyã§ç‰©ç†ãƒ‡ãƒã‚¤ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆåã®ã‚µã‚¤ã‚ºå–å¾—.
-				if (dwRegType == REG_SZ){	// æ–‡å­—åˆ—.
-					BYTE *pBytes = new BYTE[dwSize];	// newã§BYTEé…åˆ—ã®ç¢ºä¿.
-					SetupDiGetDeviceRegistryProperty(hDevInfo, &spdd, SPDRP_PHYSICAL_DEVICE_OBJECT_NAME, &dwRegType, pBytes, dwSize, &dwSize);	// SetupDiGetDeviceRegistryPropertyã§ç‰©ç†ãƒ‡ãƒã‚¤ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆåã‚’å–å¾—.
-					TCHAR tszDeviceName2[MAX_PATH] = {0};	// ãƒ‡ãƒã‚¤ã‚¹åtszDeviceName2(é•·ã•MAX_PATH.)ã‚’{0}ã§åˆæœŸåŒ–.
-					_tcscpy(tszDeviceName2, (TCHAR *)pBytes);	// pBytesã‚’tszDeviceName2ã«ã‚³ãƒ”ãƒ¼.
-					if (_tcscmp(tszDeviceName, tszDeviceName2) == 0){	// åŒã˜.
-						iDevInst = spdd.DevInst;	// spdd.DevInstã‚’iDevInstã«ä»£å…¥.
+			else{	// TRUE‚È‚ç.
+				// DevInst‚ğo—Í.
+				_tprintf(_T("spdd.DevInst = %lu\n"), spdd.DevInst);	// spdd.DevInst‚ğo—Í.
+				// ƒvƒƒpƒeƒB‚Ìæ“¾.(•¨—ƒfƒoƒCƒXƒIƒuƒWƒFƒNƒg–¼.)
+				DWORD dwRegType;	// ƒvƒƒpƒeƒB‚ÌŒ^.
+				DWORD dwSize;	// ƒvƒƒpƒeƒB‚ÌƒTƒCƒY.
+				SetupDiGetDeviceRegistryProperty(hDevInfo, &spdd, SPDRP_PHYSICAL_DEVICE_OBJECT_NAME, &dwRegType, NULL, 0, &dwSize);	// SetupDiGetDeviceRegistryProperty‚Å•¨—ƒfƒoƒCƒXƒIƒuƒWƒFƒNƒg–¼‚ÌƒTƒCƒYæ“¾.
+				if (dwRegType == REG_SZ){	// •¶š—ñ.
+					BYTE *pBytes = new BYTE[dwSize];	// new‚ÅBYTE”z—ñ‚ÌŠm•Û.
+					SetupDiGetDeviceRegistryProperty(hDevInfo, &spdd, SPDRP_PHYSICAL_DEVICE_OBJECT_NAME, &dwRegType, pBytes, dwSize, &dwSize);	// SetupDiGetDeviceRegistryProperty‚Å•¨—ƒfƒoƒCƒXƒIƒuƒWƒFƒNƒg–¼‚ğæ“¾.
+					TCHAR tszDeviceName2[MAX_PATH] = {0};	// ƒfƒoƒCƒX–¼tszDeviceName2(’·‚³MAX_PATH.)‚ğ{0}‚Å‰Šú‰».
+					_tcscpy(tszDeviceName2, (TCHAR *)pBytes);	// pBytes‚ğtszDeviceName2‚ÉƒRƒs[.
+					if (_tcscmp(tszDeviceName, tszDeviceName2) == 0){	// “¯‚¶.
+						iDevInst = spdd.DevInst;	// spdd.DevInst‚ğiDevInst‚É‘ã“ü.
 					}
-					delete [] pBytes;	// pBytesã‚’è§£æ”¾.
+					delete [] pBytes;	// pBytes‚ğ‰ğ•ú.
 				}
-				i++;	// iã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ.
+				i++;	// i‚ğƒCƒ“ƒNƒŠƒƒ“ƒg.
 			}
 
 		}
-		// ç ´æ£„.
-		SetupDiDestroyDeviceInfoList(hDevInfo);	// SetupDiDestroyDeviceInfoListã§hDevInfoã‚’ç ´æ£„.
+		// ”jŠü.
+		SetupDiDestroyDeviceInfoList(hDevInfo);	// SetupDiDestroyDeviceInfoList‚ÅhDevInfo‚ğ”jŠü.
 	}
 
-	// é–¢æ•°ã®çµ‚ã‚ã‚Š.
-	return iDevInst;	// iDevInstã‚’è¿”ã™.
+	// ŠÖ”‚ÌI‚í‚è.
+	return iDevInst;	// iDevInst‚ğ•Ô‚·.
 
 }
 
-// ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã‹ã‚‰ãƒ‡ã‚£ã‚¹ã‚¯ã®DevInstã‚’å–å¾—.
+// ƒfƒoƒCƒXƒiƒ“ƒo[‚©‚çƒfƒBƒXƒN‚ÌDevInst‚ğæ“¾.
 int GetDiskDevInst(DWORD dwDeviceNumber){
 
-	// ãƒ‡ãƒã‚¤ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿ã®åˆ—æŒ™
-	HDEVINFO hDevInfo;	// ãƒ‡ãƒã‚¤ã‚¹æƒ…å ±ãƒãƒ³ãƒ‰ãƒ«hDevInfo
-	int iDevInst = -1;	// è¿”ã™DevInstã®å€¤iDevInstã‚’-1ã§åˆæœŸåŒ–.
-	// ãƒ‡ã‚£ã‚¹ã‚¯ãƒ‡ãƒã‚¤ã‚¹ã®ãƒ‡ãƒã‚¤ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹ã®ãƒ‡ãƒã‚¤ã‚¹æƒ…å ±ã‚’å–å¾—.
-	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_DISK, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevsã§GUID_DEVINTERFACE_DISKã®hDevInfoå–å¾—.
-	if (hDevInfo != INVALID_HANDLE_VALUE){	// INVALID_HANDLE_VALUEã§ãªã‘ã‚Œã°.
-		// åˆ—æŒ™ãƒ«ãƒ¼ãƒ—.
-		int i = 0;	// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹iã‚’0ã§åˆæœŸåŒ–.
-		BOOL bLoop = TRUE;	// ãƒ«ãƒ¼ãƒ—ã™ã‚‹ã‹ã®bLoopã‚’TRUEã§åˆæœŸåŒ–.
-		while (bLoop){	// bLoopãŒTRUEã®é–“ã¯ç¶šã‘ã‚‹.
-			// ãƒ‡ãƒã‚¤ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ãƒ‡ãƒ¼ã‚¿ã®å–å¾—.
-			SP_DEVICE_INTERFACE_DATA spdid = {0};	// SP_DEVICE_INTERFACE_DATAã®spdidã‚’{0}ã§åˆæœŸåŒ–.
-			spdid.cbSize = sizeof(SP_DEVICE_INTERFACE_DATA);	// spdid.cbSizeã«sizeofã§æ¸¬ã£ãŸSP_DEVICE_INTERFACE_DATAã®ã‚µã‚¤ã‚ºã‚’ã‚»ãƒƒãƒˆ.
-			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_DISK, i, &spdid);	// SetupDiEnumDeviceInterfacesã§åˆ—æŒ™.
-			if (!bRet){	// falseãªã‚‰
-				bLoop = FALSE;	// bLoopã‚’FALSEã«.
+	// ƒfƒoƒCƒXƒCƒ“ƒ^[ƒtƒF[ƒXƒf[ƒ^‚Ì—ñ‹“
+	HDEVINFO hDevInfo;	// ƒfƒoƒCƒXî•ñƒnƒ“ƒhƒ‹hDevInfo
+	int iDevInst = -1;	// •Ô‚·DevInst‚Ì’liDevInst‚ğ-1‚Å‰Šú‰».
+	// ƒfƒBƒXƒNƒfƒoƒCƒX‚ÌƒfƒoƒCƒXƒCƒ“ƒ^[ƒtƒF[ƒXƒNƒ‰ƒX‚ÌƒfƒoƒCƒXî•ñ‚ğæ“¾.
+	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_DISK, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevs‚ÅGUID_DEVINTERFACE_DISK‚ÌhDevInfoæ“¾.
+	if (hDevInfo != INVALID_HANDLE_VALUE){	// INVALID_HANDLE_VALUE‚Å‚È‚¯‚ê‚Î.
+		// —ñ‹“ƒ‹[ƒv.
+		int i = 0;	// ƒCƒ“ƒfƒbƒNƒXi‚ğ0‚Å‰Šú‰».
+		BOOL bLoop = TRUE;	// ƒ‹[ƒv‚·‚é‚©‚ÌbLoop‚ğTRUE‚Å‰Šú‰».
+		while (bLoop){	// bLoop‚ªTRUE‚ÌŠÔ‚Í‘±‚¯‚é.
+			// ƒfƒoƒCƒXƒCƒ“ƒ^[ƒtƒF[ƒXƒf[ƒ^‚Ìæ“¾.
+			SP_DEVICE_INTERFACE_DATA spdid = {0};	// SP_DEVICE_INTERFACE_DATA‚Ìspdid‚ğ{0}‚Å‰Šú‰».
+			spdid.cbSize = sizeof(SP_DEVICE_INTERFACE_DATA);	// spdid.cbSize‚Ésizeof‚Å‘ª‚Á‚½SP_DEVICE_INTERFACE_DATA‚ÌƒTƒCƒY‚ğƒZƒbƒg.
+			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_DISK, i, &spdid);	// SetupDiEnumDeviceInterfaces‚Å—ñ‹“.
+			if (!bRet){	// false‚È‚ç
+				bLoop = FALSE;	// bLoop‚ğFALSE‚É.
 			}
 			else{
-				// è©³ç´°æƒ…å ±ã®å–å¾—.(SP_DEVINFO_DATAã‚‚å–å¾—.)
-				SP_DEVICE_INTERFACE_DETAIL_DATA *pspdidd = NULL;	// ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã®è©³ç´°æƒ…å ±pspdiddã‚’NULLã§åˆæœŸåŒ–.
-				DWORD dwMemSize = 0;	// è©³ç´°æƒ…å ±ã®å–å¾—ã«å¿…è¦ãªãƒ¡ãƒ¢ãƒªã‚µã‚¤ã‚ºdwMemSizeã‚’0ã§åˆæœŸåŒ–.
-				SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, NULL, 0, &dwMemSize, NULL);	// SetupDiGetDeviceInterfaceDetailã§dwMemSizeã ã‘å–å¾—.
-				DWORD dwStructSize = sizeof(SP_DEVICE_INTERFACE_DETAIL_DATA);	// æ§‹é€ ä½“ã®ã‚µã‚¤ã‚ºdwStructSizeã‚’sizeofã§å–å¾—.
-				pspdidd = (SP_DEVICE_INTERFACE_DETAIL_DATA *)malloc(dwMemSize);	// dwMemSizeåˆ†ã®ãƒ¡ãƒ¢ãƒªã‚’ç¢ºä¿ã—, ã‚¢ãƒ‰ãƒ¬ã‚¹ã¯pspdiddã«æ ¼ç´.
-				memset(pspdidd, 0, dwMemSize);	// ãƒ¡ãƒ¢ãƒªã‚’å…¨ã¦0ã«ã‚¯ãƒªã‚¢.
-				pspdidd->cbSize = dwStructSize;	// pspdidd->cbSizeã«dwStructSizeã‚’ã‚»ãƒƒãƒˆ.
-				SP_DEVINFO_DATA spdd = {0};	// SP_DEVINFO_DATAã®spddã‚’{0}ã§åˆæœŸåŒ–.
-				spdd.cbSize = sizeof(SP_DEVINFO_DATA);	// æ§‹é€ ä½“ã®ã‚µã‚¤ã‚ºã‚’sizeofã§å–å¾—ã—, spdd.cbSizeã«ã‚»ãƒƒãƒˆ.
-				BOOL bRet = SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, pspdidd, dwMemSize, &dwMemSize, &spdd);	// SetupDiGetDeviceInterfaceDetailã§pspdiddã®ä¸­èº«ã‚’å–å¾—.(spddã‚‚å–å¾—.)
-				if (bRet){	// TRUEãªã‚‰.
-					// DevInstã‚’å‡ºåŠ›.
-					_tprintf(_T("spdd.DevInst = %lu\n"), spdd.DevInst);	// spdd.DevInstã‚’å‡ºåŠ›.
-					// ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼ã‚’å–å¾—.
-					int iDeviceNumber = GetDeviceNumberByDevicePath(pspdidd->DevicePath);	// GetDeviceNumberByDevicePathã§ãƒ‡ãƒã‚¤ã‚¹ãƒŠãƒ³ãƒãƒ¼å–å¾—.
-					if (iDeviceNumber == (int)dwDeviceNumber){	// åŒã˜.
-						iDevInst = spdd.DevInst;	// spdd.DevInstã‚’iDevInstã«ä»£å…¥.
+				// Ú×î•ñ‚Ìæ“¾.(SP_DEVINFO_DATA‚àæ“¾.)
+				SP_DEVICE_INTERFACE_DETAIL_DATA *pspdidd = NULL;	// ƒCƒ“ƒ^[ƒtƒF[ƒX‚ÌÚ×î•ñpspdidd‚ğNULL‚Å‰Šú‰».
+				DWORD dwMemSize = 0;	// Ú×î•ñ‚Ìæ“¾‚É•K—v‚Èƒƒ‚ƒŠƒTƒCƒYdwMemSize‚ğ0‚Å‰Šú‰».
+				SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, NULL, 0, &dwMemSize, NULL);	// SetupDiGetDeviceInterfaceDetail‚ÅdwMemSize‚¾‚¯æ“¾.
+				DWORD dwStructSize = sizeof(SP_DEVICE_INTERFACE_DETAIL_DATA);	// \‘¢‘Ì‚ÌƒTƒCƒYdwStructSize‚ğsizeof‚Åæ“¾.
+				pspdidd = (SP_DEVICE_INTERFACE_DETAIL_DATA *)malloc(dwMemSize);	// dwMemSize•ª‚Ìƒƒ‚ƒŠ‚ğŠm•Û‚µ, ƒAƒhƒŒƒX‚Ípspdidd‚ÉŠi”[.
+				memset(pspdidd, 0, dwMemSize);	// ƒƒ‚ƒŠ‚ğ‘S‚Ä0‚ÉƒNƒŠƒA.
+				pspdidd->cbSize = dwStructSize;	// pspdidd->cbSize‚ÉdwStructSize‚ğƒZƒbƒg.
+				SP_DEVINFO_DATA spdd = {0};	// SP_DEVINFO_DATA‚Ìspdd‚ğ{0}‚Å‰Šú‰».
+				spdd.cbSize = sizeof(SP_DEVINFO_DATA);	// \‘¢‘Ì‚ÌƒTƒCƒY‚ğsizeof‚Åæ“¾‚µ, spdd.cbSize‚ÉƒZƒbƒg.
+				BOOL bRet = SetupDiGetDeviceInterfaceDetail(hDevInfo, &spdid, pspdidd, dwMemSize, &dwMemSize, &spdd);	// SetupDiGetDeviceInterfaceDetail‚Åpspdidd‚Ì’†g‚ğæ“¾.(spdd‚àæ“¾.)
+				if (bRet){	// TRUE‚È‚ç.
+					// DevInst‚ğo—Í.
+					_tprintf(_T("spdd.DevInst = %lu\n"), spdd.DevInst);	// spdd.DevInst‚ğo—Í.
+					// ƒfƒoƒCƒXƒiƒ“ƒo[‚ğæ“¾.
+					int iDeviceNumber = GetDeviceNumberByDevicePath(pspdidd->DevicePath);	// GetDeviceNumberByDevicePath‚ÅƒfƒoƒCƒXƒiƒ“ƒo[æ“¾.
+					if (iDeviceNumber == (int)dwDeviceNumber){	// “¯‚¶.
+						iDevInst = spdd.DevInst;	// spdd.DevInst‚ğiDevInst‚É‘ã“ü.
 					}
 				}
-				free(pspdidd);	// pspdiddã‚’è§£æ”¾.
-				i++;	// iã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ.
+				free(pspdidd);	// pspdidd‚ğ‰ğ•ú.
+				i++;	// i‚ğƒCƒ“ƒNƒŠƒƒ“ƒg.
 			}
 		}
-		// ç ´æ£„.
-		SetupDiDestroyDeviceInfoList(hDevInfo);	// SetupDiDestroyDeviceInfoListã§hDevInfoã‚’ç ´æ£„.
+		// ”jŠü.
+		SetupDiDestroyDeviceInfoList(hDevInfo);	// SetupDiDestroyDeviceInfoList‚ÅhDevInfo‚ğ”jŠü.
 	}
 
-	// é–¢æ•°ã®çµ‚ã‚ã‚Š.
-	return iDevInst;	// iDevInstã‚’è¿”ã™.
+	// ŠÖ”‚ÌI‚í‚è.
+	return iDevInst;	// iDevInst‚ğ•Ô‚·.
 
 }
