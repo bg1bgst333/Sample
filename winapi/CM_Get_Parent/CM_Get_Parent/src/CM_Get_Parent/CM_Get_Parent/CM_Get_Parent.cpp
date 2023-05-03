@@ -27,14 +27,6 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 		_tprintf(_T("iDeviceNumber = %d\n"), iDeviceNumber);	// iDeviceNumberを出力.
 	}
 
-	// デバイスナンバーからディスクのDevInstを取得.
-	if (iDeviceNumber != -1){	// iDeviceNumberが-1でなければ.
-		int iDiskDevInst = GetDiskDevInst((DWORD)iDeviceNumber);	// GetDiskDevInstでiDiskDevInstを取得.
-		if (iDiskDevInst != -1){	// iDiskDevInstが-1でなければ成功.
-			_tprintf(_T("iDiskDevInst = %d\n"), iDiskDevInst);	// iDiskDevInstを出力.
-		}
-	}
-
 	// プログラムの終了.
 	return 0;	// 0を返して正常終了.
 
