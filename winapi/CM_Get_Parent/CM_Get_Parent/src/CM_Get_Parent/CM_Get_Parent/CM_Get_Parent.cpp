@@ -28,6 +28,7 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 		_tprintf(_T("iDeviceNumber = %d\n"), iDeviceNumber);	// iDeviceNumberを出力.
 	}
 
+#if 0
 	// ドライブレターからボリュームのデバイスナンバーとDevInstを取得.
 	DWORD dwDeviceNumber = 0;	// dwDeviceNumberを0で初期化.
 	DWORD dwDevInst = 0;	// dwDevInstを0で初期化.
@@ -36,12 +37,15 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 		_tprintf(_T("dwDeviceNumber = %d\n"), dwDeviceNumber);	// dwDeviceNumberを出力.
 		_tprintf(_T("dwDevInst = %d\n"), dwDevInst);	// dwDevInstを出力.
 	}
+#endif
 
+#if 0
 	// ドライブレターからボリュームのDevInstを取得.
 	int iDevInst = GetVolumeDevInst(argv[1]);	// GetVolumeDevInstでiDevInst取得.
 	if (iDevInst != -1){	// iDevInstが-1でなければ成功.
 		_tprintf(_T("iDevInst = %d\n"), iDevInst);	// iDevInstを出力.
 	}
+#endif
 
 	// デバイスナンバーからディスクのDevInstを取得.
 	int iDiskDevInst = -1;	// iDiskDevInstを-1で初期化.
