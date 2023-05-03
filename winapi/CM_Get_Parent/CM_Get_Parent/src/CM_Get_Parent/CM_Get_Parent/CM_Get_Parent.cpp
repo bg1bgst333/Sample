@@ -3,6 +3,7 @@
 #include <tchar.h>		// TCHAR型
 #include <stdio.h>		// 標準入出力
 #include <setupapi.h>	// SetUpAPI
+#include <cfgmgr32.h>	// Configuration Manager
 
 // 関数のプロトタイプ宣言
 int GetVolumeDeviceNumber(TCHAR* ptszDriveLetter);	// ドライブレターからボリュームのデバイスナンバーを取得.
@@ -21,13 +22,41 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 		return -1;	// -1を返して異常終了.
 	}
 
+	// ドライブレターからボリュームのデバイスナンバーを取得.
+	int iDeviceNumber = GetVolumeDeviceNumber(argv[1]);	// GetVolumeDeviceNumberでiDeviceNumber取得.
+	if (iDeviceNumber != -1){	// iDeviceNumberが-1でなければ成功.
+		_tprintf(_T("iDeviceNumber = %d\n"), iDeviceNumber);	// iDeviceNumberを出力.
+	}
+
+	// ドライブレターからボリュームのデバイスナンバーとDevInstを取得.
+	DWORD dwDeviceNumber = 0;	// dwDeviceNumberを0で初期化.
+	DWORD dwDevInst = 0;	// dwDevInstを0で初期化.
+	BOOL bRet = GetVolumeDeviceNumberAndDevInst(argv[1], dwDeviceNumber, dwDevInst);	// GetVolumeDeviceNumberAndDevInstでdwDeviceNumber, dwDevInstを取得.
+	if (bRet){	// TRUEなら成功.
+		_tprintf(_T("dwDeviceNumber = %d\n"), dwDeviceNumber);	// dwDeviceNumberを出力.
+		_tprintf(_T("dwDevInst = %d\n"), dwDevInst);	// dwDevInstを出力.
+	}
+
+	// ドライブレターからボリュームのDevInstを取得.
+	int iDevInst = GetVolumeDevInst(argv[1]);	// GetVolumeDevInstでiDevInst取得.
+	if (iDevInst != -1){	// iDevInstが-1でなければ成功.
+		_tprintf(_T("iDevInst = %d\n"), iDevInst);	// iDevInstを出力.
+	}
+
 	// デバイスナンバーからディスクのDevInstを取得.
-	int iDeviceNumber = 1;	// iDeviceNumberを1で初期化.
+	int iDiskDevInst = -1;	// iDiskDevInstを-1で初期化.
 	if (iDeviceNumber != -1){	// iDeviceNumberが-1でなければ.
-		int iDiskDevInst = GetDiskDevInst((DWORD)iDeviceNumber);	// GetDiskDevInstでiDiskDevInstを取得.
+		iDiskDevInst = GetDiskDevInst((DWORD)iDeviceNumber);	// GetDiskDevInstでiDiskDevInstを取得.
 		if (iDiskDevInst != -1){	// iDiskDevInstが-1でなければ成功.
 			_tprintf(_T("iDiskDevInst = %d\n"), iDiskDevInst);	// iDiskDevInstを出力.
 		}
+	}
+
+	// iDiskDevInstの親のDevInstを取得.
+	DWORD dwDevInstParent;	// 親のDevInstであるdwDevInstParent.
+	if (iDiskDevInst =! -1){	// iDiskDevInstが-1でなければ.
+		CM_Get_Parent(&dwDevInstParent, (DWORD)iDiskDevInst, 0);	// CM_Get_ParentでiDiskDevInstの親のデバイスのDevInstであるdwDevInstParent取得.
+		_tprintf(_T("dwDevInstParent = %lu\n"), dwDevInstParent);	// dwDevInstParentを出力.
 	}
 
 	// プログラムの終了.
