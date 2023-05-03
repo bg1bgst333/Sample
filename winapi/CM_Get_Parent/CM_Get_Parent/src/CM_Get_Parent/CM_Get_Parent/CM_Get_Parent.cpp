@@ -21,10 +21,13 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 		return -1;	// -1を返して異常終了.
 	}
 
-	// ドライブレターからボリュームのデバイスナンバーを取得.
-	int iDeviceNumber = GetVolumeDeviceNumber(argv[1]);	// GetVolumeDeviceNumberでiDeviceNumber取得.
-	if (iDeviceNumber != -1){	// iDeviceNumberが-1でなければ成功.
-		_tprintf(_T("iDeviceNumber = %d\n"), iDeviceNumber);	// iDeviceNumberを出力.
+	// ドライブレターからボリュームのデバイスナンバーとDevInstを取得.
+	DWORD dwDeviceNumber = 0;	// dwDeviceNumberを0で初期化.
+	DWORD dwDevInst = 0;	// dwDevInstを0で初期化.
+	BOOL bRet = GetVolumeDeviceNumberAndDevInst(argv[1], dwDeviceNumber, dwDevInst);	// GetVolumeDeviceNumberAndDevInstでdwDeviceNumber, dwDevInstを取得.
+	if (bRet){	// TRUEなら成功.
+		_tprintf(_T("dwDeviceNumber = %d\n"), dwDeviceNumber);	// dwDeviceNumberを出力.
+		_tprintf(_T("dwDevInst = %d\n"), dwDevInst);	// dwDevInstを出力.
 	}
 
 	// プログラムの終了.
