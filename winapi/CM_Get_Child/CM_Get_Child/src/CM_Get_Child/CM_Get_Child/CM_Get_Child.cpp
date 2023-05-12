@@ -52,13 +52,35 @@ int GetDevInstByDriveLetterViaPhysicalDeviceObjectName(TCHAR* ptszDriveLetter){
 
 			// レジストリからデバイスの物理デバイスオブジェクト名を取得.
 			ULONG ulLength = 0;	// サイズulLengthを0で初期化.
+			BYTE *pBytes = NULL;	// バッファポインタpBytesをNULLで初期化.
 			DWORD dwRet = CM_Get_DevNode_Registry_Property(dwDevInst, CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME, NULL, NULL, &ulLength, 0);	// CM_Get_DevNode_Registry_Propertyでサイズだけ取得.
-			BYTE *pBytes = new BYTE[ulLength];	// newでBYTE動的配列(サイズulLength)確保.
-			ZeroMemory(pBytes, ulLength);	// ZeroMemoryで初期化.
-			dwRet = CM_Get_DevNode_Registry_Property(dwDevInst, CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME, NULL, pBytes, &ulLength, 0);	// CM_Get_DevNode_Registry_Propertyで物理デバイスオブジェクト名取得.
-			_tprintf(_T("CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME: %s\n"), (TCHAR *)pBytes);	// 物理デバイスオブジェクト名を出力.
-			if (dwRet != CR_SUCCESS || _tcscmp(tszDeviceName, (TCHAR *)pBytes) != 0){	// CR_SUCCESSではない, またはtszDeviceNameとpBytesが同じでない場合.
-				delete [] pBytes;	// 解放.
+			if (ulLength != 0){	// ulLengthが0でなければ.
+				pBytes = new BYTE[ulLength];	// newでBYTE動的配列(サイズulLength)確保.
+				ZeroMemory(pBytes, ulLength);	// ZeroMemoryで初期化.
+				dwRet = CM_Get_DevNode_Registry_Property(dwDevInst, CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME, NULL, pBytes, &ulLength, 0);	// CM_Get_DevNode_Registry_Propertyで物理デバイスオブジェクト名取得.
+				_tprintf(_T("CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME: %s\n"), (TCHAR *)pBytes);	// 物理デバイスオブジェクト名を出力.
+				if (dwRet != CR_SUCCESS || _tcscmp(tszDeviceName, (TCHAR *)pBytes) != 0){	// CR_SUCCESSではない, またはtszDeviceNameとpBytesが同じでない場合.
+					if (pBytes != NULL){	// pBytesがNULLでない.
+						delete [] pBytes;	// 解放.
+					}
+					dwRet = CM_Get_Child(&dwDevInstNext, dwDevInst, 0);	// CM_Get_Childで子のDevInst取得.
+					if (dwRet == CR_SUCCESS){	// 成功.
+						dwDevInst = dwDevInstNext;
+						continue;	// ループ先頭に戻る.
+					}
+					else{	// 失敗.
+						return -1;	// -1を返す.
+					}
+				}
+				else{	// デバイス名合致
+					if (pBytes != NULL){	// pBytesがNULLでない.
+						delete [] pBytes;	// 解放.
+					}
+					return (int)dwDevInst;
+				}
+			}
+			else{	// ulLengthが0.
+				_tprintf(_T("CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME: -\n"));	// 物理デバイスオブジェクト名は無し.
 				dwRet = CM_Get_Child(&dwDevInstNext, dwDevInst, 0);	// CM_Get_Childで子のDevInst取得.
 				if (dwRet == CR_SUCCESS){	// 成功.
 					dwDevInst = dwDevInstNext;
@@ -68,16 +90,11 @@ int GetDevInstByDriveLetterViaPhysicalDeviceObjectName(TCHAR* ptszDriveLetter){
 					return -1;	// -1を返す.
 				}
 			}
-			else{	// デバイス名合致
-				delete [] pBytes;	// 解放.
-				return dwDevInst;
-			}
-
+			
 		}
 
 	}
 	else{	// 失敗.
-		_tprintf(_T("CM_Locate_DevNode failure.\n"));	// "CM_Locate_DevNode failure."を出力.
 		return -1;	// -1を返す.
 	}
 
