@@ -5,6 +5,8 @@
 #include <string.h>		// 文字列処理
 #include <windows.h>	// 標準WindowsAPI
 #include <setupapi.h>	// SetUpAPI
+#include <initguid.h>	// GUID
+#include <usbiodef.h>	// USB
 
 // _tmain関数の定義
 int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
@@ -12,8 +14,8 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	// 変数の宣言
 	HDEVINFO hDevInfo;	// デバイス情報ハンドルhDevInfo
 
-	// ディスクデバイスのデバイスインターフェースクラスのデバイス情報を取得.
-	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_DISK, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevsでGUID_DEVINTERFACE_DISKのhDevInfo取得.
+	// USBデバイスのデバイスインターフェースクラスのデバイス情報を取得.
+	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_USB_DEVICE, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevsでGUID_DEVINTERFACE_USB_DEVICEのhDevInfo取得.
 	if (hDevInfo != INVALID_HANDLE_VALUE){	// INVALID_HANDLE_VALUEでなければ.
 		
 		// 出力.
@@ -27,7 +29,7 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 			// デバイスインターフェースデータの取得.
 			SP_DEVICE_INTERFACE_DATA spdid = {0};	// SP_DEVICE_INTERFACE_DATAのspdidを{0}で初期化.
 			spdid.cbSize = sizeof(SP_DEVICE_INTERFACE_DATA);	// spdid.cbSizeにsizeofで測ったSP_DEVICE_INTERFACE_DATAのサイズをセット.
-			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_DISK, i, &spdid);	// SetupDiEnumDeviceInterfacesで列挙.
+			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_USB_DEVICE, i, &spdid);	// SetupDiEnumDeviceInterfacesで列挙.
 			if (!bRet){	// falseなら
 				bLoop = FALSE;	// bLoopをFALSEに.
 			}
