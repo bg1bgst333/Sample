@@ -12,8 +12,8 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 	// 変数の宣言
 	HDEVINFO hDevInfo;	// デバイス情報ハンドルhDevInfo
 
-	// ボリュームデバイスのデバイスインターフェースクラスのデバイス情報を取得.
-	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_VOLUME, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevsでGUID_DEVINTERFACE_VOLUMEのhDevInfo取得.
+	// ディスクデバイスのデバイスインターフェースクラスのデバイス情報を取得.
+	hDevInfo = SetupDiGetClassDevs(&GUID_DEVINTERFACE_DISK, NULL, NULL, DIGCF_PRESENT | DIGCF_INTERFACEDEVICE);	// SetupDiGetClassDevsでGUID_DEVINTERFACE_DISKのhDevInfo取得.
 	if (hDevInfo != INVALID_HANDLE_VALUE){	// INVALID_HANDLE_VALUEでなければ.
 		
 		// 出力.
@@ -27,7 +27,7 @@ int _tmain(int argc, TCHAR *argv[]){	// main関数のTCHAR版.
 			// デバイスインターフェースデータの取得.
 			SP_DEVICE_INTERFACE_DATA spdid = {0};	// SP_DEVICE_INTERFACE_DATAのspdidを{0}で初期化.
 			spdid.cbSize = sizeof(SP_DEVICE_INTERFACE_DATA);	// spdid.cbSizeにsizeofで測ったSP_DEVICE_INTERFACE_DATAのサイズをセット.
-			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_VOLUME, i, &spdid);	// SetupDiEnumDeviceInterfacesで列挙.
+			BOOL bRet = SetupDiEnumDeviceInterfaces(hDevInfo, NULL, &GUID_DEVINTERFACE_DISK, i, &spdid);	// SetupDiEnumDeviceInterfacesで列挙.
 			if (!bRet){	// falseなら
 				bLoop = FALSE;	// bLoopをFALSEに.
 			}
