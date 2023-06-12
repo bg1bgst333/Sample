@@ -191,6 +191,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\WebBrowserHost.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Window.cpp"
 				>
 			</File>
@@ -222,6 +226,10 @@
 			</File>
 			<File
 				RelativePath=".\UserControl.h"
+				>
+			</File>
+			<File
+				RelativePath=".\WebBrowserHost.h"
 				>
 			</File>
 			<File

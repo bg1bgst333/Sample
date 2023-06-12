@@ -23,6 +23,9 @@ BOOL CMainWindow::RegisterClass(HINSTANCE hInstance, LPCTSTR lpctszMenuName){
 // コンストラクタCMainWindow()
 CMainWindow::CMainWindow(){
 
+	// メンバの初期化.
+	m_pWebBrowserHost = NULL;	// m_pWebBrowserHostをNULLで初期化.
+
 }
 
 // デストラクタ~CMainWindow()
@@ -65,6 +68,13 @@ BOOL CMainWindow::DestroyChildren(){
 	// 変数の初期化.
 	BOOL bRet = FALSE;	// bRetをFALSEで初期化.
 
+	// ウェブブラウザホストの破棄.
+	if (m_pWebBrowserHost != NULL){	// NULLでなければ.
+		bRet = m_pWebBrowserHost->Destroy();	// m_pWebBrowserHost->Destroyでウィンドウを破棄.
+		delete m_pWebBrowserHost;	// deleteでm_pWebBrowserHostを解放.
+		m_pWebBrowserHost = NULL;	// NULLをセット.
+	}
+
 	// 破棄したらTRUEを返す.
 	if (bRet) {	// TRUEなら.
 		return TRUE;	// TRUEを返す.
@@ -77,6 +87,12 @@ BOOL CMainWindow::DestroyChildren(){
 
 // ウィンドウの作成が開始された時.
 int CMainWindow::OnCreate(HWND hwnd, LPCREATESTRUCT lpCreateStruct){
+
+	// ウェブブラウザホストオブジェクトの作成.
+	m_pWebBrowserHost = new CWebBrowserHost();	// CWebBrowserHostオブジェクトの作成.
+
+	// ウェブブラウザホストのウィンドウ作成.
+	m_pWebBrowserHost->Create(_T(""), WS_BORDER, 50, 50, 320, 240, hwnd, (HMENU)(WM_APP + 1), lpCreateStruct->hInstance);	// Createでウェブブラウザホストのウィンドウ作成.
 
 	// 親クラスのOnCreateを呼ぶ.
 	return CWindow::OnCreate(hwnd, lpCreateStruct);	// CWindow::OnCreateを呼び, 戻り値を返す.

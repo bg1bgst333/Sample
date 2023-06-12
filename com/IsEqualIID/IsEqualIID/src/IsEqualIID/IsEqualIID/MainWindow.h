@@ -5,12 +5,16 @@
 // ヘッダのインクルード
 // 独自のヘッダ
 #include "Window.h"	// CWindow
+#include "WebBrowserHost.h"	// CWebBrowserHost
 
 // メインウィンドウクラスCMainWindow
 class CMainWindow : public CWindow{
 
 	// publicメンバ
 	public:
+
+		// メンバ変数
+		CWebBrowserHost *m_pWebBrowserHost;	// CWebBrowserHostオブジェクトポインタm_pWebBrowserHost.
 
 		// staticメンバ関数
 		static BOOL RegisterClass(HINSTANCE hInstance);	// ウィンドウクラス登録関数RegisterClass.
