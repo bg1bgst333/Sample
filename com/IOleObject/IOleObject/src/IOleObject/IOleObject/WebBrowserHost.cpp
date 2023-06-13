@@ -60,7 +60,7 @@ BOOL CWebBrowserHost::InitBrowser(){
 	// IOleObjectポインタを取得.
 	IOleObject *pOleObject;	// IOleObjectポインタpOleObject
 	hr = m_pWebBrowser2->QueryInterface(IID_PPV_ARGS(&pOleObject));	// QueryInterfaceでpOleObjectを取得.
-	if (SUCCEEDED(hr)){	// 失敗.
+	if (FAILED(hr)){	// 失敗.
 		OutputDebugString(_T("IOleObject NG!\n"));	// "IOleObject NG!"と出力.
 		return FALSE;	// FALSEを返す.
 	}
