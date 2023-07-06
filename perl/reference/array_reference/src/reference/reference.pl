@@ -5,6 +5,9 @@
 $ary1_ref = \@ary1;
 
 # 配列のリファレンスのデリファレンス.
-print @$ary1_ref[0]."\n";
-print @$ary1_ref[1]."\n";
-print @$ary1_ref[2]."\n";
+@ary1_deref = @$ary1_ref; # デリファレンス
+
+# 各要素の出力.
+print $ary1_deref[0]."\n";
+print $ary1_deref[1]."\n";
+print $ary1_deref[2]."\n";
