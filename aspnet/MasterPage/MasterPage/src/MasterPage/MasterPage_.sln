@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\...\MasterPage_\", "MasterPage_\", "{97CC27C3-8F65-42CD-850E-3444724C523D}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/MasterPage_"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\..\Project\Cloud\github.com\Sample\aspnet\MasterPage\MasterPage\src\MasterPage\MasterPage_\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\MasterPage_\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/MasterPage_"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\..\Project\Cloud\github.com\Sample\aspnet\MasterPage\MasterPage\src\MasterPage\MasterPage_\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\MasterPage_\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1551"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97CC27C3-8F65-42CD-850E-3444724C523D}.Debug|.NET.ActiveCfg = Debug|.NET
+		{97CC27C3-8F65-42CD-850E-3444724C523D}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
