@@ -1,0 +1,14 @@
+<%@ Master Language="C#" AutoEventWireup="true" %>
+<html>
+    <head>
+        <title>MasterDirective</title>
+    </head>
+    <body>
+        <form id="form1" runat="server">
+            MasterDirective
+            <div>
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" />
+            </div>
+        </form>
+    </body>
+</head>
