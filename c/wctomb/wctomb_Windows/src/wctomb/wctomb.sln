@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wctomb", "wctomb\wctomb.vcproj", "{BF317EC2-E5BD-4B42-BF32-BE53264A81AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF317EC2-E5BD-4B42-BF32-BE53264A81AD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BF317EC2-E5BD-4B42-BF32-BE53264A81AD}.Debug|Win32.Build.0 = Debug|Win32
+		{BF317EC2-E5BD-4B42-BF32-BE53264A81AD}.Release|Win32.ActiveCfg = Release|Win32
+		{BF317EC2-E5BD-4B42-BF32-BE53264A81AD}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
