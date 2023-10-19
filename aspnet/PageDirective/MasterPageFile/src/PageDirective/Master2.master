@@ -1,0 +1,41 @@
+<%@ Master Language="C#" AutoEventWireup="true" %>
+<html>
+    <head>
+        <title>Master2</title>
+        <link href="style2.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <form id="form1" runat="server">
+            <div id="topContent" class="div-top">
+                <asp:ContentPlaceHolder id="TopContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="flex">
+                <div class="left">
+                    <div id="sideBar">
+                        <asp:ContentPlaceHolder id="SideBarContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <h3>AAA</h3>    
+                        <ul>
+                            <li>aaa</li>
+                        </ul>
+                        <h3>BBB</h3>    
+                        <ul>
+                            <li>bbb</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right">
+                    <div id="mainContent">
+                        <asp:ContentPlaceHolder id="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+            <div id="footerContent" class="div-bottom">
+                <asp:ContentPlaceHolder id="FooterContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </body>
+</head>
