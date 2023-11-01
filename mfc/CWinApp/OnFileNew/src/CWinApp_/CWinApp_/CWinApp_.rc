@@ -1,0 +1,302 @@
+//Microsoft Visual C++ で生成されたリソース スクリプトです。
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE 2 リソースから生成されました。
+//
+
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#ifdef APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE  
+BEGIN
+	"resource.h\0"
+END
+
+2 TEXTINCLUDE  
+BEGIN
+	"#include ""afxres.h""\r\n"
+	"\0"
+END
+
+3 TEXTINCLUDE  
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+	"\r\n"
+	"#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)\r\n"
+	"LANGUAGE 17, 1\r\n"
+	"#pragma code_page(932)\r\n"
+	"#include ""res\\CWinApp_.rc2""  // Microsoft Visual C++ 以外で編集されたリソース\r\n"
+	"#include ""afxres.rc""  	// 標準コンポーネント\r\n"
+	"#endif\r\n"
+	"\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// アイコン
+//
+
+// アプリケーションのアイコンをすべてのシステム上で維持するために、最も小さい
+// ID 値のアイコンが最初に配置されます。
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE 17, 1
+#pragma code_page(932)
+IDR_MAINFRAME           ICON         "res\\CWinApp_.ico"
+IDR_CWinApp_TYPE         ICON         "res\\CWinApp_Doc.ico"
+#endif
+
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE 17, 1
+#pragma code_page(932)
+/////////////////////////////////////////////////////////////////////////////
+//
+// メニュー
+//
+
+IDR_MAINFRAME MENU   
+BEGIN
+	POPUP "ファイル(&F)"
+	BEGIN
+		MENUITEM "新規作成\tCtrl+N(&N)",                ID_FILE_NEW
+		MENUITEM "開く...\tCtrl+O(&O)",            ID_FILE_OPEN
+		MENUITEM "上書き保存\tCtrl+S(&S)",               ID_FILE_SAVE
+		MENUITEM "名前を付けて保存(&A)...",                 ID_FILE_SAVE_AS
+		MENUITEM SEPARATOR
+		MENUITEM "アプリケーションの終了(&X)",                       ID_APP_EXIT
+	END
+	POPUP "編集(&E)"
+	BEGIN
+		MENUITEM "元に戻す\tCtrl+Z(&U)",               ID_EDIT_UNDO
+		MENUITEM SEPARATOR
+		MENUITEM "切り取り\tCtrl+X(&T)",                ID_EDIT_CUT
+		MENUITEM "コピー\tCtrl+C(&C)",               ID_EDIT_COPY
+		MENUITEM "貼り付け\tCtrl+V(&P)",              ID_EDIT_PASTE
+	END
+	POPUP "ヘルプ(&H)"
+	BEGIN
+		MENUITEM "バージョン情報 CWinApp_(&A)...",          ID_APP_ABOUT
+	END
+END
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// アクセラレータ
+//
+
+IDR_MAINFRAME ACCELERATORS   
+BEGIN
+	"N",            ID_FILE_NEW,            VIRTKEY,CONTROL
+	"O",            ID_FILE_OPEN,           VIRTKEY,CONTROL
+	"S",            ID_FILE_SAVE,           VIRTKEY,CONTROL
+	"Z",            ID_EDIT_UNDO,           VIRTKEY,CONTROL
+	"X",            ID_EDIT_CUT,            VIRTKEY,CONTROL
+	"C",            ID_EDIT_COPY,           VIRTKEY,CONTROL
+	"V",            ID_EDIT_PASTE,          VIRTKEY,CONTROL
+	VK_BACK,        ID_EDIT_UNDO,           VIRTKEY,ALT
+	VK_DELETE,      ID_EDIT_CUT,            VIRTKEY,SHIFT
+	VK_INSERT,      ID_EDIT_COPY,           VIRTKEY,CONTROL
+	VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY,SHIFT
+	VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+	VK_F6,          ID_PREV_PANE,           VIRTKEY,SHIFT
+END
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// ダイアログ
+//
+
+IDD_ABOUTBOX DIALOGEX   0, 0, 235, 55
+CAPTION "バージョン情報 CWinApp_"
+STYLE DS_MODALFRAME | DS_SHELLFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 9, "MS UI Gothic"
+BEGIN
+	ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+	LTEXT           "CWinApp_ Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+	LTEXT           "Copyright (C) 2023",IDC_STATIC,40,25,119,8
+	DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// バージョン
+//
+
+VS_VERSION_INFO     VERSIONINFO
+  FILEVERSION       1,0,0,1
+  PRODUCTVERSION    1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+        BLOCK "041103a4"
+		BEGIN 
+            VALUE "CompanyName", "TODO: <会社名>"
+            VALUE "FileDescription", "TODO: <ファイルの説明>"
+			VALUE "FileVersion",     "1.0.0.1"
+			VALUE "InternalName",    "CWinApp_.exe"
+            VALUE "LegalCopyright", "TODO: (C) <会社名>.  All rights reserved."
+			VALUE "OriginalFilename","CWinApp_.exe"
+            VALUE "ProductName", "TODO: <製品名>"
+			VALUE "ProductVersion",  "1.0.0.1"
+		END
+	END
+	BLOCK "VarFileInfo" 
+	BEGIN 
+		VALUE "Translation", 0x0411, 932
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO  
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// ストリング テーブル
+//
+
+STRINGTABLE   
+BEGIN
+// MAC を対象としないアプリケーションから 2 つの余分な部分文字列を削除します。
+	IDR_MAINFRAME           "CWinApp_\n\nCWinApp_\n\n\nCWinApp.Document\nCWinApp_.Document"
+
+END
+STRINGTABLE   
+BEGIN
+	AFX_IDS_APP_TITLE       "CWinApp_"
+	AFX_IDS_IDLEMESSAGE     "レディ"
+END
+STRINGTABLE  
+BEGIN
+	ID_INDICATOR_EXT        "EXT"
+	ID_INDICATOR_CAPS       "CAP"
+	ID_INDICATOR_NUM        "NUM"
+	ID_INDICATOR_SCRL       "SCRL"
+	ID_INDICATOR_OVR        "上書き"
+	ID_INDICATOR_REC        "記録"
+END
+STRINGTABLE  
+BEGIN
+	ID_FILE_NEW             "新規にファイルを作成\n新規ファイル"
+	ID_FILE_OPEN            "既存のファイルを開く\n開く"
+	ID_FILE_CLOSE           "作業中のファイルを閉じる\n閉じる"
+	ID_FILE_SAVE            "作業中のファイルを上書きして保存\n保存"
+	ID_FILE_SAVE_AS         "作業中のファイルを新しい名前で保存\n名前をつけて保存"
+	ID_APP_ABOUT            "プログラム情報、バージョン、著作権を表示します。\nバージョン情報"
+	ID_APP_EXIT             "アプリケーションを終了し、ファイルの保存を指示\終了"
+	ID_FILE_MRU_FILE1       "指定のファイルを開く"
+	ID_FILE_MRU_FILE2       "指定のファイルを開く"
+	ID_FILE_MRU_FILE3       "指定のファイルを開く"
+	ID_FILE_MRU_FILE4       "指定のファイルを開く"
+	ID_FILE_MRU_FILE5       "指定のファイルを開く"
+	ID_FILE_MRU_FILE6       "指定のファイルを開く"
+	ID_FILE_MRU_FILE7       "指定のファイルを開く"
+	ID_FILE_MRU_FILE8       "指定のファイルを開く"
+	ID_FILE_MRU_FILE9       "指定のファイルを開く"
+	ID_FILE_MRU_FILE10      "指定のファイルを開く"
+	ID_FILE_MRU_FILE11      "指定のファイルを開く"
+	ID_FILE_MRU_FILE12      "指定のファイルを開く"
+	ID_FILE_MRU_FILE13      "指定のファイルを開く"
+	ID_FILE_MRU_FILE14      "指定のファイルを開く"
+	ID_FILE_MRU_FILE15      "指定のファイルを開く"
+	ID_FILE_MRU_FILE16      "指定のファイルを開く"
+	ID_NEXT_PANE            "次のウィンドウに切り替える\n次のペイン"
+	ID_PREV_PANE            "前のウィンドウに切り替える\n前のペイン"
+	ID_WINDOW_SPLIT         "作業中のウィンドウを分割\n分割"
+	ID_EDIT_CLEAR           "選択範囲を消去\n消去"
+	ID_EDIT_CLEAR_ALL       "すべて消去\nすべて消去"
+	ID_EDIT_COPY            "選択範囲をコピーしてクリップボードに保存\n保存"
+	ID_EDIT_CUT             "選択範囲を切り取ってクリップボードに保存\n切り取り"
+	ID_EDIT_FIND            "指定した文字列の検索\n検索"
+	ID_EDIT_PASTE           "クリップボードの内容を貼り付け\n貼り付け"
+	ID_EDIT_REPEAT          "直前に行った動作を繰り返す\n繰り返し"
+	ID_EDIT_REPLACE         "指定した文字列を他の文字列で置換\n置換"
+	ID_EDIT_SELECT_ALL      "ファイル内のすべてを選択\nすべて選択"
+	ID_EDIT_UNDO            "直前に行った動作を元に戻す\n元に戻す"
+	ID_EDIT_REDO            "取り消した操作をやり直す\nやり直す"
+END
+
+STRINGTABLE  
+BEGIN
+	AFX_IDS_SCSIZE          "ウィンドウのサイズを変更"
+	AFX_IDS_SCMOVE          "ウィンドウの位置を変更"
+	AFX_IDS_SCMINIMIZE      "ウィンドウを最小化する"
+	AFX_IDS_SCMAXIMIZE      "ウィンドウを最大化する"
+	AFX_IDS_SCNEXTWINDOW    "次のウィンドウに切り替える"
+	AFX_IDS_SCPREVWINDOW    "前のウィンドウに切り替える"
+	AFX_IDS_SCCLOSE         "作業中のウィンドウを閉じ、変更したファイルの保存を指示"
+	AFX_IDS_SCRESTORE       "ウィンドウを通常のサイズに戻す"
+	AFX_IDS_SCTASKLIST      "タスク一覧をアクティブにする"
+END
+
+#endif
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE 3 リソースから生成されました。
+//
+
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE 17, 1
+#pragma code_page(932)
+#include "res\\CWinApp_.rc2"  // Microsoft Visual C++ 以外で編集されたリソース
+#include "afxres.rc"  	// 標準コンポーネント
+#endif
+#endif    // not APSTUDIO_INVOKED
