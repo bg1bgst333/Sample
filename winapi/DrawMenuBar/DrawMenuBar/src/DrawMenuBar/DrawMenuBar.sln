@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DrawMenuBar", "DrawMenuBar\DrawMenuBar.vcproj", "{42C0C964-4BBF-4F95-936E-C70C3106A8A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42C0C964-4BBF-4F95-936E-C70C3106A8A6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{42C0C964-4BBF-4F95-936E-C70C3106A8A6}.Debug|Win32.Build.0 = Debug|Win32
+		{42C0C964-4BBF-4F95-936E-C70C3106A8A6}.Release|Win32.ActiveCfg = Release|Win32
+		{42C0C964-4BBF-4F95-936E-C70C3106A8A6}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
