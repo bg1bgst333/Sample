@@ -1,0 +1,11 @@
+#include "resource.h"
+
+IDR_POPUPMENU MENU
+BEGIN
+	POPUP "Item1(&A)"
+	BEGIN
+		MENUITEM "Item1-1(&B)",	ID_ITEM_1_1
+		MENUITEM "Item1-2(&C)", ID_ITEM_1_2
+		MENUITEM "Item1-3(&D)", ID_ITEM_1_3
+	END
+END
