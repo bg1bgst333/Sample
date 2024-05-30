@@ -1,0 +1,12 @@
+#include "resource.h"
+
+IDM_MAINMENU MENU
+BEGIN
+	POPUP "Item1"
+	BEGIN
+		MENUITEM "Item1-1(&A)",	ID_ITEM_1_1
+		MENUITEM "Item1-2(&B)",	ID_ITEM_1_2
+		MENUITEM "Item1-3(&C)", ID_ITEM_1_3
+		MENUITEM "Item1-4(&D)", ID_ITEM_1_4
+	END
+END
