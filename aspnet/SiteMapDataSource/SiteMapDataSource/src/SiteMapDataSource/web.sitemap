@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<siteMap>
+    <siteMapNode title="Top" description="TopPage" url="index.aspx">
+        <siteMapNode title="One" description="Page1" url="page1.aspx">
+        </siteMapNode>
+        <siteMapNode title="Two" description="Page2" url="page2.aspx">
+            <siteMapNode title="TwoOne" description="Page2_1" url="page2_1.aspx">
+            </siteMapNode>
+        </siteMapNode>
+    </siteMapNode>
+</siteMap>
