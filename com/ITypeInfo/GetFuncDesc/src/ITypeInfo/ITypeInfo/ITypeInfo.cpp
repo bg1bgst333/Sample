@@ -104,7 +104,7 @@ int _tmain(int argc, TCHAR *argv[]) {	// mainŠÖ”‚ÌTCHAR”Å.
 	// ŠeFUNCDESC‚ğæ“¾.
 	for (int i = 0; i < pTypeAttr->cFuncs; i++) {	// pTypeAttr->cFuncs‚Ì”‚¾‚¯ŒJ‚è•Ô‚·.
 		pTypeInfo->GetFuncDesc(i, &pFuncDesc);	// ITypeInfo::GetFuncDesc‚ÅFUNCDESC‚ğæ“¾.
-		_tprintf(_T("pFuncDesc = 0x%08x\n"), (unsigned long)pFuncDesc);	// pFuncDesc‚ğo—Í.
+		_tprintf(_T("pFuncDesc->memid = %d\n"), pFuncDesc->memid);	// pFuncDesc->memid‚ğo—Í.
 		pTypeInfo->ReleaseFuncDesc(pFuncDesc);	// ITypeInfo::ReleaseFuncDesc‚Å‰ğ•ú.
 	}
 
