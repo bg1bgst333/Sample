@@ -33,7 +33,7 @@ int _tmain(int argc, TCHAR *argv[]) {	// main関数のTCHAR版.
 	_tprintf(_T("pTypeLib = 0x%08x\n"), (unsigned long)pTypeLib);	// pTypeLibを出力.
 
 	// ITypeInfoポインタの数を取得.
-	int nCount = pTypeLib->GetTypeInfoCount();	// ITypeInfo::GetTypeInfoCountでITypeInfoポインタの数を取得.
+	int nCount = pTypeLib->GetTypeInfoCount();	// ITypeLib::GetTypeInfoCountでITypeInfoポインタの数を取得.
 	_tprintf(_T("nCount = %d\n"), nCount);	// nCountを出力.
 
 	// pTypeLibの解放.
