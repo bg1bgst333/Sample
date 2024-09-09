@@ -37,6 +37,7 @@ int _tmain(int argc, TCHAR *argv[]) {	// main関数のTCHAR版.
 	hr = pTypeLib->GetTypeInfo(0, &pTypeInfo);	// ITypeLib::GetTypeInfoでITypeInfoポインタを取得.
 	if (FAILED(hr)) {	// 失敗.
 		_tprintf(_T("ITypeLib::GetTypeInfo NG!\n"));	// "ITypeLib::GetTypeInfo NG!"と出力.
+		pTypeLib->Release();
 		CoUninitialize();	// CoUninitializeで終了処理.
 		return -3;	// -3を返して終了.
 	}
