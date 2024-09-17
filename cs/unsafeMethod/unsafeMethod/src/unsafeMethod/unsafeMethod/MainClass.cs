@@ -12,11 +12,14 @@ class MainClass // MainClassクラスの定義
     }
 
     // アンセーフメソッド
-    unsafe void UnsafeMethod()
+    unsafe static void UnsafeMethod()
     {
 
         // int型nをi23で初期化.
         int n = 123;
+
+        // nを出力.
+        System.Console.WriteLine("n = " + n);
 
         // int型ポインタpをnのアドレスで初期化.
         int* p = &n;
