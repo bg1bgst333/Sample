@@ -1,0 +1,41 @@
+// 二重インクルード防止
+#ifndef __EXCEL__WORKBOOKS_H__
+#define __EXCEL__WORKBOOKS_H__
+
+// ヘッダのインクルード
+// 独自のヘッダ
+#include "Workbook.h"		// Excel::CWorkbook
+
+// 名前空間Excelの定義
+namespace Excel {
+
+	// ワークブックスクラスCWorkbooksの定義
+	class CWorkbooks {
+
+		// privateメンバ
+		private:
+
+			// privateメンバ変数
+			IDispatch *m_pDispatch;	// IDispatchポインタm_pDispatch.
+
+			// privateメンバ関数
+			// コンストラクタ
+			CWorkbooks();	// コンストラクタCWorkbooks(newで生成不可.)
+
+		// publicメンバ
+		public:
+
+			// publicメンバ関数
+			// コンストラクタ
+			CWorkbooks(IDispatch *pDispatch);	// 引数付きコンストラクタ.(IDispatchポインタpDispatchを受け取る.)
+			// デストラクタ
+			virtual ~CWorkbooks();	// デストラクタ~CWorkbooks
+			// メンバ関数
+			CWorkbook * Add();	// Workbookの追加.
+			CWorkbook * Open(LPCTSTR lpctszFileName);	// 指定のWorkbookを開く.
+
+	};
+
+}
+
+#endif
