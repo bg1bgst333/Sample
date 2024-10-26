@@ -11,10 +11,7 @@ class MainClass // MainClassクラスの定義
     {
 
         // StringBuilderオブジェクト作成.
-        StringBuilder sb = new StringBuilder(); // StringBuilderオブジェクトをsbに格納.
-
-        // 文字列の追加.
-        sb.Append("あいうえお");    // StringBuilder.Appendで"あいうえお"を追加.
+        StringBuilder sb = new StringBuilder("あいうえお"); // StringBuilderオブジェクトをsbに格納.(コンストラクタに"あいうえお"を指定.)
 
         // StringBuilderの出力.
         System.Console.WriteLine(sb.ToString());    // StringBuilder.ToStringで取得した文字列を出力.
