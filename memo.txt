@@ -1,0 +1,14 @@
+Sample
+
+C#
+
+キャスト演算子でキャストできる例とキャストできない例
+	.NET Framework/Convert
+
+.NET Framework
+
+Int32
+String
+Single
+
+
