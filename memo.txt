@@ -8,6 +8,7 @@ C#
 .NET Framework
 
 Int32
+Int64
 String
 Single
 
