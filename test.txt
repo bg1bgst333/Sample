@@ -1,4 +1,0 @@
-ABCDE
-XYZ
-END
-re
