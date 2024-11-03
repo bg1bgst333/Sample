@@ -1,15 +1,50 @@
 Sample
 
-C#
+	WindowsAPI
 
-キャスト演算子でキャストできる例とキャストできない例
-	.NET Framework/Convert
+		前回はLB_INSERTSTRING
 
-.NET Framework
+		ListView
+		TreeView
 
-Int32
-Int64
-String
-Single
+	COM
 
+		前回はITypeLib::GetDocumentation
 
+		通知とか
+		OutlookExpressとかやりたいけどXPと資料・・・。
+
+	Officeオートメーション
+
+		前回はWorkbook.Saved#put
+
+		Close
+		Save
+
+	C#
+
+		最近の型以外だと、unsafeやってた・・・。
+		あ、Marshalか・・・。
+
+	.NET Framework
+
+		Convertまで完了
+
+		Marshalこっちだ・・・。
+		まずOutとか
+
+		Int32
+		String
+		Convert
+
+	ASP.NET
+
+		前回はSiteMapDataSource
+
+		プロバイダとか
+
+	ASP.NET MVC
+
+		前回はHtmlHelper.Encode
+
+		インジェクション起きにくいという話
