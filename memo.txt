@@ -3,6 +3,7 @@ Sample
 	WindowsAPI
 
 		前回はLB_INSERTSTRING
+		LBってリストボックスだったわ・・・。
 
 		ListView
 		TreeView
