@@ -8,6 +8,8 @@ Sample
 		ListView
 		TreeView
 
+		Aoi32やMFCやTestでやってるCheckMenu系をSampleのWindowsAPIではやってない
+
 	COM
 
 		前回はITypeLib::GetDocumentation
