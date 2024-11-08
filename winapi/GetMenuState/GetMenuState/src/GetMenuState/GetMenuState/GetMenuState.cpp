@@ -169,9 +169,9 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 						// ID_ITEM_1_2ブロック
 						{
 
-							// 無効なら有効に, 有効なら.
+							// 無効なら有効に, 有効なら無効に.
 							UINT uiRet = GetMenuState(GetMenu(hwnd), ID_ITEM_1_1, MF_BYCOMMAND);	// GetMenuStateでID_ITEM_1_1の有効無効を取得.
-							if (uiRet == MF_DISABLED){	// 無効.
+							if (uiRet & MF_DISABLED){	// 無効.
 								EnableMenuItem(GetMenu(hwnd), ID_ITEM_1_1, MF_ENABLED);
 							}
 							else{	// 有効.
@@ -200,6 +200,15 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 						// ID_ITEM_2_1ブロック
 						{
 
+							// チェックありなら外す, チェックなしならつける.
+							UINT uiRet = GetMenuState(GetMenu(hwnd), ID_ITEM_2_1, MF_BYCOMMAND);	// GetMenuStateでID_ITEM_2_1のチェック状態を取得.
+							if (uiRet & MF_CHECKED){	// チェックありなら外す.
+								CheckMenuItem(GetMenu(hwnd), ID_ITEM_2_1, MF_BYCOMMAND | MF_UNCHECKED);
+							}
+							else{	// チェックなしならつける.
+								CheckMenuItem(GetMenu(hwnd), ID_ITEM_2_1, MF_BYCOMMAND | MF_CHECKED);
+							}
+
 						}
 
 						// 既定の処理へ向かう.
@@ -211,9 +220,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 						// ID_ITEM_2_2ブロック
 						{
 
-							// Item2-1にチェックを入れる.
-							CheckMenuItem(GetMenu(hwnd), ID_ITEM_2_1, MF_BYCOMMAND | MF_CHECKED);	// CheckMenuItemでID_ITEM_2_1にチェック.
-
 						}
 
 						// 既定の処理へ向かう.
@@ -224,9 +230,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 
 						// ID_ITEM_2_3ブロック
 						{
-
-							// Item2-1からチェックを外す.
-							CheckMenuItem(GetMenu(hwnd), ID_ITEM_2_1, MF_BYCOMMAND | MF_UNCHECKED);	// CheckMenuItemでID_ITEM_2_1からチェックを外す.
 
 						}
 
