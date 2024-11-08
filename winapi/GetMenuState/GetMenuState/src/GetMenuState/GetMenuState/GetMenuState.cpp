@@ -220,6 +220,23 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 						// ID_ITEM_2_2ブロック
 						{
 
+							// Item3のサブメニューラジオ項目のうち, どれが選択されているか判定.
+							UINT uiRet1 = GetMenuState(GetMenu(hwnd), ID_ITEM_3_1, MF_BYCOMMAND);	// GetMenuStateでID_ITEM_3_1の選択状態を取得.
+							UINT uiRet2 = GetMenuState(GetMenu(hwnd), ID_ITEM_3_2, MF_BYCOMMAND);	// GetMenuStateでID_ITEM_3_2の選択状態を取得.
+							UINT uiRet3 = GetMenuState(GetMenu(hwnd), ID_ITEM_3_3, MF_BYCOMMAND);	// GetMenuStateでID_ITEM_3_3の選択状態を取得.
+							if (uiRet1 & MF_CHECKED){	// ID_ITEM_3_1
+								MessageBox(hwnd, _T("ID_ITEM_3_1"), _T("GetMenuState"), MB_OK);
+							}
+							else if (uiRet2 & MF_CHECKED){	// ID_ITEM_3_2
+								MessageBox(hwnd, _T("ID_ITEM_3_2"), _T("GetMenuState"), MB_OK);
+							}
+							else if (uiRet3 & MF_CHECKED){	// ID_ITEM_3_3
+								MessageBox(hwnd, _T("ID_ITEM_3_3"), _T("GetMenuState"), MB_OK);
+							}
+							else{	// 未選択.
+								MessageBox(hwnd, _T("MF_UNCHECKED"), _T("GetMenuState"), MB_OK);
+							}
+
 						}
 
 						// 既定の処理へ向かう.
