@@ -1,13 +1,13 @@
 #!/usr/bin/ruby
 
-# 1$B$+$i(B3$B$^$G$N(BRange$B%*%V%8%'%/%H(Brange$B$N@8@.(B.
+# 1から3までのRangeオブジェクトrangeの生成.
 range = Range.new(1, 3)
 
-# for$BJ8$G(Brange$B$r;H$&(B.
+# for文でrangeを使う.
 for e in range do
   puts e
 end
 
-# range$B$r$=$N$^$^=PNO(B.
+# rangeをそのまま出力.
 puts range
 
