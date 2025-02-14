@@ -1,6 +1,7 @@
 # CustomModule
 package CustomModule;
 use Exporter;
+use Carp;
 @ISA = qw/Exporter/;
 @EXPORT = qw/testfunc/;
 
@@ -14,7 +15,7 @@ sub testfunc{
 
   print "test1\n";
   print "test2\n";
-  die "func exception";
+  croak "func exception";
 
 }
 
