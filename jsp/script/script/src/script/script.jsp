@@ -1,0 +1,10 @@
+<html>
+  <head>
+    <title>script</title>
+  </head>
+  <body>
+    <%
+      out.println("ABCDE");
+    %>
+  </body>
+</html>
