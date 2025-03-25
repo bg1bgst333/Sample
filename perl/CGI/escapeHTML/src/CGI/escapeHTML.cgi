@@ -17,9 +17,9 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST'){ # 'POST'の時.
   
   # パラメータの取得と表示.
   my $user = $q->param('textfield1'); # 入力されたuserが返ってくる.
-  print "user: ".$user.$q->br."\n"; # 入力されたuserを出力.
+  print "user: ".$q->escapeHTML($user).$q->br."\n"; # 入力されたuserをエスケープして出力.
   my $pass = $q->param('password_field1'); # 入力されたpassが返ってくる.
-  print "pass: ".$pass.$q->br."\n"; # 入力されたpassを出力.
+  print "pass: ".$q->escapeHTML($pass).$q->br."\n"; # 入力されたpassをエスケープして出力.
   my $token = $q->param('token'); # tokenが返ってくる.
   print "token: ".$token.$q->br."\n"; # tokenを出力.
  
