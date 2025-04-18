@@ -1,0 +1,9 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "Enable(&E)"
+	BEGIN
+		MENUITEM "Enable Button(&B)",	ID_ITEM_ENABLE_BUTTON
+	END
+END
