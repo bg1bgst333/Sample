@@ -1,0 +1,10 @@
+#include "resource.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "Status Bar(&B)"
+	BEGIN
+		MENUITEM "Set Text(&T)",	ID_ITEM_SETTEXT
+		MENUITEM "Set Simple(&S)",	ID_ITEM_SETSIMPLE
+	END
+END
