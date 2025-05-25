@@ -1,0 +1,6 @@
+#define IDR_MAINMENU			101
+#define ID_ITEM_SETTEXT			10101
+#define ID_STATUS			201
+#define ID_TOOLBAR1			301
+#define IDM_ZERO			30101
+#define IDB_BITMAP1			401
