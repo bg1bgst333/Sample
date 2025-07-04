@@ -1,0 +1,14 @@
+#include "resource.h"
+#include "winres.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "Status Bar(&S)"
+	BEGIN
+		MENUITEM "Set Text(&T)",	ID_ITEM_SETTEXT
+		MENUITEM "Add Buttons(&B)",	ID_ITEM_ADDBUTTONS
+	END
+END
+
+IDB_BITMAP1	BITMAP	"toolbar1.bmp"
+IDB_BITMAP2	BITMAP	"toolbar2.bmp"
