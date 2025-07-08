@@ -1,0 +1,12 @@
+#include "resource.h"
+#include "winres.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "Color"
+	BEGIN
+		MENUITEM "Choose Color(&C)...",	ID_COLOR_CHOOSE
+	END
+END
+
+IDB_BITMAP1	BITMAP	"toolbar1.bmp"
