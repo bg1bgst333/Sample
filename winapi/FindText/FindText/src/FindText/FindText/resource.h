@@ -1,0 +1,3 @@
+#define IDR_MAINMENU			101
+#define ID_FONT_CHOOSE			10101
+#define ID_SEACH_DIALOG			10111
