@@ -81,12 +81,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 		return 0;	// 0を返す.
 	}
 
-	// 登録済みメッセージが来た場合.
-	if (uMsg == uMessage && !(fr.Flags & FR_DIALOGTERM)){	// FR_DIALOGTERMじゃない時.	
-		MessageBox(hwnd, tszFind, _T("FINDREPLACE"), MB_OK);
-		return 0;	// 0を返す.
-	}
-
 	// ウィンドウメッセージに対する処理.
 	switch (uMsg){	// uMsgごとに処理振り分け.
 
