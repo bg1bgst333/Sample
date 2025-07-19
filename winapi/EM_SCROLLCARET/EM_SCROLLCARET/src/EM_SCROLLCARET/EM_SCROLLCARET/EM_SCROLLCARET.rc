@@ -1,0 +1,16 @@
+#include "resource.h"
+#include "winres.h"
+
+IDR_MAINMENU MENU
+BEGIN
+	POPUP "Font"
+	BEGIN
+		MENUITEM "Choose Font(&F)...",	ID_FONT_CHOOSE
+	END
+	POPUP "Search"
+	BEGIN
+		MENUITEM "Search Dialog(&S)...",	ID_SEACH_DIALOG
+		MENUITEM "Replace Dialog(&R)...",	ID_REPLACE_DIALOG
+	END
+END
+
