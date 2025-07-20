@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageList_AddIcon", "ImageList_AddIcon\ImageList_AddIcon.vcproj", "{E0798DC8-1FED-4BAB-940F-07A574E492BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0798DC8-1FED-4BAB-940F-07A574E492BE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E0798DC8-1FED-4BAB-940F-07A574E492BE}.Debug|Win32.Build.0 = Debug|Win32
+		{E0798DC8-1FED-4BAB-940F-07A574E492BE}.Release|Win32.ActiveCfg = Release|Win32
+		{E0798DC8-1FED-4BAB-940F-07A574E492BE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
