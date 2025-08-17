@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="output"><source path="C:\Users\bg1\.android\build-cache\8e59dff95717412107a20af1148455a20e804c1d\output\assets"/></dataSet><dataSet config="main"><source path="C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\main\assets"/><source path="C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Project\Cloud\github.com\Sample\ndk\native\NTV\NTV_\app\src\debug\assets"/></dataSet></merger>

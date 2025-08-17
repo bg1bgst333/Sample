@@ -1,7 +1,0 @@
-#Sun Sep 17 19:46:19 JST 2017
-base.0=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\constraint-layout-solver-1.0.0-alpha9_bc18183747b888161adc02e21357302665892f22
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_7ccd0406a91a7d0e86045e4da7388115e9055376\\classes.dex
-base.1=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_7ccd0406a91a7d0e86045e4da7388115e9055376
-file.0=C\:\\Project\\Cloud\\github.com\\Sample\\ndk\\native\\NTV\\NTV_\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\constraint-layout-solver-1.0.0-alpha9_bc18183747b888161adc02e21357302665892f22\\classes.dex
