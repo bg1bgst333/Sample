@@ -1,2 +1,12 @@
+# Maven
 /target/
 *.war
+*.ear
+*.class
+
+# IDE
+.idea/
+*.iml
+.classpath
+.project
+.settings/
