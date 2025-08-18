@@ -1,0 +1,30 @@
+<project name="ActionSample" default="compile" basedir=".">
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build/WEB-INF/classes"/>
+
+    <path id="classpath">
+        <fileset dir="WebContent/WEB-INF/lib">
+            <include name="**/*.jar"/>
+        </fileset>
+        <pathelement location="/usr/share/java/tomcat-servlet-api.jar"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath" includeantruntime="false"/>
+    </target>
+
+    <target name="war" depends="compile">
+        <mkdir dir="dist"/>
+        <war destfile="dist/Action.war" webxml="WebContent/WEB-INF/web.xml">
+            <fileset dir="WebContent"/>
+            <classes dir="${build.dir}"/>
+            <lib dir="WebContent/WEB-INF/lib"/>
+        </war>
+    </target>
+</project>
+

@@ -1,0 +1,10 @@
+<struts-config>
+  <action-mappings>
+    <action path="/main"
+            type="com.bgstation0.struts.sample.action.MainAction"
+            scope="request">
+      <forward name="success" path="/index.jsp"/>
+    </action>
+  </action-mappings>
+</struts-config>
+
