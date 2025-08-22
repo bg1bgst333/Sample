@@ -1,0 +1,36 @@
+<project name="ActionForward" default="war" basedir=".">
+  <property name="src.dir" value="src"/>
+  <property name="web.dir" value="WebContent"/>
+  <property name="build.dir" value="build"/>
+  <property name="dist.dir" value="dist"/>
+
+  <path id="classpath">
+    <fileset dir="WebContent/WEB-INF/lib">
+      <include name="**/*.jar"/>
+    </fileset>
+    <pathelement location="/usr/share/java/tomcat-servlet-api.jar"/>
+  </path>
+
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+
+  <target name="compile">
+    <mkdir dir="${build.dir}/WEB-INF/classes"/>
+    <javac srcdir="${src.dir}" destdir="${build.dir}/WEB-INF/classes" classpathref="classpath"/>
+  </target>
+
+  <target name="copy-web">
+    <copy todir="${build.dir}">
+      <fileset dir="${web.dir}"/>
+    </copy>
+  </target>
+
+  <target name="war" depends="clean,compile,copy-web">
+    <mkdir dir="${dist.dir}"/>
+    <war destfile="${dist.dir}/ActionForward.war" webxml="${build.dir}/WEB-INF/web.xml">
+      <fileset dir="${build.dir}"/>
+    </war>
+  </target>
+</project>
