@@ -1,0 +1,10 @@
+<struts-config>
+    <action-mappings>
+        <action path="/main"
+               type="actionforward.MainAction"
+               scope="request"
+               input="/index.jsp">
+            <forward name="success" path="/index.jsp"/>
+        </action>
+    </action-mappings>
+</struts-config>
