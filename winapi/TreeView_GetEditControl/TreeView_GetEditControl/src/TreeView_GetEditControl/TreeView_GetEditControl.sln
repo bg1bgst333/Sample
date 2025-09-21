@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TreeView_GetEditControl", "TreeView_GetEditControl\TreeView_GetEditControl.vcproj", "{767CF5E3-319D-4B33-9A37-73538C088D33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{767CF5E3-319D-4B33-9A37-73538C088D33}.Debug|Win32.ActiveCfg = Debug|Win32
+		{767CF5E3-319D-4B33-9A37-73538C088D33}.Debug|Win32.Build.0 = Debug|Win32
+		{767CF5E3-319D-4B33-9A37-73538C088D33}.Release|Win32.ActiveCfg = Release|Win32
+		{767CF5E3-319D-4B33-9A37-73538C088D33}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
