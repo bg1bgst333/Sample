@@ -467,22 +467,22 @@ INT_PTR CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 
 				// 変数・構造体の宣言
 				HWND hList;					// リストビューのハンドルhList.
-				TV_HITTESTINFO tvhti;	// TV_HITTESTINFO構造体tvhti.
+				LV_HITTESTINFO lvhti;	// LV_HITTESTINFO構造体lvhti.
 
 				// リストビューのハンドルを取得.
 				hList = GetDlgItem(hwndDlg, IDC_LIST1);	// GetDlgItemでIDC_LIST1のハンドル取得.
 
 				// スクリーン座標の取得と出力.
-				tvhti.pt.x = LOWORD(lParam);
-				tvhti.pt.y = HIWORD(lParam);
+				lvhti.pt.x = LOWORD(lParam);
+				lvhti.pt.y = HIWORD(lParam);
 				TCHAR tszScreenXY[256] = {0};
-				_stprintf(tszScreenXY, _T("Screen: x = %d, y = %d\n"), tvhti.pt.x, tvhti.pt.y);
+				_stprintf(tszScreenXY, _T("Screen: x = %d, y = %d\n"), lvhti.pt.x, lvhti.pt.y);
 				OutputDebugString(tszScreenXY);
 
 				// スクリーン座標からクライアント座標への変換と出力.
-				ScreenToClient(hList, &tvhti.pt);	// ScreenToClientで座標変換.
+				ScreenToClient(hList, &lvhti.pt);	// ScreenToClientで座標変換.
 				TCHAR tszClientXY[256] = {0};
-				_stprintf(tszClientXY, _T("Client: x = %d, y = %d\n"), tvhti.pt.x, tvhti.pt.y);
+				_stprintf(tszClientXY, _T("Client: x = %d, y = %d\n"), lvhti.pt.x, lvhti.pt.y);
 				OutputDebugString(tszClientXY);
 
 			}
