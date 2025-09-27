@@ -466,13 +466,13 @@ INT_PTR CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 			{
 
 				// 構造体の宣言
-				TV_HITTESTINFO tvhti;	// TV_HITTESTINFO構造体tvhti.
+				LV_HITTESTINFO lvhti;	// LV_HITTESTINFO構造体lvhti.
 
-				// スクリーン座標の取得と出力..
-				tvhti.pt.x = LOWORD(lParam);
-				tvhti.pt.y = HIWORD(lParam);
+				// スクリーン座標の取得と出力.
+				lvhti.pt.x = LOWORD(lParam);
+				lvhti.pt.y = HIWORD(lParam);
 				TCHAR tszScreenXY[256] = {0};
-				_stprintf(tszScreenXY, _T("Screen: x = %d, y = %d\n"), tvhti.pt.x, tvhti.pt.y);
+				_stprintf(tszScreenXY, _T("Screen: x = %d, y = %d\n"), lvhti.pt.x, lvhti.pt.y);
 				OutputDebugString(tszScreenXY);
 
 			}
