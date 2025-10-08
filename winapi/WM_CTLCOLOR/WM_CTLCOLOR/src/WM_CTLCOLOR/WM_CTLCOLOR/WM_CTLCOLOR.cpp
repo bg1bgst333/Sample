@@ -260,7 +260,7 @@ INT_PTR CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 				HWND hEdit1 = GetDlgItem(hwndDlg, IDC_EDIT1);
 				
 				// îªíË
-				if (hwndCtrl == hEdit1){	// IDC_BUTTON1
+				if (hwndCtrl == hEdit1){	// IDC_EDIT1
 					SetBkColor(hDC, RGB(0, 0, 255));	// ê¬
 					SetTextColor(hDC, RGB(255, 255, 255));	// îí
 					return (INT_PTR)hbrEditBackground;	// ê¬ÇÃÉuÉâÉVÇï‘Ç∑.
