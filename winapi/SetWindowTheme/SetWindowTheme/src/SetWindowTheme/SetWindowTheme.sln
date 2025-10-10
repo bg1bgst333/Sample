@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SetWindowTheme", "SetWindowTheme\SetWindowTheme.vcproj", "{0DF355C9-B634-4E09-A89B-1781BB43E0CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DF355C9-B634-4E09-A89B-1781BB43E0CA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0DF355C9-B634-4E09-A89B-1781BB43E0CA}.Debug|Win32.Build.0 = Debug|Win32
+		{0DF355C9-B634-4E09-A89B-1781BB43E0CA}.Release|Win32.ActiveCfg = Release|Win32
+		{0DF355C9-B634-4E09-A89B-1781BB43E0CA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
