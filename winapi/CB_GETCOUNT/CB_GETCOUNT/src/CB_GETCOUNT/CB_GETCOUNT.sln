@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CB_GETCOUNT", "CB_GETCOUNT\CB_GETCOUNT.vcproj", "{C2FCFCC2-1D4D-45EE-97C8-D5B07A0CA0B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2FCFCC2-1D4D-45EE-97C8-D5B07A0CA0B1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C2FCFCC2-1D4D-45EE-97C8-D5B07A0CA0B1}.Debug|Win32.Build.0 = Debug|Win32
+		{C2FCFCC2-1D4D-45EE-97C8-D5B07A0CA0B1}.Release|Win32.ActiveCfg = Release|Win32
+		{C2FCFCC2-1D4D-45EE-97C8-D5B07A0CA0B1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
