@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GET_X_LPARAM", "GET_X_LPARAM\GET_X_LPARAM.vcproj", "{EEDA06D1-BD60-4BA2-9821-45BD8AC700BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEDA06D1-BD60-4BA2-9821-45BD8AC700BB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EEDA06D1-BD60-4BA2-9821-45BD8AC700BB}.Debug|Win32.Build.0 = Debug|Win32
+		{EEDA06D1-BD60-4BA2-9821-45BD8AC700BB}.Release|Win32.ActiveCfg = Release|Win32
+		{EEDA06D1-BD60-4BA2-9821-45BD8AC700BB}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
