@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LVHITTESTINFO", "LVHITTESTINFO\LVHITTESTINFO.vcproj", "{D3460F0C-4D5D-414B-8A83-6B8DF34A319A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3460F0C-4D5D-414B-8A83-6B8DF34A319A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D3460F0C-4D5D-414B-8A83-6B8DF34A319A}.Debug|Win32.Build.0 = Debug|Win32
+		{D3460F0C-4D5D-414B-8A83-6B8DF34A319A}.Release|Win32.ActiveCfg = Release|Win32
+		{D3460F0C-4D5D-414B-8A83-6B8DF34A319A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
