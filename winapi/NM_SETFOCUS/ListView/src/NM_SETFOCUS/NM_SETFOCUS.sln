@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NM_SETFOCUS", "NM_SETFOCUS\NM_SETFOCUS.vcproj", "{1A0D553D-996C-4619-818F-2D3C42A11F93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A0D553D-996C-4619-818F-2D3C42A11F93}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1A0D553D-996C-4619-818F-2D3C42A11F93}.Debug|Win32.Build.0 = Debug|Win32
+		{1A0D553D-996C-4619-818F-2D3C42A11F93}.Release|Win32.ActiveCfg = Release|Win32
+		{1A0D553D-996C-4619-818F-2D3C42A11F93}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
