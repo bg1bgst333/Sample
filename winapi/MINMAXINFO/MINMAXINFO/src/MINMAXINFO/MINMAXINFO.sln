@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MINMAXINFO", "MINMAXINFO\MINMAXINFO.vcproj", "{15FB8057-2B86-4DAC-BF9B-6FF3244A09DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15FB8057-2B86-4DAC-BF9B-6FF3244A09DF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{15FB8057-2B86-4DAC-BF9B-6FF3244A09DF}.Debug|Win32.Build.0 = Debug|Win32
+		{15FB8057-2B86-4DAC-BF9B-6FF3244A09DF}.Release|Win32.ActiveCfg = Release|Win32
+		{15FB8057-2B86-4DAC-BF9B-6FF3244A09DF}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
