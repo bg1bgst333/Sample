@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>finally</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // Custom Error
+      try {
+        throw new Error("Custom Error!");
+      }
+      catch(e) {
+        window.alert(e.message);
+      }
+      finally {
+        window.alert("finally 1");
+      }
+      // No Error
+      try {
+	window.alert("No Error!");
+      }
+      catch(e) {
+        window.alert(e.message);
+      }
+      finally {
+        window.alert("finally 2");
+      }
+    </script>
+  </body>
+</html>
