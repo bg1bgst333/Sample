@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Function#call</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function greet() {
+        window.alert(this.name);
+      }
+      var p1 = { name: "Taro" };
+      var p2 = { name: "Jiro" };
+      greet.call(p1);
+      greet.call(p2);
+    </script>
+  </body>
+</html>
