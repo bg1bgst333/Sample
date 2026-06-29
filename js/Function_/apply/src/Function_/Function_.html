@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>Function#apply</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function greet(str1, str2) {
+        window.alert(str1 + ", " + str2 + this.name + ".");
+      }
+      var p = { name: "Taro" };
+      greet.apply(p, ["Hello", "Mr."]);
+    </script>
+  </body>
+</html>
