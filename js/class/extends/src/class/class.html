@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>class#extends</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Animal {
+        constructor(name) {
+          this.name = name;
+        }
+        greet() {
+          window.alert("I am " + this.name + ".");
+        }
+      }
+      class Dog extends Animal {
+      }
+      var d = new Dog("Hachi");
+      d.greet();
+    </script>
+  </body>
+</html>
