@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>class#field</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Animal {
+        name = "(None Name)";
+        breed = "(None Breed)";
+        constructor(name, breed) {
+          window.alert(this.name);
+          window.alert(this.breed);   
+          this.name = name;
+          this.breed = breed;
+        }
+      }
+      var a = new Animal("Hachi", "Akita");
+      window.alert("name: " + a.name);
+      window.alert("breed: " + a.breed);
+    </script>
+  </body>
+</html>
