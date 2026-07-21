@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>class#private_field</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Animal {
+        #name;
+        #breed;
+        constructor(name, breed) {
+          this.#name = name;
+          this.#breed = breed;
+        }
+        greet() {
+          window.alert("name: " + this.#name);
+          window.alert("breed: " + this.#breed);
+        }
+      }
+      var a = new Animal("Hachi", "Akita");
+      a.greet();
+    </script>
+  </body>
+</html>
