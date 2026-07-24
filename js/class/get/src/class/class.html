@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>class#get</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Animal {
+        #name;
+        constructor(name) {
+          this.#name = name;
+        }
+        get name() {
+          return this.#name;
+        }
+      }
+      var a = new Animal("Hachi");
+      window.alert(a.name);
+    </script>
+  </body>
+</html>
