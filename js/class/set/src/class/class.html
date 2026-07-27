@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>class#set</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Animal {
+        #name;
+        constructor(name) {
+          this.#name = name;
+        }
+        get name() {
+          return this.#name;
+        }
+        set name(value) {
+          this.#name = value;
+        }
+      }
+      var a = new Animal("Hachi");
+      window.alert(a.name);
+      a.name = "Tama";
+      window.alert(a.name);
+    </script>
+  </body>
+</html>
