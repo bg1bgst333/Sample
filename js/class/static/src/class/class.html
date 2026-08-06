@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>class#static</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Animal {
+        static count = 0;
+        constructor(name) {
+          this.name = name;
+          Animal.count++;
+        }
+        static getCount() {
+          window.alert("count: " + Animal.count);
+        }
+      }
+      var a1 = new Animal("Hachi");
+      var a2 = new Animal("Tama");
+      Animal.getCount();
+    </script>
+  </body>
+</html>

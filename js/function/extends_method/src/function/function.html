@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>function#extends_method</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Animal(name) {
+        this.name = name;
+      }
+      Animal.prototype.greet = function() {
+        window.alert("I am " + this.name + ".");
+      };
+      function Dog(name) {
+        Animal.call(this, name);
+      }
+      Dog.prototype = Object.create(Animal.prototype);
+      var d = new Dog("Hachi");
+      d.greet();
+    </script>
+  </body>
+</html>

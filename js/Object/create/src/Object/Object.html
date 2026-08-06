@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Object.create</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var animal = {
+        greet: function() {
+          window.alert("I am " + this.name + ".");
+        }
+      };
+      var p = Object.create(animal);
+      p.name = "Hachi";
+      p.greet();
+    </script>
+  </body>
+</html>

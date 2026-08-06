@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Function#bind</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function greet() {
+        window.alert(this.name);
+      }
+      var p = { name: "Taro" };
+      var boundGreet = greet.bind(p);
+      boundGreet();
+    </script>
+  </body>
+</html>

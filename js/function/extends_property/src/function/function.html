@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>function#extends_property</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Animal(name) {
+        this.name = name;
+      }
+      function Dog(name) {
+        Animal.call(this, name);
+      }
+      var d = new Dog("Hachi");
+      window.alert(d.name);
+    </script>
+  </body>
+</html>

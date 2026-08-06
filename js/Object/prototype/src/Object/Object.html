@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Object.prototype</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Person(name) {
+        this.name = name;
+      }
+      Object.prototype.greet = function() {
+        window.alert("Hello! This is " + this.name + ".");
+      };
+      var p = new Person("Taro");
+      p.greet();
+    </script>
+  </body>
+</html>

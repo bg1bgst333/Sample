@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Function#prototype</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Person(name) {
+        this.name = name;
+        this.greet = function(){
+        };
+      }
+      Person.prototype.greet2 = function(){
+      };
+      var p1 = new Person("Taro");
+      var p2 = new Person("Jiro");
+      window.alert(p1.greet === p2.greet);
+      window.alert(p1.greet2 === p2.greet2);
+    </script>
+  </body>
+</html>
