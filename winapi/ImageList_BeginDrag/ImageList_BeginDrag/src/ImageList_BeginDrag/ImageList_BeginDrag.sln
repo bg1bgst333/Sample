@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageList_BeginDrag", "ImageList_BeginDrag\ImageList_BeginDrag.vcproj", "{D3F8A921-4C67-4E9B-B234-7A1E5C890D43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3F8A921-4C67-4E9B-B234-7A1E5C890D43}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D3F8A921-4C67-4E9B-B234-7A1E5C890D43}.Debug|Win32.Build.0 = Debug|Win32
+		{D3F8A921-4C67-4E9B-B234-7A1E5C890D43}.Release|Win32.ActiveCfg = Release|Win32
+		{D3F8A921-4C67-4E9B-B234-7A1E5C890D43}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
