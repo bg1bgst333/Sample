@@ -203,6 +203,3 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);	// –ß‚è’l‚à‚Ü‚Æ‚ß‚ÄDefWindowProc‚ÉŠù’è‚Ìˆ—‚ğ”C‚¹‚é.
 
 }
-nd, uMsg, wParam, lParam);	// –ß‚è’l‚à‚Ü‚Æ‚ß‚ÄDefWindowProc‚ÉŠù’è‚Ìˆ—‚ğ”C‚¹‚é.
-
-}
