@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IEnumFORMATETC", "IEnumFORMATETC\IEnumFORMATETC.vcproj", "{3A472ADA-B991-472F-9ACF-E2F42FE707D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A472ADA-B991-472F-9ACF-E2F42FE707D4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3A472ADA-B991-472F-9ACF-E2F42FE707D4}.Debug|Win32.Build.0 = Debug|Win32
+		{3A472ADA-B991-472F-9ACF-E2F42FE707D4}.Release|Win32.ActiveCfg = Release|Win32
+		{3A472ADA-B991-472F-9ACF-E2F42FE707D4}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
