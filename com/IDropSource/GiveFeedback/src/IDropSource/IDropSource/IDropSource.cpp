@@ -89,7 +89,7 @@ LPCTSTR EffectToText(DWORD dwEffect){
 	// dwEffectの値で分岐する.
 	switch (dwEffect){	// switch文でdwEffectの値ごとに分岐.
 
-		case DROPEFFECT_COPY:	return _T("DROPEFFECT_COPY (IDC_CROSS)");		// コピー効果.
+		case DROPEFFECT_COPY:	return _T("DROPEFFECT_COPY (IDC_UPARROW)");		// コピー効果.
 		case DROPEFFECT_MOVE:	return _T("DROPEFFECT_MOVE (IDC_SIZEALL)");	// 移動効果.
 		case DROPEFFECT_LINK:	return _T("DROPEFFECT_LINK (IDC_HAND)");		// リンク効果.
 		default:				return _T("DROPEFFECT_NONE (IDC_NO)");			// 受け付けない.

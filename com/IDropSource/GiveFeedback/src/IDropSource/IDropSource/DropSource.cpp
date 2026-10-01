@@ -80,7 +80,7 @@ STDMETHODIMP CDropSource::GiveFeedback(DWORD dwEffect){
 
 		case DROPEFFECT_COPY:	// コピー効果の場合.
 
-			hCursor = LoadCursor(NULL, IDC_CROSS);	// hCursorにIDC_CROSS(十字カーソル, コピーの代用)をセット.
+			hCursor = LoadCursor(NULL, IDC_UPARROW);	// hCursorにIDC_UPARROW(上矢印カーソル, コピーの代用)をセット.
 			break;	// breakで抜ける.
 
 		case DROPEFFECT_MOVE:	// 移動効果の場合.
