@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDropSource", "IDropSource\IDropSource.vcproj", "{20543EE3-111B-4777-A776-FD14752FBDC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20543EE3-111B-4777-A776-FD14752FBDC2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{20543EE3-111B-4777-A776-FD14752FBDC2}.Debug|Win32.Build.0 = Debug|Win32
+		{20543EE3-111B-4777-A776-FD14752FBDC2}.Release|Win32.ActiveCfg = Release|Win32
+		{20543EE3-111B-4777-A776-FD14752FBDC2}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
