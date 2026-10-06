@@ -93,8 +93,6 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 					BOOL bCopyFirst;			// 1回目(コピー先がまだ無い, 成功するはず)のCopyFileの戻り値を格納するBOOL型変数.
 					BOOL bCopySecond;			// 2回目(コピー先が既にある状態でbFailIfExists=TRUE, 失敗するはず)のCopyFileの戻り値を格納するBOOL型変数.
 					DWORD dwErrSecond;			// 2回目のCopyFile直後のGetLastError(先行使用)の値を格納するDWORD型変数.
-					BOOL bDeleteSrc;			// 後片付け用のコピー元に対するDeleteFile(先行使用)の戻り値を格納するBOOL型変数.
-					BOOL bDeleteDst;			// 後片付け用のコピー先に対するDeleteFile(先行使用)の戻り値を格納するBOOL型変数.
 					TCHAR tszLine[1024];		// 結果文字列を組み立てるTCHAR型配列tszLine.
 
 					// 1段階目: CreateFile/WriteFile/CloseHandle(いずれも先行使用)でコピー元ファイルを作成する.
@@ -109,16 +107,10 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam){
 					bCopySecond = CopyFile(SRC_FILE_PATH, DST_FILE_PATH, TRUE);	// 既に存在するDST_FILE_PATHへ, bFailIfExists=TRUEのまま再度コピー.
 					dwErrSecond = GetLastError();	// GetLastError(先行使用)で直後のエラーコードを取得.(ERROR_FILE_EXISTSのはず.)
 
-					// 4段階目: 後片付けとしてDeleteFile(先行使用)でコピー元・コピー先の両方を削除する.
-					bDeleteSrc = DeleteFile(SRC_FILE_PATH);	// DeleteFileでコピー元を削除.
-					bDeleteDst = DeleteFile(DST_FILE_PATH);	// DeleteFileでコピー先を削除.
-
-					// 4段階の結果をまとめて組み立てる.
-					wsprintf(tszLine, _T("1.CreateFile/WriteFile/CloseHandleでコピー元を作成 -> 完了\r\n2.コピー先が無い状態でのCopyFile -> %s\r\n3.コピー先が既にある状態でのCopyFile(bFailIfExists=TRUE) -> %s(GetLastError=%lu, ERROR_FILE_EXISTSのはず)\r\n4.後片付けのDeleteFile(コピー元/コピー先) -> %s / %s\r\n"),
+					// 3段階の結果をまとめて組み立てる.(コピー元・コピー先のファイルはこの後もC:\Temp\に残したままにする. エクスプローラで実際に確認できるようにするため.)
+					wsprintf(tszLine, _T("1.CreateFile/WriteFile/CloseHandleでコピー元を作成 -> 完了\r\n2.コピー先が無い状態でのCopyFile -> %s\r\n3.コピー先が既にある状態でのCopyFile(bFailIfExists=TRUE) -> %s(GetLastError=%lu, ERROR_FILE_EXISTSのはず)\r\n"),
 						bCopyFirst ? _T("成功") : _T("失敗"),
-						bCopySecond ? _T("成功") : _T("失敗(正常)"), dwErrSecond,
-						bDeleteSrc ? _T("成功") : _T("失敗"),
-						bDeleteDst ? _T("成功") : _T("失敗"));	// wsprintfで4段階をまとめて組み立てる.
+						bCopySecond ? _T("成功") : _T("失敗(正常)"), dwErrSecond);	// wsprintfで3段階をまとめて組み立てる.
 
 					// 実行済みフラグを立てる.(以降はSPACEキーは無視.)
 					bDone = TRUE;	// bDoneをTRUEにする.
