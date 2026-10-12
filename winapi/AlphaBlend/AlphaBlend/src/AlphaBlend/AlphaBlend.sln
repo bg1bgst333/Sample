@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlphaBlend", "AlphaBlend\AlphaBlend.vcproj", "{D3DB262D-1A6E-423E-B621-EA5C73A2A737}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3DB262D-1A6E-423E-B621-EA5C73A2A737}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D3DB262D-1A6E-423E-B621-EA5C73A2A737}.Debug|Win32.Build.0 = Debug|Win32
+		{D3DB262D-1A6E-423E-B621-EA5C73A2A737}.Release|Win32.ActiveCfg = Release|Win32
+		{D3DB262D-1A6E-423E-B621-EA5C73A2A737}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
