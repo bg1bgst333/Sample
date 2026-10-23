@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GetRgnBox", "GetRgnBox\GetRgnBox.vcproj", "{254D00DF-2875-4E26-9303-0C495C2DCED1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{254D00DF-2875-4E26-9303-0C495C2DCED1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{254D00DF-2875-4E26-9303-0C495C2DCED1}.Debug|Win32.Build.0 = Debug|Win32
+		{254D00DF-2875-4E26-9303-0C495C2DCED1}.Release|Win32.ActiveCfg = Release|Win32
+		{254D00DF-2875-4E26-9303-0C495C2DCED1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
