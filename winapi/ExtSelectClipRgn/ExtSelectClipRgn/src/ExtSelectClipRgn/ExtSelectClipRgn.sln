@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExtSelectClipRgn", "ExtSelectClipRgn\ExtSelectClipRgn.vcproj", "{CF69C0AE-2ADB-4787-8B18-490DF5710189}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF69C0AE-2ADB-4787-8B18-490DF5710189}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CF69C0AE-2ADB-4787-8B18-490DF5710189}.Debug|Win32.Build.0 = Debug|Win32
+		{CF69C0AE-2ADB-4787-8B18-490DF5710189}.Release|Win32.ActiveCfg = Release|Win32
+		{CF69C0AE-2ADB-4787-8B18-490DF5710189}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
