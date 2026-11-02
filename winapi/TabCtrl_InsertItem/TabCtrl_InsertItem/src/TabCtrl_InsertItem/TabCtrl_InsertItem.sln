@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TabCtrl_InsertItem", "TabCtrl_InsertItem\TabCtrl_InsertItem.vcproj", "{F187DE1A-61E0-475F-9224-A2B7B8301E7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F187DE1A-61E0-475F-9224-A2B7B8301E7C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F187DE1A-61E0-475F-9224-A2B7B8301E7C}.Debug|Win32.Build.0 = Debug|Win32
+		{F187DE1A-61E0-475F-9224-A2B7B8301E7C}.Release|Win32.ActiveCfg = Release|Win32
+		{F187DE1A-61E0-475F-9224-A2B7B8301E7C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
