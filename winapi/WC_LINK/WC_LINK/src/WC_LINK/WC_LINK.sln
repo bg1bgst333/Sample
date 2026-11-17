@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{BBC68AE3-AD82-401B-B4E2-1BAAC3F4511B}") = "WC_LINK", "WC_LINK\WC_LINK.vcproj", "{2A3F6887-309E-4AD1-867C-1DF68E75341A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A3F6887-309E-4AD1-867C-1DF68E75341A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2A3F6887-309E-4AD1-867C-1DF68E75341A}.Debug|Win32.Build.0 = Debug|Win32
+		{2A3F6887-309E-4AD1-867C-1DF68E75341A}.Release|Win32.ActiveCfg = Release|Win32
+		{2A3F6887-309E-4AD1-867C-1DF68E75341A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
