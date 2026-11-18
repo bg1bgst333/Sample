@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F1EC0440-BBB1-4430-9BA8-FA4349E31638}") = "LM_GETITEM", "LM_GETITEM\LM_GETITEM.vcproj", "{8FCD67D6-4648-4153-B12B-12465281AA74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FCD67D6-4648-4153-B12B-12465281AA74}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8FCD67D6-4648-4153-B12B-12465281AA74}.Debug|Win32.Build.0 = Debug|Win32
+		{8FCD67D6-4648-4153-B12B-12465281AA74}.Release|Win32.ActiveCfg = Release|Win32
+		{8FCD67D6-4648-4153-B12B-12465281AA74}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
