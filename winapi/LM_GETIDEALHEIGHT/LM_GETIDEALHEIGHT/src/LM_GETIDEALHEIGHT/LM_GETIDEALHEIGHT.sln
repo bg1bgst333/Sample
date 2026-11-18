@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F64609B0-E553-4498-89C7-6CB888BAFCB2}") = "LM_GETIDEALHEIGHT", "LM_GETIDEALHEIGHT\LM_GETIDEALHEIGHT.vcproj", "{90BDF204-B8A5-474B-9CA0-6524AC00B5FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90BDF204-B8A5-474B-9CA0-6524AC00B5FD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{90BDF204-B8A5-474B-9CA0-6524AC00B5FD}.Debug|Win32.Build.0 = Debug|Win32
+		{90BDF204-B8A5-474B-9CA0-6524AC00B5FD}.Release|Win32.ActiveCfg = Release|Win32
+		{90BDF204-B8A5-474B-9CA0-6524AC00B5FD}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
