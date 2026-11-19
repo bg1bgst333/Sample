@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{40E3958C-49C1-4877-86BC-48EA2DCEE85D}") = "LM_SETITEM", "LM_SETITEM\LM_SETITEM.vcproj", "{50F44A7E-392E-4CF6-89E3-EA9ADF711E37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50F44A7E-392E-4CF6-89E3-EA9ADF711E37}.Debug|Win32.ActiveCfg = Debug|Win32
+		{50F44A7E-392E-4CF6-89E3-EA9ADF711E37}.Debug|Win32.Build.0 = Debug|Win32
+		{50F44A7E-392E-4CF6-89E3-EA9ADF711E37}.Release|Win32.ActiveCfg = Release|Win32
+		{50F44A7E-392E-4CF6-89E3-EA9ADF711E37}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
