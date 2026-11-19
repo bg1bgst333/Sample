@@ -17,9 +17,9 @@
   "license": "MIT",
   "dependencies": {
     "electron": "^4.1.0",
-    "node-gyp": "^3.8.0"
+    "node-gyp": "^9.4.0"
   },
   "devDependencies": {
-    "electron-rebuild": "^1.8.4"
+    "electron-rebuild": "^1.11.0"
   }
 }
