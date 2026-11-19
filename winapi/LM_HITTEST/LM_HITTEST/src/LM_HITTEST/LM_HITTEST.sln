@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{493D6DBA-7254-4EF7-B30C-F21839DEE600}") = "LM_HITTEST", "LM_HITTEST\LM_HITTEST.vcproj", "{70F484D0-5B89-4AA8-8792-82A765F2BACF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70F484D0-5B89-4AA8-8792-82A765F2BACF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{70F484D0-5B89-4AA8-8792-82A765F2BACF}.Debug|Win32.Build.0 = Debug|Win32
+		{70F484D0-5B89-4AA8-8792-82A765F2BACF}.Release|Win32.ActiveCfg = Release|Win32
+		{70F484D0-5B89-4AA8-8792-82A765F2BACF}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
