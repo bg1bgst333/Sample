@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{231A7BFC-3AC5-407F-BC46-2BC49524BFAF}") = "HOTKEY_CLASS", "HOTKEY_CLASS\HOTKEY_CLASS.vcproj", "{13204D5B-6560-4BF3-92F8-CD0DE1C5DA95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13204D5B-6560-4BF3-92F8-CD0DE1C5DA95}.Debug|Win32.ActiveCfg = Debug|Win32
+		{13204D5B-6560-4BF3-92F8-CD0DE1C5DA95}.Debug|Win32.Build.0 = Debug|Win32
+		{13204D5B-6560-4BF3-92F8-CD0DE1C5DA95}.Release|Win32.ActiveCfg = Release|Win32
+		{13204D5B-6560-4BF3-92F8-CD0DE1C5DA95}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
