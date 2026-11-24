@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{A3E2418C-A985-4E22-B1F7-2E20D9115C59}") = "HKM_GETHOTKEY", "HKM_GETHOTKEY\HKM_GETHOTKEY.vcproj", "{9ACE48B2-208C-4DC9-AEF2-86CE1131AD74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ACE48B2-208C-4DC9-AEF2-86CE1131AD74}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9ACE48B2-208C-4DC9-AEF2-86CE1131AD74}.Debug|Win32.Build.0 = Debug|Win32
+		{9ACE48B2-208C-4DC9-AEF2-86CE1131AD74}.Release|Win32.ActiveCfg = Release|Win32
+		{9ACE48B2-208C-4DC9-AEF2-86CE1131AD74}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
